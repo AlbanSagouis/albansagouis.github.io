@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-16T21:03:26+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">A personal website, a living CV</title><subtitle>This is a professional personal page, I speak of R programming,  scientific development, web development, reproducibility  and photography</subtitle><author><name>Alban Sagouis</name></author><entry><title type="html">My discovery of analog photography</title><link href="http://localhost:4000/blog/discovery-analog-photography/" rel="alternate" type="text/html" title="My discovery of analog photography" /><published>2024-01-11T01:15:30+01:00</published><updated>2024-01-11T01:15:30+01:00</updated><id>http://localhost:4000/blog/discovery-analog-photography</id><content type="html" xml:base="http://localhost:4000/blog/discovery-analog-photography/">&lt;p&gt;I began using digital cameras a long time ago without trying to understand the technicities of it until I got serious about bird photography. Then I really got into the technicities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-19T13:34:40+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">A personal website, a living CV</title><subtitle>This is a professional personal page, I speak of R programming,  scientific development, web development, reproducibility  and photography</subtitle><author><name>Alban Sagouis</name></author><entry><title type="html">My discovery of analog photography</title><link href="http://localhost:4000/blog/discovery-analog-photography/" rel="alternate" type="text/html" title="My discovery of analog photography" /><published>2024-01-11T01:15:30+01:00</published><updated>2024-01-11T01:15:30+01:00</updated><id>http://localhost:4000/blog/discovery-analog-photography</id><content type="html" xml:base="http://localhost:4000/blog/discovery-analog-photography/">&lt;p&gt;I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.&lt;/p&gt;
 
-&lt;p&gt;I began looking for an analog camera and I received a Nikon EM with a Nikon Nikkor serie E 50mm 1/1.8 as a present. An analog camera with actual film that you buy and you pay to develop, with silver ions and toxic chemistry that made me think each shot and make only one. A prime lens that would force me to move closer or further by walking. Finally I could take the time to think about the composition of the shot instead of taking as many pictures as fast as I could before the bird would take off. And black and white film with an explosion of contrast!&lt;/p&gt;
+&lt;p&gt;I began looking for an analog camera and I received a Nikon EM with a Nikon Nikkor series E 50mm 1/1.8 as a present. An analog camera with actual film that you buy and you pay to develop, with silver ions and toxic chemistry that made me think each shot and make only one. A prime lens that would force me to move closer or further by walking. Finally I could take the time to think about the composition of the shot instead of taking as many pictures as fast as I could before a bird would take off. And black and white film with an explosion of contrast!&lt;/p&gt;
 
-&lt;p&gt;This was a very welcome change and the Nikon EM served me very well. Its metering accurracy and reliability are impressive, especially knowing that it was made in 1979. However, the EM offering Aperture priority mode only, I’m sometimes limited by the absence of control of the speed and I’ve been looking for a replacement but this will be the subject of another blog post.&lt;br /&gt;
+&lt;p&gt;This was a very welcome change and the Nikon EM served me very well. Its metering accuracy and reliability are impressive, especially knowing that it was made in 1979. However, the EM offering Aperture priority mode only, I’m sometimes limited by the absence of control of the speed and I’ve been looking for a replacement but this will be the subject of another blog post.&lt;br /&gt;
 In the meantime, here is a picture of a Nikon EM:&lt;/p&gt;
 
 &lt;figure class=&quot;&quot;&gt;
   &lt;img src=&quot;/assets/images/discovery-analog-photography/Nikon_EM.jpeg&quot; alt=&quot;Nikon EM&quot; /&gt;&lt;figcaption&gt;
-      Nikon EM by Neil916 at English Wikipedia, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=129511821
+      Nikon EM by Neil916 at English Wikipedia, CC BY 3.0, &lt;a href=&quot;https://commons.wikimedia.org/w/index.php?curid=129511821&quot;&gt;https://commons.wikimedia.org/w/index.php?curid=129511821&lt;/a&gt;
 
     &lt;/figcaption&gt;&lt;/figure&gt;
 
@@ -59,19 +59,20 @@ In the meantime, here is a picture of a Nikon EM:&lt;/p&gt;
 
 &lt;p&gt;Taking pictures of birds now certainly is a different kind of fun but hey, here is my first analog bird photo: a booted eagle photographed at full zoom 80mm! with auto-focus and sport mode with a Canon EOS 500 on Kodak Ultra 400ASA! I don’t know about you but I don’t see feathers or eyes…&lt;/p&gt;
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/discovery-analog-photography/1197143.jpeg&quot; alt=&quot;Booted eagle&quot; /&gt;&lt;/figure&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="gear" /><summary type="html">I began using digital cameras a long time ago without trying to understand the technicities of it until I got serious about bird photography. Then I really got into the technicities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/discovery-analog-photography/Nikon_EM.jpeg" /><media:content medium="image" url="http://localhost:4000/assets/images/discovery-analog-photography/Nikon_EM.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How I created this website</title><link href="http://localhost:4000/blog/website-building-1/" rel="alternate" type="text/html" title="How I created this website" /><published>2024-01-10T13:34:30+01:00</published><updated>2024-01-10T13:34:30+01:00</updated><id>http://localhost:4000/blog/website-building-1</id><content type="html" xml:base="http://localhost:4000/blog/website-building-1/">&lt;p&gt;This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it.&lt;br /&gt;
+  &lt;img src=&quot;/assets/images/discovery-analog-photography/1197143.jpeg&quot; alt=&quot;Booted eagle&quot; /&gt;&lt;/figure&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="gear" /><summary type="html">I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/discovery-analog-photography/Nikon_EM.jpeg" /><media:content medium="image" url="http://localhost:4000/assets/images/discovery-analog-photography/Nikon_EM.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How I created this website</title><link href="http://localhost:4000/blog/website-building-1/" rel="alternate" type="text/html" title="How I created this website" /><published>2024-01-10T13:34:30+01:00</published><updated>2024-01-10T13:34:30+01:00</updated><id>http://localhost:4000/blog/website-building-1</id><content type="html" xml:base="http://localhost:4000/blog/website-building-1/">&lt;p&gt;This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it.&lt;br /&gt;
 I downloaded the minimal mistake repo from github and began working in VSC. Since I built the Restore project website on the same computer a few months ago, I naively thought everything would work from the first try. I actually had a few errors but it was a great satisfaction to follow
 the recommendations I left for the Restore project members, for myself and for other readers, and every thing was quickly solved and the website was running in less than an hour.&lt;/p&gt;
 
-&lt;p&gt;Beginning summer 2023, I built the &lt;a href=&quot;https://www.globalrestoreproject.com/&quot;&gt;Restore project website&lt;/a&gt; and documented the process in a [step by step Markdown][guide_link] hosted in the &lt;a href=&quot;https://github.com/global-restore-project/grp_website&quot;&gt;Github repository&lt;/a&gt;. In the following September, I shared with my team and interested members of iDiv a more general guide on website building, the easy way using &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt;. This newsletter is available as a blog post &lt;a href=&quot;/blog/tech-news-3/&quot;&gt;here on this website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Beginning summer 2023, I built the &lt;a href=&quot;https://www.globalrestoreproject.com/&quot;&gt;Restore project website&lt;/a&gt; and documented the process in a [step by step Markdown][guide_link] hosted in the &lt;a href=&quot;https://github.com/global-restore-project/grp_website&quot;&gt;Github repository.&lt;/a&gt; In the following September, I shared with my team and interested members of iDiv a more general guide on website building, the easy way using &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages.&lt;/a&gt; This newsletter is available as a blog post &lt;a href=&quot;/blog/tech-news-3/&quot;&gt;here on this website.&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Changing the domain name of the Restore website from Github Pages to a dedicated domain name was another adventure…&lt;/p&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html">This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it. I downloaded the minimal mistake repo from github and began working in VSC. Since I built the Restore project website on the same computer a few months ago, I naively thought everything would work from the first try. I actually had a few errors but it was a great satisfaction to follow the recommendations I left for the Restore project members, for myself and for other readers, and every thing was quickly solved and the website was running in less than an hour.</summary></entry><entry><title type="html">Tech news 4: Reporting your figures and model results in your manuscript</title><link href="http://localhost:4000/blog/tech-news-4/" rel="alternate" type="text/html" title="Tech news 4: Reporting your figures and model results in your manuscript" /><published>2023-10-20T14:25:30+02:00</published><updated>2023-10-20T14:25:30+02:00</updated><id>http://localhost:4000/blog/tech-news-4</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-4/">&lt;h3 id=&quot;dear-all&quot;&gt;Dear all,&lt;/h3&gt;
 
-&lt;p&gt;This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the nexts).&lt;/p&gt;
+&lt;p&gt;This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the next).&lt;/p&gt;
 
 &lt;p&gt;Today’s email will include tips and ideas on streamlining figure inclusion and reporting model results in manuscripts. Since practices in the team and the institute vary a lot, I’ll give information for different levels, mostly for colleagues who use copy-pasting / hand-typing but latex/rmarkdown/quarto users might also learn something useful (or teach me something in return :D).&lt;/p&gt;
 
 &lt;h3 id=&quot;reporting-figures&quot;&gt;Reporting figures&lt;/h3&gt;
+
 &lt;p&gt;Here, I essentially recommend not to ever copy-paste:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -80,7 +81,9 @@ the recommendations I left for the Restore project members, for myself and for o
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;reporting-tables&quot;&gt;Reporting tables&lt;/h3&gt;
-&lt;h4 id=&quot;method-1&quot;&gt;Method 1:&lt;/h4&gt;
+
+&lt;h4 id=&quot;method-1&quot;&gt;Method 1&lt;/h4&gt;
+
 &lt;p&gt;First, a few functions that will help you format text that you might occasionally need to copy-paste between R and your favorite text editor.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;base::format()&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;base::prettyNum()&lt;/code&gt; to format numeric values with the exact number of decimals or scientific number formatting you want or big number separator as in 1,234,567.90&lt;/li&gt;
@@ -105,11 +108,13 @@ the recommendations I left for the Restore project members, for myself and for o
   &lt;li&gt;The &lt;a href=&quot;https://glue.tidyverse.org/&quot;&gt;glue&lt;/a&gt; package with its central function &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;glue()&lt;/code&gt; offers a smarter tidyverse alternative to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;base::paste()&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;method-2-aka-the-reproducible-method&quot;&gt;Method 2 AKA the reproducible method:&lt;/h4&gt;
+&lt;h4 id=&quot;method-2-aka-the-reproducible-method&quot;&gt;Method 2 AKA the reproducible method&lt;/h4&gt;
+
 &lt;p&gt;The second method I recommend to users who copy-paste / type results in tables in their Powerpoint or Word documents: using R language to directly create the tables.
 I should keep it simple and present only one but I see a strong advantage in each of these two packages: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flextable&lt;/code&gt; and &lt;a href=&quot;https://gt.rstudio.com/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gt&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h5 id=&quot;the-flextable-package&quot;&gt;The flextable package:&lt;/h5&gt;
+&lt;h5 id=&quot;the-flextable-package&quot;&gt;The flextable package&lt;/h5&gt;
+
 &lt;p&gt;It’s a highly customisable tool to turn a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;data.frame&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;matrix&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tibble&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;data.table&lt;/code&gt; or other types of table-like objects in a fully formatted table with borders, justified text, merged cells for titles, legend and all. The functions have clear names and using a pipe, it would look like the code for a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ggplot&lt;/code&gt;. I’ll only give an example and the associated result:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
@@ -144,8 +149,9 @@ I should keep it simple and present only one but I see a strong advantage in eac
 &lt;figure class=&quot;&quot;&gt;
   &lt;img src=&quot;/assets/images/tech-news-4/fig2.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
 
-&lt;h5 id=&quot;the-gt-package&quot;&gt;The &lt;a href=&quot;https://gt.rstudio.com/&quot;&gt;gt&lt;/a&gt; package:&lt;/h5&gt;
-&lt;p&gt;The &lt;a href=&quot;https://gt.rstudio.com/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gt&lt;/code&gt;&lt;/a&gt; package is a Rstudio package and integrates naturally with tidyverse. It also profits from a large community of users and a small universe of extensions such as &lt;a href=&quot;https://www.danieldsjoberg.com/gtsummary/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gtsummary&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://jthomasmock.github.io/gtExtras/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gtExtras&lt;/code&gt;&lt;/a&gt;. 
+&lt;h5 id=&quot;the-gt-package&quot;&gt;The &lt;a href=&quot;https://gt.rstudio.com/&quot;&gt;gt&lt;/a&gt; package&lt;/h5&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://gt.rstudio.com/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gt&lt;/code&gt;&lt;/a&gt; package is a Rstudio package and integrates naturally with tidyverse. It also profits from a large community of users and a small universe of extensions such as &lt;a href=&quot;https://www.danieldsjoberg.com/gtsummary/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gtsummary&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://jthomasmock.github.io/gtExtras/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gtExtras&lt;/code&gt;&lt;/a&gt;.
 The &lt;a href=&quot;https://gt.rstudio.com/&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gt&lt;/code&gt;&lt;/a&gt; creators provide a video describing some of the features and functions:&lt;/p&gt;
 &lt;figure class=&quot;&quot;&gt;
   &lt;img src=&quot;/assets/images/tech-news-4/fig3.gif&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
@@ -195,6 +201,7 @@ The &lt;a href=&quot;https://gt.rstudio.com/&quot;&gt;&lt;code class=&quot;langu
   &lt;img src=&quot;/assets/images/tech-news-4/fig4.png&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;now-the-workflow-part&quot;&gt;Now the workflow part!&lt;/h4&gt;
+
 &lt;p&gt;In both cases you’ll begin in your script, maybe have a dedicated script that produces figures and another one for tables, using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gt&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flextable&lt;/code&gt; to create formatted tables. Then I see different ways:&lt;/p&gt;
 
 &lt;ol&gt;
@@ -216,6 +223,7 @@ You want the table in your manuscript, exactly where it is useful (if Words let 
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
 &lt;p&gt;In any case, all these workflows save you from typing (highly error-prone) any result. The next step I see would be a single &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;markdown&lt;/code&gt; scripts with code for all your figures and tables reliably and reproducibly saving a single docx or pdf document.&lt;/p&gt;
 
 &lt;p&gt;In the end, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flextable&lt;/code&gt; also has a little universe of complementary packages and great functions and won the game…&lt;/p&gt;
@@ -231,6 +239,7 @@ You want the table in your manuscript, exactly where it is useful (if Words let 
 &lt;p&gt;This month, I thought of giving you some basic info on how to build a website the easy way to have a personal space where to advertise yourself or your current project. Github will help again, they offer the place to store the code, the engine that builds the website and they even host your website, all for free.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-creation&quot;&gt;The Creation&lt;/h3&gt;
+
 &lt;p&gt;It’s called Github Pages and they are doing an excellent job at explaining how to create, modify and personalise your website. They have a step by step guide &lt;a href=&quot;https://pages.github.com/&quot;&gt;here&lt;/a&gt;. And it’s only 5 steps! If could summarise it even more:&lt;/p&gt;
 
 &lt;ol&gt;
@@ -242,6 +251,7 @@ You want the table in your manuscript, exactly where it is useful (if Words let 
 &lt;p&gt;Then every time you will make a change, add a page, add an image and commit, the website is going to be automatically updated! Pages are written using Markdown, maybe you are already familiar with this way of writing formatted text, it’s basic and intuitive. I go &lt;a href=&quot;https://www.markdownguide.org/basic-syntax&quot;&gt;here&lt;/a&gt; when looking for help on Markdown. Github Pages will translate this readable and simple markdown into html.&lt;/p&gt;
 
 &lt;h3 id=&quot;adding-content&quot;&gt;Adding content&lt;/h3&gt;
+
 &lt;p&gt;At this stage, the website is completely empty and creating a distinctive style and all pages (About me, My publications, My projects, My data sets, My cooking recipes, Hire me…) could be a challenge but I have a couple of tips to help you get started:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -251,11 +261,13 @@ You want the table in your manuscript, exactly where it is useful (if Words let 
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;jekyll&quot;&gt;Jekyll&lt;/h3&gt;
+
 &lt;p&gt;A more technical note, the engine that translates your Markdown pages into HTML is called Jekyll. It was developed for blogging but works well for websites focused on pages too. If you choose to build a website and begin making changes to the style or the structure, you’ll encounter documentation about Jekyll, it means you’re at the right place.&lt;/p&gt;
 
 &lt;p&gt;While helping Emma moving the Restore’s website from an expensive website builder to Github Pages, I documented the steps I followed to install Jekyll on my Mac, use the &lt;a href=&quot;https://mmistakes.github.io/minimal-mistakes/docs/layouts/&quot;&gt;Minimal Mistakes&lt;/a&gt; theme and build and modify the website on my machine. See &lt;a href=&quot;https://github.com/Global-Restore-Project/grp_website/blob/master/GUIDE.md&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
 &lt;p&gt;I hope this brief introduction gave you a better idea on how to begin and what helpful tools, and difficulties…, lay in front of you. Maybe we do a live hands-on website building workshop in group meeting soon?&lt;/p&gt;
 
 &lt;p&gt;Cheers,&lt;/p&gt;

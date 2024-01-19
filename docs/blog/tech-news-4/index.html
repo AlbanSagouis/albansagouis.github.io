@@ -310,11 +310,12 @@
         
         <h3 id="dear-all">Dear all,</h3>
 
-<p>This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the nexts).</p>
+<p>This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the next).</p>
 
 <p>Today’s email will include tips and ideas on streamlining figure inclusion and reporting model results in manuscripts. Since practices in the team and the institute vary a lot, I’ll give information for different levels, mostly for colleagues who use copy-pasting / hand-typing but latex/rmarkdown/quarto users might also learn something useful (or teach me something in return :D).</p>
 
 <h3 id="reporting-figures">Reporting figures</h3>
+
 <p>Here, I essentially recommend not to ever copy-paste:</p>
 
 <ul>
@@ -323,7 +324,9 @@
 </ul>
 
 <h3 id="reporting-tables">Reporting tables</h3>
-<h4 id="method-1">Method 1:</h4>
+
+<h4 id="method-1">Method 1</h4>
+
 <p>First, a few functions that will help you format text that you might occasionally need to copy-paste between R and your favorite text editor.</p>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">base::format()</code> or <code class="language-plaintext highlighter-rouge">base::prettyNum()</code> to format numeric values with the exact number of decimals or scientific number formatting you want or big number separator as in 1,234,567.90</li>
@@ -348,11 +351,13 @@
   <li>The <a href="https://glue.tidyverse.org/">glue</a> package with its central function <code class="language-plaintext highlighter-rouge">glue()</code> offers a smarter tidyverse alternative to <code class="language-plaintext highlighter-rouge">base::paste()</code></li>
 </ul>
 
-<h4 id="method-2-aka-the-reproducible-method">Method 2 AKA the reproducible method:</h4>
+<h4 id="method-2-aka-the-reproducible-method">Method 2 AKA the reproducible method</h4>
+
 <p>The second method I recommend to users who copy-paste / type results in tables in their Powerpoint or Word documents: using R language to directly create the tables.
 I should keep it simple and present only one but I see a strong advantage in each of these two packages: <code class="language-plaintext highlighter-rouge">flextable</code> and <a href="https://gt.rstudio.com/"><code class="language-plaintext highlighter-rouge">gt</code></a>.</p>
 
-<h5 id="the-flextable-package">The flextable package:</h5>
+<h5 id="the-flextable-package">The flextable package</h5>
+
 <p>It’s a highly customisable tool to turn a <code class="language-plaintext highlighter-rouge">data.frame</code> or <code class="language-plaintext highlighter-rouge">matrix</code> or <code class="language-plaintext highlighter-rouge">tibble</code> or <code class="language-plaintext highlighter-rouge">data.table</code> or other types of table-like objects in a fully formatted table with borders, justified text, merged cells for titles, legend and all. The functions have clear names and using a pipe, it would look like the code for a <code class="language-plaintext highlighter-rouge">ggplot</code>. I’ll only give an example and the associated result:</p>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
@@ -387,8 +392,9 @@ I should keep it simple and present only one but I see a strong advantage in eac
 <figure class="">
   <img src="/assets/images/tech-news-4/fig2.png" alt="" /></figure>
 
-<h5 id="the-gt-package">The <a href="https://gt.rstudio.com/">gt</a> package:</h5>
-<p>The <a href="https://gt.rstudio.com/"><code class="language-plaintext highlighter-rouge">gt</code></a> package is a Rstudio package and integrates naturally with tidyverse. It also profits from a large community of users and a small universe of extensions such as <a href="https://www.danieldsjoberg.com/gtsummary/"><code class="language-plaintext highlighter-rouge">gtsummary</code></a> and <a href="https://jthomasmock.github.io/gtExtras/"><code class="language-plaintext highlighter-rouge">gtExtras</code></a>. 
+<h5 id="the-gt-package">The <a href="https://gt.rstudio.com/">gt</a> package</h5>
+
+<p>The <a href="https://gt.rstudio.com/"><code class="language-plaintext highlighter-rouge">gt</code></a> package is a Rstudio package and integrates naturally with tidyverse. It also profits from a large community of users and a small universe of extensions such as <a href="https://www.danieldsjoberg.com/gtsummary/"><code class="language-plaintext highlighter-rouge">gtsummary</code></a> and <a href="https://jthomasmock.github.io/gtExtras/"><code class="language-plaintext highlighter-rouge">gtExtras</code></a>.
 The <a href="https://gt.rstudio.com/"><code class="language-plaintext highlighter-rouge">gt</code></a> creators provide a video describing some of the features and functions:</p>
 <figure class="">
   <img src="/assets/images/tech-news-4/fig3.gif" alt="" /></figure>
@@ -438,6 +444,7 @@ The <a href="https://gt.rstudio.com/"><code class="language-plaintext highlighte
   <img src="/assets/images/tech-news-4/fig4.png" alt="" /></figure>
 
 <h4 id="now-the-workflow-part">Now the workflow part!</h4>
+
 <p>In both cases you’ll begin in your script, maybe have a dedicated script that produces figures and another one for tables, using <code class="language-plaintext highlighter-rouge">gt</code> or <code class="language-plaintext highlighter-rouge">flextable</code> to create formatted tables. Then I see different ways:</p>
 
 <ol>
@@ -459,6 +466,7 @@ You want the table in your manuscript, exactly where it is useful (if Words let 
 </ol>
 
 <h3 id="conclusion">Conclusion</h3>
+
 <p>In any case, all these workflows save you from typing (highly error-prone) any result. The next step I see would be a single <code class="language-plaintext highlighter-rouge">markdown</code> scripts with code for all your figures and tables reliably and reproducibly saving a single docx or pdf document.</p>
 
 <p>In the end, <code class="language-plaintext highlighter-rouge">flextable</code> also has a little universe of complementary packages and great functions and won the game…</p>
@@ -591,7 +599,7 @@ You want the table in your manuscript, exactly where it is useful (if Words let 
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">I began using digital cameras a long time ago without trying to understand the technicities of it until I got serious about bird photography. Then I really g...</p>
+    <p class="archive__item-excerpt" itemprop="description">I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really...</p>
   </article>
 </div>
 

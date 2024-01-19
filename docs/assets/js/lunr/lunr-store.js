@@ -18,7 +18,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Tech news 4: Reporting your figures and model results in your manuscript",
-        "excerpt":"Dear all, This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the nexts). Today’s email will include tips and ideas on streamlining figure inclusion and reporting model results in manuscripts. Since practices in the team and the...","categories": ["blog"],
+        "excerpt":"Dear all, This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the next). Today’s email will include tips and ideas on streamlining figure inclusion and reporting model results in manuscripts. Since practices in the team and the...","categories": ["blog"],
         "tags": ["experience","R","package","reproducibility","technews"],
         "url": "/blog/tech-news-4/",
         "teaser": null
@@ -30,7 +30,7 @@ var store = [{
         "teaser": null
       },{
         "title": "My discovery of analog photography",
-        "excerpt":"I began using digital cameras a long time ago without trying to understand the technicities of it until I got serious about bird photography. Then I really got into the technicities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I...","categories": ["blog"],
+        "excerpt":"I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I...","categories": ["blog"],
         "tags": ["photography","gear"],
         "url": "/blog/discovery-analog-photography/",
         "teaser": null
