@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-19T13:34:40+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">A personal website, a living CV</title><subtitle>This is a professional personal page, I speak of R programming,  scientific development, web development, reproducibility  and photography</subtitle><author><name>Alban Sagouis</name></author><entry><title type="html">My discovery of analog photography</title><link href="http://localhost:4000/blog/discovery-analog-photography/" rel="alternate" type="text/html" title="My discovery of analog photography" /><published>2024-01-11T01:15:30+01:00</published><updated>2024-01-11T01:15:30+01:00</updated><id>http://localhost:4000/blog/discovery-analog-photography</id><content type="html" xml:base="http://localhost:4000/blog/discovery-analog-photography/">&lt;p&gt;I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-07T14:54:10+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">A personal website, a living CV</title><subtitle>This is a professional personal page, I speak of R programming,  scientific development, web development, reproducibility  and photography</subtitle><author><name>Alban Sagouis</name></author><entry><title type="html">Tech news 7: Creating animated figures</title><link href="http://localhost:4000/blog/tech-news-7/" rel="alternate" type="text/html" title="Tech news 7: Creating animated figures" /><published>2024-01-26T16:57:30+01:00</published><updated>2024-01-26T16:57:30+01:00</updated><id>http://localhost:4000/blog/tech-news-7</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-7/">&lt;p&gt;This week’s email is about &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tidymodels&lt;/code&gt;.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tidymodels&lt;/code&gt; framework is a collection of packages for modeling and machine learning using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tidyverse&lt;/code&gt; principles.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tidymodels&lt;/code&gt; offers a consistent and flexible framework for your data science and data programming needs. This tool suite is designed to streamline and simplify the process of building and tuning models, making it easier for researchers to extract meaningful insights from their data.&lt;/p&gt;
+
+&lt;p&gt;To illustrate the use of key packages in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tidymodels&lt;/code&gt;, here’s a short example workflow:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Workflow (&lt;/code&gt;The workflow package enables you to assemble the individual components of your modeling process into a cohesive workflow. You can define the order of operations and specify the preprocessing steps, model fitting, and model evaluation&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;) {&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Recipes (&lt;/code&gt;The recipes package helps with data preprocessing and feature engineering. You can create a recipe to define the steps for encoding categorical variables, scaling numeric variables, and creating new features&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;) %&amp;gt;%&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dials (&lt;/code&gt;The dials package provides a way to define tuning parameters for models. You can create a set of possible values for each parameter using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;grid_*()&lt;/code&gt; functions&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;) %&amp;gt;%&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Parsnip (&lt;/code&gt;The parsnip package allows you to specify the type of model you want to build. For example, you can create a linear regression model using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linear_reg()&lt;/code&gt; function&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;) %&amp;gt;%&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tune (&lt;/code&gt;The tune package provides functions for hyperparameter tuning. You can use the ‘tune_*()’ functions to automatically search for the best combination of hyperparameters for your model using a specified tuning grid&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;)&lt;/code&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;By utilising these packages in sequence, you can build a comprehensive modeling pipeline that includes specifying the model type, preprocessing data, tuning hyperparameters, and evaluating model performance.&lt;/p&gt;
+
+&lt;p&gt;Here is a code example from the tidymodels “Get started” page:&lt;/p&gt;
+&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;urchins&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Loading the data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://tidymodels.org/start/models/urchins.csv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stats&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setNames&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;food_regime&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;initial_volume&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;width&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dplyr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mutate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;food_regime&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;food_regime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Initial&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Low&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;High&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Then preparing the model: a linear regression&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parsnip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linear_reg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# This is the model type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parsnip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_engine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;keras&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# This is the engine / fitting method&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lm_mod&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parsnip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linear_reg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# The default engine: “lm” is used&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# And now we fit the model:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lm_fit&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lm_mod&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initial_volume&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;food_regime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urchins&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lm_fit&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; parsnip model object&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; Call:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; stats::lm(formula = width ~ initial_volume * food_regime, data = data)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; Coefficients:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt;                    (Intercept)                  initial_volume  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt;                      0.0331216                       0.0015546  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt;                 food_regimeLow                 food_regimeHigh  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt;                      0.0197824                       0.0214111  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt;  initial_volume:food_regimeLow  initial_volume:food_regimeHigh  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt;                     -0.0012594                       0.0005254&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# broom::tidy() offers a clean output:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;broom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tidy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lm_fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; # A tibble: 6 × 5&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt;   term                                            estimate std.error statistic  p.value&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt;   &amp;lt;chr&amp;gt;                                          &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;     &amp;lt;dbl&amp;gt;    &amp;lt;dbl&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; 1 (Intercept)                                   0.0331     0.00962      3.44  0.00100 &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; 2 initial_volume                                0.00155   0.000398      3.91  0.000222&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; 3 food_regimeLow                                0.0198      0.0130      1.52  0.133   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; 4 food_regimeHigh                               0.0214      0.0145      1.47  0.145   &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; 5 initial_volume:food_regimeLow                -0.00126   0.000510     -2.47  0.0162  &lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;gt; 6 initial_volume:food_regimeHigh                0.000525  0.000702      0.748 0.457&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now what if we wanted something different like a Bayesian model? No need to change everything, tidymodels functions are generic even though the underlying packages use very different syntax:&lt;/p&gt;
+&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# set the prior distribution&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior_dist&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rstanarm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;student_t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# make the parsnip model&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bayes_mod&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;   
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parsnip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linear_reg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parsnip&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_engine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;stan&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+             &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior_intercept&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior_dist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+             &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior_dist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+
+&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# train the model&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bayes_fit&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bayes_mod&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initial_volume&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;food_regime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urchins&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Easily&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;training&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sets&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsamples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urchins_split&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsamples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initial_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urchins&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+                            &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strata&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urchins_train&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsamples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;training&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urchins_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urchins_test&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rsamples&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;testing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urchins_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Create&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Workflow&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;even&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;more&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reproducibility&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reliability&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urchins_wflow&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;workflow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;workflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;workflow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lm_mod&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;workflow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_recipe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urchins_rec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Fit&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;training&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urchins_fit&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urchins_wflow&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;And&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;easily&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urchins_fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I hope this triggered your curiosity and you see potential for an increase in efficiency and reliability in your analytical work!&lt;/p&gt;
+
+&lt;p&gt;I relied heavily on the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tidymodels&lt;/code&gt; “Get started” page to prepare this email and I encourage anyone interested to consult it too or even follow the introductory or advanced workshops the authors published online!&lt;/p&gt;
+
+&lt;h3 id=&quot;resources&quot;&gt;Resources&lt;/h3&gt;
+
+&lt;p&gt;The tidyverse blog is a great resource for staying up to date with the latest tidymodels news and developments:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tidymodels website: &lt;a href=&quot;https://www.tidymodels.org/&quot;&gt;https://www.tidymodels.org/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Tidymodels get started: &lt;a href=&quot;https://www.tidymodels.org/start/&quot;&gt;https://www.tidymodels.org/start/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Tidymodels workshops: &lt;a href=&quot;https://workshops.tidymodels.org/&quot;&gt;https://workshops.tidymodels.org/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Happy to discuss it and collaborate!
+Best wishes,
+Alban&lt;/p&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html">This week’s email is about tidymodels. The tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.</summary></entry><entry><title type="html">My discovery of analog photography</title><link href="http://localhost:4000/blog/discovery-analog-photography/" rel="alternate" type="text/html" title="My discovery of analog photography" /><published>2024-01-11T01:15:30+01:00</published><updated>2024-01-11T01:15:30+01:00</updated><id>http://localhost:4000/blog/discovery-analog-photography</id><content type="html" xml:base="http://localhost:4000/blog/discovery-analog-photography/">&lt;p&gt;I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.&lt;/p&gt;
 
 &lt;p&gt;I began looking for an analog camera and I received a Nikon EM with a Nikon Nikkor series E 50mm 1/1.8 as a present. An analog camera with actual film that you buy and you pay to develop, with silver ions and toxic chemistry that made me think each shot and make only one. A prime lens that would force me to move closer or further by walking. Finally I could take the time to think about the composition of the shot instead of taking as many pictures as fast as I could before a bird would take off. And black and white film with an explosion of contrast!&lt;/p&gt;
 
@@ -65,9 +180,247 @@ the recommendations I left for the Restore project members, for myself and for o
 
 &lt;p&gt;Beginning summer 2023, I built the &lt;a href=&quot;https://www.globalrestoreproject.com/&quot;&gt;Restore project website&lt;/a&gt; and documented the process in a [step by step Markdown][guide_link] hosted in the &lt;a href=&quot;https://github.com/global-restore-project/grp_website&quot;&gt;Github repository.&lt;/a&gt; In the following September, I shared with my team and interested members of iDiv a more general guide on website building, the easy way using &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages.&lt;/a&gt; This newsletter is available as a blog post &lt;a href=&quot;/blog/tech-news-3/&quot;&gt;here on this website.&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Changing the domain name of the Restore website from Github Pages to a dedicated domain name was another adventure…&lt;/p&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html">This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it. I downloaded the minimal mistake repo from github and began working in VSC. Since I built the Restore project website on the same computer a few months ago, I naively thought everything would work from the first try. I actually had a few errors but it was a great satisfaction to follow the recommendations I left for the Restore project members, for myself and for other readers, and every thing was quickly solved and the website was running in less than an hour.</summary></entry><entry><title type="html">Tech news 4: Reporting your figures and model results in your manuscript</title><link href="http://localhost:4000/blog/tech-news-4/" rel="alternate" type="text/html" title="Tech news 4: Reporting your figures and model results in your manuscript" /><published>2023-10-20T14:25:30+02:00</published><updated>2023-10-20T14:25:30+02:00</updated><id>http://localhost:4000/blog/tech-news-4</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-4/">&lt;h3 id=&quot;dear-all&quot;&gt;Dear all,&lt;/h3&gt;
+&lt;p&gt;Changing the domain name of the Restore website from Github Pages to a dedicated domain name was another adventure…&lt;/p&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html">This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it. I downloaded the minimal mistake repo from github and began working in VSC. Since I built the Restore project website on the same computer a few months ago, I naively thought everything would work from the first try. I actually had a few errors but it was a great satisfaction to follow the recommendations I left for the Restore project members, for myself and for other readers, and every thing was quickly solved and the website was running in less than an hour.</summary></entry><entry><title type="html">Tech news 6: Creating animated figures</title><link href="http://localhost:4000/blog/tech-news-6/" rel="alternate" type="text/html" title="Tech news 6: Creating animated figures" /><published>2023-12-19T18:28:30+01:00</published><updated>2023-12-19T18:28:30+01:00</updated><id>http://localhost:4000/blog/tech-news-6</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-6/">This week, some fun with animated figures. We send each other gifs but they rarely come to mind when it comes to showing scientific processes or results. They are actually pretty easy to make in R!
 
-&lt;p&gt;This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the next).&lt;/p&gt;
+Here are a few examples using [gganimate][gganimate]. There are other packages out there but [gganimate][gganimate] is really well integrated with [ggplot2][ggplot2].
+
+### A simple boxplot
+
+``` r
+library(ggplot2)
+library(gganimate)
+
+ggplot(mtcars, aes(factor(cyl), mpg)) + 
+  geom_boxplot() + 
+  # Here comes the gganimate code
+  transition_states(
+    gear,
+    transition_length = 2,
+    state_length = 1
+  ) +
+  enter_fade() + 
+  exit_shrink() +
+  ease_aes(&apos;sine-in-out’)
+```
+
+{% include figure image_path=&quot;/assets/images/tech-news-6/boxplot.gif&quot;%}
+&gt; Code and figure by gganimate authors Thomas Lin Pedersen and David Robinson [^1]
+
+### A much more informative scatter plot with evolution in time
+
+``` r
+library(gapminder)
+
+ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
+  geom_point(alpha = 0.7, show.legend = FALSE) +
+  scale_colour_manual(values = country_colors) +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  facet_wrap(~continent) +
+  # Here comes the gganimate specific bits
+  labs(title = &apos;Year: {frame_time}&apos;, x = &apos;GDP per capita&apos;, y = &apos;life expectancy&apos;) +
+  transition_time(year) +
+  ease_aes(&apos;linear&apos;)
+```
+
+{% include figure image_path=&quot;/assets/images/tech-news-6/scatterplot.gif&quot;%}
+
+&gt; Code and figure by gganimate authors Thomas Lin Pedersen and David Robinson [^1]
+
+### And a map!
+
+``` r
+library(ggplot2)
+
+center_lat &lt;- 37.8 # Some random data
+center_long &lt;- -122.4
+width &lt;- 0.2
+num_points &lt;- 500
+test_data &lt;- data.frame(&apos;lat&apos;=rnorm(num_points, mean=center_lat, sd=width),
+                        &apos;long&apos;=rnorm(num_points, mean=center_long, sd=width),
+                        &apos;year&apos;=floor(runif(num_points, min=1990, max=2020)),
+                        &apos;temp&apos;=runif(num_points, min=-10, max=40)
+)
+min_long &lt;- min(test_data$long)
+max_long &lt;- max(test_data$long)
+min_lat &lt;- min(test_data$lat)
+max_lat &lt;- max(test_data$lat)
+num_years &lt;- max(test_data$year) - min(test_data$year) + 1
+
+county_info &lt;- map_data(&quot;county&quot;, region = &quot;california&quot;) # The map background
+
+map_with_shadow &lt;- ggplot(data = county_info,
+                          mapping = aes(x = long, y = lat, group = group)) +
+   geom_polygon(color = &quot;black&quot;, fill = &quot;white&quot;) +
+   coord_quickmap() +
+   theme_void()  +
+   geom_point(data = test_data, aes(x = long, y = lat,
+                                    color = temp, size = temp, group = year)) +
+   coord_quickmap(xlim = c(min_long, max_long), 
+                  ylim = c(min_lat, max_lat)) +
+   gganimate::transition_time(year) +
+   ggtitle(&apos;Year: {frame_time}&apos;,
+           subtitle = &apos;Frame {frame} of {nframes}&apos;) +
+   gganimate::shadow_mark()
+gganimate::animate(map_with_shadow, nframes = num_years, fps = 2)
+```
+
+{% include figure image_path=&quot;/assets/images/tech-news-6/map.gif&quot;%}
+
+&gt; Code and figure by David J. Lilja [^2]
+
+### Great resources
+
+- &lt;https://rquer.netlify.app/animated_chart/evolution/&gt; many examples but it’s in Spanish
+- &lt;https://rquer.netlify.app/animated_map/animated_map/&gt; especially for maps
+
+Cheers,
+
+Alban
+
+[^1]: Pedersen T, Robinson D (2022). gganimate: A Grammar of Animated Graphics. &lt;https://gganimate.com&gt;, &lt;https://github.com/thomasp85/gganimate&gt;.
+[^2]: David J. Lilja, &quot;How to Plot and Animate Data on Maps Using the R Programming Language,&quot; University of Minnesota Digital Conservancy, &lt;https://hdl.handle.net/11299/220339&gt;, June, 2021.
+
+[gganimate]:  https://gganimate.com/
+[ggplot2]:    https://ggplot2.tidyverse.org/</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><category term="visualisation" /><summary type="html">This week, some fun with animated figures. We send each other gifs but they rarely come to mind when it comes to showing scientific processes or results. They are actually pretty easy to make in R!</summary></entry><entry><title type="html">Tech news 5: Working with data files too large for memory</title><link href="http://localhost:4000/blog/tech-news-5/" rel="alternate" type="text/html" title="Tech news 5: Working with data files too large for memory" /><published>2023-11-23T21:21:30+01:00</published><updated>2023-11-23T21:21:30+01:00</updated><id>http://localhost:4000/blog/tech-news-5</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-5/">Today, I’d like to discuss data we might need that are larger than memory, or fit in memory but everything freezes…
+
+It could be a very large data set such as BioTIME, GIS data, model results or simulation results that are accidentally huge but you still want to have a look to what’s inside.
+
+Just a peek inside
+First, you could have a look inside a csv by reading only parts of it: loading only some columns and/or only some rows.
+
+``` r
+R&gt; library(data.table)
+R&gt; fread(file = “data/big_file.csv”,
+         select = c(“site”,”year”,”temperature”))
+# select has its opposite argument drop
+
+# Reading the column names and types ; empty columns
+R&gt; fread(file = “data/big_file.csv”, nrows = 0)
+
+# Reading the first 100 rows
+R&gt; fread(file = “data/big_file.csv”, nrows = 100)
+
+# Reading rows 10001 to 10101
+R&gt; fread(file = “data/big_file.csv”, skip = 10000,
+         nrows = 100)
+```
+
+Using factors instead of character can save quite a lot of memory space too:
+
+``` r
+R&gt; library(data.table)
+R&gt; fread(file = &quot;data/communities_raw.csv&quot;,
+         stringsAsFactors = FALSE) |&gt;
+    object.size() / 10^6
+414.4 Mbytes
+R&gt; fread(file = &quot;data/communities_raw.csv&quot;,
+         stringsAsFactors = TRUE) |&gt;
+    object.size() / 10^6
+271.1 Mbytes
+```
+
+The function is called [`fread`][fread] because it reads fast, using several cores if available, it’s very smart at guessing types and it shows a progress bar on large files.
+
+### Smaller than memory but dplyr is slow?
+
+Maybe your `dplyr` data wrangling step before getting analyses done is taking a few minutes or a few hours and you wouldn’t mind trying to speed things up without having to rewrite everything…
+
+tidyverse developers too and they created [`dtplyr`][dtplyr] to help everyone with that. Add `library(dtplyr)` at the beginning of your script, `lazy_dt(your_data)` and bam all your `dplyr` verbs are going to be translated into `data.table` calls in the background, you won’t have to change anything else in your script…
+`data.table` may be faster thanks to two advantages: 1) fast reimplemented functions such as `mean()` and many others and 2) the ability to make operation `by reference` ie without your column having to be copied in a different place in the memory and a new spot being booked to write the result of your operation because it’s all done in the same place in memory.
+
+### Larger than memory using Arrow
+
+[`Arrow`][arrow] is a cross-language multi-platform suite of tools to work on in-memory and larger-than-memory files written in C++.  
+You can use it to access large files and make your usual data wrangling operations on it, even using `dplyr` verbs.
+
+First read your data with one of the arrow functions:
+
+- [`read_delim_arrow()`][delim]: read a delimited text file
+- [`read_csv_arrow()`][delim]: read a comma-separated values (CSV) file
+- [`read_tsv_arrow()`][delim]: read a tab-separated values (TSV) file
+- [`read_parquet()`][parquet]: read a file in Parquet format
+- [`read_feather()`][feather]: read a file in Arrow/Feather format
+
+Arrow can read the whole data OR read some informations about the data set but without loading the data in memory, only column names, types, sizes, things like that.
+
+Now you want to make operations on these data and R couldn’t because they don’t fit in memory but arrow is going to read your operations, translate them and execute them all at once when needed:
+
+``` r
+library(dplyr)
+dset &lt;- dset %&gt;%
+  group_by(subset) %&gt;%
+  summarize(mean_x = mean(x), min_y = min(y)) %&gt;%
+  filter(mean_x &gt; 0) %&gt;%
+  arrange(subset)
+# No operations were executed yet
+dset %&gt;% collect() # operations are executed and results given
+```
+
+Only once `dplyr::collect()` is called the operations are ran outside of R by arrow. Meaning that the workflow can be much longer and have (much) more intermediate steps but data are loaded in memory for R only when it needs them like for plotting or running a statistical analysis.
+
+### Spatial Data
+
+Here we will be looking at `sf`, `stars` (for rasters) and `dbplyr` (as in databases…) and it is a little more advanced and specialised so I won’t go into much details but a few things I liked:
+Cropping a spatial object even before loading it into R using the wkt_filter argument of `sf::st_read()`
+
+``` r
+library(sf)
+file &lt;- &quot;data/nc.gpkg&quot;
+c(xmin = -82,ymin = 36, xmax = -80, ymax = 37) |&gt;
+    st_bbox() |&gt; st_as_sfc() |&gt; st_as_text() -&gt; bb
+st_read(file, wkt_filter = bb) |&gt; nrow()
+17 # out of 100
+```
+
+Even easier if you can write SQL queries directly:
+
+``` r
+q &lt;- &quot;select BIR74,SID74,geom from &apos;nc.gpkg&apos; where BIR74 &gt; 1500&quot;
+read_sf(file, query = q) |&gt; nrow()
+61 # out of 100
+```
+
+Using [`stars`][stars], you can read a raster file without loading it into memory, this is quite similar to `arrow` in the previous section, and a 100+Mbytes file results in a 12Mbytes object in memory in R.
+
+### Other interesting tools
+
+It seems that packages dedicated to running statistical models (lm, glm, etc) directly on data sets too big for memory were a thing a few years ago but I can’t find recent packages targeting this problem… [`biglm`][biglm] hasn’t been updated since 2020.
+
+### Great resources
+
+#### dtplyr
+
+- &lt;https://dtplyr.tidyverse.org/&gt;
+
+#### Arrow and dplyr
+
+- &lt;https://arrow.apache.org/docs/r/articles/arrow.html#analyzing-arrow-data-with-dplyr&gt;  
+- &lt;https://arrow.apache.org/cookbook/r/index.html&gt;  
+- &lt;https://arrow-user2022.netlify.app/hello-arrow&gt;  
+- &lt;https://hbs-rcs.github.io/large_data_in_R/#solution-example&gt;  # examples  
+- &lt;https://jthomasmock.github.io/arrow-dplyr/#/&gt;  # presentation
+- &lt;https://posit-conf-2023.github.io/arrow/materials/5_arrow_single_file.html#/single-file-api&gt; # presentation  
+- &lt;https://www.r-bloggers.com/2021/09/understanding-the-parquet-file-format/&gt; #parquet data format  
+
+#### Spatial data
+
+- &lt;https://r-spatial.org/book/09-Large.html&gt;
+
+Happy to talk about it, share experiences, help you implement something (don’t you also think [`dtplyr`][dtplyr] sounds like a great and easy tool?!) and hear your comments!
+
+Best wishes,
+
+Alban
+
+[fread]:     https://rdatatable.gitlab.io/data.table/reference/fread.html
+[dtplyr]:    https://dtplyr.tidyverse.org/
+[arrow]:     https://arrow.apache.org/cookbook/r/index.html
+[biglm]:     https://cran.r-project.org/package=biglm
+[delim]:     https://arrow.apache.org/docs/r/reference/read_delim_arrow.html
+[parquet]:   https://arrow.apache.org/docs/r/reference/read_parquet.html
+[feather]:   https://arrow.apache.org/docs/r/reference/read_feather.html
+[stars]:     https://cran.r-project.org/package=stars</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="data.table" /><category term="spatial" /><category term="dplyr" /><category term="package" /><category term="reproducibility" /><category term="technews" /><summary type="html">Today, I’d like to discuss data we might need that are larger than memory, or fit in memory but everything freezes…</summary></entry><entry><title type="html">Tech news 4: Reporting your figures and model results in your manuscript</title><link href="http://localhost:4000/blog/tech-news-4/" rel="alternate" type="text/html" title="Tech news 4: Reporting your figures and model results in your manuscript" /><published>2023-10-20T14:25:30+02:00</published><updated>2023-10-20T14:25:30+02:00</updated><id>http://localhost:4000/blog/tech-news-4</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-4/">&lt;p&gt;This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the next).&lt;/p&gt;
 
 &lt;p&gt;Today’s email will include tips and ideas on streamlining figure inclusion and reporting model results in manuscripts. Since practices in the team and the institute vary a lot, I’ll give information for different levels, mostly for colleagues who use copy-pasting / hand-typing but latex/rmarkdown/quarto users might also learn something useful (or teach me something in return :D).&lt;/p&gt;
 
@@ -85,6 +438,7 @@ the recommendations I left for the Restore project members, for myself and for o
 &lt;h4 id=&quot;method-1&quot;&gt;Method 1&lt;/h4&gt;
 
 &lt;p&gt;First, a few functions that will help you format text that you might occasionally need to copy-paste between R and your favorite text editor.&lt;/p&gt;
+
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;base::format()&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;base::prettyNum()&lt;/code&gt; to format numeric values with the exact number of decimals or scientific number formatting you want or big number separator as in 1,234,567.90&lt;/li&gt;
 &lt;/ul&gt;
@@ -157,26 +511,7 @@ The &lt;a href=&quot;https://gt.rstudio.com/&quot;&gt;&lt;code class=&quot;langu
   &lt;img src=&quot;/assets/images/tech-news-4/fig3.gif&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;
 
 &lt;p&gt;Here is an example they provide with code integrated with dplyr functions:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;div class=&quot;language-r highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;# Define the start and end dates for the data range&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start_date&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2010-06-07&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;end_date&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;2010-06-14&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -193,8 +528,8 @@ The &lt;a href=&quot;https://gt.rstudio.com/&quot;&gt;&lt;code class=&quot;langu
     &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt_currency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
     &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt_date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date_style&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;wd_m_day_year&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt_number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;volume&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;suffixing&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt_number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;volume&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;suffixing&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;TRUE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;This code directly produces this table:&lt;/p&gt;
 &lt;figure class=&quot;&quot;&gt;
@@ -205,20 +540,28 @@ The &lt;a href=&quot;https://gt.rstudio.com/&quot;&gt;&lt;code class=&quot;langu
 &lt;p&gt;In both cases you’ll begin in your script, maybe have a dedicated script that produces figures and another one for tables, using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gt&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flextable&lt;/code&gt; to create formatted tables. Then I see different ways:&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;For Powerpoint. You save your tables as images. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flextable&lt;/code&gt; only, points for flextable! You then directly include the table in your  presentation using the ‘Insert with link’ option I described in the section  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reporting figures&lt;/code&gt;.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;save_as_image(ft, path = &quot;/path/to/file.png&quot;)&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Zero (0) manipulations to do once the script is written…&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;For Word.
-You’re fine having all of your tables seating in a separate docx document. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flextable&lt;/code&gt; for the win again:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;save_as_docx(&quot;my table 1&quot; = ft1, &quot;my table 2&quot; = ft2, path = &quot;/path/to/file.docx&quot;)&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Zero (0) manipulations to do once the script is written…
-You want the table in your manuscript, exactly where it is useful (if Words let you ;) ). Then it seems that you’ll have to copy paste into your own document from the viewer in Rstudio or from the produced Word, Powerpoint or pdf document you produced.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
+  &lt;li&gt;For Powerpoint. You save your tables as images. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flextable&lt;/code&gt; only, points for flextable! You then directly include the table in your  presentation using the ‘Insert with link’ option I described in the section  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reporting figures&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;save_as_image(ft, path = &quot;/path/to/file.png&quot;)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Zero (0) manipulations to do once the script is written…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;For Word.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You’re fine having all of your tables seating in a separate docx document. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flextable&lt;/code&gt; for the win again:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;save_as_docx(&quot;my table 1&quot; = ft1, &quot;my table 2&quot; = ft2, path = &quot;/path/to/file.docx&quot;)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Zero (0) manipulations to do once the script is written…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You want the table in your manuscript, exactly where it is useful (if Words let you ;) ). Then it seems that you’ll have to copy paste into your own document from the viewer in Rstudio or from the produced Word, Powerpoint or pdf document you produced.&lt;/p&gt;
+
+&lt;ol&gt;
   &lt;li&gt;For both Powerpoint and Word, you can use functions from the &lt;a href=&quot;https://cran.r-project.org/package=officer&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;officer&lt;/code&gt;&lt;/a&gt; package to add slides or pages to your documents and include your tables there. Crazy but I see this as an option only when nothing will change in your results anymore and it seems to me that there is always a last last change to make… But a direction to explore still, with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flextable&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -234,9 +577,7 @@ You want the table in your manuscript, exactly where it is useful (if Words let 
 
 &lt;p&gt;Alban&lt;/p&gt;
 &lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/tech-news-4/giphy.gif&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="reproducibility" /><category term="technews" /><summary type="html">Dear all,</summary></entry><entry><title type="html">Tech news 3: Building a free website easy</title><link href="http://localhost:4000/blog/tech-news-3/" rel="alternate" type="text/html" title="Tech news 3: Building a free website easy" /><published>2023-09-22T22:36:30+02:00</published><updated>2023-09-22T22:36:30+02:00</updated><id>http://localhost:4000/blog/tech-news-3</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-3/">&lt;h3 id=&quot;dear-all&quot;&gt;Dear all,&lt;/h3&gt;
-
-&lt;p&gt;This month, I thought of giving you some basic info on how to build a website the easy way to have a personal space where to advertise yourself or your current project. Github will help again, they offer the place to store the code, the engine that builds the website and they even host your website, all for free.&lt;/p&gt;
+  &lt;img src=&quot;/assets/images/tech-news-4/giphy.gif&quot; alt=&quot;&quot; /&gt;&lt;/figure&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="reproducibility" /><category term="technews" /><summary type="html">This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the next).</summary></entry><entry><title type="html">Tech news 3: Building a free website easy</title><link href="http://localhost:4000/blog/tech-news-3/" rel="alternate" type="text/html" title="Tech news 3: Building a free website easy" /><published>2023-09-22T22:36:30+02:00</published><updated>2023-09-22T22:36:30+02:00</updated><id>http://localhost:4000/blog/tech-news-3</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-3/">&lt;p&gt;This month, I thought of giving you some basic info on how to build a website the easy way to have a personal space where to advertise yourself or your current project. Github will help again, they offer the place to store the code, the engine that builds the website and they even host your website, all for free.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-creation&quot;&gt;The Creation&lt;/h3&gt;
 
@@ -245,7 +586,7 @@ You want the table in your manuscript, exactly where it is useful (if Words let 
 &lt;ol&gt;
   &lt;li&gt;Go to &lt;a href=&quot;https://github.com/&quot;&gt;GitHub.com&lt;/a&gt;, create a public repository called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;username.github.io&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;From &lt;a href=&quot;https://github.com/&quot;&gt;GitHub.com&lt;/a&gt; or from your local machine, crate a file index.html and commit (and push it if you’re on your computer)&lt;/li&gt;
-  &lt;li&gt;GitHub Pages will build and publish your website at the address [https://username.github.io]&lt;/li&gt;
+  &lt;li&gt;GitHub Pages will build and publish your website at the address &lt;a href=&quot;https://username.github.io&quot;&gt;https://username.github.io&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;Then every time you will make a change, add a page, add an image and commit, the website is going to be automatically updated! Pages are written using Markdown, maybe you are already familiar with this way of writing formatted text, it’s basic and intuitive. I go &lt;a href=&quot;https://www.markdownguide.org/basic-syntax&quot;&gt;here&lt;/a&gt; when looking for help on Markdown. Github Pages will translate this readable and simple markdown into html.&lt;/p&gt;
@@ -272,22 +613,23 @@ You want the table in your manuscript, exactly where it is useful (if Words let 
 
 &lt;p&gt;Cheers,&lt;/p&gt;
 
-&lt;p&gt;Alban&lt;/p&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><category term="technews" /><summary type="html">Dear all,</summary></entry><entry><title type="html">Tech news 2: Publishing code</title><link href="http://localhost:4000/blog/tech-news-2/" rel="alternate" type="text/html" title="Tech news 2: Publishing code" /><published>2023-08-18T22:59:30+02:00</published><updated>2023-08-18T22:59:30+02:00</updated><id>http://localhost:4000/blog/tech-news-2</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-2/">&lt;blockquote&gt;
+&lt;p&gt;Alban&lt;/p&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><category term="technews" /><summary type="html">This month, I thought of giving you some basic info on how to build a website the easy way to have a personal space where to advertise yourself or your current project. Github will help again, they offer the place to store the code, the engine that builds the website and they even host your website, all for free.</summary></entry><entry><title type="html">Tech news 2: Publishing code</title><link href="http://localhost:4000/blog/tech-news-2/" rel="alternate" type="text/html" title="Tech news 2: Publishing code" /><published>2023-08-18T22:59:30+02:00</published><updated>2023-08-18T22:59:30+02:00</updated><id>http://localhost:4000/blog/tech-news-2</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-2/">&lt;blockquote&gt;
   &lt;p&gt;Disclaimer: this blog post is my opinion, at the time of writing, and might not reflect the opinion of my employer, or mine today.&lt;/p&gt;
 &lt;/blockquote&gt;
-
-&lt;h3 id=&quot;dear-all&quot;&gt;Dear all,&lt;/h3&gt;
 
 &lt;p&gt;I would like to talk a little bit about sharing and archiving code. And data, and figures. People want to see it when you publish and your future self does not want to look for the final version in a cascade of folders.
 And a tip for double-blind submission at the end!&lt;/p&gt;
 
 &lt;h3 id=&quot;publishing-code&quot;&gt;Publishing code&lt;/h3&gt;
+
 &lt;p&gt;To begin, let’s focus on the primary platform: GitHub. While the tendency may be to upload code only upon publication, consider the advantages of maintaining a GitHub repository from the project’s inception. Not only does this foster collaboration, but it also provides a comprehensive history, promoting transparency and enabling retrospective analysis of decisions made.&lt;/p&gt;
 
 &lt;h3 id=&quot;archiving-code&quot;&gt;Archiving code&lt;/h3&gt;
+
 &lt;p&gt;For a seamless archiving process, I recommend establishing a connection between GitHub and Zenodo. This integration automatically archives new versions of your repository whenever necessary. Particularly valuable for evolving data sets used across multiple publications, this approach streamlines the documentation process. Comprehensive instructions on setting up this connection can be found &lt;a href=&quot;https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content#repository&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;To elaborate briefly, the steps involve:&lt;/p&gt;
+
 &lt;ol&gt;
   &lt;li&gt;Granting Zenodo access to your GitHub repositories within your Zenodo account.&lt;/li&gt;
   &lt;li&gt;Creating a release on GitHub, e.g., “Version 1 - Metacommunity Surveys - Nature Article by Wubing Xu.”&lt;/li&gt;
@@ -300,11 +642,13 @@ A noteworthy bonus is the CITATION.cff file, ensuring accurate attribution to al
 &lt;p&gt;While I’ve focused on Zenodo, please note that Figshare offers similar functionality and may be an alternative to explore.&lt;/p&gt;
 
 &lt;h3 id=&quot;double-blind-review&quot;&gt;Double blind review&lt;/h3&gt;
+
 &lt;p&gt;When submitting a paper, if the editor asks you anonymised code, you can use &lt;a href=&quot;https://anonymous.4open.science/&quot;&gt;Anonymous GitHub&lt;/a&gt;. This tool anonymizes your GitHub repository by replacing any identifying information, enabling you to share code anonymously with editors and reviewers during the submission process.&lt;/p&gt;
 
-&lt;p&gt;https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content#repository&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content#repository&quot;&gt;https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content#repository&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
 &lt;p&gt;Efficient code sharing and archiving not only enhance collaboration but also ensure the integrity of our research efforts. By implementing these practices, we collectively contribute to the advancement of our field. Thank you for your attention, and let’s continue to empower each other through shared knowledge.&lt;/p&gt;
 
 &lt;p&gt;Best wishes,&lt;/p&gt;
@@ -313,9 +657,10 @@ A noteworthy bonus is the CITATION.cff file, ensuring accurate attribution to al
 
 &lt;p&gt;There is important news I want to share with you and I thought I could make this a regular thing so every third Friday of the month, I’ll send news that I think are useful for us all.&lt;/p&gt;
 
-&lt;p&gt;For this first ’tech news’ mail, the programmed deprecation of the most widely used spatial packages. You’ve heard about it but it’s getting closer so let’s talk aout it.&lt;/p&gt;
+&lt;p&gt;For this first ’tech news’ mail, the programmed deprecation of the most widely used spatial packages. You’ve heard about it but it’s getting closer so let’s talk about it.&lt;/p&gt;
 
 &lt;h3 id=&quot;which-packages-will-be-deprecated&quot;&gt;Which packages will be deprecated?&lt;/h3&gt;
+
 &lt;p&gt;In 2-3 months from now &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rgeos&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rgdal&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;maptools&lt;/code&gt; will be withdrawn from CRAN. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sp&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;raster&lt;/code&gt; packages are affected and will be superseded by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sf&lt;/code&gt; and terra respectively:&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sp&lt;/code&gt; package is not going to be removed from CRAN soon, but it is good to stop using it because it is no longer being actively developed.&lt;/p&gt;
@@ -324,6 +669,7 @@ A noteworthy bonus is the CITATION.cff file, ensuring accurate attribution to al
 &lt;p&gt;Dozens of other packages using them will also be affected increasing the chances that you will be affected. Here are some packages that you might be using that depend on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sp&lt;/code&gt; in the background: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CoordinateCleaner&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RgoogleMaps&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ggOceanMaps&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ecospat&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;leaflet&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;what-can-we-do&quot;&gt;What can we do?&lt;/h3&gt;
+
 &lt;p&gt;The developers are trying to make things easier for us by changing things in the background: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sp&lt;/code&gt; will not use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rgdal&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rgeos&lt;/code&gt; anymore but &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sf&lt;/code&gt;. Just updating &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sp&lt;/code&gt; in your system and having &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sf&lt;/code&gt; installed could work without you having to make any change to your scripts but most likely things will break and checks are necessary.&lt;/p&gt;
 
 &lt;p&gt;In new code, the r spatial consortium strongly encourages you to switch to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sf&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;terra&lt;/code&gt; and not use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sp&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;raster&lt;/code&gt; anymore.&lt;/p&gt;

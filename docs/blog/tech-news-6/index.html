@@ -1,0 +1,782 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Tech news 6: Creating animated figures - A personal website, a living CV</title>
+<meta name="description" content="This week, some fun with animated figures. We send each other gifs but they rarely come to mind when it comes to showing scientific processes or results. They are actually pretty easy to make in R!">
+
+
+  <meta name="author" content="Alban Sagouis">
+  
+  <meta property="article:author" content="Alban Sagouis">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="A personal website, a living CV">
+<meta property="og:title" content="Tech news 6: Creating animated figures">
+<meta property="og:url" content="http://localhost:4000/blog/tech-news-6/">
+
+
+  <meta property="og:description" content="This week, some fun with animated figures. We send each other gifs but they rarely come to mind when it comes to showing scientific processes or results. They are actually pretty easy to make in R!">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-12-19T18:28:30+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/blog/tech-news-6/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="A personal website, a living CV Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          A personal website, a living CV
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/cv/">My CV</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/portrait_with_scarf.jpeg" alt="Alban Sagouis" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Alban Sagouis</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>R programmer, reproducibility software advocate and community ecologist</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://www.idiv.de/en/profile/1244.html" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">iDiv website</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/albansagouis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://orcid.org/0000-0002-3827-1063" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-orcid" aria-hidden="true"></i><span class="label">orcid</span></a></li>
+          
+        
+          
+            <li><a href="https://www.researchgate.net/profile/Alban-Sagouis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-researchgate" aria-hidden="true"></i><span class="label">researchgate</span></a></li>
+          
+        
+          
+            <li><a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Sagouis%2C%20Alban%22&l=list&p=1&s=10&sort=bestmatch" rel="nofollow noopener noreferrer"><i class="ai ai-zenodo-square ai-3x" aria-hidden="true"></i><span class="label">Zenodo</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/alban-sagouis-567886283/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Tech news 6: Creating animated figures">
+    <meta itemprop="description" content="This week, some fun with animated figures. We send each other gifs but they rarely come to mind when it comes to showing scientific processes or results. They are actually pretty easy to make in R!">
+    <meta itemprop="datePublished" content="2023-12-19T18:28:30+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Tech news 6: Creating animated figures
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-12-19T18:28:30+01:00">December 19, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>This week, some fun with animated figures. We send each other gifs but they rarely come to mind when it comes to showing scientific processes or results. They are actually pretty easy to make in R!</p>
+
+<p>Here are a few examples using <a href="https://gganimate.com/">gganimate</a>. There are other packages out there but <a href="https://gganimate.com/">gganimate</a> is really well integrated with <a href="https://ggplot2.tidyverse.org/">ggplot2</a>.</p>
+
+<h3 id="a-simple-boxplot">A simple boxplot</h3>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">gganimate</span><span class="p">)</span><span class="w">
+
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">mtcars</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">factor</span><span class="p">(</span><span class="n">cyl</span><span class="p">),</span><span class="w"> </span><span class="n">mpg</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+  </span><span class="n">geom_boxplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+  </span><span class="c1"># Here comes the gganimate code</span><span class="w">
+  </span><span class="n">transition_states</span><span class="p">(</span><span class="w">
+    </span><span class="n">gear</span><span class="p">,</span><span class="w">
+    </span><span class="n">transition_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w">
+    </span><span class="n">state_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="w">
+  </span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">enter_fade</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+  </span><span class="n">exit_shrink</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">ease_aes</span><span class="p">(</span><span class="err">'</span><span class="n">sine</span><span class="o">-</span><span class="k">in</span><span class="o">-</span><span class="n">out</span><span class="err">’</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/tech-news-6/boxplot.gif" alt="" /></figure>
+
+<blockquote>
+  <p>Code and figure by gganimate authors Thomas Lin Pedersen and David Robinson <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+</blockquote>
+
+<h3 id="a-much-more-informative-scatter-plot-with-evolution-in-time">A much more informative scatter plot with evolution in time</h3>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">gapminder</span><span class="p">)</span><span class="w">
+
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">gapminder</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">gdpPercap</span><span class="p">,</span><span class="w"> </span><span class="n">lifeExp</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pop</span><span class="p">,</span><span class="w"> </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">country</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_point</span><span class="p">(</span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.7</span><span class="p">,</span><span class="w"> </span><span class="n">show.legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">scale_colour_manual</span><span class="p">(</span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">country_colors</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">scale_size</span><span class="p">(</span><span class="n">range</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">scale_x_log10</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">continent</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="c1"># Here comes the gganimate specific bits</span><span class="w">
+  </span><span class="n">labs</span><span class="p">(</span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Year: {frame_time}'</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'GDP per capita'</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'life expectancy'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">transition_time</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">ease_aes</span><span class="p">(</span><span class="s1">'linear'</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/tech-news-6/scatterplot.gif" alt="" /></figure>
+
+<blockquote>
+  <p>Code and figure by gganimate authors Thomas Lin Pedersen and David Robinson <sup id="fnref:1:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup></p>
+</blockquote>
+
+<h3 id="and-a-map">And a map!</h3>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+
+</span><span class="n">center_lat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">37.8</span><span class="w"> </span><span class="c1"># Some random data</span><span class="w">
+</span><span class="n">center_long</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">-122.4</span><span class="w">
+</span><span class="n">width</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">0.2</span><span class="w">
+</span><span class="n">num_points</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">500</span><span class="w">
+</span><span class="n">test_data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="s1">'lat'</span><span class="o">=</span><span class="n">rnorm</span><span class="p">(</span><span class="n">num_points</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="o">=</span><span class="n">center_lat</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="o">=</span><span class="n">width</span><span class="p">),</span><span class="w">
+                        </span><span class="s1">'long'</span><span class="o">=</span><span class="n">rnorm</span><span class="p">(</span><span class="n">num_points</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="o">=</span><span class="n">center_long</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="o">=</span><span class="n">width</span><span class="p">),</span><span class="w">
+                        </span><span class="s1">'year'</span><span class="o">=</span><span class="nf">floor</span><span class="p">(</span><span class="n">runif</span><span class="p">(</span><span class="n">num_points</span><span class="p">,</span><span class="w"> </span><span class="n">min</span><span class="o">=</span><span class="m">1990</span><span class="p">,</span><span class="w"> </span><span class="n">max</span><span class="o">=</span><span class="m">2020</span><span class="p">)),</span><span class="w">
+                        </span><span class="s1">'temp'</span><span class="o">=</span><span class="n">runif</span><span class="p">(</span><span class="n">num_points</span><span class="p">,</span><span class="w"> </span><span class="n">min</span><span class="o">=</span><span class="m">-10</span><span class="p">,</span><span class="w"> </span><span class="n">max</span><span class="o">=</span><span class="m">40</span><span class="p">)</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span><span class="n">min_long</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">test_data</span><span class="o">$</span><span class="n">long</span><span class="p">)</span><span class="w">
+</span><span class="n">max_long</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">test_data</span><span class="o">$</span><span class="n">long</span><span class="p">)</span><span class="w">
+</span><span class="n">min_lat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">test_data</span><span class="o">$</span><span class="n">lat</span><span class="p">)</span><span class="w">
+</span><span class="n">max_lat</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">test_data</span><span class="o">$</span><span class="n">lat</span><span class="p">)</span><span class="w">
+</span><span class="n">num_years</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">test_data</span><span class="o">$</span><span class="n">year</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">test_data</span><span class="o">$</span><span class="n">year</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="w">
+
+</span><span class="n">county_info</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">map_data</span><span class="p">(</span><span class="s2">"county"</span><span class="p">,</span><span class="w"> </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"california"</span><span class="p">)</span><span class="w"> </span><span class="c1"># The map background</span><span class="w">
+
+</span><span class="n">map_with_shadow</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">county_info</span><span class="p">,</span><span class="w">
+                          </span><span class="n">mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">long</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lat</span><span class="p">,</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">group</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+   </span><span class="n">geom_polygon</span><span class="p">(</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"black"</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"white"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+   </span><span class="n">coord_quickmap</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+   </span><span class="n">theme_void</span><span class="p">()</span><span class="w">  </span><span class="o">+</span><span class="w">
+   </span><span class="n">geom_point</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">test_data</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">long</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lat</span><span class="p">,</span><span class="w">
+                                    </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">group</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">year</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+   </span><span class="n">coord_quickmap</span><span class="p">(</span><span class="n">xlim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">min_long</span><span class="p">,</span><span class="w"> </span><span class="n">max_long</span><span class="p">),</span><span class="w"> 
+                  </span><span class="n">ylim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="n">min_lat</span><span class="p">,</span><span class="w"> </span><span class="n">max_lat</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+   </span><span class="n">gganimate</span><span class="o">::</span><span class="n">transition_time</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+   </span><span class="n">ggtitle</span><span class="p">(</span><span class="s1">'Year: {frame_time}'</span><span class="p">,</span><span class="w">
+           </span><span class="n">subtitle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Frame {frame} of {nframes}'</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+   </span><span class="n">gganimate</span><span class="o">::</span><span class="n">shadow_mark</span><span class="p">()</span><span class="w">
+</span><span class="n">gganimate</span><span class="o">::</span><span class="n">animate</span><span class="p">(</span><span class="n">map_with_shadow</span><span class="p">,</span><span class="w"> </span><span class="n">nframes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num_years</span><span class="p">,</span><span class="w"> </span><span class="n">fps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<figure class="">
+  <img src="/assets/images/tech-news-6/map.gif" alt="" /></figure>
+
+<blockquote>
+  <p>Code and figure by David J. Lilja <sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup></p>
+</blockquote>
+
+<h3 id="great-resources">Great resources</h3>
+
+<ul>
+  <li><a href="https://rquer.netlify.app/animated_chart/evolution/">https://rquer.netlify.app/animated_chart/evolution/</a> many examples but it’s in Spanish</li>
+  <li><a href="https://rquer.netlify.app/animated_map/animated_map/">https://rquer.netlify.app/animated_map/animated_map/</a> especially for maps</li>
+</ul>
+
+<p>Cheers,</p>
+
+<p>Alban</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Pedersen T, Robinson D (2022). gganimate: A Grammar of Animated Graphics. <a href="https://gganimate.com">https://gganimate.com</a>, <a href="https://github.com/thomasp85/gganimate">https://github.com/thomasp85/gganimate</a>. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:1:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>David J. Lilja, “How to Plot and Animate Data on Maps Using the R Programming Language,” University of Minnesota Digital Conservancy, <a href="https://hdl.handle.net/11299/220339">https://hdl.handle.net/11299/220339</a>, June, 2021. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#experience" class="page__taxonomy-item" rel="tag">experience</a><span class="sep">, </span>
+    
+      <a href="/tags/#package" class="page__taxonomy-item" rel="tag">package</a><span class="sep">, </span>
+    
+      <a href="/tags/#r" class="page__taxonomy-item" rel="tag">R</a><span class="sep">, </span>
+    
+      <a href="/tags/#technews" class="page__taxonomy-item" rel="tag">technews</a><span class="sep">, </span>
+    
+      <a href="/tags/#visualisation" class="page__taxonomy-item" rel="tag">visualisation</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#blog" class="page__taxonomy-item" rel="tag">blog</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-12-19T18:28:30+01:00">December 19, 2023</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/tech-news-5/" class="pagination--pager" title="Tech news 5: Working with data files too large for memory
+">Previous</a>
+    
+    
+      <a href="/blog/website-building-1/" class="pagination--pager" title="How I created this website
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/discovery-analog-photography/" rel="permalink">My discovery of analog photography
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-01-11T01:15:30+01:00">January 11, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/website-building-1/" rel="permalink">How I created this website
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-01-10T13:34:30+01:00">January 10, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it.
+I downloaded the mini...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/tech-news-5/" rel="permalink">Tech news 5: Working with data files too large for memory
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-11-23T21:21:30+01:00">November 23, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Today, I’d like to discuss data we might need that are larger than memory, or fit in memory but everything freezes…
+
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/tech-news-4/" rel="permalink">Tech news 4: Reporting your figures and model results in your manuscript
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-10-20T14:25:30+02:00">October 20, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Dear all,
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/albansagouis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://orcid.org/0000-0002-3827-1063" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-orcid" aria-hidden="true"></i> orcid</a></li>
+        
+      
+        
+          <li><a href="https://www.researchgate.net/profile/Alban-Sagouis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-researchgate" aria-hidden="true"></i> researchgate</a></li>
+        
+      
+        
+          <li><a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Sagouis%2C%20Alban%22&l=list&p=1&s=10&sort=bestmatch" rel="nofollow noopener noreferrer"><i class="ai ai-zenodo-square ai-3x" aria-hidden="true"></i> Zenodo</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/alban-sagouis-567886283/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 A personal website, a living CV. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,803 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Tech news 5: Working with data files too large for memory - A personal website, a living CV</title>
+<meta name="description" content="Today, I’d like to discuss data we might need that are larger than memory, or fit in memory but everything freezes…">
+
+
+  <meta name="author" content="Alban Sagouis">
+  
+  <meta property="article:author" content="Alban Sagouis">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="A personal website, a living CV">
+<meta property="og:title" content="Tech news 5: Working with data files too large for memory">
+<meta property="og:url" content="http://localhost:4000/blog/tech-news-5/">
+
+
+  <meta property="og:description" content="Today, I’d like to discuss data we might need that are larger than memory, or fit in memory but everything freezes…">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2023-11-23T21:21:30+01:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/blog/tech-news-5/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="A personal website, a living CV Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          A personal website, a living CV
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/cv/">My CV</a>
+            </li><li class="masthead__menu-item">
+              <a href="/posts/">Posts</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/portrait_with_scarf.jpeg" alt="Alban Sagouis" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Alban Sagouis</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>R programmer, reproducibility software advocate and community ecologist</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+        
+          
+            <li><a href="https://www.idiv.de/en/profile/1244.html" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">iDiv website</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/albansagouis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://orcid.org/0000-0002-3827-1063" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-orcid" aria-hidden="true"></i><span class="label">orcid</span></a></li>
+          
+        
+          
+            <li><a href="https://www.researchgate.net/profile/Alban-Sagouis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-researchgate" aria-hidden="true"></i><span class="label">researchgate</span></a></li>
+          
+        
+          
+            <li><a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Sagouis%2C%20Alban%22&l=list&p=1&s=10&sort=bestmatch" rel="nofollow noopener noreferrer"><i class="ai ai-zenodo-square ai-3x" aria-hidden="true"></i><span class="label">Zenodo</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/alban-sagouis-567886283/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Tech news 5: Working with data files too large for memory">
+    <meta itemprop="description" content="Today, I’d like to discuss data we might need that are larger than memory, or fit in memory but everything freezes…">
+    <meta itemprop="datePublished" content="2023-11-23T21:21:30+01:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Tech news 5: Working with data files too large for memory
+</h1>
+          
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-11-23T21:21:30+01:00">November 23, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Today, I’d like to discuss data we might need that are larger than memory, or fit in memory but everything freezes…</p>
+
+<p>It could be a very large data set such as BioTIME, GIS data, model results or simulation results that are accidentally huge but you still want to have a look to what’s inside.</p>
+
+<p>Just a peek inside
+First, you could have a look inside a csv by reading only parts of it: loading only some columns and/or only some rows.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">)</span><span class="w">
+</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">“</span><span class="n">data</span><span class="o">/</span><span class="n">big_file.csv</span><span class="err">”</span><span class="p">,</span><span class="w">
+         </span><span class="n">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="err">“</span><span class="n">site</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">year</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">temperature</span><span class="err">”</span><span class="p">))</span><span class="w">
+</span><span class="c1"># select has its opposite argument drop</span><span class="w">
+
+</span><span class="c1"># Reading the column names and types ; empty columns</span><span class="w">
+</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">“</span><span class="n">data</span><span class="o">/</span><span class="n">big_file.csv</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="n">nrows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># Reading the first 100 rows</span><span class="w">
+</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">“</span><span class="n">data</span><span class="o">/</span><span class="n">big_file.csv</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="n">nrows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># Reading rows 10001 to 10101</span><span class="w">
+</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">“</span><span class="n">data</span><span class="o">/</span><span class="n">big_file.csv</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10000</span><span class="p">,</span><span class="w">
+         </span><span class="n">nrows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Using factors instead of character can save quite a lot of memory space too:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">library</span><span class="p">(</span><span class="n">data.table</span><span class="p">)</span><span class="w">
+</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"data/communities_raw.csv"</span><span class="p">,</span><span class="w">
+         </span><span class="n">stringsAsFactors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w">
+    </span><span class="n">object.size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">10</span><span class="o">^</span><span class="m">6</span><span class="w">
+</span><span class="m">414.4</span><span class="w"> </span><span class="n">Mbytes</span><span class="w">
+</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"data/communities_raw.csv"</span><span class="p">,</span><span class="w">
+         </span><span class="n">stringsAsFactors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w">
+    </span><span class="n">object.size</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">10</span><span class="o">^</span><span class="m">6</span><span class="w">
+</span><span class="m">271.1</span><span class="w"> </span><span class="n">Mbytes</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The function is called <a href="https://rdatatable.gitlab.io/data.table/reference/fread.html"><code class="language-plaintext highlighter-rouge">fread</code></a> because it reads fast, using several cores if available, it’s very smart at guessing types and it shows a progress bar on large files.</p>
+
+<h3 id="smaller-than-memory-but-dplyr-is-slow">Smaller than memory but dplyr is slow?</h3>
+
+<p>Maybe your <code class="language-plaintext highlighter-rouge">dplyr</code> data wrangling step before getting analyses done is taking a few minutes or a few hours and you wouldn’t mind trying to speed things up without having to rewrite everything…</p>
+
+<p>tidyverse developers too and they created <a href="https://dtplyr.tidyverse.org/"><code class="language-plaintext highlighter-rouge">dtplyr</code></a> to help everyone with that. Add <code class="language-plaintext highlighter-rouge">library(dtplyr)</code> at the beginning of your script, <code class="language-plaintext highlighter-rouge">lazy_dt(your_data)</code> and bam all your <code class="language-plaintext highlighter-rouge">dplyr</code> verbs are going to be translated into <code class="language-plaintext highlighter-rouge">data.table</code> calls in the background, you won’t have to change anything else in your script…
+<code class="language-plaintext highlighter-rouge">data.table</code> may be faster thanks to two advantages: 1) fast reimplemented functions such as <code class="language-plaintext highlighter-rouge">mean()</code> and many others and 2) the ability to make operation <code class="language-plaintext highlighter-rouge">by reference</code> ie without your column having to be copied in a different place in the memory and a new spot being booked to write the result of your operation because it’s all done in the same place in memory.</p>
+
+<h3 id="larger-than-memory-using-arrow">Larger than memory using Arrow</h3>
+
+<p><a href="https://arrow.apache.org/cookbook/r/index.html"><code class="language-plaintext highlighter-rouge">Arrow</code></a> is a cross-language multi-platform suite of tools to work on in-memory and larger-than-memory files written in C++.<br />
+You can use it to access large files and make your usual data wrangling operations on it, even using <code class="language-plaintext highlighter-rouge">dplyr</code> verbs.</p>
+
+<p>First read your data with one of the arrow functions:</p>
+
+<ul>
+  <li><a href="https://arrow.apache.org/docs/r/reference/read_delim_arrow.html"><code class="language-plaintext highlighter-rouge">read_delim_arrow()</code></a>: read a delimited text file</li>
+  <li><a href="https://arrow.apache.org/docs/r/reference/read_delim_arrow.html"><code class="language-plaintext highlighter-rouge">read_csv_arrow()</code></a>: read a comma-separated values (CSV) file</li>
+  <li><a href="https://arrow.apache.org/docs/r/reference/read_delim_arrow.html"><code class="language-plaintext highlighter-rouge">read_tsv_arrow()</code></a>: read a tab-separated values (TSV) file</li>
+  <li><a href="https://arrow.apache.org/docs/r/reference/read_parquet.html"><code class="language-plaintext highlighter-rouge">read_parquet()</code></a>: read a file in Parquet format</li>
+  <li><a href="https://arrow.apache.org/docs/r/reference/read_feather.html"><code class="language-plaintext highlighter-rouge">read_feather()</code></a>: read a file in Arrow/Feather format</li>
+</ul>
+
+<p>Arrow can read the whole data OR read some informations about the data set but without loading the data in memory, only column names, types, sizes, things like that.</p>
+
+<p>Now you want to make operations on these data and R couldn’t because they don’t fit in memory but arrow is going to read your operations, translate them and execute them all at once when needed:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
+</span><span class="n">dset</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dset</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">subset</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">summarize</span><span class="p">(</span><span class="n">mean_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="w"> </span><span class="n">min_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">filter</span><span class="p">(</span><span class="n">mean_x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">arrange</span><span class="p">(</span><span class="n">subset</span><span class="p">)</span><span class="w">
+</span><span class="c1"># No operations were executed yet</span><span class="w">
+</span><span class="n">dset</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">collect</span><span class="p">()</span><span class="w"> </span><span class="c1"># operations are executed and results given</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Only once <code class="language-plaintext highlighter-rouge">dplyr::collect()</code> is called the operations are ran outside of R by arrow. Meaning that the workflow can be much longer and have (much) more intermediate steps but data are loaded in memory for R only when it needs them like for plotting or running a statistical analysis.</p>
+
+<h3 id="spatial-data">Spatial Data</h3>
+
+<p>Here we will be looking at <code class="language-plaintext highlighter-rouge">sf</code>, <code class="language-plaintext highlighter-rouge">stars</code> (for rasters) and <code class="language-plaintext highlighter-rouge">dbplyr</code> (as in databases…) and it is a little more advanced and specialised so I won’t go into much details but a few things I liked:
+Cropping a spatial object even before loading it into R using the wkt_filter argument of <code class="language-plaintext highlighter-rouge">sf::st_read()</code></p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">sf</span><span class="p">)</span><span class="w">
+</span><span class="n">file</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"data/nc.gpkg"</span><span class="w">
+</span><span class="nf">c</span><span class="p">(</span><span class="n">xmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-82</span><span class="p">,</span><span class="n">ymin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">36</span><span class="p">,</span><span class="w"> </span><span class="n">xmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-80</span><span class="p">,</span><span class="w"> </span><span class="n">ymax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">37</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w">
+    </span><span class="n">st_bbox</span><span class="p">()</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">st_as_sfc</span><span class="p">()</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">st_as_text</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">bb</span><span class="w">
+</span><span class="n">st_read</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">wkt_filter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bb</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">nrow</span><span class="p">()</span><span class="w">
+</span><span class="m">17</span><span class="w"> </span><span class="c1"># out of 100</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Even easier if you can write SQL queries directly:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">q</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"select BIR74,SID74,geom from 'nc.gpkg' where BIR74 &gt; 1500"</span><span class="w">
+</span><span class="n">read_sf</span><span class="p">(</span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">nrow</span><span class="p">()</span><span class="w">
+</span><span class="m">61</span><span class="w"> </span><span class="c1"># out of 100</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Using <a href="https://cran.r-project.org/package=stars"><code class="language-plaintext highlighter-rouge">stars</code></a>, you can read a raster file without loading it into memory, this is quite similar to <code class="language-plaintext highlighter-rouge">arrow</code> in the previous section, and a 100+Mbytes file results in a 12Mbytes object in memory in R.</p>
+
+<h3 id="other-interesting-tools">Other interesting tools</h3>
+
+<p>It seems that packages dedicated to running statistical models (lm, glm, etc) directly on data sets too big for memory were a thing a few years ago but I can’t find recent packages targeting this problem… <a href="https://cran.r-project.org/package=biglm"><code class="language-plaintext highlighter-rouge">biglm</code></a> hasn’t been updated since 2020.</p>
+
+<h3 id="great-resources">Great resources</h3>
+
+<h4 id="dtplyr">dtplyr</h4>
+
+<ul>
+  <li><a href="https://dtplyr.tidyverse.org/">https://dtplyr.tidyverse.org/</a></li>
+</ul>
+
+<h4 id="arrow-and-dplyr">Arrow and dplyr</h4>
+
+<ul>
+  <li><a href="https://arrow.apache.org/docs/r/articles/arrow.html#analyzing-arrow-data-with-dplyr">https://arrow.apache.org/docs/r/articles/arrow.html#analyzing-arrow-data-with-dplyr</a></li>
+  <li><a href="https://arrow.apache.org/cookbook/r/index.html">https://arrow.apache.org/cookbook/r/index.html</a></li>
+  <li><a href="https://arrow-user2022.netlify.app/hello-arrow">https://arrow-user2022.netlify.app/hello-arrow</a></li>
+  <li><a href="https://hbs-rcs.github.io/large_data_in_R/#solution-example">https://hbs-rcs.github.io/large_data_in_R/#solution-example</a>  # examples</li>
+  <li><a href="https://jthomasmock.github.io/arrow-dplyr/#/">https://jthomasmock.github.io/arrow-dplyr/#/</a>  # presentation</li>
+  <li><a href="https://posit-conf-2023.github.io/arrow/materials/5_arrow_single_file.html#/single-file-api">https://posit-conf-2023.github.io/arrow/materials/5_arrow_single_file.html#/single-file-api</a> # presentation</li>
+  <li><a href="https://www.r-bloggers.com/2021/09/understanding-the-parquet-file-format/">https://www.r-bloggers.com/2021/09/understanding-the-parquet-file-format/</a> #parquet data format</li>
+</ul>
+
+<h4 id="spatial-data-1">Spatial data</h4>
+
+<ul>
+  <li><a href="https://r-spatial.org/book/09-Large.html">https://r-spatial.org/book/09-Large.html</a></li>
+</ul>
+
+<p>Happy to talk about it, share experiences, help you implement something (don’t you also think <a href="https://dtplyr.tidyverse.org/"><code class="language-plaintext highlighter-rouge">dtplyr</code></a> sounds like a great and easy tool?!) and hear your comments!</p>
+
+<p>Best wishes,</p>
+
+<p>Alban</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#data-table" class="page__taxonomy-item" rel="tag">data.table</a><span class="sep">, </span>
+    
+      <a href="/tags/#dplyr" class="page__taxonomy-item" rel="tag">dplyr</a><span class="sep">, </span>
+    
+      <a href="/tags/#experience" class="page__taxonomy-item" rel="tag">experience</a><span class="sep">, </span>
+    
+      <a href="/tags/#package" class="page__taxonomy-item" rel="tag">package</a><span class="sep">, </span>
+    
+      <a href="/tags/#r" class="page__taxonomy-item" rel="tag">R</a><span class="sep">, </span>
+    
+      <a href="/tags/#reproducibility" class="page__taxonomy-item" rel="tag">reproducibility</a><span class="sep">, </span>
+    
+      <a href="/tags/#spatial" class="page__taxonomy-item" rel="tag">spatial</a><span class="sep">, </span>
+    
+      <a href="/tags/#technews" class="page__taxonomy-item" rel="tag">technews</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#blog" class="page__taxonomy-item" rel="tag">blog</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-11-23T21:21:30+01:00">November 23, 2023</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/blog/tech-news-4/" class="pagination--pager" title="Tech news 4: Reporting your figures and model results in your manuscript
+">Previous</a>
+    
+    
+      <a href="/blog/tech-news-6/" class="pagination--pager" title="Tech news 6: Creating animated figures
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/discovery-analog-photography/" rel="permalink">My discovery of analog photography
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-01-11T01:15:30+01:00">January 11, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/website-building-1/" rel="permalink">How I created this website
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-01-10T13:34:30+01:00">January 10, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it.
+I downloaded the mini...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/tech-news-6/" rel="permalink">Tech news 6: Creating animated figures
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-12-19T18:28:30+01:00">December 19, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">This week, some fun with animated figures. We send each other gifs but they rarely come to mind when it comes to showing scientific processes or results. The...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/tech-news-4/" rel="permalink">Tech news 4: Reporting your figures and model results in your manuscript
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2023-10-20T14:25:30+02:00">October 20, 2023</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the next).
+
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://github.com/albansagouis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://orcid.org/0000-0002-3827-1063" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-orcid" aria-hidden="true"></i> orcid</a></li>
+        
+      
+        
+          <li><a href="https://www.researchgate.net/profile/Alban-Sagouis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-researchgate" aria-hidden="true"></i> researchgate</a></li>
+        
+      
+        
+          <li><a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Sagouis%2C%20Alban%22&l=list&p=1&s=10&sort=bestmatch" rel="nofollow noopener noreferrer"><i class="ai ai-zenodo-square ai-3x" aria-hidden="true"></i> Zenodo</a></li>
+        
+      
+        
+          <li><a href="https://www.linkedin.com/in/alban-sagouis-567886283/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 A personal website, a living CV. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Tech news 4: Reporting your figures and model results in your manuscript - A personal website, a living CV</title>
-<meta name="description" content="Dear all,">
+<meta name="description" content="This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the next).">
 
 
   <meta name="author" content="Alban Sagouis">
@@ -26,7 +26,7 @@
 <meta property="og:url" content="http://localhost:4000/blog/tech-news-4/">
 
 
-  <meta property="og:description" content="Dear all,">
+  <meta property="og:description" content="This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the next).">
 
 
 
@@ -195,6 +195,10 @@
           
         
           
+            <li><a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Sagouis%2C%20Alban%22&l=list&p=1&s=10&sort=bestmatch" rel="nofollow noopener noreferrer"><i class="ai ai-zenodo-square ai-3x" aria-hidden="true"></i><span class="label">Zenodo</span></a></li>
+          
+        
+          
             <li><a href="https://www.linkedin.com/in/alban-sagouis-567886283/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
           
         
@@ -266,7 +270,7 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Tech news 4: Reporting your figures and model results in your manuscript">
-    <meta itemprop="description" content="Dear all,">
+    <meta itemprop="description" content="This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the next).">
     <meta itemprop="datePublished" content="2023-10-20T14:25:30+02:00">
     
 
@@ -308,9 +312,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <h3 id="dear-all">Dear all,</h3>
-
-<p>This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the next).</p>
+        <p>This month the audience is increasing, besides the Biodiversity Synthesis group, the iCode Coding Club mailing list will receive this email (and the next).</p>
 
 <p>Today’s email will include tips and ideas on streamlining figure inclusion and reporting model results in manuscripts. Since practices in the team and the institute vary a lot, I’ll give information for different levels, mostly for colleagues who use copy-pasting / hand-typing but latex/rmarkdown/quarto users might also learn something useful (or teach me something in return :D).</p>
 
@@ -328,6 +330,7 @@
 <h4 id="method-1">Method 1</h4>
 
 <p>First, a few functions that will help you format text that you might occasionally need to copy-paste between R and your favorite text editor.</p>
+
 <ul>
   <li><code class="language-plaintext highlighter-rouge">base::format()</code> or <code class="language-plaintext highlighter-rouge">base::prettyNum()</code> to format numeric values with the exact number of decimals or scientific number formatting you want or big number separator as in 1,234,567.90</li>
 </ul>
@@ -400,26 +403,7 @@ The <a href="https://gt.rstudio.com/"><code class="language-plaintext highlighte
   <img src="/assets/images/tech-news-4/fig3.gif" alt="" /></figure>
 
 <p>Here is an example they provide with code integrated with dplyr functions:</p>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="code"><pre><span class="w">  </span><span class="n">library</span><span class="p">(</span><span class="n">gt</span><span class="p">)</span><span class="w">
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="n">library</span><span class="p">(</span><span class="n">gt</span><span class="p">)</span><span class="w">
   </span><span class="c1"># Define the start and end dates for the data range</span><span class="w">
   </span><span class="n">start_date</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"2010-06-07"</span><span class="w">
   </span><span class="n">end_date</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"2010-06-14"</span><span class="w">
@@ -436,8 +420,8 @@ The <a href="https://gt.rstudio.com/"><code class="language-plaintext highlighte
     </span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w">
     </span><span class="n">fmt_currency</span><span class="p">()</span><span class="w"> </span><span class="o">|&gt;</span><span class="w">
     </span><span class="n">fmt_date</span><span class="p">(</span><span class="n">columns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">date</span><span class="p">,</span><span class="w"> </span><span class="n">date_style</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"wd_m_day_year"</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w">
-    </span><span class="n">fmt_number</span><span class="p">(</span><span class="n">columns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">volume</span><span class="p">,</span><span class="w"> </span><span class="n">suffixing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span>
-</pre></td></tr></tbody></table></code></pre></figure>
+    </span><span class="n">fmt_number</span><span class="p">(</span><span class="n">columns</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">volume</span><span class="p">,</span><span class="w"> </span><span class="n">suffixing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
 <p>This code directly produces this table:</p>
 <figure class="">
@@ -448,20 +432,28 @@ The <a href="https://gt.rstudio.com/"><code class="language-plaintext highlighte
 <p>In both cases you’ll begin in your script, maybe have a dedicated script that produces figures and another one for tables, using <code class="language-plaintext highlighter-rouge">gt</code> or <code class="language-plaintext highlighter-rouge">flextable</code> to create formatted tables. Then I see different ways:</p>
 
 <ol>
-  <li>For Powerpoint. You save your tables as images. <code class="language-plaintext highlighter-rouge">flextable</code> only, points for flextable! You then directly include the table in your  presentation using the ‘Insert with link’ option I described in the section  <code class="language-plaintext highlighter-rouge">Reporting figures</code>.
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">save_as_image(ft, path = "/path/to/file.png")</code></li>
-      <li>Zero (0) manipulations to do once the script is written…</li>
-    </ul>
-  </li>
-  <li>For Word.
-You’re fine having all of your tables seating in a separate docx document. <code class="language-plaintext highlighter-rouge">flextable</code> for the win again:
-    <ul>
-      <li><code class="language-plaintext highlighter-rouge">save_as_docx("my table 1" = ft1, "my table 2" = ft2, path = "/path/to/file.docx")</code></li>
-      <li>Zero (0) manipulations to do once the script is written…
-You want the table in your manuscript, exactly where it is useful (if Words let you ;) ). Then it seems that you’ll have to copy paste into your own document from the viewer in Rstudio or from the produced Word, Powerpoint or pdf document you produced.</li>
-    </ul>
-  </li>
+  <li>For Powerpoint. You save your tables as images. <code class="language-plaintext highlighter-rouge">flextable</code> only, points for flextable! You then directly include the table in your  presentation using the ‘Insert with link’ option I described in the section  <code class="language-plaintext highlighter-rouge">Reporting figures</code>.</li>
+</ol>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">save_as_image(ft, path = "/path/to/file.png")</code></li>
+  <li>Zero (0) manipulations to do once the script is written…</li>
+</ul>
+
+<ol>
+  <li>For Word.</li>
+</ol>
+
+<p>You’re fine having all of your tables seating in a separate docx document. <code class="language-plaintext highlighter-rouge">flextable</code> for the win again:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">save_as_docx("my table 1" = ft1, "my table 2" = ft2, path = "/path/to/file.docx")</code></li>
+  <li>Zero (0) manipulations to do once the script is written…</li>
+</ul>
+
+<p>You want the table in your manuscript, exactly where it is useful (if Words let you ;) ). Then it seems that you’ll have to copy paste into your own document from the viewer in Rstudio or from the produced Word, Powerpoint or pdf document you produced.</p>
+
+<ol>
   <li>For both Powerpoint and Word, you can use functions from the <a href="https://cran.r-project.org/package=officer"><code class="language-plaintext highlighter-rouge">officer</code></a> package to add slides or pages to your documents and include your tables there. Crazy but I see this as an option only when nothing will change in your results anymore and it seems to me that there is always a last last change to make… But a direction to explore still, with <code class="language-plaintext highlighter-rouge">flextable</code>.</li>
 </ol>
 
@@ -542,7 +534,7 @@ You want the table in your manuscript, exactly where it is useful (if Words let 
 ">Previous</a>
     
     
-      <a href="/blog/website-building-1/" class="pagination--pager" title="How I created this website
+      <a href="/blog/tech-news-5/" class="pagination--pager" title="Tech news 5: Working with data files too large for memory
 ">Next</a>
     
   </nav>
@@ -557,6 +549,57 @@ You want the table in your manuscript, exactly where it is useful (if Words let 
     <div class="page__related">
       <h4 class="page__related-title">You May Also Enjoy</h4>
       <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/blog/tech-news-7/" rel="permalink">Tech news 7: Creating animated figures
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+      
+      <span class="page__meta-date">
+        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
+        
+        <time datetime="2024-01-26T16:57:30+01:00">January 26, 2024</time>
+      </span>
+    
+
+    <span class="page__meta-sep"></span>
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">This week’s email is about tidymodels.
+
+  The tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.
+
+
+</p>
+  </article>
+</div>
+
         
           
 
@@ -660,7 +703,7 @@ I downloaded the mini...</p>
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/blog/tech-news-3/" rel="permalink">Tech news 3: Building a free website easy
+        <a href="/blog/tech-news-6/" rel="permalink">Tech news 6: Creating animated figures
 </a>
       
     </h2>
@@ -672,7 +715,7 @@ I downloaded the mini...</p>
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2023-09-22T22:36:30+02:00">September 22, 2023</time>
+        <time datetime="2023-12-19T18:28:30+01:00">December 19, 2023</time>
       </span>
     
 
@@ -685,66 +728,14 @@ I downloaded the mini...</p>
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          2 minute read
+          1 minute read
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">Dear all,
-
-</p>
-  </article>
-</div>
-
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/blog/tech-news-2/" rel="permalink">Tech news 2: Publishing code
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-      
-      <span class="page__meta-date">
-        <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
-        
-        <time datetime="2023-08-18T22:59:30+02:00">August 18, 2023</time>
-      </span>
-    
-
-    <span class="page__meta-sep"></span>
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-fw fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">
-  Disclaimer: this blog post is my opinion, at the time of writing, and might not reflect the opinion of my employer, or mine today.
-
-
-</p>
+    <p class="archive__item-excerpt" itemprop="description">This week, some fun with animated figures. We send each other gifs but they rarely come to mind when it comes to showing scientific processes or results. The...</p>
   </article>
 </div>
 
@@ -791,6 +782,10 @@ I downloaded the mini...</p>
       
         
           <li><a href="https://www.researchgate.net/profile/Alban-Sagouis" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-researchgate" aria-hidden="true"></i> researchgate</a></li>
+        
+      
+        
+          <li><a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Sagouis%2C%20Alban%22&l=list&p=1&s=10&sort=bestmatch" rel="nofollow noopener noreferrer"><i class="ai ai-zenodo-square ai-3x" aria-hidden="true"></i> Zenodo</a></li>
         
       
         
