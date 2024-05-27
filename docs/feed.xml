@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-27T12:07:00+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">A personal website, a living CV</title><subtitle>This is a professional personal page, I speak of R programming,  scientific development, web development, reproducibility  and photography</subtitle><author><name>Alban Sagouis</name></author><entry><title type="html">Tech news 11: Facilitating… admin tasks</title><link href="http://localhost:4000/blog/tech-news-11/" rel="alternate" type="text/html" title="Tech news 11: Facilitating… admin tasks" /><published>2024-05-24T17:57:30+02:00</published><updated>2024-05-24T17:57:30+02:00</updated><id>http://localhost:4000/blog/tech-news-11</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-11/">&gt; Filling in PDF forms and sending personalised emails
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-27T12:44:25+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">A personal website, a living CV</title><subtitle>This is a professional personal page, I speak of R programming,  scientific development, web development, reproducibility  and photography</subtitle><author><name>Alban Sagouis</name></author><entry><title type="html">Tech news 11: Facilitating… admin tasks</title><link href="http://localhost:4000/blog/tech-news-11/" rel="alternate" type="text/html" title="Tech news 11: Facilitating… admin tasks" /><published>2024-05-24T17:57:30+02:00</published><updated>2024-05-24T17:57:30+02:00</updated><id>http://localhost:4000/blog/tech-news-11</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-11/"><![CDATA[> Filling in PDF forms and sending personalised emails
 
 ### What for?
 
@@ -25,24 +25,24 @@ For filling in the pdf, `staplr` works in three steps:
 
 ``` r
 # First reading all fields in the document, there are 116 fields
-&gt; fields &lt;- staplr::get_fields(input_filepath = &quot;Authorship-change-form--1---5---2--1.pdf&quot;)
-&gt; fields[[50]] # this is Table 2, column `Email address`, row 6
+> fields <- staplr::get_fields(input_filepath = "Authorship-change-form--1---5---2--1.pdf")
+> fields[[50]] # this is Table 2, column `Email address`, row 6
 $type
-[1] &quot;Text&quot;
+[1] "Text"
 
 $name
-[1] &quot;Email addressRow6&quot;
+[1] "Email addressRow6"
 
 $value
-[1] &quot;&quot;
+[1] ""
 # Then, filling in the fields in the value slot like this:
-fields[[50]]$value &lt;- &quot;alban.sagouis@idiv.de&quot;
+fields[[50]]$value <- "alban.sagouis@idiv.de"
 # Easy! But looping over 5 columns, 121 authors, changing page every 9 authors took some more tweaking…
 # And finally writing the fields back inside the PDF document!
 staplr::set_fields(
-         input_filepath = &quot;Authorship-change-form--1---5---2--1.pdf&quot;,
+         input_filepath = "Authorship-change-form--1---5---2--1.pdf",
          fields = fields,
-         output_filepath = &quot;filled_authorship_form.pdf&quot;)
+         output_filepath = "filled_authorship_form.pdf")
 ```
 
 ### Batch sending personalised emails
@@ -52,32 +52,32 @@ Our message would begin with “Dear Dr {Family name author}, thank you for cont
 
 Just write your message in a Word document, click on the Mailings tab, Start Mail Merge, choose Letters or Email messages and then click on Select Recipients and select the table where you stored the names, the titles, the personalised messages, random data for an exam, everything you need personalised and of course, the email addresses. Every time you reach a part of the email where you want personalised text, just Insert Merge Field and select the column from your table where to look for data. Once you’re done composing the email, you can Preview Results and go through all 121 recipients to check that the good name or title is sent to the good email address or check that special characters were properly reproduced.
 
-It’s that simple! Finish &amp; Merge, Word and Outlook are going to talk to each other and send each email independently.
+It’s that simple! Finish & Merge, Word and Outlook are going to talk to each other and send each email independently.
 
 Oh, you want to send an attachment too? Or even send a different attachment to each person? Well, Word and Outlook won’t give you the option 🤷🏻‍♂️. We tried a first add-in for Word whose free plan did not fit our needs (max 50 recipients) and then found the Merge Tools add-in that allows batch sending emails 20 times for free, thanks Merge Tools.
 
 ### Encoding
 
 When reading data, Word preferred `csv` to `xlsx` but encoding handling was better from an Excel file…
-For one of the steps, Merge Tools seemed to mishandle UTF-8 encoding and I had to remove all special characters ie. &quot;èéêëě&quot; all became &quot;e&quot;. I used this R command:
+For one of the steps, Merge Tools seemed to mishandle UTF-8 encoding and I had to remove all special characters ie. "èéêëě" all became "e". I used this R command:
 
 ``` r
 stringi::stri_trans_general(
    str = your_string_with_special_characters, 
-   id = “Latin-ASCII&quot;)
+   id = “Latin-ASCII")
 ```
 
 If you have `tidyverse` installed, you already have `stringi`.
 
 ### Resources
 
-The staplr package: &lt;https://cran.r-project.org/web/packages/staplr/&gt;
+The staplr package: <https://cran.r-project.org/web/packages/staplr/>
 
-The microsoft Support page for Mail Merge: &lt;https://support.microsoft.com/en-us/office/use-mail-merge-to-send-bulk-email-messages-0f123521-20ce-4aa8-8b62-ac211dedefa4&gt;
+The microsoft Support page for Mail Merge: <https://support.microsoft.com/en-us/office/use-mail-merge-to-send-bulk-email-messages-0f123521-20ce-4aa8-8b62-ac211dedefa4>
 
-A quick video to see it happening: &lt;https://www.youtube.com/watch?v=NikC2cJ_tHQ&gt;
+A quick video to see it happening: <https://www.youtube.com/watch?v=NikC2cJ_tHQ>
 
-The Merge Tools add-in that we ended up using: &lt;https://mergetoolsaddin.com/&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html">Filling in PDF forms and sending personalised emails</summary></entry><entry><title type="html">Tech news 10: Pipes</title><link href="http://localhost:4000/blog/tech-news-10/" rel="alternate" type="text/html" title="Tech news 10: Pipes" /><published>2024-04-26T21:24:30+02:00</published><updated>2024-04-26T21:24:30+02:00</updated><id>http://localhost:4000/blog/tech-news-10</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-10/">### What for?
+The Merge Tools add-in that we ended up using: <https://mergetoolsaddin.com/>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[Filling in PDF forms and sending personalised emails]]></summary></entry><entry><title type="html">Tech news 10: Pipes</title><link href="http://localhost:4000/blog/tech-news-10/" rel="alternate" type="text/html" title="Tech news 10: Pipes" /><published>2024-04-26T21:24:30+02:00</published><updated>2024-04-26T21:24:30+02:00</updated><id>http://localhost:4000/blog/tech-news-10</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-10/"><![CDATA[### What for?
 
 Pipes are present is many languages and they allow passing objects from one function to another without having to create an intermediary object and keeping a logical and readable flow.
 In the command line, you can read all files names in a folder, pass them to grep to select all “.R” files and pass them all to Rscript to execute them. Instead of creating intermediate files, the result of each function is passed to the next by a pipe, represented by “|” in bash.
@@ -87,24 +87,24 @@ Creating intermediate objects even though not useful to keep:
 
 ``` r
 # Abundances in three sites
-dt &lt;- data.frame(abundance = 20:50,
+dt <- data.frame(abundance = 20:50,
                  site = rep(
-                    c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;),
+                    c("A", "B", "C"),
                     each = 10))
 
-sitesAB &lt;- subset(dt, site %in% c(&quot;A&quot;, &quot;B&quot;))
-subSample &lt;- sample(sitesAB$abundance, size = 5)
-sortedAbundance &lt;- sort(subSample,
+sitesAB <- subset(dt, site %in% c("A", "B"))
+subSample <- sample(sitesAB$abundance, size = 5)
+sortedAbundance <- sort(subSample,
                         descending = FALSE)
 ```
 
 Or nesting functions with the disadvantage that you have to read the workflow from the inside to the outside and arguments of the same function are sometimes far from each other, a hard-to-digest-sandwich…
 
 ``` r
-sortedAbundance &lt;- sort(
+sortedAbundance <- sort(
                      sample(
                        subset(dt,
-                              site %in% c(&quot;A&quot;, &quot;B&quot;))),
+                              site %in% c("A", "B"))),
                        size = 5),
                      descending = FALSE)
 ```
@@ -112,9 +112,9 @@ sortedAbundance &lt;- sort(
 Using a pipe, it looks like this:
 
 ``` r
-sortedAbundance &lt;- dt %&gt;%
-  subset(site %in% c(&quot;A&quot;, &quot;B&quot;)) %&gt;%
-  sample(size = 5) %&gt;%
+sortedAbundance <- dt %>%
+  subset(site %in% c("A", "B")) %>%
+  sample(size = 5) %>%
   sort(descending = FALSE)
 ```
 
@@ -122,72 +122,72 @@ Easier to read, intention is clear, arguments stay closer to each other and inpu
 
 The pipe takes the object passed to it and passes it as the first argument of the next function. If we need to pass the piped object to the second argument, we can name arguments or use a place holder:
 ``` r
-c(&quot;A&quot;,&quot;B&quot;) %&gt;% sub(pattern = “A”,
+c("A","B") %>% sub(pattern = “A”,
                    replacement = “”)
-c(&quot;A&quot;,&quot;B&quot;) %&gt;% sub(pattern = “A”,
+c("A","B") %>% sub(pattern = “A”,
                    replacement = “”,
                    x = .)
 ```
 
 ### The `magrittr` pipe
-The `magrittr` package with its iconic `%&gt;%` pipe, was first published early 2014, apparently it caught traction pretty quick and Rstudio developers contacted the creator: “We also worked on a pipe `%.%` but it’s not as functional, practical and rich as yours, could we collaborate?”
+The `magrittr` package with its iconic `%>%` pipe, was first published early 2014, apparently it caught traction pretty quick and Rstudio developers contacted the creator: “We also worked on a pipe `%.%` but it’s not as functional, practical and rich as yours, could we collaborate?”
 
 This pipe, together with the tidyverse grammar then revolutionised the R ecosystem…
 
 ### The base pipe
-And eventually, R developed its own native pipe `|&gt;`. In appearance, its usage is very similar with one difference being that the placeholder is “_” instead of “.”.
+And eventually, R developed its own native pipe `|>`. In appearance, its usage is very similar with one difference being that the placeholder is “_” instead of “.”.
 You can read more in this [Hadley Wickam article][article] or in the pipe section of his [book][book] in which he recommends `base` pipe over `maggritr` pipe:
-&gt; For simple cases, `|&gt;` and `%&gt;%` behave identically. So why do we recommend the base pipe? Firstly, because it’s part of base R, it’s always available for you to use, even when you’re not using the tidyverse. Secondly, `|&gt;` is quite a bit simpler than `%&gt;%`: in the time between the invention of `%&gt;%` in 2014 and the inclusion of `|&gt;` in R 4.1.0 in 2021, we gained a better understanding of the pipe. This allowed the base implementation to jettison infrequently used and less important features.
+> For simple cases, `|>` and `%>%` behave identically. So why do we recommend the base pipe? Firstly, because it’s part of base R, it’s always available for you to use, even when you’re not using the tidyverse. Secondly, `|>` is quite a bit simpler than `%>%`: in the time between the invention of `%>%` in 2014 and the inclusion of `|>` in R 4.1.0 in 2021, we gained a better understanding of the pipe. This allowed the base implementation to jettison infrequently used and less important features.
 
 Partly because the `base` pipe is simpler, it has no overhead and is much faster than the `maggritr` pipe:
 
 ``` r
-R&gt; system.time({for(i in 1:1e5) identity(x)})
+R> system.time({for(i in 1:1e5) identity(x)})
    user  system elapsed 
   0.015   0.000   0.015 
-R&gt; system.time({for(i in 1:1e5) x |&gt; identity()})
+R> system.time({for(i in 1:1e5) x |> identity()})
    user  system elapsed 
   0.015   0.000   0.015 
-R&gt; system.time({for(i in 1:1e5) x %&gt;% identity()})
+R> system.time({for(i in 1:1e5) x %>% identity()})
    user  system elapsed 
   0.105   0.001   0.106
 ```
 
 ### The other pipes
-Less frequent as the well-known forward pipe `%&gt;%`, the `maggritr` package offers other pipes!
+Less frequent as the well-known forward pipe `%>%`, the `maggritr` package offers other pipes!
 
- - The assignment pipe `%&lt;&gt;%`: Pipe an object forward into a function or call expression and update the left-hand-side object with the resulting value.
+ - The assignment pipe `%<>%`: Pipe an object forward into a function or call expression and update the left-hand-side object with the resulting value.
 
 ``` r
-dt %&lt;&gt;% mean() # equivalent to dt &lt;- dt %&gt;% mean()
+dt %<>% mean() # equivalent to dt <- dt %>% mean()
 ```
 
  - The exposition pipe `%$%`: Expose the names in left-hand-side to the right-hand-side expression. This is useful when functions do not have a built-in data argument.
 
 ``` r
-iris %&gt;%
-  subset(Sepal.Length &gt; mean(Sepal.Length)) %$%
+iris %>%
+  subset(Sepal.Length > mean(Sepal.Length)) %$%
   cor(Sepal.Length, Sepal.Width)
-#&gt; [1] 0.3361992
+#> [1] 0.3361992
 ```
 
  - The tee pipe `%T%`: Pipe a value forward into a function- or call expression and return the original value instead of the result. This is useful when an expression is used for its side-effect, say plotting or printing.
 
 ``` r
-rnorm(200) %&gt;%
-  matrix(ncol = 2) %T&gt;%
-  plot() %&gt;% 
+rnorm(200) %>%
+  matrix(ncol = 2) %T>%
+  plot() %>% 
   colSums()
 ```
 
 ### Resources
 
-The pipe article by Hadley Wickam: &lt;https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/&gt;
+The pipe article by Hadley Wickam: <https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/>
 
-The pipe article in the R for Data Science book (Hadley Wickam, second edition): &lt;https://r4ds.hadley.nz/data-transform.html#sec-the-pipe&gt;
+The pipe article in the R for Data Science book (Hadley Wickam, second edition): <https://r4ds.hadley.nz/data-transform.html#sec-the-pipe>
 
 [article]:  https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/
-[book]:     https://r4ds.hadley.nz/data-transform.html#sec-the-pipe</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html">What for?</summary></entry><entry><title type="html">Tech news 9: Testing data</title><link href="http://localhost:4000/blog/tech-news-9/" rel="alternate" type="text/html" title="Tech news 9: Testing data" /><published>2024-03-15T01:37:30+01:00</published><updated>2024-03-15T01:37:30+01:00</updated><id>http://localhost:4000/blog/tech-news-9</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-9/">### Why testing data?
+[book]:     https://r4ds.hadley.nz/data-transform.html#sec-the-pipe]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[What for?]]></summary></entry><entry><title type="html">Tech news 9: Testing data</title><link href="http://localhost:4000/blog/tech-news-9/" rel="alternate" type="text/html" title="Tech news 9: Testing data" /><published>2024-03-15T01:37:30+01:00</published><updated>2024-03-15T01:37:30+01:00</updated><id>http://localhost:4000/blog/tech-news-9</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-9/"><![CDATA[### Why testing data?
 
 Looking inside the data you receive and produce is an absolute necessity but if you could have a second pair of eyes able to scan millions of rows in fractions of seconds and as often as needed, why not? Plus buildings your tests, ie data checks needs you to think forward to define your expectations for data and this helps controlling the workflow and ensuring data quality at each step.
 
@@ -195,7 +195,7 @@ Looking inside the data you receive and produce is an absolute necessity but if 
 
 In software development, unit tests check that a function always behaves as expected. Unit tests can be extended to check data too, ie:
 
- - Are column names equal to “year” and “site” AND are all “year” values positive integers &gt; 1998 AND is the “site” column of type factor?
+ - Are column names equal to “year” and “site” AND are all “year” values positive integers > 1998 AND is the “site” column of type factor?
  - Are the X trait values for species 1 in the range 10:20 AND in the range 12:30 for species 2?
 
 By scripting as many tests as needed, we effortlessly make sure that entry data quality is optimal and that it stays correct along data processing. It is more reproducible and time saving.
@@ -204,34 +204,34 @@ By scripting as many tests as needed, we effortlessly make sure that entry data 
 
 An example of input data quality control from the `assertr` documentation:
 
-&gt; Let’s say, for example, that the R’s built-in car dataset, `mtcars`, was not built-in but rather procured from an external source that was known for making errors in data entry or coding. Pretend we wanted to find the average miles per gallon for each number of engine cylinders. We might want to first, confirm
-&gt; - that it has the columns &quot;mpg&quot;, &quot;vs&quot;, and &quot;am&quot;
-&gt; - that the dataset contains more than 10 observations
-&gt; - that the column for &apos;miles per gallon&apos; (mpg) is a positive number
-&gt; - that the column for ‘miles per gallon’ (mpg) does not contain a datum that is outside 4 standard deviations from its mean, and
-&gt; - that the “am” and “vs” columns (automatic/manual and v/straight engine, respectively) contain 0s and 1s only
-&gt; - each row contains at most 2 NAs
-&gt; - each row is unique jointly between the &quot;mpg&quot;, &quot;am&quot;, and &quot;wt&quot; columns
-&gt; - each row&apos;s mahalanobis distance is within 10 median absolute deviations of all the distances (for outlier detection)
-&gt; This could be written (in order) using `assertr` like this:
+> Let’s say, for example, that the R’s built-in car dataset, `mtcars`, was not built-in but rather procured from an external source that was known for making errors in data entry or coding. Pretend we wanted to find the average miles per gallon for each number of engine cylinders. We might want to first, confirm
+> - that it has the columns "mpg", "vs", and "am"
+> - that the dataset contains more than 10 observations
+> - that the column for 'miles per gallon' (mpg) is a positive number
+> - that the column for ‘miles per gallon’ (mpg) does not contain a datum that is outside 4 standard deviations from its mean, and
+> - that the “am” and “vs” columns (automatic/manual and v/straight engine, respectively) contain 0s and 1s only
+> - each row contains at most 2 NAs
+> - each row is unique jointly between the "mpg", "am", and "wt" columns
+> - each row's mahalanobis distance is within 10 median absolute deviations of all the distances (for outlier detection)
+> This could be written (in order) using `assertr` like this:
 
 ``` r
 library(dplyr)
 library(assertr)
 
-mtcars %&gt;%
-  verify(has_all_names(&quot;mpg&quot;, &quot;vs&quot;, &quot;am&quot;, &quot;wt&quot;)) %&gt;%
-  verify(nrow(.) &gt; 10) %&gt;%
-  verify(mpg &gt; 0) %&gt;%
-  insist(within_n_sds(4), mpg) %&gt;%
-  assert(in_set(0,1), am, vs) %&gt;%
-  assert_rows(num_row_NAs, within_bounds(0,2), everything()) %&gt;%
-  assert_rows(col_concat, is_uniq, mpg, am, wt) %&gt;%
-  insist_rows(maha_dist, within_n_mads(10), everything()) %&gt;%
-  group_by(cyl) %&gt;%
+mtcars %>%
+  verify(has_all_names("mpg", "vs", "am", "wt")) %>%
+  verify(nrow(.) > 10) %>%
+  verify(mpg > 0) %>%
+  insist(within_n_sds(4), mpg) %>%
+  assert(in_set(0,1), am, vs) %>%
+  assert_rows(num_row_NAs, within_bounds(0,2), everything()) %>%
+  assert_rows(col_concat, is_uniq, mpg, am, wt) %>%
+  insist_rows(maha_dist, within_n_mads(10), everything()) %>%
+  group_by(cyl) %>%
   summarise(avg.mpg=mean(mpg))
 ```
-&gt; If any of these assertions were violated, an error would have been raised and the pipeline would have been terminated before calculation happened.
+> If any of these assertions were violated, an error would have been raised and the pipeline would have been terminated before calculation happened.
 
 In this workflow, `assertr` was used for inline testing, it is immediately apparent, transparent and clear. But maybe you would rather have a suite of tests in a separate script that you would `source()` or that you would call with the dedicated and enriched with clear and helpful error messages `testthat::test_file()`.
 
@@ -264,7 +264,7 @@ Expecting all column names in any order
 ``` r
 expect_names(
   permutation.of = c(“region”,”site”,”plot”,”year”,”month”),
-  what = &quot;colnames&quot;
+  what = "colnames"
 )
 ```
 
@@ -273,7 +273,7 @@ Or expecting all names AND in order
 ``` r
 expect_names(
   identical.to = c(“region”,”site”,”plot”,”year”,”month”),
-  what = &quot;colnames&quot;
+  what = "colnames"
 )
 ```
 
@@ -282,69 +282,69 @@ Or allowing only a subset of a list
 ``` r
 expect_names(
   subset.of = c(“region”,”site”,”plot”,”year”,”month”),
-  what = &quot;colnames&quot;
+  what = "colnames"
 )
 ```
 
 `Checkmate` was developed with focus on helpful error messages and efficiency:
 
-&gt; Virtually every standard type of user error when passing arguments into function can be caught with a simple, readable line which produces an informative error message in case. A substantial part of the package was written in C to minimize any worries about execution time overhead. Furthermore, the package provides over 30 expectations to extend the popular `testthat` package for unit tests.
+> Virtually every standard type of user error when passing arguments into function can be caught with a simple, readable line which produces an informative error message in case. A substantial part of the package was written in C to minimize any worries about execution time overhead. Furthermore, the package provides over 30 expectations to extend the popular `testthat` package for unit tests.
 
 Now, let’s use `testdat`, another extension to `testthat`, to build a testing suite for data. First, the `testdat` authors give an example workflow in which the user creates data objects and visually and interactively checks them:
 
 ``` r
 library(dplyr)
 
-x &lt;- tribble(
+x <- tribble(
   ~id, ~pcode, ~state, ~nsw_only,
-  1,   2000,   &quot;NSW&quot;,  1,
-  2,   3123,   &quot;VIC&quot;,  NA,
-  3,   2123,   &quot;NSW&quot;,  3,
-  4,   12345,  &quot;VIC&quot;,  3
+  1,   2000,   "NSW",  1,
+  2,   3123,   "VIC",  NA,
+  3,   2123,   "NSW",  3,
+  4,   12345,  "VIC",  3
 )
 
 # check id is unique
-x %&gt;% filter(duplicated(id))
+x %>% filter(duplicated(id))
 
 # check values
-x %&gt;% filter(!pcode %in% 2000:3999)
-x %&gt;% count(state)
-x %&gt;% count(nsw_only)
+x %>% filter(!pcode %in% 2000:3999)
+x %>% count(state)
+x %>% count(nsw_only)
 
 # check base for nsw_only variable
-x %&gt;% filter(state != &quot;NSW&quot;) %&gt;% count(nsw_only)
+x %>% filter(state != "NSW") %>% count(nsw_only)
 
-x &lt;- x %&gt;% mutate(market = case_when(pcode %in% 2000:2999 ~ 1,
+x <- x %>% mutate(market = case_when(pcode %in% 2000:2999 ~ 1,
                                      pcode %in% 3000:3999 ~ 2))
 
-x %&gt;% count(market)
+x %>% count(market)
 ```
 And then using `testdat`:
 ``` r
 library(testdat)
 library(dplyr)
 
-x &lt;- tribble(
+x <- tribble(
   ~id, ~pcode, ~state, ~nsw_only,
-  1,   2000,   &quot;NSW&quot;,  1,
-  2,   3123,   &quot;VIC&quot;,  NA,
-  3,   2123,   &quot;NSW&quot;,  3,
-  4,   12345,  &quot;VIC&quot;,  3
+  1,   2000,   "NSW",  1,
+  2,   3123,   "VIC",  NA,
+  3,   2123,   "NSW",  3,
+  4,   12345,  "VIC",  3
 )
 
 with_testdata(x, {
-  test_that(&quot;id is unique&quot;, {
+  test_that("id is unique", {
     expect_unique(id)
   })
   
-  test_that(&quot;variable values are correct&quot;, {
+  test_that("variable values are correct", {
     expect_values(pcode, 2000:2999, 3000:3999)
-    expect_values(state, c(&quot;NSW&quot;, &quot;VIC&quot;))
+    expect_values(state, c("NSW", "VIC"))
     expect_values(nsw_only, 1:3) # by default expect_values allows NAs
   })
   
-  test_that(&quot;filters applied correctly&quot;, {
-    expect_base(nsw_only, state == &quot;NSW&quot;)
+  test_that("filters applied correctly", {
+    expect_base(nsw_only, state == "NSW")
   })
 })
 ```
@@ -360,17 +360,17 @@ library(pointblank)
 dplyr::tibble(
     a = c(5, 7, 6, 5, NA, 7),
     b = c(6, 1, 0, 6,  0, 7)
-  ) %&gt;%
+  ) %>%
   col_vals_between(
     a, 1, 9,
     na_pass = TRUE,
     actions = warn_on_fail()
-  ) %&gt;%
+  ) %>%
   col_vals_lt(
     c, 12,
-    preconditions = ~ . %&gt;% dplyr::mutate(c = a + b),
+    preconditions = ~ . %>% dplyr::mutate(c = a + b),
     actions = warn_on_fail()
-  ) %&gt;%
+  ) %>%
   col_is_numeric(
     c(a, b),
     actions = warn_on_fail()
@@ -379,24 +379,24 @@ dplyr::tibble(
 
 But a better use for it is creating so-called agents that can automatically and reproducibly test data and provide rich visual reports just like this:
 ``` r
-agent &lt;- 
+agent <- 
   dplyr::tibble(
     a = c(5, 7, 6, 5, NA, 7),
     b = c(6, 1, 0, 6,  0, 7)
-  ) %&gt;%
+  ) %>%
   create_agent(
-    label = &quot;A very *simple* example.&quot;,
+    label = "A very *simple* example.",
     actions = al
-  ) %&gt;%
+  ) %>%
   col_vals_between(
     vars(a), 1, 9,
     na_pass = TRUE
-  ) %&gt;%
+  ) %>%
   col_vals_lt(
     vars(c), 12,
-    preconditions = ~ . %&gt;% dplyr::mutate(c = a + b)
-  ) %&gt;%
-  col_is_numeric(vars(a, b)) %&gt;%
+    preconditions = ~ . %>% dplyr::mutate(c = a + b)
+  ) %>%
+  col_is_numeric(vars(a, b)) %>%
   interrogate()
 print(agent)
 ```
@@ -404,11 +404,11 @@ print(agent)
 And the `pointblank` package currently supports PostgreSQL. MySQL, MariaDB, Microsoft SQL Server, Google BigQuery, DuckDB, SQLite, and Spark DataFrames!
 
 ### Resources
-&lt;https://ropensci.r-universe.dev/assertr#&gt;
-&lt;https://testthat.r-lib.org/&gt;
-&lt;https://socialresearchcentre.r-universe.dev/testdat#&gt;
-&lt;https://socialresearchcentre.github.io/testdat/articles/testdat.html&gt;
-&lt;https://rstudio.r-universe.dev/pointblank#&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html">Why testing data?</summary></entry><entry><title type="html">Saving the camera settings of a shot in the exif data of the scans</title><link href="http://localhost:4000/blog/saving-shot-metadata/" rel="alternate" type="text/html" title="Saving the camera settings of a shot in the exif data of the scans" /><published>2024-02-26T01:15:30+01:00</published><updated>2024-02-26T01:15:30+01:00</updated><id>http://localhost:4000/blog/saving-shot-metadata</id><content type="html" xml:base="http://localhost:4000/blog/saving-shot-metadata/">For decades (centuries?) photographers have been writing their camera settings for each shot on a
+<https://ropensci.r-universe.dev/assertr#>
+<https://testthat.r-lib.org/>
+<https://socialresearchcentre.r-universe.dev/testdat#>
+<https://socialresearchcentre.github.io/testdat/articles/testdat.html>
+<https://rstudio.r-universe.dev/pointblank#>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[Why testing data?]]></summary></entry><entry><title type="html">Saving the camera settings of a shot in the exif data of the scans</title><link href="http://localhost:4000/blog/saving-shot-metadata/" rel="alternate" type="text/html" title="Saving the camera settings of a shot in the exif data of the scans" /><published>2024-02-26T01:15:30+01:00</published><updated>2024-02-26T01:15:30+01:00</updated><id>http://localhost:4000/blog/saving-shot-metadata</id><content type="html" xml:base="http://localhost:4000/blog/saving-shot-metadata/"><![CDATA[For decades (centuries?) photographers have been writing their camera settings for each shot on a
 notebook to learn and train their eye, to organise their shots or because they are data-freaks.
 Today, you could still make notes by hand or use a dedicated smartphone app or you could be the
 proud owner of a more modern film camera that saves the shot data on a memory card.
@@ -416,40 +416,40 @@ proud owner of a more modern film camera that saves the shot data on a memory ca
 Once the film developed, by yourself or a lab, and scanned, by yourself or a lab, the scans you get
 do not have the information of the original shots. These data are on paper, on a smartphone or on a memory card.
 I downloaded the `Analog` app for my smartphone, because it is free, does not collect user data,
-it&apos;s lightweight and I loved the design, and I began saving the settings for each shot. Data was accumulating
+it's lightweight and I loved the design, and I began saving the settings for each shot. Data was accumulating
 but I was not seeing how to get it out yet.
 
 A digital camera would take the picture and save the settings inside the `jpg` or `tiff` files
 in exif data. I want the same thing for my scans!
 
-And how to get these data in the exif fields of the scans? Well surprisingly, it&apos;s not as straightforward as
+And how to get these data in the exif fields of the scans? Well surprisingly, it's not as straightforward as
 you (I) would expect. At first I did not find anything satisfying and discussing with the developers behind
 `Analog` made it clear that it was not a straightforward task for them either. We talked about workflow.
 
 The team were encouraging amateur and professional photographers to rename their
 files, well their scans, following this convention to save the settings of
 each shot. Then they developed `Analog` which of course allows users to save Shutter speed,
-Aperture, the lens&apos; focal length and exposure correction. At the end of the
+Aperture, the lens' focal length and exposure correction. At the end of the
 roll, the data is extracted and the user receives a list of name files by email:
 
-&gt; Test roll_NO01_SS50_A2.8_FL50_EX0
-&gt; Test roll_NO02_SS50_A2.8_FL50_EX0
-&gt; Test roll_NO03_SS125_A4_FL50_EX0
-&gt; Test roll_NO04_SS125_A4_FL50_EX0
+> Test roll_NO01_SS50_A2.8_FL50_EX0
+> Test roll_NO02_SS50_A2.8_FL50_EX0
+> Test roll_NO03_SS125_A4_FL50_EX0
+> Test roll_NO04_SS125_A4_FL50_EX0
 
 They hand-rename the scans or use a renaming software. OK.
 but this does not go _inside_ the files, a file name is not an ideal way
 of storing data even when using the standardised convention they created:
 NOSSAFLEX
 
-&gt; It’s as easy as the name – NOSSAFLEX has all of the information in the
-&gt; title.
-&gt;
-&gt; NO = Number  
-&gt; SS = Shutter Speed  
-&gt; A = Aperture  
-&gt; FL = Focal Length  
-&gt; EX = Exposure
+> It’s as easy as the name – NOSSAFLEX has all of the information in the
+> title.
+>
+> NO = Number  
+> SS = Shutter Speed  
+> A = Aperture  
+> FL = Focal Length  
+> EX = Exposure
 
 I could not find a way to automatically save the data on my phone to the exif slots of my scans...
 
@@ -462,7 +462,7 @@ Since I was already using the `Analog` app, I had to follow its data structure.
 
 This package relies on a file naming convention for, essentially analog,
 photography. Photographs taken on film, then developed, then scanned are lacking
-important metadata or if they have, it&apos;s from the scanning device, not the
+important metadata or if they have, it's from the scanning device, not the
 original camera.
 The nossaflex package takes NOSSAFLEX structured file names
 and can 1) batch rename corresponding pictures and 2) edit their exif data
@@ -486,20 +486,20 @@ data quality.
 
 Here is an explanation from the creators:
 
-&gt; It’s as easy as the name – NOSSAFLEX has all of the information in the
-&gt; title.
-&gt;
-&gt; NO = Number  
-&gt; SS = Shutter Speed  
-&gt; A = Aperture  
-&gt; FL = Focal Length  
-&gt; EX = Exposure
+> It’s as easy as the name – NOSSAFLEX has all of the information in the
+> title.
+>
+> NO = Number  
+> SS = Shutter Speed  
+> A = Aperture  
+> FL = Focal Length  
+> EX = Exposure
 
 NOSSAFLEX file names looks like this: `NO03_SS250_A8_FL80_EX0.jpg` or
 this: `NO34_SS30_A2.8_FL35_EX+1.tiff`!
 
-Learn more on their \[website\]{&lt;https://nossaflex.io/the-system&gt;} or on
-their \[Youtube channel\]{&lt;https://www.youtube.com/@NOSSAFLEX&gt;}.
+Learn more on their \[website\]{<https://nossaflex.io/the-system>} or on
+their \[Youtube channel\]{<https://www.youtube.com/@NOSSAFLEX>}.
 
 #### The package
 
@@ -522,8 +522,8 @@ You can install the development version of nossaflex from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages(&quot;devtools&quot;)
-# devtools::install_github(&quot;AlbanSagouis/nossaflex&quot;)
+# install.packages("devtools")
+# devtools::install_github("AlbanSagouis/nossaflex")
 ```
 
 #### Example
@@ -532,10 +532,10 @@ This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(nossaflex)
-files &lt;- c(&quot;Pictures/2024/01 02 Winter in Berlin/DSC_001034&quot;,
-           &quot;Pictures/2024/01 02 Winter in Berlin/DSC_001035&quot;,
-           &quot;Pictures/2024/01 02 Winter in Berlin/DSC_001036&quot;)
-filenames &lt;- reading_nossaflex(path = &quot;path_to_the_filenames.txt&quot;) # provided by the `analog` app
+files <- c("Pictures/2024/01 02 Winter in Berlin/DSC_001034",
+           "Pictures/2024/01 02 Winter in Berlin/DSC_001035",
+           "Pictures/2024/01 02 Winter in Berlin/DSC_001036")
+filenames <- reading_nossaflex(path = "path_to_the_filenames.txt") # provided by the `analog` app
 renaming_nossaflex(filenames = filenames, files = files)
 ```
 
@@ -543,7 +543,7 @@ Additionally you may want to safely save the shots metadata inside the
 scans:
 
 ``` r
-metadata &lt;- reading_nossaflex(path = &quot;path_to_the_filenames.txt&quot;) |&gt;  # provided by the `analog` app
+metadata <- reading_nossaflex(path = "path_to_the_filenames.txt") |>  # provided by the `analog` app
      parsing_nossaflex()
 editing_exif(files, metadata)
 ```
@@ -551,11 +551,11 @@ editing_exif(files, metadata)
 #### Related work
 
 The package relies heavily on the great
-`exiftoolr`{&lt;https://github.com/JoshOBrien/exiftoolr/&gt;} package by
+`exiftoolr`{<https://github.com/JoshOBrien/exiftoolr/>} package by
 @JoshOBrien which itself depends on the great
-`exiftool`{&lt;https://exiftool.org/&gt;} software by Phil Harvey.  
-Finally, jExifToolGUI{&lt;https://github.com/hvdwolf/jExifToolGUI&gt;} also
-offers exif editing and with a Graphical Interface, nice.</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="weekend-project" /><category term="experience" /><category term="R" /><category term="package" /><summary type="html">For decades (centuries?) photographers have been writing their camera settings for each shot on a notebook to learn and train their eye, to organise their shots or because they are data-freaks. Today, you could still make notes by hand or use a dedicated smartphone app or you could be the proud owner of a more modern film camera that saves the shot data on a memory card.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/saving-shot-metadata.png" /><media:content medium="image" url="http://localhost:4000/assets/images/saving-shot-metadata.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Tech news 8: Sharing code through your own R package</title><link href="http://localhost:4000/blog/tech-news-8/" rel="alternate" type="text/html" title="Tech news 8: Sharing code through your own R package" /><published>2024-02-16T22:37:30+01:00</published><updated>2024-02-16T22:37:30+01:00</updated><id>http://localhost:4000/blog/tech-news-8</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-8/">This month, I thought of writing a little bit about sharing code with each other.
+`exiftool`{<https://exiftool.org/>} software by Phil Harvey.  
+Finally, jExifToolGUI{<https://github.com/hvdwolf/jExifToolGUI>} also
+offers exif editing and with a Graphical Interface, nice.]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="weekend-project" /><category term="experience" /><category term="R" /><category term="package" /><summary type="html"><![CDATA[For decades (centuries?) photographers have been writing their camera settings for each shot on a notebook to learn and train their eye, to organise their shots or because they are data-freaks. Today, you could still make notes by hand or use a dedicated smartphone app or you could be the proud owner of a more modern film camera that saves the shot data on a memory card.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/saving-shot-metadata.png" /><media:content medium="image" url="http://localhost:4000/assets/images/saving-shot-metadata.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Tech news 8: Sharing code through your own R package</title><link href="http://localhost:4000/blog/tech-news-8/" rel="alternate" type="text/html" title="Tech news 8: Sharing code through your own R package" /><published>2024-02-16T22:37:30+01:00</published><updated>2024-02-16T22:37:30+01:00</updated><id>http://localhost:4000/blog/tech-news-8</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-8/"><![CDATA[This month, I thought of writing a little bit about sharing code with each other.
 
 ### Collaborating on code
 
@@ -590,11 +590,11 @@ The absolute minimum that makes an R package an R package is one DESCRIPTION fil
 
 Begin small, discover the thrill, clarity and comfort of writing documentation and tests for your functions. This will give you ways of imagining edge cases, eg thinking of the missing values, and controlling. Make a change, Ctrl+Shift+T(est), make another change, Ctrl+Shift+T, etc!
 
-&gt; Make a change, Ctrl+Shift+T(est), make another change, Ctrl+Shift+T, etc!
+> Make a change, Ctrl+Shift+T(est), make another change, Ctrl+Shift+T, etc!
 
 Take advantage of tools you already have on your computer: RStudio, the devtools, `testthat` packages for example.
 
-For whatever questions you might have while building, documenting or testing, the first DuckDuckGo result will very likely comes from Wickham’s book (&lt;https://r-pkgs.org/&gt;), it’s just so complete…
+For whatever questions you might have while building, documenting or testing, the first DuckDuckGo result will very likely comes from Wickham’s book (<https://r-pkgs.org/>), it’s just so complete…
 
 Wanna do it differently? Build the tests first to build up the framework of exactly how you want your function to behave, then write the function.
 
@@ -608,100 +608,100 @@ I hope this decreased the barrier of trying out building a package. I hope howev
 
 Best wishes,
 
-Alban</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html">This month, I thought of writing a little bit about sharing code with each other.</summary></entry><entry><title type="html">Tech news 7: Creating animated figures</title><link href="http://localhost:4000/blog/tech-news-7/" rel="alternate" type="text/html" title="Tech news 7: Creating animated figures" /><published>2024-01-26T16:57:30+01:00</published><updated>2024-01-26T16:57:30+01:00</updated><id>http://localhost:4000/blog/tech-news-7</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-7/">This week’s email is about `tidymodels`.
-&gt; The `tidymodels` framework is a collection of packages for modeling and machine learning using `tidyverse` principles.
+Alban]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[This month, I thought of writing a little bit about sharing code with each other.]]></summary></entry><entry><title type="html">Tech news 7: Creating animated figures</title><link href="http://localhost:4000/blog/tech-news-7/" rel="alternate" type="text/html" title="Tech news 7: Creating animated figures" /><published>2024-01-26T16:57:30+01:00</published><updated>2024-01-26T16:57:30+01:00</updated><id>http://localhost:4000/blog/tech-news-7</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-7/"><![CDATA[This week’s email is about `tidymodels`.
+> The `tidymodels` framework is a collection of packages for modeling and machine learning using `tidyverse` principles.
 
 `Tidymodels` offers a consistent and flexible framework for your data science and data programming needs. This tool suite is designed to streamline and simplify the process of building and tuning models, making it easier for researchers to extract meaningful insights from their data.
 
-To illustrate the use of key packages in `tidymodels`, here&apos;s a short example workflow:
+To illustrate the use of key packages in `tidymodels`, here's a short example workflow:
 
   `Workflow (`The workflow package enables you to assemble the individual components of your modeling process into a cohesive workflow. You can define the order of operations and specify the preprocessing steps, model fitting, and model evaluation`) {`
 
-  `Recipes (`The recipes package helps with data preprocessing and feature engineering. You can create a recipe to define the steps for encoding categorical variables, scaling numeric variables, and creating new features`) %&gt;%`
+  `Recipes (`The recipes package helps with data preprocessing and feature engineering. You can create a recipe to define the steps for encoding categorical variables, scaling numeric variables, and creating new features`) %>%`
 
-  `Dials (`The dials package provides a way to define tuning parameters for models. You can create a set of possible values for each parameter using the `grid_*()` functions`) %&gt;%`
+  `Dials (`The dials package provides a way to define tuning parameters for models. You can create a set of possible values for each parameter using the `grid_*()` functions`) %>%`
 
-  `Parsnip (`The parsnip package allows you to specify the type of model you want to build. For example, you can create a linear regression model using `linear_reg()` function`) %&gt;%`
+  `Parsnip (`The parsnip package allows you to specify the type of model you want to build. For example, you can create a linear regression model using `linear_reg()` function`) %>%`
 
-  `Tune (`The tune package provides functions for hyperparameter tuning. You can use the &apos;tune_*()&apos; functions to automatically search for the best combination of hyperparameters for your model using a specified tuning grid`)`
+  `Tune (`The tune package provides functions for hyperparameter tuning. You can use the 'tune_*()' functions to automatically search for the best combination of hyperparameters for your model using a specified tuning grid`)`
 `}`
 
 By utilising these packages in sequence, you can build a comprehensive modeling pipeline that includes specifying the model type, preprocessing data, tuning hyperparameters, and evaluating model performance.
 
 Here is a code example from the tidymodels “Get started” page:
 ``` r
-urchins &lt;- # Loading the data
-  readr::read_csv(&quot;https://tidymodels.org/start/models/urchins.csv&quot;) %&gt;% 
-  stats::setNames(c(&quot;food_regime&quot;, &quot;initial_volume&quot;, &quot;width&quot;)) %&gt;% 
-  dplyr::mutate(food_regime = factor(food_regime, levels = c(&quot;Initial&quot;, &quot;Low&quot;, &quot;High&quot;)))
+urchins <- # Loading the data
+  readr::read_csv("https://tidymodels.org/start/models/urchins.csv") %>% 
+  stats::setNames(c("food_regime", "initial_volume", "width")) %>% 
+  dplyr::mutate(food_regime = factor(food_regime, levels = c("Initial", "Low", "High")))
 
 # Then preparing the model: a linear regression
-parsnip::linear_reg() %&gt;% # This is the model type
-  parsnip::set_engine(&quot;keras&quot;)  # This is the engine / fitting method
-lm_mod &lt;- parsnip::linear_reg() # The default engine: “lm” is used
+parsnip::linear_reg() %>% # This is the model type
+  parsnip::set_engine("keras")  # This is the engine / fitting method
+lm_mod <- parsnip::linear_reg() # The default engine: “lm” is used
 
 # And now we fit the model:
-lm_fit &lt;- 
-  lm_mod %&gt;% 
+lm_fit <- 
+  lm_mod %>% 
   fit(width ~ initial_volume * food_regime, data = urchins)
 lm_fit
-#&gt; parsnip model object
-#&gt; 
-#&gt; 
-#&gt; Call:
-#&gt; stats::lm(formula = width ~ initial_volume * food_regime, data = data)
-#&gt; 
-#&gt; Coefficients:
-#&gt;                    (Intercept)                  initial_volume  
-#&gt;                      0.0331216                       0.0015546  
-#&gt;                 food_regimeLow                 food_regimeHigh  
-#&gt;                      0.0197824                       0.0214111  
-#&gt;  initial_volume:food_regimeLow  initial_volume:food_regimeHigh  
-#&gt;                     -0.0012594                       0.0005254
+#> parsnip model object
+#> 
+#> 
+#> Call:
+#> stats::lm(formula = width ~ initial_volume * food_regime, data = data)
+#> 
+#> Coefficients:
+#>                    (Intercept)                  initial_volume  
+#>                      0.0331216                       0.0015546  
+#>                 food_regimeLow                 food_regimeHigh  
+#>                      0.0197824                       0.0214111  
+#>  initial_volume:food_regimeLow  initial_volume:food_regimeHigh  
+#>                     -0.0012594                       0.0005254
 
 # broom::tidy() offers a clean output:
 broom::tidy(lm_fit)
-#&gt; # A tibble: 6 × 5
-#&gt;   term                                            estimate std.error statistic  p.value
-#&gt;   &lt;chr&gt;                                          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-#&gt; 1 (Intercept)                                   0.0331     0.00962      3.44  0.00100 
-#&gt; 2 initial_volume                                0.00155   0.000398      3.91  0.000222
-#&gt; 3 food_regimeLow                                0.0198      0.0130      1.52  0.133   
-#&gt; 4 food_regimeHigh                               0.0214      0.0145      1.47  0.145   
-#&gt; 5 initial_volume:food_regimeLow                -0.00126   0.000510     -2.47  0.0162  
-#&gt; 6 initial_volume:food_regimeHigh                0.000525  0.000702      0.748 0.457
+#> # A tibble: 6 × 5
+#>   term                                            estimate std.error statistic  p.value
+#>   <chr>                                          <dbl>     <dbl>     <dbl>    <dbl>
+#> 1 (Intercept)                                   0.0331     0.00962      3.44  0.00100 
+#> 2 initial_volume                                0.00155   0.000398      3.91  0.000222
+#> 3 food_regimeLow                                0.0198      0.0130      1.52  0.133   
+#> 4 food_regimeHigh                               0.0214      0.0145      1.47  0.145   
+#> 5 initial_volume:food_regimeLow                -0.00126   0.000510     -2.47  0.0162  
+#> 6 initial_volume:food_regimeHigh                0.000525  0.000702      0.748 0.457
 ```
 
 Now what if we wanted something different like a Bayesian model? No need to change everything, tidymodels functions are generic even though the underlying packages use very different syntax:
 ``` r
 # set the prior distribution
-prior_dist &lt;- rstanarm::student_t(df = 1)
+prior_dist <- rstanarm::student_t(df = 1)
 
 # make the parsnip model
-bayes_mod &lt;-   
-  parsnip::linear_reg() %&gt;% 
-  parsnip::set_engine(&quot;stan&quot;, 
+bayes_mod <-   
+  parsnip::linear_reg() %>% 
+  parsnip::set_engine("stan", 
              prior_intercept = prior_dist, 
              prior = prior_dist) 
 
 # train the model
-bayes_fit &lt;- 
-  bayes_mod %&gt;% 
+bayes_fit <- 
+  bayes_mod %>% 
   fit(width ~ initial_volume * food_regime, data = urchins)
 
 Easily create training and testing data sets with rsamples:
-urchins_split &lt;- rsamples::initial_split(urchins %&gt;% select(-width), 
+urchins_split <- rsamples::initial_split(urchins %>% select(-width), 
                             strata = class)
-urchins_train &lt;- rsamples::training(urchins_split)
-urchins_test  &lt;- rsamples::testing(urchins_split)
+urchins_train <- rsamples::training(urchins_split)
+urchins_test  <- rsamples::testing(urchins_split)
 Create a Workflow for even more reproducibility and reliability:
-urchins_wflow &lt;- 
-  workflow::workflow() %&gt;% 
-  workflow::add_model(lm_mod) %&gt;% 
+urchins_wflow <- 
+  workflow::workflow() %>% 
+  workflow::add_model(lm_mod) %>% 
   workflow::add_recipe(urchins_rec)
 Fit the model on the training data:
-urchins_fit &lt;- 
-  urchins_wflow %&gt;% 
+urchins_fit <- 
+  urchins_wflow %>% 
   fit(data = train_data)
 And easily fit and predict on the test data!
 predict(urchins_fit, test_data)
@@ -715,13 +715,13 @@ I relied heavily on the `tidymodels` “Get started” page to prepare this emai
 
 The tidyverse blog is a great resource for staying up to date with the latest tidymodels news and developments:  
 
-- Tidymodels website: &lt;https://www.tidymodels.org/&gt;
-- Tidymodels get started: &lt;https://www.tidymodels.org/start/&gt;
-- Tidymodels workshops: &lt;https://workshops.tidymodels.org/&gt;
+- Tidymodels website: <https://www.tidymodels.org/>
+- Tidymodels get started: <https://www.tidymodels.org/start/>
+- Tidymodels workshops: <https://workshops.tidymodels.org/>
 
 Happy to discuss it and collaborate!
 Best wishes,
-Alban</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html">This week’s email is about tidymodels. The tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.</summary></entry><entry><title type="html">How I moved the website to _albansagouis.com_</title><link href="http://localhost:4000/blog/website-building-5/" rel="alternate" type="text/html" title="How I moved the website to _albansagouis.com_" /><published>2024-01-17T13:34:30+01:00</published><updated>2024-01-17T13:34:30+01:00</updated><id>http://localhost:4000/blog/website-building-5</id><content type="html" xml:base="http://localhost:4000/blog/website-building-5/">The website was hosted for free by github at the address _albansagouis.github.io_, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.
+Alban]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[This week’s email is about tidymodels. The tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.]]></summary></entry><entry><title type="html">How I moved the website to _albansagouis.com_</title><link href="http://localhost:4000/blog/website-building-5/" rel="alternate" type="text/html" title="How I moved the website to _albansagouis.com_" /><published>2024-01-17T13:34:30+01:00</published><updated>2024-01-17T13:34:30+01:00</updated><id>http://localhost:4000/blog/website-building-5</id><content type="html" xml:base="http://localhost:4000/blog/website-building-5/"><![CDATA[The website was hosted for free by github at the address _albansagouis.github.io_, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.
 
 First I compared prices between some of the main domain providers such as [Namecheap][namecheap] and [domain.com][domain]. Namecheap was... cheaper and offered more options so I went for this one. I had no availability issues for my name fortunately but I hesitated for a long time between _sagouis.com_ and _albansagouis.com_. Owning _sagouis.com_ would allow me to create an infinite number of subdomains such as _alban.sagouis.com_, _work.sagouis.com_ or _photo.sagouis.com_.
 
@@ -734,13 +734,13 @@ Details change from a domain provider to another but you will have to make chang
  - your github settings so that GitHub shows your new domain instead of the default _yourname.github.io_
  - your settings on your domain provider website. This can be all very new but Github actually gives all the [necessary data][gh_DNS_records] for you to properly set the DNS records
 
-Now my first move when I&apos;m not sure about something regarding domains is to ask to the technical support chat...
+Now my first move when I'm not sure about something regarding domains is to ask to the technical support chat...
 
 [namecheap]:  https://www.namecheap.com
 [domain]:     https://www.domain.com
 [gh_domain]:  https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site
 [gh_manage]:  https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain
-[gh_DNS_records]: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#dns-records-for-your-custom-domain</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html">The website was hosted for free by github at the address albansagouis.github.io, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.</summary></entry><entry><title type="html">Building the website online or locally?</title><link href="http://localhost:4000/blog/website-building-2/" rel="alternate" type="text/html" title="Building the website online or locally?" /><published>2024-01-13T17:34:30+01:00</published><updated>2024-01-13T17:34:30+01:00</updated><id>http://localhost:4000/blog/website-building-2</id><content type="html" xml:base="http://localhost:4000/blog/website-building-2/">A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.
+[gh_DNS_records]: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#dns-records-for-your-custom-domain]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html"><![CDATA[The website was hosted for free by github at the address albansagouis.github.io, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.]]></summary></entry><entry><title type="html">Building the website online or locally?</title><link href="http://localhost:4000/blog/website-building-2/" rel="alternate" type="text/html" title="Building the website online or locally?" /><published>2024-01-13T17:34:30+01:00</published><updated>2024-01-13T17:34:30+01:00</updated><id>http://localhost:4000/blog/website-building-2</id><content type="html" xml:base="http://localhost:4000/blog/website-building-2/"><![CDATA[A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.
 
 ### Building with Github Actions
 
@@ -749,7 +749,7 @@ Until today, my process was in two steps: I was building the website locally to 
 The html files I was creating locally with `jekyll build` were not synced with git or Github.  
 
 The main disadvantage is that Github Pages does not allow downloading some plugins and I felt limited with this setup.  
-I&apos;m also looking into the future where I see that I&apos;ll be switching from `Jekyll` to `Quarto` which is booming and R based and more in tune with my global experience and profile. Github Pages use `Jekyll` to build websites not Quarto, Quarto users have to build their websites and Github Pages will &quot;only&quot; host it.
+I'm also looking into the future where I see that I'll be switching from `Jekyll` to `Quarto` which is booming and R based and more in tune with my global experience and profile. Github Pages use `Jekyll` to build websites not Quarto, Quarto users have to build their websites and Github Pages will "only" host it.
 
 ### Building locally and pushing html files
 
@@ -759,80 +759,78 @@ The change from one process to the other can be done in two steps:
   - Change the path where Jekyll will build the website: add `destination: docs/` in the `_config.yml` file.
   - `jekyll build` to create the website in `docs/`
   - Create an empty `.nojekyll` file at the root of your repository or run `touch .nojekyll` (Mac/Linux) or `copy NUL .nojekyll` (Windows) in your command line tool.
-  - (Remove `_site/` and delete &quot;_site/&quot; from `.gitignore`)
+  - (Remove `_site/` and delete "_site/" from `.gitignore`)
   - Push your changes
 2. In Github: go to the settings of your repository, go to Github Pages and edit the folder where Github Pages will look for your site: in `/docs`  
 You can consult the [Quarto documentation for more details.](https://quarto.org/docs/publishing/github-pages.html#render-to-docs)
 
-Besides better control of your environment and the ability of installing more plugins, another advantage of building locally is the possibility of having a local version of your theme (minimal-mistake in my case) locally instead of `Jekyll` downloading it every time the website is built. In my case, this reduces the build time from 10 seconds to 1... In your `_config.yml` file, just replace `remote_theme: mmistakes/minimal-mistakes` with `theme: minimal-mistakes-jekyll` and add `gem &quot;minimal-mistakes-jekyll&quot;` to your `gemfile` before running `bundle install` in your terminal.
+Besides better control of your environment and the ability of installing more plugins, another advantage of building locally is the possibility of having a local version of your theme (minimal-mistake in my case) locally instead of `Jekyll` downloading it every time the website is built. In my case, this reduces the build time from 10 seconds to 1... In your `_config.yml` file, just replace `remote_theme: mmistakes/minimal-mistakes` with `theme: minimal-mistakes-jekyll` and add `gem "minimal-mistakes-jekyll"` to your `gemfile` before running `bundle install` in your terminal.
 
 ### Additional plugins
 
-At the moment, some of the plugins I would like to use include tools [to improve the Search Engine Optimization of the website](https://github.com/jekyll/jekyll-seo-tag/tree/master) and another plugin to make tables interactive and searchable.</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html">A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.</summary></entry><entry><title type="html">My discovery of analog photography</title><link href="http://localhost:4000/blog/discovery-analog-photography/" rel="alternate" type="text/html" title="My discovery of analog photography" /><published>2024-01-11T01:15:30+01:00</published><updated>2024-01-11T01:15:30+01:00</updated><id>http://localhost:4000/blog/discovery-analog-photography</id><content type="html" xml:base="http://localhost:4000/blog/discovery-analog-photography/">&lt;p&gt;I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.&lt;/p&gt;
+At the moment, some of the plugins I would like to use include tools [to improve the Search Engine Optimization of the website](https://github.com/jekyll/jekyll-seo-tag/tree/master) and another plugin to make tables interactive and searchable.]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html"><![CDATA[A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.]]></summary></entry><entry><title type="html">My discovery of analog photography</title><link href="http://localhost:4000/blog/discovery-analog-photography/" rel="alternate" type="text/html" title="My discovery of analog photography" /><published>2024-01-11T01:15:30+01:00</published><updated>2024-01-11T01:15:30+01:00</updated><id>http://localhost:4000/blog/discovery-analog-photography</id><content type="html" xml:base="http://localhost:4000/blog/discovery-analog-photography/"><![CDATA[<p>I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.</p>
 
-&lt;p&gt;I began looking for an analog camera and I received a Nikon EM with a Nikon Nikkor series E 50mm 1/1.8 as a present. An analog camera with actual film that you buy and you pay to develop, with silver ions and toxic chemistry that made me think each shot and make only one. A prime lens that would force me to move closer or further by walking. Finally I could take the time to think about the composition of the shot instead of taking as many pictures as fast as I could before a bird would take off. And black and white film with an explosion of contrast!&lt;/p&gt;
+<p>I began looking for an analog camera and I received a Nikon EM with a Nikon Nikkor series E 50mm 1/1.8 as a present. An analog camera with actual film that you buy and you pay to develop, with silver ions and toxic chemistry that made me think each shot and make only one. A prime lens that would force me to move closer or further by walking. Finally I could take the time to think about the composition of the shot instead of taking as many pictures as fast as I could before a bird would take off. And black and white film with an explosion of contrast!</p>
 
-&lt;p&gt;This was a very welcome change and the Nikon EM served me very well. Its metering accuracy and reliability are impressive, especially knowing that it was made in 1979. However, the EM offering Aperture priority mode only, I’m sometimes limited by the absence of control of the speed and I’ve been looking for a replacement but this will be the subject of another blog post.&lt;br /&gt;
-In the meantime, here is a picture of a Nikon EM:&lt;/p&gt;
+<p>This was a very welcome change and the Nikon EM served me very well. Its metering accuracy and reliability are impressive, especially knowing that it was made in 1979. However, the EM offering Aperture priority mode only, I’m sometimes limited by the absence of control of the speed and I’ve been looking for a replacement but this will be the subject of another blog post.<br />
+In the meantime, here is a picture of a Nikon EM:</p>
 
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/discovery-analog-photography/Nikon_EM.jpeg&quot; alt=&quot;Nikon EM&quot; /&gt;&lt;figcaption&gt;
-      Nikon EM by Neil916 at English Wikipedia, CC BY 3.0, &lt;a href=&quot;https://commons.wikimedia.org/w/index.php?curid=129511821&quot;&gt;https://commons.wikimedia.org/w/index.php?curid=129511821&lt;/a&gt;
+<figure class=""><img src="/assets/images/discovery-analog-photography/Nikon_EM.jpeg" alt="Nikon EM" /><figcaption>
+      Nikon EM by Neil916 at English Wikipedia, CC BY 3.0, <a href="https://commons.wikimedia.org/w/index.php?curid=129511821">https://commons.wikimedia.org/w/index.php?curid=129511821</a>
 
-    &lt;/figcaption&gt;&lt;/figure&gt;
+    </figcaption></figure>
 
-&lt;p&gt;And some of my shots with it:&lt;/p&gt;
+<p>And some of my shots with it:</p>
 
-&lt;figure class=&quot;third &quot;&gt;
+<figure class="third ">
   
     
-      &lt;a href=&quot;/assets/images/discovery-analog-photography/000002.jpeg&quot; title=&quot;My first ever analog photography, Ilford HP5 400 ASA&quot;&gt;
-          &lt;img src=&quot;/assets/images/discovery-analog-photography/000002.jpeg&quot; alt=&quot;My first ever analog photography, Ilford HP5 400 ASA&quot; /&gt;
-      &lt;/a&gt;
-    
-  
-    
-      &lt;a href=&quot;/assets/images/discovery-analog-photography/000037.jpeg&quot; title=&quot;Karl-Marx-Platz, Berlin, f/16 1/30s Ilford HP5 400 ASA&quot;&gt;
-          &lt;img src=&quot;/assets/images/discovery-analog-photography/000037.jpeg&quot; alt=&quot;Karl-Marx-Platz, Berlin&quot; /&gt;
-      &lt;/a&gt;
+      <a href="/assets/images/discovery-analog-photography/000002.jpeg" title="My first ever analog photography, Ilford HP5 400 ASA">
+          <img src="/assets/images/discovery-analog-photography/000002.jpeg" alt="My first ever analog photography, Ilford HP5 400 ASA" />
+      </a>
     
   
     
-      &lt;a href=&quot;/assets/images/discovery-analog-photography/DSC_0166.jpeg&quot; title=&quot;Christmas, Ilford HP5 400 ASA&quot;&gt;
-          &lt;img src=&quot;/assets/images/discovery-analog-photography/DSC_0166.jpeg&quot; alt=&quot;Christmas, Ilford HP5 400 ASA&quot; /&gt;
-      &lt;/a&gt;
+      <a href="/assets/images/discovery-analog-photography/000037.jpeg" title="Karl-Marx-Platz, Berlin, f/16 1/30s Ilford HP5 400 ASA">
+          <img src="/assets/images/discovery-analog-photography/000037.jpeg" alt="Karl-Marx-Platz, Berlin" />
+      </a>
     
   
     
-      &lt;a href=&quot;/assets/images/discovery-analog-photography/DSC_0168.jpeg&quot; title=&quot;Spanish bar, Ilford HP5 400 ASA&quot;&gt;
-          &lt;img src=&quot;/assets/images/discovery-analog-photography/DSC_0168.jpeg&quot; alt=&quot;Spanish bar, Ilford HP5 400 ASA&quot; /&gt;
-      &lt;/a&gt;
+      <a href="/assets/images/discovery-analog-photography/DSC_0166.jpeg" title="Christmas, Ilford HP5 400 ASA">
+          <img src="/assets/images/discovery-analog-photography/DSC_0166.jpeg" alt="Christmas, Ilford HP5 400 ASA" />
+      </a>
     
   
     
-      &lt;a href=&quot;/assets/images/discovery-analog-photography/DSC_0180.jpeg&quot; title=&quot;Dinner, Ilford HP5 400 ASA&quot;&gt;
-          &lt;img src=&quot;/assets/images/discovery-analog-photography/DSC_0180.jpeg&quot; alt=&quot;Dinner, Ilford HP5 400 ASA&quot; /&gt;
-      &lt;/a&gt;
+      <a href="/assets/images/discovery-analog-photography/DSC_0168.jpeg" title="Spanish bar, Ilford HP5 400 ASA">
+          <img src="/assets/images/discovery-analog-photography/DSC_0168.jpeg" alt="Spanish bar, Ilford HP5 400 ASA" />
+      </a>
     
   
     
-      &lt;a href=&quot;/assets/images/discovery-analog-photography/DSC_0193.jpeg&quot; title=&quot;Berlin Culture Carnival, Ilford HP5 400 ASA&quot;&gt;
-          &lt;img src=&quot;/assets/images/discovery-analog-photography/DSC_0193.jpeg&quot; alt=&quot;Berlin Culture Carnival, Ilford HP5 400 ASA&quot; /&gt;
-      &lt;/a&gt;
+      <a href="/assets/images/discovery-analog-photography/DSC_0180.jpeg" title="Dinner, Ilford HP5 400 ASA">
+          <img src="/assets/images/discovery-analog-photography/DSC_0180.jpeg" alt="Dinner, Ilford HP5 400 ASA" />
+      </a>
+    
+  
+    
+      <a href="/assets/images/discovery-analog-photography/DSC_0193.jpeg" title="Berlin Culture Carnival, Ilford HP5 400 ASA">
+          <img src="/assets/images/discovery-analog-photography/DSC_0193.jpeg" alt="Berlin Culture Carnival, Ilford HP5 400 ASA" />
+      </a>
     
   
   
-    &lt;figcaption&gt;For some of these shots, I scanned the negs myself, more on this later.
-&lt;/figcaption&gt;
+    <figcaption>For some of these shots, I scanned the negs myself, more on this later.
+</figcaption>
   
-&lt;/figure&gt;
+</figure>
 
-&lt;p&gt;Taking pictures of birds now certainly is a different kind of fun but hey, here is my first analog bird photo: a booted eagle photographed at full zoom 80mm! with auto-focus and sport mode with a Canon EOS 500 on Kodak Ultra 400ASA! I don’t know about you but I don’t see feathers or eyes…&lt;/p&gt;
-&lt;figure class=&quot;&quot;&gt;
-  &lt;img src=&quot;/assets/images/discovery-analog-photography/1197143.jpeg&quot; alt=&quot;Booted eagle&quot; /&gt;&lt;/figure&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="gear" /><summary type="html">I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/discovery-analog-photography/Nikon_EM.jpeg" /><media:content medium="image" url="http://localhost:4000/assets/images/discovery-analog-photography/Nikon_EM.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How I created this website</title><link href="http://localhost:4000/blog/website-building-1/" rel="alternate" type="text/html" title="How I created this website" /><published>2024-01-10T13:34:30+01:00</published><updated>2024-01-10T13:34:30+01:00</updated><id>http://localhost:4000/blog/website-building-1</id><content type="html" xml:base="http://localhost:4000/blog/website-building-1/">&lt;p&gt;This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it.&lt;br /&gt;
+<p>Taking pictures of birds now certainly is a different kind of fun but hey, here is my first analog bird photo: a booted eagle photographed at full zoom 80mm! with auto-focus and sport mode with a Canon EOS 500 on Kodak Ultra 400ASA! I don’t know about you but I don’t see feathers or eyes…</p>
+<figure class=""><img src="/assets/images/discovery-analog-photography/1197143.jpeg" alt="Booted eagle" /></figure>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="gear" /><summary type="html"><![CDATA[I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/discovery-analog-photography/Nikon_EM.jpeg" /><media:content medium="image" url="http://localhost:4000/assets/images/discovery-analog-photography/Nikon_EM.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How I created this website</title><link href="http://localhost:4000/blog/website-building-1/" rel="alternate" type="text/html" title="How I created this website" /><published>2024-01-10T13:34:30+01:00</published><updated>2024-01-10T13:34:30+01:00</updated><id>http://localhost:4000/blog/website-building-1</id><content type="html" xml:base="http://localhost:4000/blog/website-building-1/"><![CDATA[<p>This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it.<br />
 I downloaded the minimal mistake repo from github and began working in VSC. Since I built the Restore project website on the same computer a few months ago, I naively thought everything would work from the first try. I actually had a few errors but it was a great satisfaction to follow
-the recommendations I left for the Restore project members, for myself and for other readers, and every thing was quickly solved and the website was running in less than an hour.&lt;/p&gt;
+the recommendations I left for the Restore project members, for myself and for other readers, and every thing was quickly solved and the website was running in less than an hour.</p>
 
-&lt;p&gt;Beginning summer 2023, I built the &lt;a href=&quot;https://www.globalrestoreproject.com/&quot;&gt;Restore project website&lt;/a&gt; and documented the process in a [step by step Markdown][guide_link] hosted in the &lt;a href=&quot;https://github.com/global-restore-project/grp_website&quot;&gt;Github repository.&lt;/a&gt; In the following September, I shared with my team and interested members of iDiv a more general guide on website building, the easy way using &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages.&lt;/a&gt; This newsletter is available as a blog post &lt;a href=&quot;/blog/tech-news-3/&quot;&gt;here on this website.&lt;/a&gt;&lt;/p&gt;
+<p>Beginning summer 2023, I built the <a href="https://www.globalrestoreproject.com/">Restore project website</a> and documented the process in a [step by step Markdown][guide_link] hosted in the <a href="https://github.com/global-restore-project/grp_website">Github repository.</a> In the following September, I shared with my team and interested members of iDiv a more general guide on website building, the easy way using <a href="https://pages.github.com/">Github Pages.</a> This newsletter is available as a blog post <a href="/blog/tech-news-3/">here on this website.</a></p>
 
-&lt;p&gt;Changing the domain name of the Restore website from Github Pages to a dedicated domain name was another adventure…&lt;/p&gt;</content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html">This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it. I downloaded the minimal mistake repo from github and began working in VSC. Since I built the Restore project website on the same computer a few months ago, I naively thought everything would work from the first try. I actually had a few errors but it was a great satisfaction to follow the recommendations I left for the Restore project members, for myself and for other readers, and every thing was quickly solved and the website was running in less than an hour.</summary></entry></feed>
+<p>Changing the domain name of the Restore website from Github Pages to a dedicated domain name was another adventure…</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html"><![CDATA[This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it. I downloaded the minimal mistake repo from github and began working in VSC. Since I built the Restore project website on the same computer a few months ago, I naively thought everything would work from the first try. I actually had a few errors but it was a great satisfaction to follow the recommendations I left for the Restore project members, for myself and for other readers, and every thing was quickly solved and the website was running in less than an hour.]]></summary></entry></feed>
