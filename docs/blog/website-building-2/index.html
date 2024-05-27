@@ -9,7 +9,7 @@
   <head>
     <head>
   
-  <title>My discovery of analog photography | </title>
+  <title>Building the website online or locally? | </title>
   <meta charset="utf-8" />
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
@@ -207,15 +207,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="My discovery of analog photography">
-    <meta itemprop="description" content="I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.">
-    <meta itemprop="datePublished" content="2024-01-11T01:15:30+01:00">
+    <meta itemprop="headline" content="Building the website online or locally?">
+    <meta itemprop="description" content="A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.">
+    <meta itemprop="datePublished" content="2024-01-13T17:34:30+01:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">My discovery of analog photography
+          <h1 id="page-title" class="page__title" itemprop="headline">Building the website online or locally?
 </h1>
           
 
@@ -225,7 +225,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2024-01-11T01:15:30+01:00">January 11, 2024</time>
+        <time datetime="2024-01-13T17:34:30+01:00">January 13, 2024</time>
       </span>
     
 
@@ -238,7 +238,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -250,69 +250,40 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.</p>
+        <p>A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.</p>
 
-<p>I began looking for an analog camera and I received a Nikon EM with a Nikon Nikkor series E 50mm 1/1.8 as a present. An analog camera with actual film that you buy and you pay to develop, with silver ions and toxic chemistry that made me think each shot and make only one. A prime lens that would force me to move closer or further by walking. Finally I could take the time to think about the composition of the shot instead of taking as many pictures as fast as I could before a bird would take off. And black and white film with an explosion of contrast!</p>
+<h3 id="building-with-github-actions">Building with Github Actions</h3>
 
-<p>This was a very welcome change and the Nikon EM served me very well. Its metering accuracy and reliability are impressive, especially knowing that it was made in 1979. However, the EM offering Aperture priority mode only, I’m sometimes limited by the absence of control of the speed and I’ve been looking for a replacement but this will be the subject of another blog post.<br />
-In the meantime, here is a picture of a Nikon EM:</p>
+<p>Github Pages leverage the powerful capabilities of Github Actions to build <code class="language-plaintext highlighter-rouge">Jekyll</code> websites online. This saves you from having to install anything on your computer, just write your Markdown content in your usual IDE or even directly on Github.
+Until today, my process was in two steps: I was building the website locally to have a very interactive building process and then I would push the code and let Github Pages build the website another time. Before pushing any changes to Github, I could build, see the rendered modifications in the website in several cautious steps without waiting for the Github Action to finish.
+The html files I was creating locally with <code class="language-plaintext highlighter-rouge">jekyll build</code> were not synced with git or Github.</p>
 
-<figure class="">
-  <img src="/assets/images/discovery-analog-photography/Nikon_EM.jpeg" alt="Nikon EM" /><figcaption>
-      Nikon EM by Neil916 at English Wikipedia, CC BY 3.0, <a href="https://commons.wikimedia.org/w/index.php?curid=129511821">https://commons.wikimedia.org/w/index.php?curid=129511821</a>
+<p>The main disadvantage is that Github Pages does not allow downloading some plugins and I felt limited with this setup.<br />
+I’m also looking into the future where I see that I’ll be switching from <code class="language-plaintext highlighter-rouge">Jekyll</code> to <code class="language-plaintext highlighter-rouge">Quarto</code> which is booming and R based and more in tune with my global experience and profile. Github Pages use <code class="language-plaintext highlighter-rouge">Jekyll</code> to build websites not Quarto, Quarto users have to build their websites and Github Pages will “only” host it.</p>
 
-    </figcaption></figure>
+<h3 id="building-locally-and-pushing-html-files">Building locally and pushing html files</h3>
 
-<p>And some of my shots with it:</p>
+<p>The change from one process to the other can be done in two steps:</p>
 
-<figure class="third ">
-  
-    
-      <a href="/assets/images/discovery-analog-photography/000002.jpeg" title="My first ever analog photography, Ilford HP5 400 ASA">
-          <img src="/assets/images/discovery-analog-photography/000002.jpeg" alt="My first ever analog photography, Ilford HP5 400 ASA" />
-      </a>
-    
-  
-    
-      <a href="/assets/images/discovery-analog-photography/000037.jpeg" title="Karl-Marx-Platz, Berlin, f/16 1/30s Ilford HP5 400 ASA">
-          <img src="/assets/images/discovery-analog-photography/000037.jpeg" alt="Karl-Marx-Platz, Berlin" />
-      </a>
-    
-  
-    
-      <a href="/assets/images/discovery-analog-photography/DSC_0166.jpeg" title="Christmas, Ilford HP5 400 ASA">
-          <img src="/assets/images/discovery-analog-photography/DSC_0166.jpeg" alt="Christmas, Ilford HP5 400 ASA" />
-      </a>
-    
-  
-    
-      <a href="/assets/images/discovery-analog-photography/DSC_0168.jpeg" title="Spanish bar, Ilford HP5 400 ASA">
-          <img src="/assets/images/discovery-analog-photography/DSC_0168.jpeg" alt="Spanish bar, Ilford HP5 400 ASA" />
-      </a>
-    
-  
-    
-      <a href="/assets/images/discovery-analog-photography/DSC_0180.jpeg" title="Dinner, Ilford HP5 400 ASA">
-          <img src="/assets/images/discovery-analog-photography/DSC_0180.jpeg" alt="Dinner, Ilford HP5 400 ASA" />
-      </a>
-    
-  
-    
-      <a href="/assets/images/discovery-analog-photography/DSC_0193.jpeg" title="Berlin Culture Carnival, Ilford HP5 400 ASA">
-          <img src="/assets/images/discovery-analog-photography/DSC_0193.jpeg" alt="Berlin Culture Carnival, Ilford HP5 400 ASA" />
-      </a>
-    
-  
-  
-    <figcaption>For some of these shots, I scanned the negs myself, more on this later.
-</figcaption>
-  
-</figure>
+<ol>
+  <li>Locally:
+    <ul>
+      <li>Change the path where Jekyll will build the website: add <code class="language-plaintext highlighter-rouge">destination: docs/</code> in the <code class="language-plaintext highlighter-rouge">_config.yml</code> file.</li>
+      <li><code class="language-plaintext highlighter-rouge">jekyll build</code> to create the website in <code class="language-plaintext highlighter-rouge">docs/</code></li>
+      <li>Create an empty <code class="language-plaintext highlighter-rouge">.nojekyll</code> file at the root of your repository or run <code class="language-plaintext highlighter-rouge">touch .nojekyll</code> (Mac/Linux) or <code class="language-plaintext highlighter-rouge">copy NUL .nojekyll</code> (Windows) in your command line tool.</li>
+      <li>(Remove <code class="language-plaintext highlighter-rouge">_site/</code> and delete “_site/” from <code class="language-plaintext highlighter-rouge">.gitignore</code>)</li>
+      <li>Push your changes</li>
+    </ul>
+  </li>
+  <li>In Github: go to the settings of your repository, go to Github Pages and edit the folder where Github Pages will look for your site: in <code class="language-plaintext highlighter-rouge">/docs</code><br />
+You can consult the <a href="https://quarto.org/docs/publishing/github-pages.html#render-to-docs">Quarto documentation for more details.</a></li>
+</ol>
 
-<p>Taking pictures of birds now certainly is a different kind of fun but hey, here is my first analog bird photo: a booted eagle photographed at full zoom 80mm! with auto-focus and sport mode with a Canon EOS 500 on Kodak Ultra 400ASA! I don’t know about you but I don’t see feathers or eyes…</p>
-<figure class="">
-  <img src="/assets/images/discovery-analog-photography/1197143.jpeg" alt="Booted eagle" /></figure>
+<p>Besides better control of your environment and the ability of installing more plugins, another advantage of building locally is the possibility of having a local version of your theme (minimal-mistake in my case) locally instead of <code class="language-plaintext highlighter-rouge">Jekyll</code> downloading it every time the website is built. In my case, this reduces the build time from 10 seconds to 1… In your <code class="language-plaintext highlighter-rouge">_config.yml</code> file, just replace <code class="language-plaintext highlighter-rouge">remote_theme: mmistakes/minimal-mistakes</code> with <code class="language-plaintext highlighter-rouge">theme: minimal-mistakes-jekyll</code> and add <code class="language-plaintext highlighter-rouge">gem "minimal-mistakes-jekyll"</code> to your <code class="language-plaintext highlighter-rouge">gemfile</code> before running <code class="language-plaintext highlighter-rouge">bundle install</code> in your terminal.</p>
 
+<h3 id="additional-plugins">Additional plugins</h3>
+
+<p>At the moment, some of the plugins I would like to use include tools <a href="https://github.com/jekyll/jekyll-seo-tag/tree/master">to improve the Search Engine Optimization of the website</a> and another plugin to make tables interactive and searchable.</p>
 
         
       </section>
@@ -329,9 +300,9 @@ In the meantime, here is a picture of a Nikon EM:</p>
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#gear" class="page__taxonomy-item" rel="tag">gear</a><span class="sep">, </span>
+      <a href="/tags/#experience" class="page__taxonomy-item" rel="tag">experience</a><span class="sep">, </span>
     
-      <a href="/tags/#photography" class="page__taxonomy-item" rel="tag">photography</a>
+      <a href="/tags/#webdev" class="page__taxonomy-item" rel="tag">webdev</a>
     
     </span>
   </p>
@@ -356,7 +327,7 @@ In the meantime, here is a picture of a Nikon EM:</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-01-11T01:15:30+01:00">January 11, 2024</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-01-13T17:34:30+01:00">January 13, 2024</time></p>
 
 
       </footer>
@@ -366,11 +337,11 @@ In the meantime, here is a picture of a Nikon EM:</p>
       
   <nav class="pagination">
     
-      <a href="/blog/website-building-1/" class="pagination--pager" title="How I created this website
+      <a href="/blog/discovery-analog-photography/" class="pagination--pager" title="My discovery of analog photography
 ">Previous</a>
     
     
-      <a href="/blog/website-building-2/" class="pagination--pager" title="Building the website online or locally?
+      <a href="/blog/website-building-5/" class="pagination--pager" title="How I moved the website to albansagouis.com
 ">Next</a>
     
   </nav>

@@ -14,7 +14,7 @@ First I compared prices between some of the main domain providers such as [Namec
 
 Anyway, I acquired the domain name _albansagouis.com_ on [Namecheap][namecheap].  
 
-Then I read [Github Pages documentation][gh_domain] again! More specifically how to [manage your domain.][gh_manage]. I explored the namecheap settings and through trial and error, getting confused why things were not working and then realising that the order in which the steps are done matter and then sometimes, the domain change process just takes time to happen...
+Then I read [Github Pages documentation][gh_domain] again! More specifically how to [manage your domain.][gh_manage] I explored the namecheap settings and through trial and error, getting confused why things were not working and then realising that the order in which the steps are done matter and then sometimes, the domain change process just takes time to happen...
 
 Details change from a domain provider to another but you will have to make changes to
 

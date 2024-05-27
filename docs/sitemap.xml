@@ -33,6 +33,14 @@
 <lastmod>2024-01-11T01:15:30+01:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/blog/website-building-2/</loc>
+<lastmod>2024-01-13T17:34:30+01:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/blog/website-building-5/</loc>
+<lastmod>2024-01-17T13:34:30+01:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/blog/tech-news-7/</loc>
 <lastmod>2024-01-26T16:57:30+01:00</lastmod>
 </url>
@@ -76,5 +84,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/page2/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page3/</loc>
 </url>
 </urlset>
