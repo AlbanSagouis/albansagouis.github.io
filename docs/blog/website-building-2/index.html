@@ -9,7 +9,7 @@
   <head>
     <head>
   
-  <title>Tech news 1: Spatial packages | </title>
+  <title>Building the website online or locally? | </title>
   <meta charset="utf-8" />
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
@@ -207,15 +207,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Tech news 1: Spatial packages">
-    <meta itemprop="description" content="Hi team,">
-    <meta itemprop="datePublished" content="2023-07-21T15:51:30+02:00">
+    <meta itemprop="headline" content="Building the website online or locally?">
+    <meta itemprop="description" content="A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.">
+    <meta itemprop="datePublished" content="2024-01-13T17:34:30+01:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Tech news 1: Spatial packages
+          <h1 id="page-title" class="page__title" itemprop="headline">Building the website online or locally?
 </h1>
           
 
@@ -225,7 +225,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2023-07-21T15:51:30+02:00">July 21, 2023</time>
+        <time datetime="2024-01-13T17:34:30+01:00">January 13, 2024</time>
       </span>
     
 
@@ -238,7 +238,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -250,42 +250,40 @@
 
       <section class="page__content" itemprop="text">
         
-        <h3 id="hi-team">Hi team,</h3>
+        <p>A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.</p>
 
-<p>There is important news I want to share with you and I thought I could make this a regular thing so every third Friday of the month, I’ll send news that I think are useful for us all.</p>
+<h3 id="building-with-github-actions">Building with Github Actions</h3>
 
-<p>For this first ’tech news’ mail, the programmed deprecation of the most widely used spatial packages. You’ve heard about it but it’s getting closer so let’s talk about it.</p>
+<p>Github Pages leverage the powerful capabilities of Github Actions to build <code class="language-plaintext highlighter-rouge">Jekyll</code> websites online. This saves you from having to install anything on your computer, just write your Markdown content in your usual IDE or even directly on Github.
+Until today, my process was in two steps: I was building the website locally to have a very interactive building process and then I would push the code and let Github Pages build the website another time. Before pushing any changes to Github, I could build, see the rendered modifications in the website in several cautious steps without waiting for the Github Action to finish.
+The html files I was creating locally with <code class="language-plaintext highlighter-rouge">jekyll build</code> were not synced with git or Github.</p>
 
-<h3 id="which-packages-will-be-deprecated">Which packages will be deprecated?</h3>
+<p>The main disadvantage is that Github Pages does not allow downloading some plugins and I felt limited with this setup.<br />
+I’m also looking into the future where I see that I’ll be switching from <code class="language-plaintext highlighter-rouge">Jekyll</code> to <code class="language-plaintext highlighter-rouge">Quarto</code> which is booming and R based and more in tune with my global experience and profile. Github Pages use <code class="language-plaintext highlighter-rouge">Jekyll</code> to build websites not Quarto, Quarto users have to build their websites and Github Pages will “only” host it.</p>
 
-<p>In 2-3 months from now <code class="language-plaintext highlighter-rouge">rgeos</code>, <code class="language-plaintext highlighter-rouge">rgdal</code> and <code class="language-plaintext highlighter-rouge">maptools</code> will be withdrawn from CRAN. The <code class="language-plaintext highlighter-rouge">sp</code> and <code class="language-plaintext highlighter-rouge">raster</code> packages are affected and will be superseded by <code class="language-plaintext highlighter-rouge">sf</code> and terra respectively:</p>
-<blockquote>
-  <p>The <code class="language-plaintext highlighter-rouge">sp</code> package is not going to be removed from CRAN soon, but it is good to stop using it because it is no longer being actively developed.</p>
-</blockquote>
+<h3 id="building-locally-and-pushing-html-files">Building locally and pushing html files</h3>
 
-<p>Dozens of other packages using them will also be affected increasing the chances that you will be affected. Here are some packages that you might be using that depend on <code class="language-plaintext highlighter-rouge">sp</code> in the background: <code class="language-plaintext highlighter-rouge">CoordinateCleaner</code>, <code class="language-plaintext highlighter-rouge">RgoogleMaps</code>, <code class="language-plaintext highlighter-rouge">ggOceanMaps</code>, <code class="language-plaintext highlighter-rouge">ecospat</code>, <code class="language-plaintext highlighter-rouge">leaflet</code>.</p>
+<p>The change from one process to the other can be done in two steps:</p>
 
-<h3 id="what-can-we-do">What can we do?</h3>
+<ol>
+  <li>Locally:
+    <ul>
+      <li>Change the path where Jekyll will build the website: add <code class="language-plaintext highlighter-rouge">destination: docs/</code> in the <code class="language-plaintext highlighter-rouge">_config.yml</code> file.</li>
+      <li><code class="language-plaintext highlighter-rouge">jekyll build</code> to create the website in <code class="language-plaintext highlighter-rouge">docs/</code></li>
+      <li>Create an empty <code class="language-plaintext highlighter-rouge">.nojekyll</code> file at the root of your repository or run <code class="language-plaintext highlighter-rouge">touch .nojekyll</code> (Mac/Linux) or <code class="language-plaintext highlighter-rouge">copy NUL .nojekyll</code> (Windows) in your command line tool.</li>
+      <li>(Remove <code class="language-plaintext highlighter-rouge">_site/</code> and delete “_site/” from <code class="language-plaintext highlighter-rouge">.gitignore</code>)</li>
+      <li>Push your changes</li>
+    </ul>
+  </li>
+  <li>In Github: go to the settings of your repository, go to Github Pages and edit the folder where Github Pages will look for your site: in <code class="language-plaintext highlighter-rouge">/docs</code><br />
+You can consult the <a href="https://quarto.org/docs/publishing/github-pages.html#render-to-docs">Quarto documentation for more details.</a></li>
+</ol>
 
-<p>The developers are trying to make things easier for us by changing things in the background: <code class="language-plaintext highlighter-rouge">sp</code> will not use <code class="language-plaintext highlighter-rouge">rgdal</code> and <code class="language-plaintext highlighter-rouge">rgeos</code> anymore but <code class="language-plaintext highlighter-rouge">sf</code>. Just updating <code class="language-plaintext highlighter-rouge">sp</code> in your system and having <code class="language-plaintext highlighter-rouge">sf</code> installed could work without you having to make any change to your scripts but most likely things will break and checks are necessary.</p>
+<p>Besides better control of your environment and the ability of installing more plugins, another advantage of building locally is the possibility of having a local version of your theme (minimal-mistake in my case) locally instead of <code class="language-plaintext highlighter-rouge">Jekyll</code> downloading it every time the website is built. In my case, this reduces the build time from 10 seconds to 1… In your <code class="language-plaintext highlighter-rouge">_config.yml</code> file, just replace <code class="language-plaintext highlighter-rouge">remote_theme: mmistakes/minimal-mistakes</code> with <code class="language-plaintext highlighter-rouge">theme: minimal-mistakes-jekyll</code> and add <code class="language-plaintext highlighter-rouge">gem "minimal-mistakes-jekyll"</code> to your <code class="language-plaintext highlighter-rouge">gemfile</code> before running <code class="language-plaintext highlighter-rouge">bundle install</code> in your terminal.</p>
 
-<p>In new code, the r spatial consortium strongly encourages you to switch to <code class="language-plaintext highlighter-rouge">sf</code> or <code class="language-plaintext highlighter-rouge">terra</code> and not use <code class="language-plaintext highlighter-rouge">sp</code> and <code class="language-plaintext highlighter-rouge">raster</code> anymore.</p>
+<h3 id="additional-plugins">Additional plugins</h3>
 
-<p>You can look into your old projects, looking for “sp”, “rgdal”, “rgeos” or “maptools”, using Ctrl-Shit-F (Or Cmd-Shift-F) in Rstudio or your system explorer and replace them with the equivalent <code class="language-plaintext highlighter-rouge">sf</code> functions smartly listed here: <a href="https://geocompx.org/post/2023/rgdal-retirement/">rgdal-retirement</a> .
-If you decide not to update the old projects, you could use <code class="language-plaintext highlighter-rouge">renv</code> to save <code class="language-plaintext highlighter-rouge">rgdal</code> and <code class="language-plaintext highlighter-rouge">rgeos</code> packages in your project but even this would eventually break as they depend on other resources in your system that are not saved by <code class="language-plaintext highlighter-rouge">renv</code>.</p>
-
-<h4 id="resources">Resources:</h4>
-
-<ul>
-  <li><a href="https://r-spatial.org/book/">The r-spatial book</a></li>
-  <li>The <a href="https://asdar-book.org/">Applied Spatial Data Analysis with R book</a> has examples using <code class="language-plaintext highlighter-rouge">sp</code> and <code class="language-plaintext highlighter-rouge">sf</code> or <code class="language-plaintext highlighter-rouge">raster</code> and <code class="language-plaintext highlighter-rouge">terra</code> to see the differences.</li>
-</ul>
-
-<p>I would be happy to help with this transition or with any other repo structure/function writing/code problem solving you might have.</p>
-
-<p>Cheers,</p>
-
-<p>Alban</p>
+<p>At the moment, some of the plugins I would like to use include tools <a href="https://github.com/jekyll/jekyll-seo-tag/tree/master">to improve the Search Engine Optimization of the website</a> and another plugin to make tables interactive and searchable.</p>
 
         
       </section>
@@ -302,17 +300,9 @@ If you decide not to update the old projects, you could use <code class="languag
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#gis" class="page__taxonomy-item" rel="tag">GIS</a><span class="sep">, </span>
+      <a href="/tags/#experience" class="page__taxonomy-item" rel="tag">experience</a><span class="sep">, </span>
     
-      <a href="/tags/#package" class="page__taxonomy-item" rel="tag">package</a><span class="sep">, </span>
-    
-      <a href="/tags/#r" class="page__taxonomy-item" rel="tag">R</a><span class="sep">, </span>
-    
-      <a href="/tags/#renv" class="page__taxonomy-item" rel="tag">renv</a><span class="sep">, </span>
-    
-      <a href="/tags/#reproducibility" class="page__taxonomy-item" rel="tag">reproducibility</a><span class="sep">, </span>
-    
-      <a href="/tags/#technews" class="page__taxonomy-item" rel="tag">technews</a>
+      <a href="/tags/#webdev" class="page__taxonomy-item" rel="tag">webdev</a>
     
     </span>
   </p>
@@ -337,7 +327,7 @@ If you decide not to update the old projects, you could use <code class="languag
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-07-21T15:51:30+02:00">July 21, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-01-13T17:34:30+01:00">January 13, 2024</time></p>
 
 
       </footer>
@@ -347,10 +337,11 @@ If you decide not to update the old projects, you could use <code class="languag
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/blog/discovery-analog-photography/" class="pagination--pager" title="My discovery of analog photography
+">Previous</a>
     
     
-      <a href="/blog/tech-news-2/" class="pagination--pager" title="Tech news 2: Publishing code
+      <a href="/blog/website-building-5/" class="pagination--pager" title="How I moved the website to albansagouis.com
 ">Next</a>
     
   </nav>

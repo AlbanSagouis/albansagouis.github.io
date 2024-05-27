@@ -75,7 +75,7 @@ plugins:
 author:
   name   : "Alban Sagouis"
   avatar : "/assets/images/portrait_with_scarf.jpeg"
-  bio    : "R programmer, reproducibility software advocate and community ecologist"
+  bio    : "R programmer, software reproducibility advocate and community ecologist"
   links:
     - label: "iDiv website"
       icon: "fas fa-fw fa-link"
@@ -83,18 +83,19 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: https://github.com/albansagouis
-    - label: orcid
+    - label: ORCID
       icon: "fab fa-fw fa-orcid"
       url: https://orcid.org/0000-0002-3827-1063
-    - label: researchgate
+    - label: ResearchGate
       icon: "fab fa-fw fa-researchgate"
       url: https://www.researchgate.net/profile/Alban-Sagouis
-    - label: Zenodo
-      icon: "fas fa-fw fa-link" # "ai ai-zenodo-square ai-3x"
-      url: https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Sagouis%2C%20Alban%22&l=list&p=1&s=10&sort=bestmatch
     - label: LinkedIn
       icon: "fab fa-fw fa-linkedin"
       url: https://www.linkedin.com/in/alban-sagouis-567886283/
+    - label: Zenodo
+      icon: "ai ai-fw ai-zenodo"
+      url: https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Sagouis%2C%20Alban%22&l=list&p=1&s=10&sort=bestmatch
+
   # - label: "Instagram"
     # icon: "fab fa-fw fa-instagram" 
     # url: "https://instagram.com/"
@@ -107,17 +108,20 @@ footer:
 #   - label: "Mastodon"
 #      icon: "fab fa-fw fa-mastodon" # not tested, see here: https://mmistakes.github.io/minimal-mistakes/docs/layouts/#author-profile
 #      url: "https://fosstodon.org/"
+    - label: "iDiv website"
+      icon: "fas fa-fw fa-link"
+      url: https://www.idiv.de/en/profile/1244.html
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: https://github.com/albansagouis
-    - label: orcid
+    - label: ORCID
       icon: "fab fa-fw fa-orcid"
       url: https://orcid.org/0000-0002-3827-1063
-    - label: researchgate
+    - label: ResearchGate
       icon: "fab fa-fw fa-researchgate"
       url: https://www.researchgate.net/profile/Alban-Sagouis
     - label: Zenodo
-      icon: "fas fa-fw fa-link" # "ai ai-zenodo-square ai-3x"
+      icon: "ai ai-fw ai-zenodo"
       url: https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Sagouis%2C%20Alban%22&l=list&p=1&s=10&sort=bestmatch
     - label: LinkedIn
       icon: "fab fa-fw fa-linkedin"

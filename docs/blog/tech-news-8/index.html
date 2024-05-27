@@ -9,7 +9,7 @@
   <head>
     <head>
   
-  <title>Tech news 1: Spatial packages | </title>
+  <title>Tech news 8: Sharing code through your own R package | </title>
   <meta charset="utf-8" />
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
@@ -207,15 +207,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Tech news 1: Spatial packages">
-    <meta itemprop="description" content="Hi team,">
-    <meta itemprop="datePublished" content="2023-07-21T15:51:30+02:00">
+    <meta itemprop="headline" content="Tech news 8: Sharing code through your own R package">
+    <meta itemprop="description" content="This month, I thought of writing a little bit about sharing code with each other.">
+    <meta itemprop="datePublished" content="2024-02-16T22:37:30+01:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Tech news 1: Spatial packages
+          <h1 id="page-title" class="page__title" itemprop="headline">Tech news 8: Sharing code through your own R package
 </h1>
           
 
@@ -225,7 +225,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2023-07-21T15:51:30+02:00">July 21, 2023</time>
+        <time datetime="2024-02-16T22:37:30+01:00">February 16, 2024</time>
       </span>
     
 
@@ -238,7 +238,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -250,40 +250,63 @@
 
       <section class="page__content" itemprop="text">
         
-        <h3 id="hi-team">Hi team,</h3>
+        <p>This month, I thought of writing a little bit about sharing code with each other.</p>
 
-<p>There is important news I want to share with you and I thought I could make this a regular thing so every third Friday of the month, I’ll send news that I think are useful for us all.</p>
+<h3 id="collaborating-on-code">Collaborating on code</h3>
 
-<p>For this first ’tech news’ mail, the programmed deprecation of the most widely used spatial packages. You’ve heard about it but it’s getting closer so let’s talk about it.</p>
+<p>Let’s imagine having a workshop with a group of colleagues and over the course of the week, some will develop tools and some will use said tools for various analyses. The workflow will most likely be:</p>
 
-<h3 id="which-packages-will-be-deprecated">Which packages will be deprecated?</h3>
+<ol>
+  <li>let’s define our needs, some functions, the data they take in input and what we all need out</li>
+  <li>some begin writing functions, each their own maybe and then share with everyone,</li>
+  <li>the code is emailed around, saved on a USB key or shared on DropBox</li>
+  <li>a. users test the functions, find bugs, need improvements, need more details on input format, give feedback</li>
+  <li>b. In the meantime, programers fixed some things, fixed functions, created others and back to 2.</li>
+</ol>
 
-<p>In 2-3 months from now <code class="language-plaintext highlighter-rouge">rgeos</code>, <code class="language-plaintext highlighter-rouge">rgdal</code> and <code class="language-plaintext highlighter-rouge">maptools</code> will be withdrawn from CRAN. The <code class="language-plaintext highlighter-rouge">sp</code> and <code class="language-plaintext highlighter-rouge">raster</code> packages are affected and will be superseded by <code class="language-plaintext highlighter-rouge">sf</code> and terra respectively:</p>
+<p>It’s hard keeping track of the versions and consistently and easily distributing updates to users. It’s hard distributing documentation, testing functions reproducibly and controlling the dependencies.
+And if you’re teaching and want to distribute code and data all in one?</p>
+
+<h3 id="make-your-life-easier-make-a-package">Make your life easier, make a package</h3>
+
+<p>If the functions were written in a package, documentation and tests can easily be written and processed thanks to rstudio built-in tools. The users can install the package, from the shared dropbox or from github/gitlab almost as usual, and load it with <code class="language-plaintext highlighter-rouge">library(yourPackage)</code> as usual. They can access the help documentation you wrote with “?” as they are used to, read examples, enjoy auto-completion of the arguments, etc.
+When they give you feedback, the version is clear and the code changes can be tested in seconds with a shortcut.</p>
+
+<p>You can also share data inside the package, and again, the version will be a timestamp and get you a reproducibility badge. It’s also going to be very easy to access for the users:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">yourPackage</span><span class="p">)</span><span class="w">
+</span><span class="n">dataName</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="how-to-make-a-package">How to make a package?</h3>
+
+<p>There are so many great (better) resources online! But let me just give a couple of tips:</p>
+
+<p>The absolute minimum that makes an R package an R package is one DESCRIPTION file and one R script, that’s it!</p>
+
+<p>Begin small, discover the thrill, clarity and comfort of writing documentation and tests for your functions. This will give you ways of imagining edge cases, eg thinking of the missing values, and controlling. Make a change, Ctrl+Shift+T(est), make another change, Ctrl+Shift+T, etc!</p>
+
 <blockquote>
-  <p>The <code class="language-plaintext highlighter-rouge">sp</code> package is not going to be removed from CRAN soon, but it is good to stop using it because it is no longer being actively developed.</p>
+  <p>Make a change, Ctrl+Shift+T(est), make another change, Ctrl+Shift+T, etc!</p>
 </blockquote>
 
-<p>Dozens of other packages using them will also be affected increasing the chances that you will be affected. Here are some packages that you might be using that depend on <code class="language-plaintext highlighter-rouge">sp</code> in the background: <code class="language-plaintext highlighter-rouge">CoordinateCleaner</code>, <code class="language-plaintext highlighter-rouge">RgoogleMaps</code>, <code class="language-plaintext highlighter-rouge">ggOceanMaps</code>, <code class="language-plaintext highlighter-rouge">ecospat</code>, <code class="language-plaintext highlighter-rouge">leaflet</code>.</p>
+<p>Take advantage of tools you already have on your computer: RStudio, the devtools, <code class="language-plaintext highlighter-rouge">testthat</code> packages for example.</p>
 
-<h3 id="what-can-we-do">What can we do?</h3>
+<p>For whatever questions you might have while building, documenting or testing, the first DuckDuckGo result will very likely comes from Wickham’s book (<a href="https://r-pkgs.org/">https://r-pkgs.org/</a>), it’s just so complete…</p>
 
-<p>The developers are trying to make things easier for us by changing things in the background: <code class="language-plaintext highlighter-rouge">sp</code> will not use <code class="language-plaintext highlighter-rouge">rgdal</code> and <code class="language-plaintext highlighter-rouge">rgeos</code> anymore but <code class="language-plaintext highlighter-rouge">sf</code>. Just updating <code class="language-plaintext highlighter-rouge">sp</code> in your system and having <code class="language-plaintext highlighter-rouge">sf</code> installed could work without you having to make any change to your scripts but most likely things will break and checks are necessary.</p>
+<p>Wanna do it differently? Build the tests first to build up the framework of exactly how you want your function to behave, then write the function.</p>
 
-<p>In new code, the r spatial consortium strongly encourages you to switch to <code class="language-plaintext highlighter-rouge">sf</code> or <code class="language-plaintext highlighter-rouge">terra</code> and not use <code class="language-plaintext highlighter-rouge">sp</code> and <code class="language-plaintext highlighter-rouge">raster</code> anymore.</p>
-
-<p>You can look into your old projects, looking for “sp”, “rgdal”, “rgeos” or “maptools”, using Ctrl-Shit-F (Or Cmd-Shift-F) in Rstudio or your system explorer and replace them with the equivalent <code class="language-plaintext highlighter-rouge">sf</code> functions smartly listed here: <a href="https://geocompx.org/post/2023/rgdal-retirement/">rgdal-retirement</a> .
-If you decide not to update the old projects, you could use <code class="language-plaintext highlighter-rouge">renv</code> to save <code class="language-plaintext highlighter-rouge">rgdal</code> and <code class="language-plaintext highlighter-rouge">rgeos</code> packages in your project but even this would eventually break as they depend on other resources in your system that are not saved by <code class="language-plaintext highlighter-rouge">renv</code>.</p>
-
-<h4 id="resources">Resources:</h4>
+<h3 id="some-useful-tools">Some useful tools</h3>
 
 <ul>
-  <li><a href="https://r-spatial.org/book/">The r-spatial book</a></li>
-  <li>The <a href="https://asdar-book.org/">Applied Spatial Data Analysis with R book</a> has examples using <code class="language-plaintext highlighter-rouge">sp</code> and <code class="language-plaintext highlighter-rouge">sf</code> or <code class="language-plaintext highlighter-rouge">raster</code> and <code class="language-plaintext highlighter-rouge">terra</code> to see the differences.</li>
+  <li><code class="language-plaintext highlighter-rouge">devtools::document()</code> will build the documentation, help pages, vignettes everything</li>
+  <li><code class="language-plaintext highlighter-rouge">devtools::install()</code>, <code class="language-plaintext highlighter-rouge">devtools::install(“/mydropbox/myPackage”)</code> or <code class="language-plaintext highlighter-rouge">devtools::install_github(“yourRepo/yourPackage”)</code> will install the package from source from wherever is the code.</li>
+  <li><code class="language-plaintext highlighter-rouge">testthat::test_package()</code> will run all of your tests and give you encouraging words when they fail, how thoughtful!</li>
 </ul>
 
-<p>I would be happy to help with this transition or with any other repo structure/function writing/code problem solving you might have.</p>
+<p>I hope this decreased the barrier of trying out building a package. I hope however that it is not decreasing the impressiveness of it!</p>
 
-<p>Cheers,</p>
+<p>Best wishes,</p>
 
 <p>Alban</p>
 
@@ -302,15 +325,11 @@ If you decide not to update the old projects, you could use <code class="languag
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#gis" class="page__taxonomy-item" rel="tag">GIS</a><span class="sep">, </span>
+      <a href="/tags/#experience" class="page__taxonomy-item" rel="tag">experience</a><span class="sep">, </span>
     
       <a href="/tags/#package" class="page__taxonomy-item" rel="tag">package</a><span class="sep">, </span>
     
       <a href="/tags/#r" class="page__taxonomy-item" rel="tag">R</a><span class="sep">, </span>
-    
-      <a href="/tags/#renv" class="page__taxonomy-item" rel="tag">renv</a><span class="sep">, </span>
-    
-      <a href="/tags/#reproducibility" class="page__taxonomy-item" rel="tag">reproducibility</a><span class="sep">, </span>
     
       <a href="/tags/#technews" class="page__taxonomy-item" rel="tag">technews</a>
     
@@ -337,7 +356,7 @@ If you decide not to update the old projects, you could use <code class="languag
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-07-21T15:51:30+02:00">July 21, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-02-16T22:37:30+01:00">February 16, 2024</time></p>
 
 
       </footer>
@@ -347,10 +366,11 @@ If you decide not to update the old projects, you could use <code class="languag
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/blog/tech-news-7/" class="pagination--pager" title="Tech news 7: Creating animated figures
+">Previous</a>
     
     
-      <a href="/blog/tech-news-2/" class="pagination--pager" title="Tech news 2: Publishing code
+      <a href="/blog/saving-shot-metadata/" class="pagination--pager" title="Saving the camera settings of a shot in the exif data of the scans
 ">Next</a>
     
   </nav>

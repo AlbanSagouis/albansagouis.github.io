@@ -9,7 +9,7 @@
   <head>
     <head>
   
-  <title>Tech news 1: Spatial packages | </title>
+  <title>How I moved the website to _albansagouis.com_ | </title>
   <meta charset="utf-8" />
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
@@ -207,15 +207,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Tech news 1: Spatial packages">
-    <meta itemprop="description" content="Hi team,">
-    <meta itemprop="datePublished" content="2023-07-21T15:51:30+02:00">
+    <meta itemprop="headline" content="How I moved the website to albansagouis.com">
+    <meta itemprop="description" content="The website was hosted for free by github at the address albansagouis.github.io, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.">
+    <meta itemprop="datePublished" content="2024-01-17T13:34:30+01:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Tech news 1: Spatial packages
+          <h1 id="page-title" class="page__title" itemprop="headline">How I moved the website to <em>albansagouis.com</em>
 </h1>
           
 
@@ -225,7 +225,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2023-07-21T15:51:30+02:00">July 21, 2023</time>
+        <time datetime="2024-01-17T13:34:30+01:00">January 17, 2024</time>
       </span>
     
 
@@ -250,42 +250,23 @@
 
       <section class="page__content" itemprop="text">
         
-        <h3 id="hi-team">Hi team,</h3>
+        <p>The website was hosted for free by github at the address <em>albansagouis.github.io</em>, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.</p>
 
-<p>There is important news I want to share with you and I thought I could make this a regular thing so every third Friday of the month, I’ll send news that I think are useful for us all.</p>
+<p>First I compared prices between some of the main domain providers such as <a href="https://www.namecheap.com">Namecheap</a> and <a href="https://www.domain.com">domain.com</a>. Namecheap was… cheaper and offered more options so I went for this one. I had no availability issues for my name fortunately but I hesitated for a long time between <em>sagouis.com</em> and <em>albansagouis.com</em>. Owning <em>sagouis.com</em> would allow me to create an infinite number of subdomains such as <em>alban.sagouis.com</em>, <em>work.sagouis.com</em> or <em>photo.sagouis.com</em>.</p>
 
-<p>For this first ’tech news’ mail, the programmed deprecation of the most widely used spatial packages. You’ve heard about it but it’s getting closer so let’s talk about it.</p>
+<p>Anyway, I acquired the domain name <em>albansagouis.com</em> on <a href="https://www.namecheap.com">Namecheap</a>.</p>
 
-<h3 id="which-packages-will-be-deprecated">Which packages will be deprecated?</h3>
+<p>Then I read <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site">Github Pages documentation</a> again! More specifically how to <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain">manage your domain.</a> I explored the namecheap settings and through trial and error, getting confused why things were not working and then realising that the order in which the steps are done matter and then sometimes, the domain change process just takes time to happen…</p>
 
-<p>In 2-3 months from now <code class="language-plaintext highlighter-rouge">rgeos</code>, <code class="language-plaintext highlighter-rouge">rgdal</code> and <code class="language-plaintext highlighter-rouge">maptools</code> will be withdrawn from CRAN. The <code class="language-plaintext highlighter-rouge">sp</code> and <code class="language-plaintext highlighter-rouge">raster</code> packages are affected and will be superseded by <code class="language-plaintext highlighter-rouge">sf</code> and terra respectively:</p>
-<blockquote>
-  <p>The <code class="language-plaintext highlighter-rouge">sp</code> package is not going to be removed from CRAN soon, but it is good to stop using it because it is no longer being actively developed.</p>
-</blockquote>
-
-<p>Dozens of other packages using them will also be affected increasing the chances that you will be affected. Here are some packages that you might be using that depend on <code class="language-plaintext highlighter-rouge">sp</code> in the background: <code class="language-plaintext highlighter-rouge">CoordinateCleaner</code>, <code class="language-plaintext highlighter-rouge">RgoogleMaps</code>, <code class="language-plaintext highlighter-rouge">ggOceanMaps</code>, <code class="language-plaintext highlighter-rouge">ecospat</code>, <code class="language-plaintext highlighter-rouge">leaflet</code>.</p>
-
-<h3 id="what-can-we-do">What can we do?</h3>
-
-<p>The developers are trying to make things easier for us by changing things in the background: <code class="language-plaintext highlighter-rouge">sp</code> will not use <code class="language-plaintext highlighter-rouge">rgdal</code> and <code class="language-plaintext highlighter-rouge">rgeos</code> anymore but <code class="language-plaintext highlighter-rouge">sf</code>. Just updating <code class="language-plaintext highlighter-rouge">sp</code> in your system and having <code class="language-plaintext highlighter-rouge">sf</code> installed could work without you having to make any change to your scripts but most likely things will break and checks are necessary.</p>
-
-<p>In new code, the r spatial consortium strongly encourages you to switch to <code class="language-plaintext highlighter-rouge">sf</code> or <code class="language-plaintext highlighter-rouge">terra</code> and not use <code class="language-plaintext highlighter-rouge">sp</code> and <code class="language-plaintext highlighter-rouge">raster</code> anymore.</p>
-
-<p>You can look into your old projects, looking for “sp”, “rgdal”, “rgeos” or “maptools”, using Ctrl-Shit-F (Or Cmd-Shift-F) in Rstudio or your system explorer and replace them with the equivalent <code class="language-plaintext highlighter-rouge">sf</code> functions smartly listed here: <a href="https://geocompx.org/post/2023/rgdal-retirement/">rgdal-retirement</a> .
-If you decide not to update the old projects, you could use <code class="language-plaintext highlighter-rouge">renv</code> to save <code class="language-plaintext highlighter-rouge">rgdal</code> and <code class="language-plaintext highlighter-rouge">rgeos</code> packages in your project but even this would eventually break as they depend on other resources in your system that are not saved by <code class="language-plaintext highlighter-rouge">renv</code>.</p>
-
-<h4 id="resources">Resources:</h4>
+<p>Details change from a domain provider to another but you will have to make changes to</p>
 
 <ul>
-  <li><a href="https://r-spatial.org/book/">The r-spatial book</a></li>
-  <li>The <a href="https://asdar-book.org/">Applied Spatial Data Analysis with R book</a> has examples using <code class="language-plaintext highlighter-rouge">sp</code> and <code class="language-plaintext highlighter-rouge">sf</code> or <code class="language-plaintext highlighter-rouge">raster</code> and <code class="language-plaintext highlighter-rouge">terra</code> to see the differences.</li>
+  <li>your github settings so that GitHub shows your new domain instead of the default <em>yourname.github.io</em></li>
+  <li>your settings on your domain provider website. This can be all very new but Github actually gives all the <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#dns-records-for-your-custom-domain">necessary data</a> for you to properly set the DNS records</li>
 </ul>
 
-<p>I would be happy to help with this transition or with any other repo structure/function writing/code problem solving you might have.</p>
+<p>Now my first move when I’m not sure about something regarding domains is to ask to the technical support chat…</p>
 
-<p>Cheers,</p>
-
-<p>Alban</p>
 
         
       </section>
@@ -302,17 +283,9 @@ If you decide not to update the old projects, you could use <code class="languag
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#gis" class="page__taxonomy-item" rel="tag">GIS</a><span class="sep">, </span>
+      <a href="/tags/#experience" class="page__taxonomy-item" rel="tag">experience</a><span class="sep">, </span>
     
-      <a href="/tags/#package" class="page__taxonomy-item" rel="tag">package</a><span class="sep">, </span>
-    
-      <a href="/tags/#r" class="page__taxonomy-item" rel="tag">R</a><span class="sep">, </span>
-    
-      <a href="/tags/#renv" class="page__taxonomy-item" rel="tag">renv</a><span class="sep">, </span>
-    
-      <a href="/tags/#reproducibility" class="page__taxonomy-item" rel="tag">reproducibility</a><span class="sep">, </span>
-    
-      <a href="/tags/#technews" class="page__taxonomy-item" rel="tag">technews</a>
+      <a href="/tags/#webdev" class="page__taxonomy-item" rel="tag">webdev</a>
     
     </span>
   </p>
@@ -337,7 +310,7 @@ If you decide not to update the old projects, you could use <code class="languag
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-07-21T15:51:30+02:00">July 21, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-01-17T13:34:30+01:00">January 17, 2024</time></p>
 
 
       </footer>
@@ -347,10 +320,11 @@ If you decide not to update the old projects, you could use <code class="languag
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/blog/website-building-2/" class="pagination--pager" title="Building the website online or locally?
+">Previous</a>
     
     
-      <a href="/blog/tech-news-2/" class="pagination--pager" title="Tech news 2: Publishing code
+      <a href="/blog/tech-news-7/" class="pagination--pager" title="Tech news 7: Creating animated figures
 ">Next</a>
     
   </nav>

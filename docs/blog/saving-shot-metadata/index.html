@@ -9,7 +9,7 @@
   <head>
     <head>
   
-  <title>Tech news 1: Spatial packages | </title>
+  <title>Saving the camera settings of a shot in the exif data of the scans | </title>
   <meta charset="utf-8" />
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
@@ -207,15 +207,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Tech news 1: Spatial packages">
-    <meta itemprop="description" content="Hi team,">
-    <meta itemprop="datePublished" content="2023-07-21T15:51:30+02:00">
+    <meta itemprop="headline" content="Saving the camera settings of a shot in the exif data of the scans">
+    <meta itemprop="description" content="For decades (centuries?) photographers have been writing their camera settings for each shot on anotebook to learn and train their eye, to organise their shots or because they are data-freaks.Today, you could still make notes by hand or use a dedicated smartphone app or you could be theproud owner of a more modern film camera that saves the shot data on a memory card.">
+    <meta itemprop="datePublished" content="2024-02-26T01:15:30+01:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">Tech news 1: Spatial packages
+          <h1 id="page-title" class="page__title" itemprop="headline">Saving the camera settings of a shot in the exif data of the scans
 </h1>
           
 
@@ -225,7 +225,7 @@
       <span class="page__meta-date">
         <i class="far fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2023-07-21T15:51:30+02:00">July 21, 2023</time>
+        <time datetime="2024-02-26T01:15:30+01:00">February 26, 2024</time>
       </span>
     
 
@@ -238,7 +238,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          4 minute read
         
       </span>
     
@@ -250,42 +250,159 @@
 
       <section class="page__content" itemprop="text">
         
-        <h3 id="hi-team">Hi team,</h3>
+        <p>For decades (centuries?) photographers have been writing their camera settings for each shot on a
+notebook to learn and train their eye, to organise their shots or because they are data-freaks.
+Today, you could still make notes by hand or use a dedicated smartphone app or you could be the
+proud owner of a more modern film camera that saves the shot data on a memory card.</p>
 
-<p>There is important news I want to share with you and I thought I could make this a regular thing so every third Friday of the month, I’ll send news that I think are useful for us all.</p>
+<p>Once the film developed, by yourself or a lab, and scanned, by yourself or a lab, the scans you get
+do not have the information of the original shots. These data are on paper, on a smartphone or on a memory card.
+I downloaded the <code class="language-plaintext highlighter-rouge">Analog</code> app for my smartphone, because it is free, does not collect user data,
+it’s lightweight and I loved the design, and I began saving the settings for each shot. Data was accumulating
+but I was not seeing how to get it out yet.</p>
 
-<p>For this first ’tech news’ mail, the programmed deprecation of the most widely used spatial packages. You’ve heard about it but it’s getting closer so let’s talk about it.</p>
+<p>A digital camera would take the picture and save the settings inside the <code class="language-plaintext highlighter-rouge">jpg</code> or <code class="language-plaintext highlighter-rouge">tiff</code> files
+in exif data. I want the same thing for my scans!</p>
 
-<h3 id="which-packages-will-be-deprecated">Which packages will be deprecated?</h3>
+<p>And how to get these data in the exif fields of the scans? Well surprisingly, it’s not as straightforward as
+you (I) would expect. At first I did not find anything satisfying and discussing with the developers behind
+<code class="language-plaintext highlighter-rouge">Analog</code> made it clear that it was not a straightforward task for them either. We talked about workflow.</p>
 
-<p>In 2-3 months from now <code class="language-plaintext highlighter-rouge">rgeos</code>, <code class="language-plaintext highlighter-rouge">rgdal</code> and <code class="language-plaintext highlighter-rouge">maptools</code> will be withdrawn from CRAN. The <code class="language-plaintext highlighter-rouge">sp</code> and <code class="language-plaintext highlighter-rouge">raster</code> packages are affected and will be superseded by <code class="language-plaintext highlighter-rouge">sf</code> and terra respectively:</p>
+<p>The team were encouraging amateur and professional photographers to rename their
+files, well their scans, following this convention to save the settings of
+each shot. Then they developed <code class="language-plaintext highlighter-rouge">Analog</code> which of course allows users to save Shutter speed,
+Aperture, the lens’ focal length and exposure correction. At the end of the
+roll, the data is extracted and the user receives a list of name files by email:</p>
+
 <blockquote>
-  <p>The <code class="language-plaintext highlighter-rouge">sp</code> package is not going to be removed from CRAN soon, but it is good to stop using it because it is no longer being actively developed.</p>
+  <p>Test roll_NO01_SS50_A2.8_FL50_EX0
+Test roll_NO02_SS50_A2.8_FL50_EX0
+Test roll_NO03_SS125_A4_FL50_EX0
+Test roll_NO04_SS125_A4_FL50_EX0</p>
 </blockquote>
 
-<p>Dozens of other packages using them will also be affected increasing the chances that you will be affected. Here are some packages that you might be using that depend on <code class="language-plaintext highlighter-rouge">sp</code> in the background: <code class="language-plaintext highlighter-rouge">CoordinateCleaner</code>, <code class="language-plaintext highlighter-rouge">RgoogleMaps</code>, <code class="language-plaintext highlighter-rouge">ggOceanMaps</code>, <code class="language-plaintext highlighter-rouge">ecospat</code>, <code class="language-plaintext highlighter-rouge">leaflet</code>.</p>
+<p>They hand-rename the scans or use a renaming software. OK.
+but this does not go <em>inside</em> the files, a file name is not an ideal way
+of storing data even when using the standardised convention they created:
+NOSSAFLEX</p>
 
-<h3 id="what-can-we-do">What can we do?</h3>
+<blockquote>
+  <p>It’s as easy as the name – NOSSAFLEX has all of the information in the
+title.</p>
 
-<p>The developers are trying to make things easier for us by changing things in the background: <code class="language-plaintext highlighter-rouge">sp</code> will not use <code class="language-plaintext highlighter-rouge">rgdal</code> and <code class="language-plaintext highlighter-rouge">rgeos</code> anymore but <code class="language-plaintext highlighter-rouge">sf</code>. Just updating <code class="language-plaintext highlighter-rouge">sp</code> in your system and having <code class="language-plaintext highlighter-rouge">sf</code> installed could work without you having to make any change to your scripts but most likely things will break and checks are necessary.</p>
+  <p>NO = Number<br />
+SS = Shutter Speed<br />
+A = Aperture<br />
+FL = Focal Length<br />
+EX = Exposure</p>
+</blockquote>
 
-<p>In new code, the r spatial consortium strongly encourages you to switch to <code class="language-plaintext highlighter-rouge">sf</code> or <code class="language-plaintext highlighter-rouge">terra</code> and not use <code class="language-plaintext highlighter-rouge">sp</code> and <code class="language-plaintext highlighter-rouge">raster</code> anymore.</p>
+<p>I could not find a way to automatically save the data on my phone to the exif slots of my scans…</p>
 
-<p>You can look into your old projects, looking for “sp”, “rgdal”, “rgeos” or “maptools”, using Ctrl-Shit-F (Or Cmd-Shift-F) in Rstudio or your system explorer and replace them with the equivalent <code class="language-plaintext highlighter-rouge">sf</code> functions smartly listed here: <a href="https://geocompx.org/post/2023/rgdal-retirement/">rgdal-retirement</a> .
-If you decide not to update the old projects, you could use <code class="language-plaintext highlighter-rouge">renv</code> to save <code class="language-plaintext highlighter-rouge">rgdal</code> and <code class="language-plaintext highlighter-rouge">rgeos</code> packages in your project but even this would eventually break as they depend on other resources in your system that are not saved by <code class="language-plaintext highlighter-rouge">renv</code>.</p>
+<p>So I decided to create an R package to do it! An exciting weekend project and certainly
+an article for the blog!</p>
 
-<h4 id="resources">Resources:</h4>
+<p>Since I was already using the <code class="language-plaintext highlighter-rouge">Analog</code> app, I had to follow its data structure.</p>
+
+<h3 id="here-is-the-readme-of-my-package">Here is the README of my package</h3>
+
+<p>This package relies on a file naming convention for, essentially analog,
+photography. Photographs taken on film, then developed, then scanned are lacking
+important metadata or if they have, it’s from the scanning device, not the
+original camera.
+The nossaflex package takes NOSSAFLEX structured file names
+and can 1) batch rename corresponding pictures and 2) edit their exif data
+to add information such as focal length, shutter speed, aperture.
+This allow a photographer to take notes on the <code class="language-plaintext highlighter-rouge">Analog</code> app while shooting
+pictures, export nossaflex compatible file names and use R to rename scans
+and edit their exif metadata with corresponding shot information.</p>
+
+<p>The nossaflex package is the entry of the NOSSAFLEX file naming
+convention into the R universe to help scientific, professional or
+amateur photographers to name their picture files consistently and
+informatively.</p>
+
+<p>When taking a picture with an analog camera, data such as aperture,
+shutter speed or focal length are not automatically saved the way they
+are in a digital camera. Many photographers write down these precious
+metadata in a notebook, we want to help them improve their workflow and
+data quality.</p>
+
+<h4 id="what-is-nossaflex">What is NOSSAFLEX?</h4>
+
+<p>Here is an explanation from the creators:</p>
+
+<blockquote>
+  <p>It’s as easy as the name – NOSSAFLEX has all of the information in the
+title.</p>
+
+  <p>NO = Number<br />
+SS = Shutter Speed<br />
+A = Aperture<br />
+FL = Focal Length<br />
+EX = Exposure</p>
+</blockquote>
+
+<p>NOSSAFLEX file names looks like this: <code class="language-plaintext highlighter-rouge">NO03_SS250_A8_FL80_EX0.jpg</code> or
+this: <code class="language-plaintext highlighter-rouge">NO34_SS30_A2.8_FL35_EX+1.tiff</code>!</p>
+
+<p>Learn more on their [website]{<a href="https://nossaflex.io/the-system">https://nossaflex.io/the-system</a>} or on
+their [Youtube channel]{<a href="https://www.youtube.com/@NOSSAFLEX">https://www.youtube.com/@NOSSAFLEX</a>}.</p>
+
+<h4 id="the-package">The package</h4>
+
+<p>Here are the two main functions in the package:</p>
 
 <ul>
-  <li><a href="https://r-spatial.org/book/">The r-spatial book</a></li>
-  <li>The <a href="https://asdar-book.org/">Applied Spatial Data Analysis with R book</a> has examples using <code class="language-plaintext highlighter-rouge">sp</code> and <code class="language-plaintext highlighter-rouge">sf</code> or <code class="language-plaintext highlighter-rouge">raster</code> and <code class="language-plaintext highlighter-rouge">terra</code> to see the differences.</li>
+  <li><code class="language-plaintext highlighter-rouge">renaming_nossaflex</code> batch-renames picture files from uninformative
+<code class="language-plaintext highlighter-rouge">DSC_00345.jpg</code> to information-rich NOSSAFLEX name based on data
+provided by the user, see {analog} section:
+<code class="language-plaintext highlighter-rouge">NO03_SS250_A8_FL80_EX0.jpg</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">editing_exif</code> batch-saves the metadata of the pictures into the exif
+slots of the scan files (jpg, tiff, etc).</li>
 </ul>
 
-<p>I would be happy to help with this transition or with any other repo structure/function writing/code problem solving you might have.</p>
+<h4 id="analog-or-an-other-app">Analog or an other app</h4>
 
-<p>Cheers,</p>
+<h4 id="the-workflow">The workflow</h4>
 
-<p>Alban</p>
+<h4 id="installation">Installation</h4>
+
+<p>You can install the development version of nossaflex from
+<a href="https://github.com/">GitHub</a> with:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># install.packages("devtools")</span><span class="w">
+</span><span class="c1"># devtools::install_github("AlbanSagouis/nossaflex")</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="example">Example</h4>
+
+<p>This is a basic example which shows you how to solve a common problem:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">nossaflex</span><span class="p">)</span><span class="w">
+</span><span class="n">files</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"Pictures/2024/01 02 Winter in Berlin/DSC_001034"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"Pictures/2024/01 02 Winter in Berlin/DSC_001035"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"Pictures/2024/01 02 Winter in Berlin/DSC_001036"</span><span class="p">)</span><span class="w">
+</span><span class="n">filenames</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">reading_nossaflex</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"path_to_the_filenames.txt"</span><span class="p">)</span><span class="w"> </span><span class="c1"># provided by the `analog` app</span><span class="w">
+</span><span class="n">renaming_nossaflex</span><span class="p">(</span><span class="n">filenames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filenames</span><span class="p">,</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">files</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Additionally you may want to safely save the shots metadata inside the
+scans:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">metadata</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">reading_nossaflex</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"path_to_the_filenames.txt"</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w">  </span><span class="c1"># provided by the `analog` app</span><span class="w">
+     </span><span class="n">parsing_nossaflex</span><span class="p">()</span><span class="w">
+</span><span class="n">editing_exif</span><span class="p">(</span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="n">metadata</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="related-work">Related work</h4>
+
+<p>The package relies heavily on the great
+<code class="language-plaintext highlighter-rouge">exiftoolr</code>{<a href="https://github.com/JoshOBrien/exiftoolr/">https://github.com/JoshOBrien/exiftoolr/</a>} package by
+@JoshOBrien which itself depends on the great
+<code class="language-plaintext highlighter-rouge">exiftool</code>{<a href="https://exiftool.org/">https://exiftool.org/</a>} software by Phil Harvey.<br />
+Finally, jExifToolGUI{<a href="https://github.com/hvdwolf/jExifToolGUI">https://github.com/hvdwolf/jExifToolGUI</a>} also
+offers exif editing and with a Graphical Interface, nice.</p>
 
         
       </section>
@@ -302,17 +419,15 @@ If you decide not to update the old projects, you could use <code class="languag
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#gis" class="page__taxonomy-item" rel="tag">GIS</a><span class="sep">, </span>
+      <a href="/tags/#experience" class="page__taxonomy-item" rel="tag">experience</a><span class="sep">, </span>
     
       <a href="/tags/#package" class="page__taxonomy-item" rel="tag">package</a><span class="sep">, </span>
     
+      <a href="/tags/#photography" class="page__taxonomy-item" rel="tag">photography</a><span class="sep">, </span>
+    
       <a href="/tags/#r" class="page__taxonomy-item" rel="tag">R</a><span class="sep">, </span>
     
-      <a href="/tags/#renv" class="page__taxonomy-item" rel="tag">renv</a><span class="sep">, </span>
-    
-      <a href="/tags/#reproducibility" class="page__taxonomy-item" rel="tag">reproducibility</a><span class="sep">, </span>
-    
-      <a href="/tags/#technews" class="page__taxonomy-item" rel="tag">technews</a>
+      <a href="/tags/#weekend-project" class="page__taxonomy-item" rel="tag">weekend-project</a>
     
     </span>
   </p>
@@ -337,7 +452,7 @@ If you decide not to update the old projects, you could use <code class="languag
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-07-21T15:51:30+02:00">July 21, 2023</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-02-26T01:15:30+01:00">February 26, 2024</time></p>
 
 
       </footer>
@@ -347,10 +462,11 @@ If you decide not to update the old projects, you could use <code class="languag
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/blog/tech-news-8/" class="pagination--pager" title="Tech news 8: Sharing code through your own R package
+">Previous</a>
     
     
-      <a href="/blog/tech-news-2/" class="pagination--pager" title="Tech news 2: Publishing code
+      <a href="/blog/tech-news-9/" class="pagination--pager" title="Tech news 9: Testing data
 ">Next</a>
     
   </nav>
@@ -521,7 +637,7 @@ If you decide not to update the old projects, you could use <code class="languag
     
     <h2 class="archive__item-title no_toc" itemprop="headline">
       
-        <a href="/blog/saving-shot-metadata/" rel="permalink">Saving the camera settings of a shot in the exif data of the scans
+        <a href="/blog/tech-news-8/" rel="permalink">Tech news 8: Sharing code through your own R package
 </a>
       
     </h2>
@@ -533,7 +649,7 @@ If you decide not to update the old projects, you could use <code class="languag
       <span class="page__meta-date">
         <i class="far fa-fw fa-calendar-alt" aria-hidden="true"></i>
         
-        <time datetime="2024-02-26T01:15:30+01:00">February 26, 2024</time>
+        <time datetime="2024-02-16T22:37:30+01:00">February 16, 2024</time>
       </span>
     
 
@@ -546,15 +662,16 @@ If you decide not to update the old projects, you could use <code class="languag
       <span class="page__meta-readtime">
         <i class="far fa-fw fa-clock" aria-hidden="true"></i>
         
-          4 minute read
+          2 minute read
         
       </span>
     
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">For decades (centuries?) photographers have been writing their camera settings for each shot on a
-notebook to learn and train their eye, to organise their sh...</p>
+    <p class="archive__item-excerpt" itemprop="description">This month, I thought of writing a little bit about sharing code with each other.
+
+</p>
   </article>
 </div>
 
