@@ -1,774 +1,787 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-27T12:44:25+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">A personal website, a living CV</title><subtitle>This is a professional personal page, I speak of R programming,  scientific development, web development, reproducibility  and photography</subtitle><author><name>Alban Sagouis</name></author><entry><title type="html">Tech news 11: Facilitating… admin tasks</title><link href="http://localhost:4000/blog/tech-news-11/" rel="alternate" type="text/html" title="Tech news 11: Facilitating… admin tasks" /><published>2024-05-24T17:57:30+02:00</published><updated>2024-05-24T17:57:30+02:00</updated><id>http://localhost:4000/blog/tech-news-11</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-11/"><![CDATA[> Filling in PDF forms and sending personalised emails
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-05-27T15:35:23+02:00</updated><id>/feed.xml</id><title type="html">A personal website, a living CV</title><subtitle>This is a professional personal page, I speak of R programming,  scientific development, web development, reproducibility  and photography</subtitle><author><name>Alban Sagouis</name></author><entry><title type="html">Tech news 11: Facilitating… admin tasks</title><link href="/blog/tech-news-11/" rel="alternate" type="text/html" title="Tech news 11: Facilitating… admin tasks" /><published>2024-05-24T17:57:30+02:00</published><updated>2024-05-24T17:57:30+02:00</updated><id>/blog/tech-news-11</id><content type="html" xml:base="/blog/tech-news-11/"><![CDATA[<blockquote>
+  <p>Filling in PDF forms and sending personalised emails</p>
+</blockquote>
 
-### What for?
+<h3 id="what-for">What for?</h3>
 
-Maybe you want to pre-fill travel requests for all members of your group? Maybe you want to send a personalised email to all of your 200 co-authors, data providers, citizen science participants or parliament representatives? Maybe you want to send exam subjects to students but the data have to be different and randomly affected?
+<p>Maybe you want to pre-fill travel requests for all members of your group? Maybe you want to send a personalised email to all of your 200 co-authors, data providers, citizen science participants or parliament representatives? Maybe you want to send exam subjects to students but the data have to be different and randomly affected?</p>
 
-### A case study
+<h3 id="a-case-study">A case study</h3>
 
-While our manuscript was under review at GEB we decided to offer co-authorship to data providers that had not been contacted before because their data were open access. Why should they not be proposed to be coauthors while we propose it to people whom we had to contact to get access to their data, right?
+<p>While our manuscript was under review at GEB we decided to offer co-authorship to data providers that had not been contacted before because their data were open access. Why should they not be proposed to be coauthors while we propose it to people whom we had to contact to get access to their data, right?</p>
 
-GEB then asked us to send the the new list of co-authors to all co-authors, original and new. They would have to physically sign it, digital signatures are not acceptable. And this is a Wiley process, not just GEB, nut fun Wiley!
+<p>GEB then asked us to send the the new list of co-authors to all co-authors, original and new. They would have to physically sign it, digital signatures are not acceptable. And this is a Wiley process, not just GEB, nut fun Wiley!</p>
 
-So anyway, two tasks that would be painful to do by hand: 1) reporting name, email address and institution of all 121 co-authors in a table with only nine rows and also reporting the names of the 49 new authors in another table with only five rows ; and 2) sending personalised messages to all of them.
+<p>So anyway, two tasks that would be painful to do by hand: 1) reporting name, email address and institution of all 121 co-authors in a table with only nine rows and also reporting the names of the 49 new authors in another table with only five rows ; and 2) sending personalised messages to all of them.</p>
 
-### The data
+<h3 id="the-data">The data</h3>
 
-Both processes could only be automated with good data and we had a table with separated first and family names, institutions and verified email addresses. It really helped that first names and family names were already in two columns and that multiple institutions were also in distinct columns.
+<p>Both processes could only be automated with good data and we had a table with separated first and family names, institutions and verified email addresses. It really helped that first names and family names were already in two columns and that multiple institutions were also in distinct columns.</p>
 
-### PDF form filling in R
+<h3 id="pdf-form-filling-in-r">PDF form filling in R</h3>
 
-At least the Wiley form had fields and after looking into the packages I already had on hand: `pdftools` and `qpdf`, I turned to DuckDuckGo that pointed me in direction of the `staplr` package. The installation was not painless, mostly because `staplr` depends on java and maybe there was a conflict with `pdftools` but once set, `staplr` did everything!
+<p>At least the Wiley form had fields and after looking into the packages I already had on hand: <code class="language-plaintext highlighter-rouge">pdftools</code> and <code class="language-plaintext highlighter-rouge">qpdf</code>, I turned to DuckDuckGo that pointed me in direction of the <code class="language-plaintext highlighter-rouge">staplr</code> package. The installation was not painless, mostly because <code class="language-plaintext highlighter-rouge">staplr</code> depends on java and maybe there was a conflict with <code class="language-plaintext highlighter-rouge">pdftools</code> but once set, <code class="language-plaintext highlighter-rouge">staplr</code> did everything!</p>
 
-It has basic pdf tools such as `select_pages()`, `remove_pages()`, `rotate_pages()` and c`ombine_pdf()` that we used to extract the pages with the tables before multiplying the first table 14 times and the second one 10 times, filling them and finally combining all pages together.
-For filling in the pdf, `staplr` works in three steps:
+<p>It has basic pdf tools such as <code class="language-plaintext highlighter-rouge">select_pages()</code>, <code class="language-plaintext highlighter-rouge">remove_pages()</code>, <code class="language-plaintext highlighter-rouge">rotate_pages()</code> and c<code class="language-plaintext highlighter-rouge">ombine_pdf()</code> that we used to extract the pages with the tables before multiplying the first table 14 times and the second one 10 times, filling them and finally combining all pages together.
+For filling in the pdf, <code class="language-plaintext highlighter-rouge">staplr</code> works in three steps:</p>
 
-``` r
-# First reading all fields in the document, there are 116 fields
-> fields <- staplr::get_fields(input_filepath = "Authorship-change-form--1---5---2--1.pdf")
-> fields[[50]] # this is Table 2, column `Email address`, row 6
-$type
-[1] "Text"
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># First reading all fields in the document, there are 116 fields</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">staplr</span><span class="o">::</span><span class="n">get_fields</span><span class="p">(</span><span class="n">input_filepath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Authorship-change-form--1---5---2--1.pdf"</span><span class="p">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fields</span><span class="p">[[</span><span class="m">50</span><span class="p">]]</span><span class="w"> </span><span class="c1"># this is Table 2, column `Email address`, row 6</span><span class="w">
+</span><span class="o">$</span><span class="n">type</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"Text"</span><span class="w">
 
-$name
-[1] "Email addressRow6"
+</span><span class="o">$</span><span class="n">name</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">"Email addressRow6"</span><span class="w">
 
-$value
-[1] ""
-# Then, filling in the fields in the value slot like this:
-fields[[50]]$value <- "alban.sagouis@idiv.de"
-# Easy! But looping over 5 columns, 121 authors, changing page every 9 authors took some more tweaking…
-# And finally writing the fields back inside the PDF document!
-staplr::set_fields(
-         input_filepath = "Authorship-change-form--1---5---2--1.pdf",
-         fields = fields,
-         output_filepath = "filled_authorship_form.pdf")
-```
+</span><span class="o">$</span><span class="n">value</span><span class="w">
+</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="c1"># Then, filling in the fields in the value slot like this:</span><span class="w">
+</span><span class="n">fields</span><span class="p">[[</span><span class="m">50</span><span class="p">]]</span><span class="o">$</span><span class="n">value</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s2">"alban.sagouis@idiv.de"</span><span class="w">
+</span><span class="c1"># Easy! But looping over 5 columns, 121 authors, changing page every 9 authors took some more tweaking…</span><span class="w">
+</span><span class="c1"># And finally writing the fields back inside the PDF document!</span><span class="w">
+</span><span class="n">staplr</span><span class="o">::</span><span class="n">set_fields</span><span class="p">(</span><span class="w">
+         </span><span class="n">input_filepath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Authorship-change-form--1---5---2--1.pdf"</span><span class="p">,</span><span class="w">
+         </span><span class="n">fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fields</span><span class="p">,</span><span class="w">
+         </span><span class="n">output_filepath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"filled_authorship_form.pdf"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-### Batch sending personalised emails
+<h3 id="batch-sending-personalised-emails">Batch sending personalised emails</h3>
 
-Now that we have the form ready, we can write to all co-authors, asking them to kindly print, sign, scan and send back the form.
-Our message would begin with “Dear Dr {Family name author}, thank you for contributing data from your data set entitled {Dataset title}, et caetera”. I quickly looked into how to do it in R and the prospect of setting up an email server seemed too complicated, especially when Microsoft Word and Outlook can do it.
+<p>Now that we have the form ready, we can write to all co-authors, asking them to kindly print, sign, scan and send back the form.
+Our message would begin with “Dear Dr {Family name author}, thank you for contributing data from your data set entitled {Dataset title}, et caetera”. I quickly looked into how to do it in R and the prospect of setting up an email server seemed too complicated, especially when Microsoft Word and Outlook can do it.</p>
 
-Just write your message in a Word document, click on the Mailings tab, Start Mail Merge, choose Letters or Email messages and then click on Select Recipients and select the table where you stored the names, the titles, the personalised messages, random data for an exam, everything you need personalised and of course, the email addresses. Every time you reach a part of the email where you want personalised text, just Insert Merge Field and select the column from your table where to look for data. Once you’re done composing the email, you can Preview Results and go through all 121 recipients to check that the good name or title is sent to the good email address or check that special characters were properly reproduced.
+<p>Just write your message in a Word document, click on the Mailings tab, Start Mail Merge, choose Letters or Email messages and then click on Select Recipients and select the table where you stored the names, the titles, the personalised messages, random data for an exam, everything you need personalised and of course, the email addresses. Every time you reach a part of the email where you want personalised text, just Insert Merge Field and select the column from your table where to look for data. Once you’re done composing the email, you can Preview Results and go through all 121 recipients to check that the good name or title is sent to the good email address or check that special characters were properly reproduced.</p>
 
-It’s that simple! Finish & Merge, Word and Outlook are going to talk to each other and send each email independently.
+<p>It’s that simple! Finish &amp; Merge, Word and Outlook are going to talk to each other and send each email independently.</p>
 
-Oh, you want to send an attachment too? Or even send a different attachment to each person? Well, Word and Outlook won’t give you the option 🤷🏻‍♂️. We tried a first add-in for Word whose free plan did not fit our needs (max 50 recipients) and then found the Merge Tools add-in that allows batch sending emails 20 times for free, thanks Merge Tools.
+<p>Oh, you want to send an attachment too? Or even send a different attachment to each person? Well, Word and Outlook won’t give you the option 🤷🏻‍♂️. We tried a first add-in for Word whose free plan did not fit our needs (max 50 recipients) and then found the Merge Tools add-in that allows batch sending emails 20 times for free, thanks Merge Tools.</p>
 
-### Encoding
+<h3 id="encoding">Encoding</h3>
 
-When reading data, Word preferred `csv` to `xlsx` but encoding handling was better from an Excel file…
-For one of the steps, Merge Tools seemed to mishandle UTF-8 encoding and I had to remove all special characters ie. "èéêëě" all became "e". I used this R command:
+<p>When reading data, Word preferred <code class="language-plaintext highlighter-rouge">csv</code> to <code class="language-plaintext highlighter-rouge">xlsx</code> but encoding handling was better from an Excel file…
+For one of the steps, Merge Tools seemed to mishandle UTF-8 encoding and I had to remove all special characters ie. “èéêëě” all became “e”. I used this R command:</p>
 
-``` r
-stringi::stri_trans_general(
-   str = your_string_with_special_characters, 
-   id = “Latin-ASCII")
-```
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stringi</span><span class="o">::</span><span class="n">stri_trans_general</span><span class="p">(</span><span class="w">
+   </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">your_string_with_special_characters</span><span class="p">,</span><span class="w"> 
+   </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">“</span><span class="n">Latin</span><span class="o">-</span><span class="n">ASCII</span><span class="err">"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-If you have `tidyverse` installed, you already have `stringi`.
+<p>If you have <code class="language-plaintext highlighter-rouge">tidyverse</code> installed, you already have <code class="language-plaintext highlighter-rouge">stringi</code>.</p>
 
-### Resources
+<h3 id="resources">Resources</h3>
 
-The staplr package: <https://cran.r-project.org/web/packages/staplr/>
+<p>The staplr package: <a href="https://cran.r-project.org/web/packages/staplr/">https://cran.r-project.org/web/packages/staplr/</a></p>
 
-The microsoft Support page for Mail Merge: <https://support.microsoft.com/en-us/office/use-mail-merge-to-send-bulk-email-messages-0f123521-20ce-4aa8-8b62-ac211dedefa4>
+<p>The microsoft Support page for Mail Merge: <a href="https://support.microsoft.com/en-us/office/use-mail-merge-to-send-bulk-email-messages-0f123521-20ce-4aa8-8b62-ac211dedefa4">https://support.microsoft.com/en-us/office/use-mail-merge-to-send-bulk-email-messages-0f123521-20ce-4aa8-8b62-ac211dedefa4</a></p>
 
-A quick video to see it happening: <https://www.youtube.com/watch?v=NikC2cJ_tHQ>
+<p>A quick video to see it happening: <a href="https://www.youtube.com/watch?v=NikC2cJ_tHQ">https://www.youtube.com/watch?v=NikC2cJ_tHQ</a></p>
 
-The Merge Tools add-in that we ended up using: <https://mergetoolsaddin.com/>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[Filling in PDF forms and sending personalised emails]]></summary></entry><entry><title type="html">Tech news 10: Pipes</title><link href="http://localhost:4000/blog/tech-news-10/" rel="alternate" type="text/html" title="Tech news 10: Pipes" /><published>2024-04-26T21:24:30+02:00</published><updated>2024-04-26T21:24:30+02:00</updated><id>http://localhost:4000/blog/tech-news-10</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-10/"><![CDATA[### What for?
+<p>The Merge Tools add-in that we ended up using: <a href="https://mergetoolsaddin.com/">https://mergetoolsaddin.com/</a></p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[Filling in PDF forms and sending personalised emails]]></summary></entry><entry><title type="html">Tech news 10: Pipes</title><link href="/blog/tech-news-10/" rel="alternate" type="text/html" title="Tech news 10: Pipes" /><published>2024-04-26T21:24:30+02:00</published><updated>2024-04-26T21:24:30+02:00</updated><id>/blog/tech-news-10</id><content type="html" xml:base="/blog/tech-news-10/"><![CDATA[<h3 id="what-for">What for?</h3>
 
-Pipes are present is many languages and they allow passing objects from one function to another without having to create an intermediary object and keeping a logical and readable flow.
-In the command line, you can read all files names in a folder, pass them to grep to select all “.R” files and pass them all to Rscript to execute them. Instead of creating intermediate files, the result of each function is passed to the next by a pipe, represented by “|” in bash.
+<p>Pipes are present is many languages and they allow passing objects from one function to another without having to create an intermediary object and keeping a logical and readable flow.
+In the command line, you can read all files names in a folder, pass them to grep to select all “.R” files and pass them all to Rscript to execute them. Instead of creating intermediate files, the result of each function is passed to the next by a pipe, represented by “|” in bash.</p>
 
-In R, there were two classical ways of going through a workflow.
-Creating intermediate objects even though not useful to keep:
+<p>In R, there were two classical ways of going through a workflow.
+Creating intermediate objects even though not useful to keep:</p>
 
-``` r
-# Abundances in three sites
-dt <- data.frame(abundance = 20:50,
-                 site = rep(
-                    c("A", "B", "C"),
-                    each = 10))
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Abundances in three sites</span><span class="w">
+</span><span class="n">dt</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">abundance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20</span><span class="o">:</span><span class="m">50</span><span class="p">,</span><span class="w">
+                 </span><span class="n">site</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rep</span><span class="p">(</span><span class="w">
+                    </span><span class="nf">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="w"> </span><span class="s2">"B"</span><span class="p">,</span><span class="w"> </span><span class="s2">"C"</span><span class="p">),</span><span class="w">
+                    </span><span class="n">each</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">))</span><span class="w">
 
-sitesAB <- subset(dt, site %in% c("A", "B"))
-subSample <- sample(sitesAB$abundance, size = 5)
-sortedAbundance <- sort(subSample,
-                        descending = FALSE)
-```
+</span><span class="n">sitesAB</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">subset</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="n">site</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="w"> </span><span class="s2">"B"</span><span class="p">))</span><span class="w">
+</span><span class="n">subSample</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sample</span><span class="p">(</span><span class="n">sitesAB</span><span class="o">$</span><span class="n">abundance</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w">
+</span><span class="n">sortedAbundance</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sort</span><span class="p">(</span><span class="n">subSample</span><span class="p">,</span><span class="w">
+                        </span><span class="n">descending</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-Or nesting functions with the disadvantage that you have to read the workflow from the inside to the outside and arguments of the same function are sometimes far from each other, a hard-to-digest-sandwich…
+<p>Or nesting functions with the disadvantage that you have to read the workflow from the inside to the outside and arguments of the same function are sometimes far from each other, a hard-to-digest-sandwich…</p>
 
-``` r
-sortedAbundance <- sort(
-                     sample(
-                       subset(dt,
-                              site %in% c("A", "B"))),
-                       size = 5),
-                     descending = FALSE)
-```
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sortedAbundance</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sort</span><span class="p">(</span><span class="w">
+                     </span><span class="n">sample</span><span class="p">(</span><span class="w">
+                       </span><span class="n">subset</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span><span class="w">
+                              </span><span class="n">site</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="w"> </span><span class="s2">"B"</span><span class="p">))),</span><span class="w">
+                       </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">),</span><span class="w">
+                     </span><span class="n">descending</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-Using a pipe, it looks like this:
+<p>Using a pipe, it looks like this:</p>
 
-``` r
-sortedAbundance <- dt %>%
-  subset(site %in% c("A", "B")) %>%
-  sample(size = 5) %>%
-  sort(descending = FALSE)
-```
-
-Easier to read, intention is clear, arguments stay closer to each other and input and output objects are also close to each other: `dt` is transformed into `sortedAbundance`.
-
-The pipe takes the object passed to it and passes it as the first argument of the next function. If we need to pass the piped object to the second argument, we can name arguments or use a place holder:
-``` r
-c("A","B") %>% sub(pattern = “A”,
-                   replacement = “”)
-c("A","B") %>% sub(pattern = “A”,
-                   replacement = “”,
-                   x = .)
-```
-
-### The `magrittr` pipe
-The `magrittr` package with its iconic `%>%` pipe, was first published early 2014, apparently it caught traction pretty quick and Rstudio developers contacted the creator: “We also worked on a pipe `%.%` but it’s not as functional, practical and rich as yours, could we collaborate?”
-
-This pipe, together with the tidyverse grammar then revolutionised the R ecosystem…
-
-### The base pipe
-And eventually, R developed its own native pipe `|>`. In appearance, its usage is very similar with one difference being that the placeholder is “_” instead of “.”.
-You can read more in this [Hadley Wickam article][article] or in the pipe section of his [book][book] in which he recommends `base` pipe over `maggritr` pipe:
-> For simple cases, `|>` and `%>%` behave identically. So why do we recommend the base pipe? Firstly, because it’s part of base R, it’s always available for you to use, even when you’re not using the tidyverse. Secondly, `|>` is quite a bit simpler than `%>%`: in the time between the invention of `%>%` in 2014 and the inclusion of `|>` in R 4.1.0 in 2021, we gained a better understanding of the pipe. This allowed the base implementation to jettison infrequently used and less important features.
-
-Partly because the `base` pipe is simpler, it has no overhead and is much faster than the `maggritr` pipe:
-
-``` r
-R> system.time({for(i in 1:1e5) identity(x)})
-   user  system elapsed 
-  0.015   0.000   0.015 
-R> system.time({for(i in 1:1e5) x |> identity()})
-   user  system elapsed 
-  0.015   0.000   0.015 
-R> system.time({for(i in 1:1e5) x %>% identity()})
-   user  system elapsed 
-  0.105   0.001   0.106
-```
-
-### The other pipes
-Less frequent as the well-known forward pipe `%>%`, the `maggritr` package offers other pipes!
-
- - The assignment pipe `%<>%`: Pipe an object forward into a function or call expression and update the left-hand-side object with the resulting value.
-
-``` r
-dt %<>% mean() # equivalent to dt <- dt %>% mean()
-```
-
- - The exposition pipe `%$%`: Expose the names in left-hand-side to the right-hand-side expression. This is useful when functions do not have a built-in data argument.
-
-``` r
-iris %>%
-  subset(Sepal.Length > mean(Sepal.Length)) %$%
-  cor(Sepal.Length, Sepal.Width)
-#> [1] 0.3361992
-```
-
- - The tee pipe `%T%`: Pipe a value forward into a function- or call expression and return the original value instead of the result. This is useful when an expression is used for its side-effect, say plotting or printing.
-
-``` r
-rnorm(200) %>%
-  matrix(ncol = 2) %T>%
-  plot() %>% 
-  colSums()
-```
-
-### Resources
-
-The pipe article by Hadley Wickam: <https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/>
-
-The pipe article in the R for Data Science book (Hadley Wickam, second edition): <https://r4ds.hadley.nz/data-transform.html#sec-the-pipe>
-
-[article]:  https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/
-[book]:     https://r4ds.hadley.nz/data-transform.html#sec-the-pipe]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[What for?]]></summary></entry><entry><title type="html">Tech news 9: Testing data</title><link href="http://localhost:4000/blog/tech-news-9/" rel="alternate" type="text/html" title="Tech news 9: Testing data" /><published>2024-03-15T01:37:30+01:00</published><updated>2024-03-15T01:37:30+01:00</updated><id>http://localhost:4000/blog/tech-news-9</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-9/"><![CDATA[### Why testing data?
-
-Looking inside the data you receive and produce is an absolute necessity but if you could have a second pair of eyes able to scan millions of rows in fractions of seconds and as often as needed, why not? Plus buildings your tests, ie data checks needs you to think forward to define your expectations for data and this helps controlling the workflow and ensuring data quality at each step.
-
-### How?
-
-In software development, unit tests check that a function always behaves as expected. Unit tests can be extended to check data too, ie:
-
- - Are column names equal to “year” and “site” AND are all “year” values positive integers > 1998 AND is the “site” column of type factor?
- - Are the X trait values for species 1 in the range 10:20 AND in the range 12:30 for species 2?
-
-By scripting as many tests as needed, we effortlessly make sure that entry data quality is optimal and that it stays correct along data processing. It is more reproducible and time saving.
-
-### `Assertr` for inline/in-workflow testing
-
-An example of input data quality control from the `assertr` documentation:
-
-> Let’s say, for example, that the R’s built-in car dataset, `mtcars`, was not built-in but rather procured from an external source that was known for making errors in data entry or coding. Pretend we wanted to find the average miles per gallon for each number of engine cylinders. We might want to first, confirm
-> - that it has the columns "mpg", "vs", and "am"
-> - that the dataset contains more than 10 observations
-> - that the column for 'miles per gallon' (mpg) is a positive number
-> - that the column for ‘miles per gallon’ (mpg) does not contain a datum that is outside 4 standard deviations from its mean, and
-> - that the “am” and “vs” columns (automatic/manual and v/straight engine, respectively) contain 0s and 1s only
-> - each row contains at most 2 NAs
-> - each row is unique jointly between the "mpg", "am", and "wt" columns
-> - each row's mahalanobis distance is within 10 median absolute deviations of all the distances (for outlier detection)
-> This could be written (in order) using `assertr` like this:
-
-``` r
-library(dplyr)
-library(assertr)
-
-mtcars %>%
-  verify(has_all_names("mpg", "vs", "am", "wt")) %>%
-  verify(nrow(.) > 10) %>%
-  verify(mpg > 0) %>%
-  insist(within_n_sds(4), mpg) %>%
-  assert(in_set(0,1), am, vs) %>%
-  assert_rows(num_row_NAs, within_bounds(0,2), everything()) %>%
-  assert_rows(col_concat, is_uniq, mpg, am, wt) %>%
-  insist_rows(maha_dist, within_n_mads(10), everything()) %>%
-  group_by(cyl) %>%
-  summarise(avg.mpg=mean(mpg))
-```
-> If any of these assertions were violated, an error would have been raised and the pipeline would have been terminated before calculation happened.
-
-In this workflow, `assertr` was used for inline testing, it is immediately apparent, transparent and clear. But maybe you would rather have a suite of tests in a separate script that you would `source()` or that you would call with the dedicated and enriched with clear and helpful error messages `testthat::test_file()`.
-
-### Test suites called by `testthat`
-
-`testthat` was developed for software unit testing and it is the reference in R package building but extensions make it a highly efficient data testing tool. The usual `testthat` test suite is structured around expectations:
- - the `rpois` function is expected to error if argument x has NA
- - the `rpois` function is expected to return a vector of positive integers without NAs
-``` r
-library(testthat)
-test_that(“rpois behaves as expected”, {
-   expect_error(rpois(n = NA, 10))
-
-   expect_false(anyNA(rpois(n = 5,10)))
-   expect_vector(rpois(n = 5,10), size = 5)
-   expect_gte(rpois(n = 5, 10), 0))
-   expect_type(rpois(n = 5, 10), “integer”)
-})
-```
-
-Now, if we could have more data oriented tests, easily applied to data frames, it would feel more natural than multiplying `testthat` expectations. For example, the last four `testthat` expectations could be rewritten with only one `checkmate` expectation:
-
-``` r
-checkmate::expect_integer(rpois(n = 5, 10), lower = 0, len = 5, any_missing = FALSE)
-```
-
-Another useful `checkmate` function to check column names:
-Expecting all column names in any order
-
-``` r
-expect_names(
-  permutation.of = c(“region”,”site”,”plot”,”year”,”month”),
-  what = "colnames"
-)
-```
-
-Or expecting all names AND in order
-
-``` r
-expect_names(
-  identical.to = c(“region”,”site”,”plot”,”year”,”month”),
-  what = "colnames"
-)
-```
-
-Or allowing only a subset of a list
-
-``` r
-expect_names(
-  subset.of = c(“region”,”site”,”plot”,”year”,”month”),
-  what = "colnames"
-)
-```
-
-`Checkmate` was developed with focus on helpful error messages and efficiency:
-
-> Virtually every standard type of user error when passing arguments into function can be caught with a simple, readable line which produces an informative error message in case. A substantial part of the package was written in C to minimize any worries about execution time overhead. Furthermore, the package provides over 30 expectations to extend the popular `testthat` package for unit tests.
-
-Now, let’s use `testdat`, another extension to `testthat`, to build a testing suite for data. First, the `testdat` authors give an example workflow in which the user creates data objects and visually and interactively checks them:
-
-``` r
-library(dplyr)
-
-x <- tribble(
-  ~id, ~pcode, ~state, ~nsw_only,
-  1,   2000,   "NSW",  1,
-  2,   3123,   "VIC",  NA,
-  3,   2123,   "NSW",  3,
-  4,   12345,  "VIC",  3
-)
-
-# check id is unique
-x %>% filter(duplicated(id))
-
-# check values
-x %>% filter(!pcode %in% 2000:3999)
-x %>% count(state)
-x %>% count(nsw_only)
-
-# check base for nsw_only variable
-x %>% filter(state != "NSW") %>% count(nsw_only)
-
-x <- x %>% mutate(market = case_when(pcode %in% 2000:2999 ~ 1,
-                                     pcode %in% 3000:3999 ~ 2))
-
-x %>% count(market)
-```
-And then using `testdat`:
-``` r
-library(testdat)
-library(dplyr)
-
-x <- tribble(
-  ~id, ~pcode, ~state, ~nsw_only,
-  1,   2000,   "NSW",  1,
-  2,   3123,   "VIC",  NA,
-  3,   2123,   "NSW",  3,
-  4,   12345,  "VIC",  3
-)
-
-with_testdata(x, {
-  test_that("id is unique", {
-    expect_unique(id)
-  })
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sortedAbundance</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">subset</span><span class="p">(</span><span class="n">site</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="w"> </span><span class="s2">"B"</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">sample</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">sort</span><span class="p">(</span><span class="n">descending</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Easier to read, intention is clear, arguments stay closer to each other and input and output objects are also close to each other: <code class="language-plaintext highlighter-rouge">dt</code> is transformed into <code class="language-plaintext highlighter-rouge">sortedAbundance</code>.</p>
+
+<p>The pipe takes the object passed to it and passes it as the first argument of the next function. If we need to pass the piped object to the second argument, we can name arguments or use a place holder:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"B"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">sub</span><span class="p">(</span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">“</span><span class="n">A</span><span class="err">”</span><span class="p">,</span><span class="w">
+                   </span><span class="n">replacement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">“”</span><span class="p">)</span><span class="w">
+</span><span class="nf">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"B"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">sub</span><span class="p">(</span><span class="n">pattern</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">“</span><span class="n">A</span><span class="err">”</span><span class="p">,</span><span class="w">
+                   </span><span class="n">replacement</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">“”</span><span class="p">,</span><span class="w">
+                   </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">.</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="the-magrittr-pipe">The <code class="language-plaintext highlighter-rouge">magrittr</code> pipe</h3>
+<p>The <code class="language-plaintext highlighter-rouge">magrittr</code> package with its iconic <code class="language-plaintext highlighter-rouge">%&gt;%</code> pipe, was first published early 2014, apparently it caught traction pretty quick and Rstudio developers contacted the creator: “We also worked on a pipe <code class="language-plaintext highlighter-rouge">%.%</code> but it’s not as functional, practical and rich as yours, could we collaborate?”</p>
+
+<p>This pipe, together with the tidyverse grammar then revolutionised the R ecosystem…</p>
+
+<h3 id="the-base-pipe">The base pipe</h3>
+<p>And eventually, R developed its own native pipe <code class="language-plaintext highlighter-rouge">|&gt;</code>. In appearance, its usage is very similar with one difference being that the placeholder is “_” instead of “.”.
+You can read more in this <a href="https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/">Hadley Wickam article</a> or in the pipe section of his <a href="https://r4ds.hadley.nz/data-transform.html#sec-the-pipe">book</a> in which he recommends <code class="language-plaintext highlighter-rouge">base</code> pipe over <code class="language-plaintext highlighter-rouge">maggritr</code> pipe:</p>
+<blockquote>
+  <p>For simple cases, <code class="language-plaintext highlighter-rouge">|&gt;</code> and <code class="language-plaintext highlighter-rouge">%&gt;%</code> behave identically. So why do we recommend the base pipe? Firstly, because it’s part of base R, it’s always available for you to use, even when you’re not using the tidyverse. Secondly, <code class="language-plaintext highlighter-rouge">|&gt;</code> is quite a bit simpler than <code class="language-plaintext highlighter-rouge">%&gt;%</code>: in the time between the invention of <code class="language-plaintext highlighter-rouge">%&gt;%</code> in 2014 and the inclusion of <code class="language-plaintext highlighter-rouge">|&gt;</code> in R 4.1.0 in 2021, we gained a better understanding of the pipe. This allowed the base implementation to jettison infrequently used and less important features.</p>
+</blockquote>
+
+<p>Partly because the <code class="language-plaintext highlighter-rouge">base</code> pipe is simpler, it has no overhead and is much faster than the <code class="language-plaintext highlighter-rouge">maggritr</code> pipe:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">system.time</span><span class="p">({</span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">1e5</span><span class="p">)</span><span class="w"> </span><span class="n">identity</span><span class="p">(</span><span class="n">x</span><span class="p">)})</span><span class="w">
+   </span><span class="n">user</span><span class="w">  </span><span class="n">system</span><span class="w"> </span><span class="n">elapsed</span><span class="w"> 
+  </span><span class="m">0.015</span><span class="w">   </span><span class="m">0.000</span><span class="w">   </span><span class="m">0.015</span><span class="w"> 
+</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">system.time</span><span class="p">({</span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">1e5</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">identity</span><span class="p">()})</span><span class="w">
+   </span><span class="n">user</span><span class="w">  </span><span class="n">system</span><span class="w"> </span><span class="n">elapsed</span><span class="w"> 
+  </span><span class="m">0.015</span><span class="w">   </span><span class="m">0.000</span><span class="w">   </span><span class="m">0.015</span><span class="w"> 
+</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">system.time</span><span class="p">({</span><span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">1e5</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">identity</span><span class="p">()})</span><span class="w">
+   </span><span class="n">user</span><span class="w">  </span><span class="n">system</span><span class="w"> </span><span class="n">elapsed</span><span class="w"> 
+  </span><span class="m">0.105</span><span class="w">   </span><span class="m">0.001</span><span class="w">   </span><span class="m">0.106</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="the-other-pipes">The other pipes</h3>
+<p>Less frequent as the well-known forward pipe <code class="language-plaintext highlighter-rouge">%&gt;%</code>, the <code class="language-plaintext highlighter-rouge">maggritr</code> package offers other pipes!</p>
+
+<ul>
+  <li>The assignment pipe <code class="language-plaintext highlighter-rouge">%&lt;&gt;%</code>: Pipe an object forward into a function or call expression and update the left-hand-side object with the resulting value.</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dt</span><span class="w"> </span><span class="o">%&lt;&gt;%</span><span class="w"> </span><span class="n">mean</span><span class="p">()</span><span class="w"> </span><span class="c1"># equivalent to dt &lt;- dt %&gt;% mean()</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>The exposition pipe <code class="language-plaintext highlighter-rouge">%$%</code>: Expose the names in left-hand-side to the right-hand-side expression. This is useful when functions do not have a built-in data argument.</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">iris</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">subset</span><span class="p">(</span><span class="n">Sepal.Length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">Sepal.Length</span><span class="p">))</span><span class="w"> </span><span class="o">%$%</span><span class="w">
+  </span><span class="n">cor</span><span class="p">(</span><span class="n">Sepal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">Sepal.Width</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; [1] 0.3361992</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li>The tee pipe <code class="language-plaintext highlighter-rouge">%T%</code>: Pipe a value forward into a function- or call expression and return the original value instead of the result. This is useful when an expression is used for its side-effect, say plotting or printing.</li>
+</ul>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rnorm</span><span class="p">(</span><span class="m">200</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">matrix</span><span class="p">(</span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="o">%T&gt;%</span><span class="w">
+  </span><span class="n">plot</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">colSums</span><span class="p">()</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="resources">Resources</h3>
+
+<p>The pipe article by Hadley Wickam: <a href="https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/">https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/</a></p>
+
+<p>The pipe article in the R for Data Science book (Hadley Wickam, second edition): <a href="https://r4ds.hadley.nz/data-transform.html#sec-the-pipe">https://r4ds.hadley.nz/data-transform.html#sec-the-pipe</a></p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[What for?]]></summary></entry><entry><title type="html">Tech news 9: Testing data</title><link href="/blog/tech-news-9/" rel="alternate" type="text/html" title="Tech news 9: Testing data" /><published>2024-03-15T01:37:30+01:00</published><updated>2024-03-15T01:37:30+01:00</updated><id>/blog/tech-news-9</id><content type="html" xml:base="/blog/tech-news-9/"><![CDATA[<h3 id="why-testing-data">Why testing data?</h3>
+
+<p>Looking inside the data you receive and produce is an absolute necessity but if you could have a second pair of eyes able to scan millions of rows in fractions of seconds and as often as needed, why not? Plus buildings your tests, ie data checks needs you to think forward to define your expectations for data and this helps controlling the workflow and ensuring data quality at each step.</p>
+
+<h3 id="how">How?</h3>
+
+<p>In software development, unit tests check that a function always behaves as expected. Unit tests can be extended to check data too, ie:</p>
+
+<ul>
+  <li>Are column names equal to “year” and “site” AND are all “year” values positive integers &gt; 1998 AND is the “site” column of type factor?</li>
+  <li>Are the X trait values for species 1 in the range 10:20 AND in the range 12:30 for species 2?</li>
+</ul>
+
+<p>By scripting as many tests as needed, we effortlessly make sure that entry data quality is optimal and that it stays correct along data processing. It is more reproducible and time saving.</p>
+
+<h3 id="assertr-for-inlinein-workflow-testing"><code class="language-plaintext highlighter-rouge">Assertr</code> for inline/in-workflow testing</h3>
+
+<p>An example of input data quality control from the <code class="language-plaintext highlighter-rouge">assertr</code> documentation:</p>
+
+<blockquote>
+  <p>Let’s say, for example, that the R’s built-in car dataset, <code class="language-plaintext highlighter-rouge">mtcars</code>, was not built-in but rather procured from an external source that was known for making errors in data entry or coding. Pretend we wanted to find the average miles per gallon for each number of engine cylinders. We might want to first, confirm</p>
+  <ul>
+    <li>that it has the columns “mpg”, “vs”, and “am”</li>
+    <li>that the dataset contains more than 10 observations</li>
+    <li>that the column for ‘miles per gallon’ (mpg) is a positive number</li>
+    <li>that the column for ‘miles per gallon’ (mpg) does not contain a datum that is outside 4 standard deviations from its mean, and</li>
+    <li>that the “am” and “vs” columns (automatic/manual and v/straight engine, respectively) contain 0s and 1s only</li>
+    <li>each row contains at most 2 NAs</li>
+    <li>each row is unique jointly between the “mpg”, “am”, and “wt” columns</li>
+    <li>each row’s mahalanobis distance is within 10 median absolute deviations of all the distances (for outlier detection)
+This could be written (in order) using <code class="language-plaintext highlighter-rouge">assertr</code> like this:</li>
+  </ul>
+</blockquote>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">assertr</span><span class="p">)</span><span class="w">
+
+</span><span class="n">mtcars</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">verify</span><span class="p">(</span><span class="n">has_all_names</span><span class="p">(</span><span class="s2">"mpg"</span><span class="p">,</span><span class="w"> </span><span class="s2">"vs"</span><span class="p">,</span><span class="w"> </span><span class="s2">"am"</span><span class="p">,</span><span class="w"> </span><span class="s2">"wt"</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">verify</span><span class="p">(</span><span class="n">nrow</span><span class="p">(</span><span class="n">.</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">verify</span><span class="p">(</span><span class="n">mpg</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">insist</span><span class="p">(</span><span class="n">within_n_sds</span><span class="p">(</span><span class="m">4</span><span class="p">),</span><span class="w"> </span><span class="n">mpg</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">assert</span><span class="p">(</span><span class="n">in_set</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">),</span><span class="w"> </span><span class="n">am</span><span class="p">,</span><span class="w"> </span><span class="n">vs</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">assert_rows</span><span class="p">(</span><span class="n">num_row_NAs</span><span class="p">,</span><span class="w"> </span><span class="n">within_bounds</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">2</span><span class="p">),</span><span class="w"> </span><span class="n">everything</span><span class="p">())</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">assert_rows</span><span class="p">(</span><span class="n">col_concat</span><span class="p">,</span><span class="w"> </span><span class="n">is_uniq</span><span class="p">,</span><span class="w"> </span><span class="n">mpg</span><span class="p">,</span><span class="w"> </span><span class="n">am</span><span class="p">,</span><span class="w"> </span><span class="n">wt</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">insist_rows</span><span class="p">(</span><span class="n">maha_dist</span><span class="p">,</span><span class="w"> </span><span class="n">within_n_mads</span><span class="p">(</span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">everything</span><span class="p">())</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">cyl</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">summarise</span><span class="p">(</span><span class="n">avg.mpg</span><span class="o">=</span><span class="n">mean</span><span class="p">(</span><span class="n">mpg</span><span class="p">))</span><span class="w">
+</span></code></pre></div></div>
+<blockquote>
+  <p>If any of these assertions were violated, an error would have been raised and the pipeline would have been terminated before calculation happened.</p>
+</blockquote>
+
+<p>In this workflow, <code class="language-plaintext highlighter-rouge">assertr</code> was used for inline testing, it is immediately apparent, transparent and clear. But maybe you would rather have a suite of tests in a separate script that you would <code class="language-plaintext highlighter-rouge">source()</code> or that you would call with the dedicated and enriched with clear and helpful error messages <code class="language-plaintext highlighter-rouge">testthat::test_file()</code>.</p>
+
+<h3 id="test-suites-called-by-testthat">Test suites called by <code class="language-plaintext highlighter-rouge">testthat</code></h3>
+
+<p><code class="language-plaintext highlighter-rouge">testthat</code> was developed for software unit testing and it is the reference in R package building but extensions make it a highly efficient data testing tool. The usual <code class="language-plaintext highlighter-rouge">testthat</code> test suite is structured around expectations:</p>
+<ul>
+  <li>the <code class="language-plaintext highlighter-rouge">rpois</code> function is expected to error if argument x has NA</li>
+  <li>the <code class="language-plaintext highlighter-rouge">rpois</code> function is expected to return a vector of positive integers without NAs
+    <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">testthat</span><span class="p">)</span><span class="w">
+</span><span class="n">test_that</span><span class="p">(</span><span class="err">“</span><span class="n">rpois</span><span class="w"> </span><span class="n">behaves</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">expected</span><span class="err">”</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span><span class="n">expect_error</span><span class="p">(</span><span class="n">rpois</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">))</span><span class="w">
+
+</span><span class="n">expect_false</span><span class="p">(</span><span class="nf">anyNA</span><span class="p">(</span><span class="n">rpois</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="m">10</span><span class="p">)))</span><span class="w">
+</span><span class="n">expect_vector</span><span class="p">(</span><span class="n">rpois</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w">
+</span><span class="n">expect_gte</span><span class="p">(</span><span class="n">rpois</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="m">0</span><span class="p">))</span><span class="w">
+</span><span class="n">expect_type</span><span class="p">(</span><span class="n">rpois</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="err">“</span><span class="n">integer</span><span class="err">”</span><span class="p">)</span><span class="w">
+</span><span class="p">})</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Now, if we could have more data oriented tests, easily applied to data frames, it would feel more natural than multiplying <code class="language-plaintext highlighter-rouge">testthat</code> expectations. For example, the last four <code class="language-plaintext highlighter-rouge">testthat</code> expectations could be rewritten with only one <code class="language-plaintext highlighter-rouge">checkmate</code> expectation:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">checkmate</span><span class="o">::</span><span class="n">expect_integer</span><span class="p">(</span><span class="n">rpois</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">),</span><span class="w"> </span><span class="n">lower</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="n">any_missing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Another useful <code class="language-plaintext highlighter-rouge">checkmate</code> function to check column names:
+Expecting all column names in any order</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">expect_names</span><span class="p">(</span><span class="w">
+  </span><span class="n">permutation.of</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="err">“</span><span class="n">region</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">site</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">plot</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">year</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">month</span><span class="err">”</span><span class="p">),</span><span class="w">
+  </span><span class="n">what</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"colnames"</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Or expecting all names AND in order</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">expect_names</span><span class="p">(</span><span class="w">
+  </span><span class="n">identical.to</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="err">“</span><span class="n">region</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">site</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">plot</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">year</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">month</span><span class="err">”</span><span class="p">),</span><span class="w">
+  </span><span class="n">what</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"colnames"</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Or allowing only a subset of a list</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">expect_names</span><span class="p">(</span><span class="w">
+  </span><span class="n">subset.of</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="err">“</span><span class="n">region</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">site</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">plot</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">year</span><span class="err">”</span><span class="p">,</span><span class="err">”</span><span class="n">month</span><span class="err">”</span><span class="p">),</span><span class="w">
+  </span><span class="n">what</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"colnames"</span><span class="w">
+</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Checkmate</code> was developed with focus on helpful error messages and efficiency:</p>
+
+<blockquote>
+  <p>Virtually every standard type of user error when passing arguments into function can be caught with a simple, readable line which produces an informative error message in case. A substantial part of the package was written in C to minimize any worries about execution time overhead. Furthermore, the package provides over 30 expectations to extend the popular <code class="language-plaintext highlighter-rouge">testthat</code> package for unit tests.</p>
+</blockquote>
+
+<p>Now, let’s use <code class="language-plaintext highlighter-rouge">testdat</code>, another extension to <code class="language-plaintext highlighter-rouge">testthat</code>, to build a testing suite for data. First, the <code class="language-plaintext highlighter-rouge">testdat</code> authors give an example workflow in which the user creates data objects and visually and interactively checks them:</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
+
+</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tribble</span><span class="p">(</span><span class="w">
+  </span><span class="o">~</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="n">pcode</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="n">nsw_only</span><span class="p">,</span><span class="w">
+  </span><span class="m">1</span><span class="p">,</span><span class="w">   </span><span class="m">2000</span><span class="p">,</span><span class="w">   </span><span class="s2">"NSW"</span><span class="p">,</span><span class="w">  </span><span class="m">1</span><span class="p">,</span><span class="w">
+  </span><span class="m">2</span><span class="p">,</span><span class="w">   </span><span class="m">3123</span><span class="p">,</span><span class="w">   </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">  </span><span class="kc">NA</span><span class="p">,</span><span class="w">
+  </span><span class="m">3</span><span class="p">,</span><span class="w">   </span><span class="m">2123</span><span class="p">,</span><span class="w">   </span><span class="s2">"NSW"</span><span class="p">,</span><span class="w">  </span><span class="m">3</span><span class="p">,</span><span class="w">
+  </span><span class="m">4</span><span class="p">,</span><span class="w">   </span><span class="m">12345</span><span class="p">,</span><span class="w">  </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">  </span><span class="m">3</span><span class="w">
+</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># check id is unique</span><span class="w">
+</span><span class="n">x</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">duplicated</span><span class="p">(</span><span class="n">id</span><span class="p">))</span><span class="w">
+
+</span><span class="c1"># check values</span><span class="w">
+</span><span class="n">x</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="o">!</span><span class="n">pcode</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="m">2000</span><span class="o">:</span><span class="m">3999</span><span class="p">)</span><span class="w">
+</span><span class="n">x</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="n">state</span><span class="p">)</span><span class="w">
+</span><span class="n">x</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="n">nsw_only</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># check base for nsw_only variable</span><span class="w">
+</span><span class="n">x</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="n">state</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s2">"NSW"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="n">nsw_only</span><span class="p">)</span><span class="w">
+
+</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">mutate</span><span class="p">(</span><span class="n">market</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">case_when</span><span class="p">(</span><span class="n">pcode</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="m">2000</span><span class="o">:</span><span class="m">2999</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w">
+                                     </span><span class="n">pcode</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="m">3000</span><span class="o">:</span><span class="m">3999</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="m">2</span><span class="p">))</span><span class="w">
+
+</span><span class="n">x</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="n">market</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+<p>And then using <code class="language-plaintext highlighter-rouge">testdat</code>:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">testdat</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
+
+</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">tribble</span><span class="p">(</span><span class="w">
+  </span><span class="o">~</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="n">pcode</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="o">~</span><span class="n">nsw_only</span><span class="p">,</span><span class="w">
+  </span><span class="m">1</span><span class="p">,</span><span class="w">   </span><span class="m">2000</span><span class="p">,</span><span class="w">   </span><span class="s2">"NSW"</span><span class="p">,</span><span class="w">  </span><span class="m">1</span><span class="p">,</span><span class="w">
+  </span><span class="m">2</span><span class="p">,</span><span class="w">   </span><span class="m">3123</span><span class="p">,</span><span class="w">   </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">  </span><span class="kc">NA</span><span class="p">,</span><span class="w">
+  </span><span class="m">3</span><span class="p">,</span><span class="w">   </span><span class="m">2123</span><span class="p">,</span><span class="w">   </span><span class="s2">"NSW"</span><span class="p">,</span><span class="w">  </span><span class="m">3</span><span class="p">,</span><span class="w">
+  </span><span class="m">4</span><span class="p">,</span><span class="w">   </span><span class="m">12345</span><span class="p">,</span><span class="w">  </span><span class="s2">"VIC"</span><span class="p">,</span><span class="w">  </span><span class="m">3</span><span class="w">
+</span><span class="p">)</span><span class="w">
+
+</span><span class="n">with_testdata</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">test_that</span><span class="p">(</span><span class="s2">"id is unique"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">expect_unique</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w">
+  </span><span class="p">})</span><span class="w">
   
-  test_that("variable values are correct", {
-    expect_values(pcode, 2000:2999, 3000:3999)
-    expect_values(state, c("NSW", "VIC"))
-    expect_values(nsw_only, 1:3) # by default expect_values allows NAs
-  })
+  </span><span class="n">test_that</span><span class="p">(</span><span class="s2">"variable values are correct"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">expect_values</span><span class="p">(</span><span class="n">pcode</span><span class="p">,</span><span class="w"> </span><span class="m">2000</span><span class="o">:</span><span class="m">2999</span><span class="p">,</span><span class="w"> </span><span class="m">3000</span><span class="o">:</span><span class="m">3999</span><span class="p">)</span><span class="w">
+    </span><span class="n">expect_values</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"NSW"</span><span class="p">,</span><span class="w"> </span><span class="s2">"VIC"</span><span class="p">))</span><span class="w">
+    </span><span class="n">expect_values</span><span class="p">(</span><span class="n">nsw_only</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">)</span><span class="w"> </span><span class="c1"># by default expect_values allows NAs</span><span class="w">
+  </span><span class="p">})</span><span class="w">
   
-  test_that("filters applied correctly", {
-    expect_base(nsw_only, state == "NSW")
-  })
-})
-```
+  </span><span class="n">test_that</span><span class="p">(</span><span class="s2">"filters applied correctly"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="n">expect_base</span><span class="p">(</span><span class="n">nsw_only</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">"NSW"</span><span class="p">)</span><span class="w">
+  </span><span class="p">})</span><span class="w">
+</span><span class="p">})</span><span class="w">
+</span></code></pre></div></div>
 
-Where attention is needed only if a test fails… these tests can be stored in a separate script and called with the data they are applied to.
-Finally, in heavy data workflows where input data, received from data providers or automatic loggers, follows a limited number of formats, full data check suites can be automatically ran on reception with rich and parametrisable reporting and this is what pointblank was developed for.
+<p>Where attention is needed only if a test fails… these tests can be stored in a separate script and called with the data they are applied to.
+Finally, in heavy data workflows where input data, received from data providers or automatic loggers, follows a limited number of formats, full data check suites can be automatically ran on reception with rich and parametrisable reporting and this is what pointblank was developed for.</p>
 
-Checking the data your data providers send/your automatic inputs
+<p>Checking the data your data providers send/your automatic inputs</p>
 
-#### You can also use `pointblank` in your script as shown here:
-``` r
-library(pointblank)
-dplyr::tibble(
-    a = c(5, 7, 6, 5, NA, 7),
-    b = c(6, 1, 0, 6,  0, 7)
-  ) %>%
-  col_vals_between(
-    a, 1, 9,
-    na_pass = TRUE,
-    actions = warn_on_fail()
-  ) %>%
-  col_vals_lt(
-    c, 12,
-    preconditions = ~ . %>% dplyr::mutate(c = a + b),
-    actions = warn_on_fail()
-  ) %>%
-  col_is_numeric(
-    c(a, b),
-    actions = warn_on_fail()
-  )
-```
+<h4 id="you-can-also-use-pointblank-in-your-script-as-shown-here">You can also use <code class="language-plaintext highlighter-rouge">pointblank</code> in your script as shown here:</h4>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">pointblank</span><span class="p">)</span><span class="w">
+</span><span class="n">dplyr</span><span class="o">::</span><span class="n">tibble</span><span class="p">(</span><span class="w">
+    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">),</span><span class="w">
+    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w">  </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">)</span><span class="w">
+  </span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">col_vals_between</span><span class="p">(</span><span class="w">
+    </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">,</span><span class="w">
+    </span><span class="n">na_pass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w">
+    </span><span class="n">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">warn_on_fail</span><span class="p">()</span><span class="w">
+  </span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">col_vals_lt</span><span class="p">(</span><span class="w">
+    </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w">
+    </span><span class="n">preconditions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">.</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">dplyr</span><span class="o">::</span><span class="n">mutate</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">),</span><span class="w">
+    </span><span class="n">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">warn_on_fail</span><span class="p">()</span><span class="w">
+  </span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">col_is_numeric</span><span class="p">(</span><span class="w">
+    </span><span class="nf">c</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">),</span><span class="w">
+    </span><span class="n">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">warn_on_fail</span><span class="p">()</span><span class="w">
+  </span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-But a better use for it is creating so-called agents that can automatically and reproducibly test data and provide rich visual reports just like this:
-``` r
-agent <- 
-  dplyr::tibble(
-    a = c(5, 7, 6, 5, NA, 7),
-    b = c(6, 1, 0, 6,  0, 7)
-  ) %>%
-  create_agent(
-    label = "A very *simple* example.",
-    actions = al
-  ) %>%
-  col_vals_between(
-    vars(a), 1, 9,
-    na_pass = TRUE
-  ) %>%
-  col_vals_lt(
-    vars(c), 12,
-    preconditions = ~ . %>% dplyr::mutate(c = a + b)
-  ) %>%
-  col_is_numeric(vars(a, b)) %>%
-  interrogate()
-print(agent)
-```
+<p>But a better use for it is creating so-called agents that can automatically and reproducibly test data and provide rich visual reports just like this:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">agent</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> 
+  </span><span class="n">dplyr</span><span class="o">::</span><span class="n">tibble</span><span class="p">(</span><span class="w">
+    </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="kc">NA</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">),</span><span class="w">
+    </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w">  </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">)</span><span class="w">
+  </span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">create_agent</span><span class="p">(</span><span class="w">
+    </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"A very *simple* example."</span><span class="p">,</span><span class="w">
+    </span><span class="n">actions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">al</span><span class="w">
+  </span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">col_vals_between</span><span class="p">(</span><span class="w">
+    </span><span class="n">vars</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">9</span><span class="p">,</span><span class="w">
+    </span><span class="n">na_pass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="w">
+  </span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">col_vals_lt</span><span class="p">(</span><span class="w">
+    </span><span class="n">vars</span><span class="p">(</span><span class="n">c</span><span class="p">),</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w">
+    </span><span class="n">preconditions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">.</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">dplyr</span><span class="o">::</span><span class="n">mutate</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w">
+  </span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">col_is_numeric</span><span class="p">(</span><span class="n">vars</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">interrogate</span><span class="p">()</span><span class="w">
+</span><span class="n">print</span><span class="p">(</span><span class="n">agent</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-And the `pointblank` package currently supports PostgreSQL. MySQL, MariaDB, Microsoft SQL Server, Google BigQuery, DuckDB, SQLite, and Spark DataFrames!
+<p>And the <code class="language-plaintext highlighter-rouge">pointblank</code> package currently supports PostgreSQL. MySQL, MariaDB, Microsoft SQL Server, Google BigQuery, DuckDB, SQLite, and Spark DataFrames!</p>
 
-### Resources
-<https://ropensci.r-universe.dev/assertr#>
-<https://testthat.r-lib.org/>
-<https://socialresearchcentre.r-universe.dev/testdat#>
-<https://socialresearchcentre.github.io/testdat/articles/testdat.html>
-<https://rstudio.r-universe.dev/pointblank#>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[Why testing data?]]></summary></entry><entry><title type="html">Saving the camera settings of a shot in the exif data of the scans</title><link href="http://localhost:4000/blog/saving-shot-metadata/" rel="alternate" type="text/html" title="Saving the camera settings of a shot in the exif data of the scans" /><published>2024-02-26T01:15:30+01:00</published><updated>2024-02-26T01:15:30+01:00</updated><id>http://localhost:4000/blog/saving-shot-metadata</id><content type="html" xml:base="http://localhost:4000/blog/saving-shot-metadata/"><![CDATA[For decades (centuries?) photographers have been writing their camera settings for each shot on a
+<h3 id="resources">Resources</h3>
+<p><a href="https://ropensci.r-universe.dev/assertr#">https://ropensci.r-universe.dev/assertr#</a>
+<a href="https://testthat.r-lib.org/">https://testthat.r-lib.org/</a>
+<a href="https://socialresearchcentre.r-universe.dev/testdat#">https://socialresearchcentre.r-universe.dev/testdat#</a>
+<a href="https://socialresearchcentre.github.io/testdat/articles/testdat.html">https://socialresearchcentre.github.io/testdat/articles/testdat.html</a>
+<a href="https://rstudio.r-universe.dev/pointblank#">https://rstudio.r-universe.dev/pointblank#</a></p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[Why testing data?]]></summary></entry><entry><title type="html">Saving the camera settings of a shot in the exif data of the scans</title><link href="/blog/saving-shot-metadata/" rel="alternate" type="text/html" title="Saving the camera settings of a shot in the exif data of the scans" /><published>2024-02-26T01:15:30+01:00</published><updated>2024-02-26T01:15:30+01:00</updated><id>/blog/saving-shot-metadata</id><content type="html" xml:base="/blog/saving-shot-metadata/"><![CDATA[<p>For decades (centuries?) photographers have been writing their camera settings for each shot on a
 notebook to learn and train their eye, to organise their shots or because they are data-freaks.
 Today, you could still make notes by hand or use a dedicated smartphone app or you could be the
-proud owner of a more modern film camera that saves the shot data on a memory card.
+proud owner of a more modern film camera that saves the shot data on a memory card.</p>
 
-Once the film developed, by yourself or a lab, and scanned, by yourself or a lab, the scans you get
+<p>Once the film developed, by yourself or a lab, and scanned, by yourself or a lab, the scans you get
 do not have the information of the original shots. These data are on paper, on a smartphone or on a memory card.
-I downloaded the `Analog` app for my smartphone, because it is free, does not collect user data,
-it's lightweight and I loved the design, and I began saving the settings for each shot. Data was accumulating
-but I was not seeing how to get it out yet.
+I downloaded the <code class="language-plaintext highlighter-rouge">Analog</code> app for my smartphone, because it is free, does not collect user data,
+it’s lightweight and I loved the design, and I began saving the settings for each shot. Data was accumulating
+but I was not seeing how to get it out yet.</p>
 
-A digital camera would take the picture and save the settings inside the `jpg` or `tiff` files
-in exif data. I want the same thing for my scans!
+<p>A digital camera would take the picture and save the settings inside the <code class="language-plaintext highlighter-rouge">jpg</code> or <code class="language-plaintext highlighter-rouge">tiff</code> files
+in exif data. I want the same thing for my scans!</p>
 
-And how to get these data in the exif fields of the scans? Well surprisingly, it's not as straightforward as
+<p>And how to get these data in the exif fields of the scans? Well surprisingly, it’s not as straightforward as
 you (I) would expect. At first I did not find anything satisfying and discussing with the developers behind
-`Analog` made it clear that it was not a straightforward task for them either. We talked about workflow.
+<code class="language-plaintext highlighter-rouge">Analog</code> made it clear that it was not a straightforward task for them either. We talked about workflow.</p>
 
-The team were encouraging amateur and professional photographers to rename their
+<p>The team were encouraging amateur and professional photographers to rename their
 files, well their scans, following this convention to save the settings of
-each shot. Then they developed `Analog` which of course allows users to save Shutter speed,
-Aperture, the lens' focal length and exposure correction. At the end of the
-roll, the data is extracted and the user receives a list of name files by email:
+each shot. Then they developed <code class="language-plaintext highlighter-rouge">Analog</code> which of course allows users to save Shutter speed,
+Aperture, the lens’ focal length and exposure correction. At the end of the
+roll, the data is extracted and the user receives a list of name files by email:</p>
 
-> Test roll_NO01_SS50_A2.8_FL50_EX0
-> Test roll_NO02_SS50_A2.8_FL50_EX0
-> Test roll_NO03_SS125_A4_FL50_EX0
-> Test roll_NO04_SS125_A4_FL50_EX0
+<blockquote>
+  <p>Test roll_NO01_SS50_A2.8_FL50_EX0
+Test roll_NO02_SS50_A2.8_FL50_EX0
+Test roll_NO03_SS125_A4_FL50_EX0
+Test roll_NO04_SS125_A4_FL50_EX0</p>
+</blockquote>
 
-They hand-rename the scans or use a renaming software. OK.
-but this does not go _inside_ the files, a file name is not an ideal way
+<p>They hand-rename the scans or use a renaming software. OK.
+but this does not go <em>inside</em> the files, a file name is not an ideal way
 of storing data even when using the standardised convention they created:
-NOSSAFLEX
+NOSSAFLEX</p>
 
-> It’s as easy as the name – NOSSAFLEX has all of the information in the
-> title.
->
-> NO = Number  
-> SS = Shutter Speed  
-> A = Aperture  
-> FL = Focal Length  
-> EX = Exposure
+<blockquote>
+  <p>It’s as easy as the name – NOSSAFLEX has all of the information in the
+title.</p>
 
-I could not find a way to automatically save the data on my phone to the exif slots of my scans...
+  <p>NO = Number<br />
+SS = Shutter Speed<br />
+A = Aperture<br />
+FL = Focal Length<br />
+EX = Exposure</p>
+</blockquote>
 
-So I decided to create an R package to do it! An exciting weekend project and certainly
-an article for the blog!
+<p>I could not find a way to automatically save the data on my phone to the exif slots of my scans…</p>
 
-Since I was already using the `Analog` app, I had to follow its data structure.
+<p>So I decided to create an R package to do it! An exciting weekend project and certainly
+an article for the blog!</p>
 
-### Here is the README of my package
+<p>Since I was already using the <code class="language-plaintext highlighter-rouge">Analog</code> app, I had to follow its data structure.</p>
 
-This package relies on a file naming convention for, essentially analog,
+<h3 id="here-is-the-readme-of-my-package">Here is the README of my package</h3>
+
+<p>This package relies on a file naming convention for, essentially analog,
 photography. Photographs taken on film, then developed, then scanned are lacking
-important metadata or if they have, it's from the scanning device, not the
+important metadata or if they have, it’s from the scanning device, not the
 original camera.
 The nossaflex package takes NOSSAFLEX structured file names
 and can 1) batch rename corresponding pictures and 2) edit their exif data
 to add information such as focal length, shutter speed, aperture.
-This allow a photographer to take notes on the `Analog` app while shooting
+This allow a photographer to take notes on the <code class="language-plaintext highlighter-rouge">Analog</code> app while shooting
 pictures, export nossaflex compatible file names and use R to rename scans
-and edit their exif metadata with corresponding shot information.
+and edit their exif metadata with corresponding shot information.</p>
 
-The nossaflex package is the entry of the NOSSAFLEX file naming
+<p>The nossaflex package is the entry of the NOSSAFLEX file naming
 convention into the R universe to help scientific, professional or
 amateur photographers to name their picture files consistently and
-informatively.
+informatively.</p>
 
-When taking a picture with an analog camera, data such as aperture,
+<p>When taking a picture with an analog camera, data such as aperture,
 shutter speed or focal length are not automatically saved the way they
 are in a digital camera. Many photographers write down these precious
 metadata in a notebook, we want to help them improve their workflow and
-data quality.
+data quality.</p>
 
-#### What is NOSSAFLEX?
+<h4 id="what-is-nossaflex">What is NOSSAFLEX?</h4>
 
-Here is an explanation from the creators:
+<p>Here is an explanation from the creators:</p>
 
-> It’s as easy as the name – NOSSAFLEX has all of the information in the
-> title.
->
-> NO = Number  
-> SS = Shutter Speed  
-> A = Aperture  
-> FL = Focal Length  
-> EX = Exposure
+<blockquote>
+  <p>It’s as easy as the name – NOSSAFLEX has all of the information in the
+title.</p>
 
-NOSSAFLEX file names looks like this: `NO03_SS250_A8_FL80_EX0.jpg` or
-this: `NO34_SS30_A2.8_FL35_EX+1.tiff`!
+  <p>NO = Number<br />
+SS = Shutter Speed<br />
+A = Aperture<br />
+FL = Focal Length<br />
+EX = Exposure</p>
+</blockquote>
 
-Learn more on their \[website\]{<https://nossaflex.io/the-system>} or on
-their \[Youtube channel\]{<https://www.youtube.com/@NOSSAFLEX>}.
+<p>NOSSAFLEX file names looks like this: <code class="language-plaintext highlighter-rouge">NO03_SS250_A8_FL80_EX0.jpg</code> or
+this: <code class="language-plaintext highlighter-rouge">NO34_SS30_A2.8_FL35_EX+1.tiff</code>!</p>
 
-#### The package
+<p>Learn more on their [website]{<a href="https://nossaflex.io/the-system">https://nossaflex.io/the-system</a>} or on
+their [Youtube channel]{<a href="https://www.youtube.com/@NOSSAFLEX">https://www.youtube.com/@NOSSAFLEX</a>}.</p>
 
-Here are the two main functions in the package:
+<h4 id="the-package">The package</h4>
 
-- `renaming_nossaflex` batch-renames picture files from uninformative
-  `DSC_00345.jpg` to information-rich NOSSAFLEX name based on data
-  provided by the user, see {analog} section:
-  `NO03_SS250_A8_FL80_EX0.jpg`.
-- `editing_exif` batch-saves the metadata of the pictures into the exif
-  slots of the scan files (jpg, tiff, etc).
+<p>Here are the two main functions in the package:</p>
 
-#### Analog or an other app
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">renaming_nossaflex</code> batch-renames picture files from uninformative
+<code class="language-plaintext highlighter-rouge">DSC_00345.jpg</code> to information-rich NOSSAFLEX name based on data
+provided by the user, see {analog} section:
+<code class="language-plaintext highlighter-rouge">NO03_SS250_A8_FL80_EX0.jpg</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">editing_exif</code> batch-saves the metadata of the pictures into the exif
+slots of the scan files (jpg, tiff, etc).</li>
+</ul>
 
-#### The workflow
+<h4 id="analog-or-an-other-app">Analog or an other app</h4>
 
-#### Installation
+<h4 id="the-workflow">The workflow</h4>
 
-You can install the development version of nossaflex from
-[GitHub](https://github.com/) with:
+<h4 id="installation">Installation</h4>
 
-``` r
-# install.packages("devtools")
-# devtools::install_github("AlbanSagouis/nossaflex")
-```
+<p>You can install the development version of nossaflex from
+<a href="https://github.com/">GitHub</a> with:</p>
 
-#### Example
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># install.packages("devtools")</span><span class="w">
+</span><span class="c1"># devtools::install_github("AlbanSagouis/nossaflex")</span><span class="w">
+</span></code></pre></div></div>
 
-This is a basic example which shows you how to solve a common problem:
+<h4 id="example">Example</h4>
 
-``` r
-library(nossaflex)
-files <- c("Pictures/2024/01 02 Winter in Berlin/DSC_001034",
-           "Pictures/2024/01 02 Winter in Berlin/DSC_001035",
-           "Pictures/2024/01 02 Winter in Berlin/DSC_001036")
-filenames <- reading_nossaflex(path = "path_to_the_filenames.txt") # provided by the `analog` app
-renaming_nossaflex(filenames = filenames, files = files)
-```
+<p>This is a basic example which shows you how to solve a common problem:</p>
 
-Additionally you may want to safely save the shots metadata inside the
-scans:
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">nossaflex</span><span class="p">)</span><span class="w">
+</span><span class="n">files</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"Pictures/2024/01 02 Winter in Berlin/DSC_001034"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"Pictures/2024/01 02 Winter in Berlin/DSC_001035"</span><span class="p">,</span><span class="w">
+           </span><span class="s2">"Pictures/2024/01 02 Winter in Berlin/DSC_001036"</span><span class="p">)</span><span class="w">
+</span><span class="n">filenames</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">reading_nossaflex</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"path_to_the_filenames.txt"</span><span class="p">)</span><span class="w"> </span><span class="c1"># provided by the `analog` app</span><span class="w">
+</span><span class="n">renaming_nossaflex</span><span class="p">(</span><span class="n">filenames</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filenames</span><span class="p">,</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">files</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-``` r
-metadata <- reading_nossaflex(path = "path_to_the_filenames.txt") |>  # provided by the `analog` app
-     parsing_nossaflex()
-editing_exif(files, metadata)
-```
+<p>Additionally you may want to safely save the shots metadata inside the
+scans:</p>
 
-#### Related work
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">metadata</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">reading_nossaflex</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"path_to_the_filenames.txt"</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w">  </span><span class="c1"># provided by the `analog` app</span><span class="w">
+     </span><span class="n">parsing_nossaflex</span><span class="p">()</span><span class="w">
+</span><span class="n">editing_exif</span><span class="p">(</span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="n">metadata</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
 
-The package relies heavily on the great
-`exiftoolr`{<https://github.com/JoshOBrien/exiftoolr/>} package by
+<h4 id="related-work">Related work</h4>
+
+<p>The package relies heavily on the great
+<code class="language-plaintext highlighter-rouge">exiftoolr</code>{<a href="https://github.com/JoshOBrien/exiftoolr/">https://github.com/JoshOBrien/exiftoolr/</a>} package by
 @JoshOBrien which itself depends on the great
-`exiftool`{<https://exiftool.org/>} software by Phil Harvey.  
-Finally, jExifToolGUI{<https://github.com/hvdwolf/jExifToolGUI>} also
-offers exif editing and with a Graphical Interface, nice.]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="weekend-project" /><category term="experience" /><category term="R" /><category term="package" /><summary type="html"><![CDATA[For decades (centuries?) photographers have been writing their camera settings for each shot on a notebook to learn and train their eye, to organise their shots or because they are data-freaks. Today, you could still make notes by hand or use a dedicated smartphone app or you could be the proud owner of a more modern film camera that saves the shot data on a memory card.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/saving-shot-metadata.png" /><media:content medium="image" url="http://localhost:4000/assets/images/saving-shot-metadata.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Tech news 8: Sharing code through your own R package</title><link href="http://localhost:4000/blog/tech-news-8/" rel="alternate" type="text/html" title="Tech news 8: Sharing code through your own R package" /><published>2024-02-16T22:37:30+01:00</published><updated>2024-02-16T22:37:30+01:00</updated><id>http://localhost:4000/blog/tech-news-8</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-8/"><![CDATA[This month, I thought of writing a little bit about sharing code with each other.
+<code class="language-plaintext highlighter-rouge">exiftool</code>{<a href="https://exiftool.org/">https://exiftool.org/</a>} software by Phil Harvey.<br />
+Finally, jExifToolGUI{<a href="https://github.com/hvdwolf/jExifToolGUI">https://github.com/hvdwolf/jExifToolGUI</a>} also
+offers exif editing and with a Graphical Interface, nice.</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="weekend-project" /><category term="experience" /><category term="R" /><category term="package" /><summary type="html"><![CDATA[For decades (centuries?) photographers have been writing their camera settings for each shot on a notebook to learn and train their eye, to organise their shots or because they are data-freaks. Today, you could still make notes by hand or use a dedicated smartphone app or you could be the proud owner of a more modern film camera that saves the shot data on a memory card.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/saving-shot-metadata.png" /><media:content medium="image" url="/assets/images/saving-shot-metadata.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Tech news 8: Sharing code through your own R package</title><link href="/blog/tech-news-8/" rel="alternate" type="text/html" title="Tech news 8: Sharing code through your own R package" /><published>2024-02-16T22:37:30+01:00</published><updated>2024-02-16T22:37:30+01:00</updated><id>/blog/tech-news-8</id><content type="html" xml:base="/blog/tech-news-8/"><![CDATA[<p>This month, I thought of writing a little bit about sharing code with each other.</p>
 
-### Collaborating on code
+<h3 id="collaborating-on-code">Collaborating on code</h3>
 
-Let’s imagine having a workshop with a group of colleagues and over the course of the week, some will develop tools and some will use said tools for various analyses. The workflow will most likely be:
+<p>Let’s imagine having a workshop with a group of colleagues and over the course of the week, some will develop tools and some will use said tools for various analyses. The workflow will most likely be:</p>
 
-1. let’s define our needs, some functions, the data they take in input and what we all need out
-2. some begin writing functions, each their own maybe and then share with everyone,
-3. the code is emailed around, saved on a USB key or shared on DropBox
-4. a. users test the functions, find bugs, need improvements, need more details on input format, give feedback
-4. b. In the meantime, programers fixed some things, fixed functions, created others and back to 2.
+<ol>
+  <li>let’s define our needs, some functions, the data they take in input and what we all need out</li>
+  <li>some begin writing functions, each their own maybe and then share with everyone,</li>
+  <li>the code is emailed around, saved on a USB key or shared on DropBox</li>
+  <li>a. users test the functions, find bugs, need improvements, need more details on input format, give feedback</li>
+  <li>b. In the meantime, programers fixed some things, fixed functions, created others and back to 2.</li>
+</ol>
 
-It’s hard keeping track of the versions and consistently and easily distributing updates to users. It’s hard distributing documentation, testing functions reproducibly and controlling the dependencies.
-And if you’re teaching and want to distribute code and data all in one?
+<p>It’s hard keeping track of the versions and consistently and easily distributing updates to users. It’s hard distributing documentation, testing functions reproducibly and controlling the dependencies.
+And if you’re teaching and want to distribute code and data all in one?</p>
 
-### Make your life easier, make a package
+<h3 id="make-your-life-easier-make-a-package">Make your life easier, make a package</h3>
 
-If the functions were written in a package, documentation and tests can easily be written and processed thanks to rstudio built-in tools. The users can install the package, from the shared dropbox or from github/gitlab almost as usual, and load it with `library(yourPackage)` as usual. They can access the help documentation you wrote with “?” as they are used to, read examples, enjoy auto-completion of the arguments, etc.
-When they give you feedback, the version is clear and the code changes can be tested in seconds with a shortcut.
+<p>If the functions were written in a package, documentation and tests can easily be written and processed thanks to rstudio built-in tools. The users can install the package, from the shared dropbox or from github/gitlab almost as usual, and load it with <code class="language-plaintext highlighter-rouge">library(yourPackage)</code> as usual. They can access the help documentation you wrote with “?” as they are used to, read examples, enjoy auto-completion of the arguments, etc.
+When they give you feedback, the version is clear and the code changes can be tested in seconds with a shortcut.</p>
 
-You can also share data inside the package, and again, the version will be a timestamp and get you a reproducibility badge. It’s also going to be very easy to access for the users:
+<p>You can also share data inside the package, and again, the version will be a timestamp and get you a reproducibility badge. It’s also going to be very easy to access for the users:</p>
 
-``` r
-library(yourPackage)
-dataName
-```
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">yourPackage</span><span class="p">)</span><span class="w">
+</span><span class="n">dataName</span><span class="w">
+</span></code></pre></div></div>
 
-### How to make a package?
+<h3 id="how-to-make-a-package">How to make a package?</h3>
 
-There are so many great (better) resources online! But let me just give a couple of tips:  
+<p>There are so many great (better) resources online! But let me just give a couple of tips:</p>
 
-The absolute minimum that makes an R package an R package is one DESCRIPTION file and one R script, that’s it!
+<p>The absolute minimum that makes an R package an R package is one DESCRIPTION file and one R script, that’s it!</p>
 
-Begin small, discover the thrill, clarity and comfort of writing documentation and tests for your functions. This will give you ways of imagining edge cases, eg thinking of the missing values, and controlling. Make a change, Ctrl+Shift+T(est), make another change, Ctrl+Shift+T, etc!
+<p>Begin small, discover the thrill, clarity and comfort of writing documentation and tests for your functions. This will give you ways of imagining edge cases, eg thinking of the missing values, and controlling. Make a change, Ctrl+Shift+T(est), make another change, Ctrl+Shift+T, etc!</p>
 
-> Make a change, Ctrl+Shift+T(est), make another change, Ctrl+Shift+T, etc!
+<blockquote>
+  <p>Make a change, Ctrl+Shift+T(est), make another change, Ctrl+Shift+T, etc!</p>
+</blockquote>
 
-Take advantage of tools you already have on your computer: RStudio, the devtools, `testthat` packages for example.
+<p>Take advantage of tools you already have on your computer: RStudio, the devtools, <code class="language-plaintext highlighter-rouge">testthat</code> packages for example.</p>
 
-For whatever questions you might have while building, documenting or testing, the first DuckDuckGo result will very likely comes from Wickham’s book (<https://r-pkgs.org/>), it’s just so complete…
+<p>For whatever questions you might have while building, documenting or testing, the first DuckDuckGo result will very likely comes from Wickham’s book (<a href="https://r-pkgs.org/">https://r-pkgs.org/</a>), it’s just so complete…</p>
 
-Wanna do it differently? Build the tests first to build up the framework of exactly how you want your function to behave, then write the function.
+<p>Wanna do it differently? Build the tests first to build up the framework of exactly how you want your function to behave, then write the function.</p>
 
-### Some useful tools
+<h3 id="some-useful-tools">Some useful tools</h3>
 
-- `devtools::document()` will build the documentation, help pages, vignettes everything
-- `devtools::install()`, `devtools::install(“/mydropbox/myPackage”)` or `devtools::install_github(“yourRepo/yourPackage”)` will install the package from source from wherever is the code.
-- `testthat::test_package()` will run all of your tests and give you encouraging words when they fail, how thoughtful!
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">devtools::document()</code> will build the documentation, help pages, vignettes everything</li>
+  <li><code class="language-plaintext highlighter-rouge">devtools::install()</code>, <code class="language-plaintext highlighter-rouge">devtools::install(“/mydropbox/myPackage”)</code> or <code class="language-plaintext highlighter-rouge">devtools::install_github(“yourRepo/yourPackage”)</code> will install the package from source from wherever is the code.</li>
+  <li><code class="language-plaintext highlighter-rouge">testthat::test_package()</code> will run all of your tests and give you encouraging words when they fail, how thoughtful!</li>
+</ul>
 
-I hope this decreased the barrier of trying out building a package. I hope however that it is not decreasing the impressiveness of it!
+<p>I hope this decreased the barrier of trying out building a package. I hope however that it is not decreasing the impressiveness of it!</p>
 
+<p>Best wishes,</p>
+
+<p>Alban</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[This month, I thought of writing a little bit about sharing code with each other.]]></summary></entry><entry><title type="html">Tech news 7: Creating animated figures</title><link href="/blog/tech-news-7/" rel="alternate" type="text/html" title="Tech news 7: Creating animated figures" /><published>2024-01-26T16:57:30+01:00</published><updated>2024-01-26T16:57:30+01:00</updated><id>/blog/tech-news-7</id><content type="html" xml:base="/blog/tech-news-7/"><![CDATA[<p>This week’s email is about <code class="language-plaintext highlighter-rouge">tidymodels</code>.</p>
+<blockquote>
+  <p>The <code class="language-plaintext highlighter-rouge">tidymodels</code> framework is a collection of packages for modeling and machine learning using <code class="language-plaintext highlighter-rouge">tidyverse</code> principles.</p>
+</blockquote>
+
+<p><code class="language-plaintext highlighter-rouge">Tidymodels</code> offers a consistent and flexible framework for your data science and data programming needs. This tool suite is designed to streamline and simplify the process of building and tuning models, making it easier for researchers to extract meaningful insights from their data.</p>
+
+<p>To illustrate the use of key packages in <code class="language-plaintext highlighter-rouge">tidymodels</code>, here’s a short example workflow:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Workflow (</code>The workflow package enables you to assemble the individual components of your modeling process into a cohesive workflow. You can define the order of operations and specify the preprocessing steps, model fitting, and model evaluation<code class="language-plaintext highlighter-rouge">) {</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">Recipes (</code>The recipes package helps with data preprocessing and feature engineering. You can create a recipe to define the steps for encoding categorical variables, scaling numeric variables, and creating new features<code class="language-plaintext highlighter-rouge">) %&gt;%</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">Dials (</code>The dials package provides a way to define tuning parameters for models. You can create a set of possible values for each parameter using the <code class="language-plaintext highlighter-rouge">grid_*()</code> functions<code class="language-plaintext highlighter-rouge">) %&gt;%</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">Parsnip (</code>The parsnip package allows you to specify the type of model you want to build. For example, you can create a linear regression model using <code class="language-plaintext highlighter-rouge">linear_reg()</code> function<code class="language-plaintext highlighter-rouge">) %&gt;%</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">Tune (</code>The tune package provides functions for hyperparameter tuning. You can use the ‘tune_*()’ functions to automatically search for the best combination of hyperparameters for your model using a specified tuning grid<code class="language-plaintext highlighter-rouge">)</code>
+<code class="language-plaintext highlighter-rouge">}</code></p>
+
+<p>By utilising these packages in sequence, you can build a comprehensive modeling pipeline that includes specifying the model type, preprocessing data, tuning hyperparameters, and evaluating model performance.</p>
+
+<p>Here is a code example from the tidymodels “Get started” page:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">urchins</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="c1"># Loading the data</span><span class="w">
+  </span><span class="n">readr</span><span class="o">::</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"https://tidymodels.org/start/models/urchins.csv"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">stats</span><span class="o">::</span><span class="n">setNames</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s2">"food_regime"</span><span class="p">,</span><span class="w"> </span><span class="s2">"initial_volume"</span><span class="p">,</span><span class="w"> </span><span class="s2">"width"</span><span class="p">))</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">dplyr</span><span class="o">::</span><span class="n">mutate</span><span class="p">(</span><span class="n">food_regime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">food_regime</span><span class="p">,</span><span class="w"> </span><span class="n">levels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"Initial"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Low"</span><span class="p">,</span><span class="w"> </span><span class="s2">"High"</span><span class="p">)))</span><span class="w">
+
+</span><span class="c1"># Then preparing the model: a linear regression</span><span class="w">
+</span><span class="n">parsnip</span><span class="o">::</span><span class="n">linear_reg</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="c1"># This is the model type</span><span class="w">
+  </span><span class="n">parsnip</span><span class="o">::</span><span class="n">set_engine</span><span class="p">(</span><span class="s2">"keras"</span><span class="p">)</span><span class="w">  </span><span class="c1"># This is the engine / fitting method</span><span class="w">
+</span><span class="n">lm_mod</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">parsnip</span><span class="o">::</span><span class="n">linear_reg</span><span class="p">()</span><span class="w"> </span><span class="c1"># The default engine: “lm” is used</span><span class="w">
+
+</span><span class="c1"># And now we fit the model:</span><span class="w">
+</span><span class="n">lm_fit</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> 
+  </span><span class="n">lm_mod</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">fit</span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">initial_volume</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">food_regime</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">urchins</span><span class="p">)</span><span class="w">
+</span><span class="n">lm_fit</span><span class="w">
+</span><span class="c1">#&gt; parsnip model object</span><span class="w">
+</span><span class="c1">#&gt; </span><span class="w">
+</span><span class="c1">#&gt; </span><span class="w">
+</span><span class="c1">#&gt; Call:</span><span class="w">
+</span><span class="c1">#&gt; stats::lm(formula = width ~ initial_volume * food_regime, data = data)</span><span class="w">
+</span><span class="c1">#&gt; </span><span class="w">
+</span><span class="c1">#&gt; Coefficients:</span><span class="w">
+</span><span class="c1">#&gt;                    (Intercept)                  initial_volume  </span><span class="w">
+</span><span class="c1">#&gt;                      0.0331216                       0.0015546  </span><span class="w">
+</span><span class="c1">#&gt;                 food_regimeLow                 food_regimeHigh  </span><span class="w">
+</span><span class="c1">#&gt;                      0.0197824                       0.0214111  </span><span class="w">
+</span><span class="c1">#&gt;  initial_volume:food_regimeLow  initial_volume:food_regimeHigh  </span><span class="w">
+</span><span class="c1">#&gt;                     -0.0012594                       0.0005254</span><span class="w">
+
+</span><span class="c1"># broom::tidy() offers a clean output:</span><span class="w">
+</span><span class="n">broom</span><span class="o">::</span><span class="n">tidy</span><span class="p">(</span><span class="n">lm_fit</span><span class="p">)</span><span class="w">
+</span><span class="c1">#&gt; # A tibble: 6 × 5</span><span class="w">
+</span><span class="c1">#&gt;   term                                            estimate std.error statistic  p.value</span><span class="w">
+</span><span class="c1">#&gt;   &lt;chr&gt;                                          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;</span><span class="w">
+</span><span class="c1">#&gt; 1 (Intercept)                                   0.0331     0.00962      3.44  0.00100 </span><span class="w">
+</span><span class="c1">#&gt; 2 initial_volume                                0.00155   0.000398      3.91  0.000222</span><span class="w">
+</span><span class="c1">#&gt; 3 food_regimeLow                                0.0198      0.0130      1.52  0.133   </span><span class="w">
+</span><span class="c1">#&gt; 4 food_regimeHigh                               0.0214      0.0145      1.47  0.145   </span><span class="w">
+</span><span class="c1">#&gt; 5 initial_volume:food_regimeLow                -0.00126   0.000510     -2.47  0.0162  </span><span class="w">
+</span><span class="c1">#&gt; 6 initial_volume:food_regimeHigh                0.000525  0.000702      0.748 0.457</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Now what if we wanted something different like a Bayesian model? No need to change everything, tidymodels functions are generic even though the underlying packages use very different syntax:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># set the prior distribution</span><span class="w">
+</span><span class="n">prior_dist</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rstanarm</span><span class="o">::</span><span class="n">student_t</span><span class="p">(</span><span class="n">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># make the parsnip model</span><span class="w">
+</span><span class="n">bayes_mod</span><span class="w"> </span><span class="o">&lt;-</span><span class="w">   
+  </span><span class="n">parsnip</span><span class="o">::</span><span class="n">linear_reg</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">parsnip</span><span class="o">::</span><span class="n">set_engine</span><span class="p">(</span><span class="s2">"stan"</span><span class="p">,</span><span class="w"> 
+             </span><span class="n">prior_intercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prior_dist</span><span class="p">,</span><span class="w"> 
+             </span><span class="n">prior</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prior_dist</span><span class="p">)</span><span class="w"> 
+
+</span><span class="c1"># train the model</span><span class="w">
+</span><span class="n">bayes_fit</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> 
+  </span><span class="n">bayes_mod</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">fit</span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="o">~</span><span class="w"> </span><span class="n">initial_volume</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">food_regime</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">urchins</span><span class="p">)</span><span class="w">
+
+</span><span class="n">Easily</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">training</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">sets</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">rsamples</span><span class="o">:</span><span class="w">
+</span><span class="n">urchins_split</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rsamples</span><span class="o">::</span><span class="n">initial_split</span><span class="p">(</span><span class="n">urchins</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">select</span><span class="p">(</span><span class="o">-</span><span class="n">width</span><span class="p">),</span><span class="w"> 
+                            </span><span class="n">strata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">class</span><span class="p">)</span><span class="w">
+</span><span class="n">urchins_train</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rsamples</span><span class="o">::</span><span class="n">training</span><span class="p">(</span><span class="n">urchins_split</span><span class="p">)</span><span class="w">
+</span><span class="n">urchins_test</span><span class="w">  </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">rsamples</span><span class="o">::</span><span class="n">testing</span><span class="p">(</span><span class="n">urchins_split</span><span class="p">)</span><span class="w">
+</span><span class="n">Create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Workflow</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">even</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">reproducibility</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">reliability</span><span class="o">:</span><span class="w">
+</span><span class="n">urchins_wflow</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> 
+  </span><span class="n">workflow</span><span class="o">::</span><span class="n">workflow</span><span class="p">()</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">workflow</span><span class="o">::</span><span class="n">add_model</span><span class="p">(</span><span class="n">lm_mod</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">workflow</span><span class="o">::</span><span class="n">add_recipe</span><span class="p">(</span><span class="n">urchins_rec</span><span class="p">)</span><span class="w">
+</span><span class="n">Fit</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">training</span><span class="w"> </span><span class="n">data</span><span class="o">:</span><span class="w">
+</span><span class="n">urchins_fit</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> 
+  </span><span class="n">urchins_wflow</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">train_data</span><span class="p">)</span><span class="w">
+</span><span class="n">And</span><span class="w"> </span><span class="n">easily</span><span class="w"> </span><span class="n">fit</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">predict</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">data</span><span class="o">!</span><span class="w">
+</span><span class="n">predict</span><span class="p">(</span><span class="n">urchins_fit</span><span class="p">,</span><span class="w"> </span><span class="n">test_data</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>I hope this triggered your curiosity and you see potential for an increase in efficiency and reliability in your analytical work!</p>
+
+<p>I relied heavily on the <code class="language-plaintext highlighter-rouge">tidymodels</code> “Get started” page to prepare this email and I encourage anyone interested to consult it too or even follow the introductory or advanced workshops the authors published online!</p>
+
+<h3 id="resources">Resources</h3>
+
+<p>The tidyverse blog is a great resource for staying up to date with the latest tidymodels news and developments:</p>
+
+<ul>
+  <li>Tidymodels website: <a href="https://www.tidymodels.org/">https://www.tidymodels.org/</a></li>
+  <li>Tidymodels get started: <a href="https://www.tidymodels.org/start/">https://www.tidymodels.org/start/</a></li>
+  <li>Tidymodels workshops: <a href="https://workshops.tidymodels.org/">https://workshops.tidymodels.org/</a></li>
+</ul>
+
+<p>Happy to discuss it and collaborate!
 Best wishes,
+Alban</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[This week’s email is about tidymodels. The tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.]]></summary></entry><entry><title type="html">How I moved the website to _albansagouis.com_</title><link href="/blog/website-building-5/" rel="alternate" type="text/html" title="How I moved the website to _albansagouis.com_" /><published>2024-01-17T13:34:30+01:00</published><updated>2024-01-17T13:34:30+01:00</updated><id>/blog/website-building-5</id><content type="html" xml:base="/blog/website-building-5/"><![CDATA[<p>The website was hosted for free by github at the address <em>albansagouis.github.io</em>, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.</p>
 
-Alban]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[This month, I thought of writing a little bit about sharing code with each other.]]></summary></entry><entry><title type="html">Tech news 7: Creating animated figures</title><link href="http://localhost:4000/blog/tech-news-7/" rel="alternate" type="text/html" title="Tech news 7: Creating animated figures" /><published>2024-01-26T16:57:30+01:00</published><updated>2024-01-26T16:57:30+01:00</updated><id>http://localhost:4000/blog/tech-news-7</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-7/"><![CDATA[This week’s email is about `tidymodels`.
-> The `tidymodels` framework is a collection of packages for modeling and machine learning using `tidyverse` principles.
+<p>First I compared prices between some of the main domain providers such as <a href="https://www.namecheap.com">Namecheap</a> and <a href="https://www.domain.com">domain.com</a>. Namecheap was… cheaper and offered more options so I went for this one. I had no availability issues for my name fortunately but I hesitated for a long time between <em>sagouis.com</em> and <em>albansagouis.com</em>. Owning <em>sagouis.com</em> would allow me to create an infinite number of subdomains such as <em>alban.sagouis.com</em>, <em>work.sagouis.com</em> or <em>photo.sagouis.com</em>.</p>
 
-`Tidymodels` offers a consistent and flexible framework for your data science and data programming needs. This tool suite is designed to streamline and simplify the process of building and tuning models, making it easier for researchers to extract meaningful insights from their data.
+<p>Anyway, I acquired the domain name <em>albansagouis.com</em> on <a href="https://www.namecheap.com">Namecheap</a>.</p>
 
-To illustrate the use of key packages in `tidymodels`, here's a short example workflow:
+<p>Then I read <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site">Github Pages documentation</a> again! More specifically how to <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain">manage your domain.</a> I explored the namecheap settings and through trial and error, getting confused why things were not working and then realising that the order in which the steps are done matter and then sometimes, the domain change process just takes time to happen…</p>
 
-  `Workflow (`The workflow package enables you to assemble the individual components of your modeling process into a cohesive workflow. You can define the order of operations and specify the preprocessing steps, model fitting, and model evaluation`) {`
+<p>Details change from a domain provider to another but you will have to make changes to</p>
 
-  `Recipes (`The recipes package helps with data preprocessing and feature engineering. You can create a recipe to define the steps for encoding categorical variables, scaling numeric variables, and creating new features`) %>%`
+<ul>
+  <li>your github settings so that GitHub shows your new domain instead of the default <em>yourname.github.io</em></li>
+  <li>your settings on your domain provider website. This can be all very new but Github actually gives all the <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#dns-records-for-your-custom-domain">necessary data</a> for you to properly set the DNS records</li>
+</ul>
 
-  `Dials (`The dials package provides a way to define tuning parameters for models. You can create a set of possible values for each parameter using the `grid_*()` functions`) %>%`
+<p>Now my first move when I’m not sure about something regarding domains is to ask to the technical support chat…</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html"><![CDATA[The website was hosted for free by github at the address albansagouis.github.io, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.]]></summary></entry><entry><title type="html">Building the website online or locally?</title><link href="/blog/website-building-2/" rel="alternate" type="text/html" title="Building the website online or locally?" /><published>2024-01-13T17:34:30+01:00</published><updated>2024-01-13T17:34:30+01:00</updated><id>/blog/website-building-2</id><content type="html" xml:base="/blog/website-building-2/"><![CDATA[<p>A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.</p>
 
-  `Parsnip (`The parsnip package allows you to specify the type of model you want to build. For example, you can create a linear regression model using `linear_reg()` function`) %>%`
+<h3 id="building-with-github-actions">Building with Github Actions</h3>
 
-  `Tune (`The tune package provides functions for hyperparameter tuning. You can use the 'tune_*()' functions to automatically search for the best combination of hyperparameters for your model using a specified tuning grid`)`
-`}`
-
-By utilising these packages in sequence, you can build a comprehensive modeling pipeline that includes specifying the model type, preprocessing data, tuning hyperparameters, and evaluating model performance.
-
-Here is a code example from the tidymodels “Get started” page:
-``` r
-urchins <- # Loading the data
-  readr::read_csv("https://tidymodels.org/start/models/urchins.csv") %>% 
-  stats::setNames(c("food_regime", "initial_volume", "width")) %>% 
-  dplyr::mutate(food_regime = factor(food_regime, levels = c("Initial", "Low", "High")))
-
-# Then preparing the model: a linear regression
-parsnip::linear_reg() %>% # This is the model type
-  parsnip::set_engine("keras")  # This is the engine / fitting method
-lm_mod <- parsnip::linear_reg() # The default engine: “lm” is used
-
-# And now we fit the model:
-lm_fit <- 
-  lm_mod %>% 
-  fit(width ~ initial_volume * food_regime, data = urchins)
-lm_fit
-#> parsnip model object
-#> 
-#> 
-#> Call:
-#> stats::lm(formula = width ~ initial_volume * food_regime, data = data)
-#> 
-#> Coefficients:
-#>                    (Intercept)                  initial_volume  
-#>                      0.0331216                       0.0015546  
-#>                 food_regimeLow                 food_regimeHigh  
-#>                      0.0197824                       0.0214111  
-#>  initial_volume:food_regimeLow  initial_volume:food_regimeHigh  
-#>                     -0.0012594                       0.0005254
-
-# broom::tidy() offers a clean output:
-broom::tidy(lm_fit)
-#> # A tibble: 6 × 5
-#>   term                                            estimate std.error statistic  p.value
-#>   <chr>                                          <dbl>     <dbl>     <dbl>    <dbl>
-#> 1 (Intercept)                                   0.0331     0.00962      3.44  0.00100 
-#> 2 initial_volume                                0.00155   0.000398      3.91  0.000222
-#> 3 food_regimeLow                                0.0198      0.0130      1.52  0.133   
-#> 4 food_regimeHigh                               0.0214      0.0145      1.47  0.145   
-#> 5 initial_volume:food_regimeLow                -0.00126   0.000510     -2.47  0.0162  
-#> 6 initial_volume:food_regimeHigh                0.000525  0.000702      0.748 0.457
-```
-
-Now what if we wanted something different like a Bayesian model? No need to change everything, tidymodels functions are generic even though the underlying packages use very different syntax:
-``` r
-# set the prior distribution
-prior_dist <- rstanarm::student_t(df = 1)
-
-# make the parsnip model
-bayes_mod <-   
-  parsnip::linear_reg() %>% 
-  parsnip::set_engine("stan", 
-             prior_intercept = prior_dist, 
-             prior = prior_dist) 
-
-# train the model
-bayes_fit <- 
-  bayes_mod %>% 
-  fit(width ~ initial_volume * food_regime, data = urchins)
-
-Easily create training and testing data sets with rsamples:
-urchins_split <- rsamples::initial_split(urchins %>% select(-width), 
-                            strata = class)
-urchins_train <- rsamples::training(urchins_split)
-urchins_test  <- rsamples::testing(urchins_split)
-Create a Workflow for even more reproducibility and reliability:
-urchins_wflow <- 
-  workflow::workflow() %>% 
-  workflow::add_model(lm_mod) %>% 
-  workflow::add_recipe(urchins_rec)
-Fit the model on the training data:
-urchins_fit <- 
-  urchins_wflow %>% 
-  fit(data = train_data)
-And easily fit and predict on the test data!
-predict(urchins_fit, test_data)
-```
-
-I hope this triggered your curiosity and you see potential for an increase in efficiency and reliability in your analytical work!
-
-I relied heavily on the `tidymodels` “Get started” page to prepare this email and I encourage anyone interested to consult it too or even follow the introductory or advanced workshops the authors published online!
-
-### Resources
-
-The tidyverse blog is a great resource for staying up to date with the latest tidymodels news and developments:  
-
-- Tidymodels website: <https://www.tidymodels.org/>
-- Tidymodels get started: <https://www.tidymodels.org/start/>
-- Tidymodels workshops: <https://workshops.tidymodels.org/>
-
-Happy to discuss it and collaborate!
-Best wishes,
-Alban]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[This week’s email is about tidymodels. The tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.]]></summary></entry><entry><title type="html">How I moved the website to _albansagouis.com_</title><link href="http://localhost:4000/blog/website-building-5/" rel="alternate" type="text/html" title="How I moved the website to _albansagouis.com_" /><published>2024-01-17T13:34:30+01:00</published><updated>2024-01-17T13:34:30+01:00</updated><id>http://localhost:4000/blog/website-building-5</id><content type="html" xml:base="http://localhost:4000/blog/website-building-5/"><![CDATA[The website was hosted for free by github at the address _albansagouis.github.io_, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.
-
-First I compared prices between some of the main domain providers such as [Namecheap][namecheap] and [domain.com][domain]. Namecheap was... cheaper and offered more options so I went for this one. I had no availability issues for my name fortunately but I hesitated for a long time between _sagouis.com_ and _albansagouis.com_. Owning _sagouis.com_ would allow me to create an infinite number of subdomains such as _alban.sagouis.com_, _work.sagouis.com_ or _photo.sagouis.com_.
-
-Anyway, I acquired the domain name _albansagouis.com_ on [Namecheap][namecheap].  
-
-Then I read [Github Pages documentation][gh_domain] again! More specifically how to [manage your domain.][gh_manage] I explored the namecheap settings and through trial and error, getting confused why things were not working and then realising that the order in which the steps are done matter and then sometimes, the domain change process just takes time to happen...
-
-Details change from a domain provider to another but you will have to make changes to
-
- - your github settings so that GitHub shows your new domain instead of the default _yourname.github.io_
- - your settings on your domain provider website. This can be all very new but Github actually gives all the [necessary data][gh_DNS_records] for you to properly set the DNS records
-
-Now my first move when I'm not sure about something regarding domains is to ask to the technical support chat...
-
-[namecheap]:  https://www.namecheap.com
-[domain]:     https://www.domain.com
-[gh_domain]:  https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site
-[gh_manage]:  https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain
-[gh_DNS_records]: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#dns-records-for-your-custom-domain]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html"><![CDATA[The website was hosted for free by github at the address albansagouis.github.io, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.]]></summary></entry><entry><title type="html">Building the website online or locally?</title><link href="http://localhost:4000/blog/website-building-2/" rel="alternate" type="text/html" title="Building the website online or locally?" /><published>2024-01-13T17:34:30+01:00</published><updated>2024-01-13T17:34:30+01:00</updated><id>http://localhost:4000/blog/website-building-2</id><content type="html" xml:base="http://localhost:4000/blog/website-building-2/"><![CDATA[A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.
-
-### Building with Github Actions
-
-Github Pages leverage the powerful capabilities of Github Actions to build `Jekyll` websites online. This saves you from having to install anything on your computer, just write your Markdown content in your usual IDE or even directly on Github.
+<p>Github Pages leverage the powerful capabilities of Github Actions to build <code class="language-plaintext highlighter-rouge">Jekyll</code> websites online. This saves you from having to install anything on your computer, just write your Markdown content in your usual IDE or even directly on Github.
 Until today, my process was in two steps: I was building the website locally to have a very interactive building process and then I would push the code and let Github Pages build the website another time. Before pushing any changes to Github, I could build, see the rendered modifications in the website in several cautious steps without waiting for the Github Action to finish.
-The html files I was creating locally with `jekyll build` were not synced with git or Github.  
+The html files I was creating locally with <code class="language-plaintext highlighter-rouge">jekyll build</code> were not synced with git or Github.</p>
 
-The main disadvantage is that Github Pages does not allow downloading some plugins and I felt limited with this setup.  
-I'm also looking into the future where I see that I'll be switching from `Jekyll` to `Quarto` which is booming and R based and more in tune with my global experience and profile. Github Pages use `Jekyll` to build websites not Quarto, Quarto users have to build their websites and Github Pages will "only" host it.
+<p>The main disadvantage is that Github Pages does not allow downloading some plugins and I felt limited with this setup.<br />
+I’m also looking into the future where I see that I’ll be switching from <code class="language-plaintext highlighter-rouge">Jekyll</code> to <code class="language-plaintext highlighter-rouge">Quarto</code> which is booming and R based and more in tune with my global experience and profile. Github Pages use <code class="language-plaintext highlighter-rouge">Jekyll</code> to build websites not Quarto, Quarto users have to build their websites and Github Pages will “only” host it.</p>
 
-### Building locally and pushing html files
+<h3 id="building-locally-and-pushing-html-files">Building locally and pushing html files</h3>
 
-The change from one process to the other can be done in two steps:
+<p>The change from one process to the other can be done in two steps:</p>
 
-1. Locally:
-  - Change the path where Jekyll will build the website: add `destination: docs/` in the `_config.yml` file.
-  - `jekyll build` to create the website in `docs/`
-  - Create an empty `.nojekyll` file at the root of your repository or run `touch .nojekyll` (Mac/Linux) or `copy NUL .nojekyll` (Windows) in your command line tool.
-  - (Remove `_site/` and delete "_site/" from `.gitignore`)
-  - Push your changes
-2. In Github: go to the settings of your repository, go to Github Pages and edit the folder where Github Pages will look for your site: in `/docs`  
-You can consult the [Quarto documentation for more details.](https://quarto.org/docs/publishing/github-pages.html#render-to-docs)
+<ol>
+  <li>Locally:
+    <ul>
+      <li>Change the path where Jekyll will build the website: add <code class="language-plaintext highlighter-rouge">destination: docs/</code> in the <code class="language-plaintext highlighter-rouge">_config.yml</code> file.</li>
+      <li><code class="language-plaintext highlighter-rouge">jekyll build</code> to create the website in <code class="language-plaintext highlighter-rouge">docs/</code></li>
+      <li>Create an empty <code class="language-plaintext highlighter-rouge">.nojekyll</code> file at the root of your repository or run <code class="language-plaintext highlighter-rouge">touch .nojekyll</code> (Mac/Linux) or <code class="language-plaintext highlighter-rouge">copy NUL .nojekyll</code> (Windows) in your command line tool.</li>
+      <li>(Remove <code class="language-plaintext highlighter-rouge">_site/</code> and delete “_site/” from <code class="language-plaintext highlighter-rouge">.gitignore</code>)</li>
+      <li>Push your changes</li>
+    </ul>
+  </li>
+  <li>In Github: go to the settings of your repository, go to Github Pages and edit the folder where Github Pages will look for your site: in <code class="language-plaintext highlighter-rouge">/docs</code><br />
+You can consult the <a href="https://quarto.org/docs/publishing/github-pages.html#render-to-docs">Quarto documentation for more details.</a></li>
+</ol>
 
-Besides better control of your environment and the ability of installing more plugins, another advantage of building locally is the possibility of having a local version of your theme (minimal-mistake in my case) locally instead of `Jekyll` downloading it every time the website is built. In my case, this reduces the build time from 10 seconds to 1... In your `_config.yml` file, just replace `remote_theme: mmistakes/minimal-mistakes` with `theme: minimal-mistakes-jekyll` and add `gem "minimal-mistakes-jekyll"` to your `gemfile` before running `bundle install` in your terminal.
+<p>Besides better control of your environment and the ability of installing more plugins, another advantage of building locally is the possibility of having a local version of your theme (minimal-mistake in my case) locally instead of <code class="language-plaintext highlighter-rouge">Jekyll</code> downloading it every time the website is built. In my case, this reduces the build time from 10 seconds to 1… In your <code class="language-plaintext highlighter-rouge">_config.yml</code> file, just replace <code class="language-plaintext highlighter-rouge">remote_theme: mmistakes/minimal-mistakes</code> with <code class="language-plaintext highlighter-rouge">theme: minimal-mistakes-jekyll</code> and add <code class="language-plaintext highlighter-rouge">gem "minimal-mistakes-jekyll"</code> to your <code class="language-plaintext highlighter-rouge">gemfile</code> before running <code class="language-plaintext highlighter-rouge">bundle install</code> in your terminal.</p>
 
-### Additional plugins
+<h3 id="additional-plugins">Additional plugins</h3>
 
-At the moment, some of the plugins I would like to use include tools [to improve the Search Engine Optimization of the website](https://github.com/jekyll/jekyll-seo-tag/tree/master) and another plugin to make tables interactive and searchable.]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html"><![CDATA[A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.]]></summary></entry><entry><title type="html">My discovery of analog photography</title><link href="http://localhost:4000/blog/discovery-analog-photography/" rel="alternate" type="text/html" title="My discovery of analog photography" /><published>2024-01-11T01:15:30+01:00</published><updated>2024-01-11T01:15:30+01:00</updated><id>http://localhost:4000/blog/discovery-analog-photography</id><content type="html" xml:base="http://localhost:4000/blog/discovery-analog-photography/"><![CDATA[<p>I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.</p>
+<p>At the moment, some of the plugins I would like to use include tools <a href="https://github.com/jekyll/jekyll-seo-tag/tree/master">to improve the Search Engine Optimization of the website</a> and another plugin to make tables interactive and searchable.</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html"><![CDATA[A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.]]></summary></entry><entry><title type="html">My discovery of analog photography</title><link href="/blog/discovery-analog-photography/" rel="alternate" type="text/html" title="My discovery of analog photography" /><published>2024-01-11T01:15:30+01:00</published><updated>2024-01-11T01:15:30+01:00</updated><id>/blog/discovery-analog-photography</id><content type="html" xml:base="/blog/discovery-analog-photography/"><![CDATA[<p>I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.</p>
 
 <p>I began looking for an analog camera and I received a Nikon EM with a Nikon Nikkor series E 50mm 1/1.8 as a present. An analog camera with actual film that you buy and you pay to develop, with silver ions and toxic chemistry that made me think each shot and make only one. A prime lens that would force me to move closer or further by walking. Finally I could take the time to think about the composition of the shot instead of taking as many pictures as fast as I could before a bird would take off. And black and white film with an explosion of contrast!</p>
 
@@ -827,7 +840,7 @@ In the meantime, here is a picture of a Nikon EM:</p>
 </figure>
 
 <p>Taking pictures of birds now certainly is a different kind of fun but hey, here is my first analog bird photo: a booted eagle photographed at full zoom 80mm! with auto-focus and sport mode with a Canon EOS 500 on Kodak Ultra 400ASA! I don’t know about you but I don’t see feathers or eyes…</p>
-<figure class=""><img src="/assets/images/discovery-analog-photography/1197143.jpeg" alt="Booted eagle" /></figure>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="gear" /><summary type="html"><![CDATA[I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/discovery-analog-photography/Nikon_EM.jpeg" /><media:content medium="image" url="http://localhost:4000/assets/images/discovery-analog-photography/Nikon_EM.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How I created this website</title><link href="http://localhost:4000/blog/website-building-1/" rel="alternate" type="text/html" title="How I created this website" /><published>2024-01-10T13:34:30+01:00</published><updated>2024-01-10T13:34:30+01:00</updated><id>http://localhost:4000/blog/website-building-1</id><content type="html" xml:base="http://localhost:4000/blog/website-building-1/"><![CDATA[<p>This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it.<br />
+<figure class=""><img src="/assets/images/discovery-analog-photography/1197143.jpeg" alt="Booted eagle" /></figure>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="gear" /><summary type="html"><![CDATA[I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/discovery-analog-photography/Nikon_EM.jpeg" /><media:content medium="image" url="/assets/images/discovery-analog-photography/Nikon_EM.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How I created this website</title><link href="/blog/website-building-1/" rel="alternate" type="text/html" title="How I created this website" /><published>2024-01-10T13:34:30+01:00</published><updated>2024-01-10T13:34:30+01:00</updated><id>/blog/website-building-1</id><content type="html" xml:base="/blog/website-building-1/"><![CDATA[<p>This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it.<br />
 I downloaded the minimal mistake repo from github and began working in VSC. Since I built the Restore project website on the same computer a few months ago, I naively thought everything would work from the first try. I actually had a few errors but it was a great satisfaction to follow
 the recommendations I left for the Restore project members, for myself and for other readers, and every thing was quickly solved and the website was running in less than an hour.</p>
 
