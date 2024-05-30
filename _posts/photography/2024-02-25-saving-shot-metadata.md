@@ -36,10 +36,10 @@ each shot. Then they developed `Analog` which of course allows users to save Shu
 Aperture, the lens' focal length and exposure correction. At the end of the
 roll, the data is extracted and the user receives a list of name files by email:
 
-> Test roll_NO01_SS50_A2.8_FL50_EX0
-> Test roll_NO02_SS50_A2.8_FL50_EX0
-> Test roll_NO03_SS125_A4_FL50_EX0
-> Test roll_NO04_SS125_A4_FL50_EX0
+> Test roll_NO01_SS50_A2.8_FL50_EX0  
+> Test roll_NO02_SS50_A2.8_FL50_EX0  
+> Test roll_NO03_SS125_A4_FL50_EX0  
+> Test roll_NO04_SS125_A4_FL50_EX0  
 
 They hand-rename the scans or use a renaming software. OK.
 but this does not go _inside_ the files, a file name is not an ideal way
@@ -102,8 +102,8 @@ Here is an explanation from the creators:
 NOSSAFLEX file names looks like this: `NO03_SS250_A8_FL80_EX0.jpg` or
 this: `NO34_SS30_A2.8_FL35_EX+1.tiff`!
 
-Learn more on their \[website\]{<https://nossaflex.io/the-system>} or on
-their \[Youtube channel\]{<https://www.youtube.com/@NOSSAFLEX>}.
+Learn more on their [website][nossaflex_website] or on
+their [Youtube channel][nossaflex_youtube].
 
 #### The package
 
@@ -123,7 +123,7 @@ Here are the two main functions in the package:
 #### Installation
 
 You can install the development version of nossaflex from
-[GitHub](https://github.com/) with:
+[GitHub][nossaflex_package] with:
 
 ``` r
 # install.packages("devtools")
@@ -155,8 +155,16 @@ editing_exif(files, metadata)
 #### Related work
 
 The package relies heavily on the great
-`exiftoolr`{<https://github.com/JoshOBrien/exiftoolr/>} package by
+[`exiftoolr`][exiftoolr] package by
 @JoshOBrien which itself depends on the great
-`exiftool`{<https://exiftool.org/>} software by Phil Harvey.  
-Finally, jExifToolGUI{<https://github.com/hvdwolf/jExifToolGUI>} also
+[`exiftool`][exiftool] software by Phil Harvey.  
+Finally, [jExifToolGUI][jexiftoolgui] also
 offers exif editing and with a Graphical Interface, nice.
+
+
+[nossaflex_website]:  https://nossaflex.io/the-system
+[nossaflex_youtube]:  https://www.youtube.com/@NOSSAFLEX
+[nossaflex_package]:  https://github.com/albansagouis/nossaflex
+[exiftoolr]:          https://github.com/JoshOBrien/exiftoolr/
+[exiftool]:           https://exiftool.org/
+[jexiftoolgui]:       https://github.com/hvdwolf/jExifToolGUI

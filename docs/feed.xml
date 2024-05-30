@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-05-27T15:56:10+02:00</updated><id>/feed.xml</id><title type="html">A personal website, a living CV</title><subtitle>This is a professional personal page, I speak of R programming,  scientific development, web development, reproducibility  and photography</subtitle><author><name>Alban Sagouis</name></author><entry><title type="html">Tech news 11: Facilitating… admin tasks</title><link href="/blog/tech-news-11/" rel="alternate" type="text/html" title="Tech news 11: Facilitating… admin tasks" /><published>2024-05-24T17:57:30+02:00</published><updated>2024-05-24T17:57:30+02:00</updated><id>/blog/tech-news-11</id><content type="html" xml:base="/blog/tech-news-11/"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-05-30T15:35:54+02:00</updated><id>/feed.xml</id><title type="html">A personal website, a living CV</title><subtitle>This is a professional personal page, I speak of R programming,  scientific development, web development, reproducibility  and photography</subtitle><author><name>Alban Sagouis</name></author><entry><title type="html">Tech news 11: Facilitating… admin tasks</title><link href="/blog/tech-news-11/" rel="alternate" type="text/html" title="Tech news 11: Facilitating… admin tasks" /><published>2024-05-24T17:57:30+02:00</published><updated>2024-05-24T17:57:30+02:00</updated><id>/blog/tech-news-11</id><content type="html" xml:base="/blog/tech-news-11/"><![CDATA[<blockquote>
   <p>Filling in PDF forms and sending personalised emails</p>
 </blockquote>
 
@@ -433,9 +433,9 @@ Aperture, the lens’ focal length and exposure correction. At the end of the
 roll, the data is extracted and the user receives a list of name files by email:</p>
 
 <blockquote>
-  <p>Test roll_NO01_SS50_A2.8_FL50_EX0
-Test roll_NO02_SS50_A2.8_FL50_EX0
-Test roll_NO03_SS125_A4_FL50_EX0
+  <p>Test roll_NO01_SS50_A2.8_FL50_EX0<br />
+Test roll_NO02_SS50_A2.8_FL50_EX0<br />
+Test roll_NO03_SS125_A4_FL50_EX0<br />
 Test roll_NO04_SS125_A4_FL50_EX0</p>
 </blockquote>
 
@@ -504,8 +504,8 @@ EX = Exposure</p>
 <p>NOSSAFLEX file names looks like this: <code class="language-plaintext highlighter-rouge">NO03_SS250_A8_FL80_EX0.jpg</code> or
 this: <code class="language-plaintext highlighter-rouge">NO34_SS30_A2.8_FL35_EX+1.tiff</code>!</p>
 
-<p>Learn more on their [website]{<a href="https://nossaflex.io/the-system">https://nossaflex.io/the-system</a>} or on
-their [Youtube channel]{<a href="https://www.youtube.com/@NOSSAFLEX">https://www.youtube.com/@NOSSAFLEX</a>}.</p>
+<p>Learn more on their <a href="https://nossaflex.io/the-system">website</a> or on
+their <a href="https://www.youtube.com/@NOSSAFLEX">Youtube channel</a>.</p>
 
 <h4 id="the-package">The package</h4>
 
@@ -527,7 +527,7 @@ slots of the scan files (jpg, tiff, etc).</li>
 <h4 id="installation">Installation</h4>
 
 <p>You can install the development version of nossaflex from
-<a href="https://github.com/">GitHub</a> with:</p>
+<a href="https://github.com/albansagouis/nossaflex">GitHub</a> with:</p>
 
 <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># install.packages("devtools")</span><span class="w">
 </span><span class="c1"># devtools::install_github("AlbanSagouis/nossaflex")</span><span class="w">
@@ -556,10 +556,10 @@ scans:</p>
 <h4 id="related-work">Related work</h4>
 
 <p>The package relies heavily on the great
-<code class="language-plaintext highlighter-rouge">exiftoolr</code>{<a href="https://github.com/JoshOBrien/exiftoolr/">https://github.com/JoshOBrien/exiftoolr/</a>} package by
+<a href="https://github.com/JoshOBrien/exiftoolr/"><code class="language-plaintext highlighter-rouge">exiftoolr</code></a> package by
 @JoshOBrien which itself depends on the great
-<code class="language-plaintext highlighter-rouge">exiftool</code>{<a href="https://exiftool.org/">https://exiftool.org/</a>} software by Phil Harvey.<br />
-Finally, jExifToolGUI{<a href="https://github.com/hvdwolf/jExifToolGUI">https://github.com/hvdwolf/jExifToolGUI</a>} also
+<a href="https://exiftool.org/"><code class="language-plaintext highlighter-rouge">exiftool</code></a> software by Phil Harvey.<br />
+Finally, <a href="https://github.com/hvdwolf/jExifToolGUI">jExifToolGUI</a> also
 offers exif editing and with a Graphical Interface, nice.</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="weekend-project" /><category term="experience" /><category term="R" /><category term="package" /><summary type="html"><![CDATA[For decades (centuries?) photographers have been writing their camera settings for each shot on a notebook to learn and train their eye, to organise their shots or because they are data-freaks. Today, you could still make notes by hand or use a dedicated smartphone app or you could be the proud owner of a more modern film camera that saves the shot data on a memory card.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/saving-shot-metadata.png" /><media:content medium="image" url="/assets/images/saving-shot-metadata.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Tech news 8: Sharing code through your own R package</title><link href="/blog/tech-news-8/" rel="alternate" type="text/html" title="Tech news 8: Sharing code through your own R package" /><published>2024-02-16T22:37:30+01:00</published><updated>2024-02-16T22:37:30+01:00</updated><id>/blog/tech-news-8</id><content type="html" xml:base="/blog/tech-news-8/"><![CDATA[<p>This month, I thought of writing a little bit about sharing code with each other.</p>
 
 <h3 id="collaborating-on-code">Collaborating on code</h3>
