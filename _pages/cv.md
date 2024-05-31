@@ -6,7 +6,8 @@ taxonomy: experience
 entries_layout: grid
 
 ---
+### Here is [my PDF CV](/assets/files/CV_2024.pdf)
 
-### This is my _dynamic CV_!
+### And this is my _dynamic CV_!
 
 My blogposts tagged with "experience" are automatically collected here.
