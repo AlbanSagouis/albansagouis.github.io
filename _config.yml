@@ -62,6 +62,9 @@ exclude:
 #   - vendor/gems/
 #   - vendor/ruby/
 
+keep_files:
+  - docs/CNAME
+
 # Plugins (previously gems:)
 plugins:
   - jekyll-paginate
