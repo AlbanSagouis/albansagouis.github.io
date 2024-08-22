@@ -17,6 +17,7 @@ Beginning summer 2023, I built the [Restore project website][GRP_link] and docum
 Changing the domain name of the Restore website from Github Pages to a dedicated domain name was another adventure...
 
 [GRP_link]:       https://www.globalrestoreproject.com/
+[guide_link]:     https://www.markdownguide.org/basic-syntax/
 [grp_gh_link]:    https://github.com/global-restore-project/grp_website
 [gh_link]:        https://pages.github.com/
 [technews3_link]: {% post_url /tech-news/2023-09-22-tech-news-3 %}

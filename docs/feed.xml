@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-05-31T11:09:54+02:00</updated><id>/feed.xml</id><title type="html">A personal website, a living CV</title><subtitle>This is a professional personal page, I speak of R programming,  scientific development, web development, reproducibility  and photography</subtitle><author><name>Alban Sagouis</name></author><entry><title type="html">Tech news 11: Facilitating… admin tasks</title><link href="/blog/tech-news-11/" rel="alternate" type="text/html" title="Tech news 11: Facilitating… admin tasks" /><published>2024-05-24T17:57:30+02:00</published><updated>2024-05-24T17:57:30+02:00</updated><id>/blog/tech-news-11</id><content type="html" xml:base="/blog/tech-news-11/"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-08-22T09:48:28+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">A personal website, a living CV</title><subtitle>This is a professional personal page, I speak of R programming,  scientific development, web development, reproducibility  and photography</subtitle><author><name>Alban Sagouis</name></author><entry><title type="html">Tech news 11: Facilitating… admin tasks</title><link href="http://localhost:4000/blog/tech-news-11/" rel="alternate" type="text/html" title="Tech news 11: Facilitating… admin tasks" /><published>2024-05-24T17:57:30+02:00</published><updated>2024-05-24T17:57:30+02:00</updated><id>http://localhost:4000/blog/tech-news-11</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-11/"><![CDATA[<blockquote>
   <p>Filling in PDF forms and sending personalised emails</p>
 </blockquote>
 
@@ -77,7 +77,7 @@ For one of the steps, Merge Tools seemed to mishandle UTF-8 encoding and I had t
 
 <p>A quick video to see it happening: <a href="https://www.youtube.com/watch?v=NikC2cJ_tHQ">https://www.youtube.com/watch?v=NikC2cJ_tHQ</a></p>
 
-<p>The Merge Tools add-in that we ended up using: <a href="https://mergetoolsaddin.com/">https://mergetoolsaddin.com/</a></p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[Filling in PDF forms and sending personalised emails]]></summary></entry><entry><title type="html">Tech news 10: Pipes</title><link href="/blog/tech-news-10/" rel="alternate" type="text/html" title="Tech news 10: Pipes" /><published>2024-04-26T21:24:30+02:00</published><updated>2024-04-26T21:24:30+02:00</updated><id>/blog/tech-news-10</id><content type="html" xml:base="/blog/tech-news-10/"><![CDATA[<h3 id="what-for">What for?</h3>
+<p>The Merge Tools add-in that we ended up using: <a href="https://mergetoolsaddin.com/">https://mergetoolsaddin.com/</a></p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[Filling in PDF forms and sending personalised emails]]></summary></entry><entry><title type="html">Tech news 10: Pipes</title><link href="http://localhost:4000/blog/tech-news-10/" rel="alternate" type="text/html" title="Tech news 10: Pipes" /><published>2024-04-26T21:24:30+02:00</published><updated>2024-04-26T21:24:30+02:00</updated><id>http://localhost:4000/blog/tech-news-10</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-10/"><![CDATA[<h3 id="what-for">What for?</h3>
 
 <p>Pipes are present is many languages and they allow passing objects from one function to another without having to create an intermediary object and keeping a logical and readable flow.
 In the command line, you can read all files names in a folder, pass them to grep to select all “.R” files and pass them all to Rscript to execute them. Instead of creating intermediate files, the result of each function is passed to the next by a pipe, represented by “|” in bash.</p>
@@ -184,7 +184,7 @@ You can read more in this <a href="https://www.tidyverse.org/blog/2023/04/base-v
 
 <p>The pipe article by Hadley Wickam: <a href="https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/">https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/</a></p>
 
-<p>The pipe article in the R for Data Science book (Hadley Wickam, second edition): <a href="https://r4ds.hadley.nz/data-transform.html#sec-the-pipe">https://r4ds.hadley.nz/data-transform.html#sec-the-pipe</a></p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[What for?]]></summary></entry><entry><title type="html">Tech news 9: Testing data</title><link href="/blog/tech-news-9/" rel="alternate" type="text/html" title="Tech news 9: Testing data" /><published>2024-03-15T01:37:30+01:00</published><updated>2024-03-15T01:37:30+01:00</updated><id>/blog/tech-news-9</id><content type="html" xml:base="/blog/tech-news-9/"><![CDATA[<h3 id="why-testing-data">Why testing data?</h3>
+<p>The pipe article in the R for Data Science book (Hadley Wickam, second edition): <a href="https://r4ds.hadley.nz/data-transform.html#sec-the-pipe">https://r4ds.hadley.nz/data-transform.html#sec-the-pipe</a></p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[What for?]]></summary></entry><entry><title type="html">Tech news 9: Testing data</title><link href="http://localhost:4000/blog/tech-news-9/" rel="alternate" type="text/html" title="Tech news 9: Testing data" /><published>2024-03-15T01:37:30+01:00</published><updated>2024-03-15T01:37:30+01:00</updated><id>http://localhost:4000/blog/tech-news-9</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-9/"><![CDATA[<h3 id="why-testing-data">Why testing data?</h3>
 
 <p>Looking inside the data you receive and produce is an absolute necessity but if you could have a second pair of eyes able to scan millions of rows in fractions of seconds and as often as needed, why not? Plus buildings your tests, ie data checks needs you to think forward to define your expectations for data and this helps controlling the workflow and ensuring data quality at each step.</p>
 
@@ -408,7 +408,7 @@ Finally, in heavy data workflows where input data, received from data providers 
 <a href="https://testthat.r-lib.org/">https://testthat.r-lib.org/</a>
 <a href="https://socialresearchcentre.r-universe.dev/testdat#">https://socialresearchcentre.r-universe.dev/testdat#</a>
 <a href="https://socialresearchcentre.github.io/testdat/articles/testdat.html">https://socialresearchcentre.github.io/testdat/articles/testdat.html</a>
-<a href="https://rstudio.r-universe.dev/pointblank#">https://rstudio.r-universe.dev/pointblank#</a></p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[Why testing data?]]></summary></entry><entry><title type="html">Saving the camera settings of a shot in the exif data of the scans</title><link href="/blog/saving-shot-metadata/" rel="alternate" type="text/html" title="Saving the camera settings of a shot in the exif data of the scans" /><published>2024-02-26T01:15:30+01:00</published><updated>2024-02-26T01:15:30+01:00</updated><id>/blog/saving-shot-metadata</id><content type="html" xml:base="/blog/saving-shot-metadata/"><![CDATA[<p>For decades (centuries?) photographers have been writing their camera settings for each shot on a
+<a href="https://rstudio.r-universe.dev/pointblank#">https://rstudio.r-universe.dev/pointblank#</a></p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[Why testing data?]]></summary></entry><entry><title type="html">Saving the camera settings of a shot in the exif data of the scans</title><link href="http://localhost:4000/blog/saving-shot-metadata/" rel="alternate" type="text/html" title="Saving the camera settings of a shot in the exif data of the scans" /><published>2024-02-26T01:15:30+01:00</published><updated>2024-02-26T01:15:30+01:00</updated><id>http://localhost:4000/blog/saving-shot-metadata</id><content type="html" xml:base="http://localhost:4000/blog/saving-shot-metadata/"><![CDATA[<p>For decades (centuries?) photographers have been writing their camera settings for each shot on a
 notebook to learn and train their eye, to organise their shots or because they are data-freaks.
 Today, you could still make notes by hand or use a dedicated smartphone app or you could be the
 proud owner of a more modern film camera that saves the shot data on a memory card.</p>
@@ -560,7 +560,7 @@ scans:</p>
 @JoshOBrien which itself depends on the great
 <a href="https://exiftool.org/"><code class="language-plaintext highlighter-rouge">exiftool</code></a> software by Phil Harvey.<br />
 Finally, <a href="https://github.com/hvdwolf/jExifToolGUI">jExifToolGUI</a> also
-offers exif editing and with a Graphical Interface, nice.</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="weekend-project" /><category term="experience" /><category term="R" /><category term="package" /><summary type="html"><![CDATA[For decades (centuries?) photographers have been writing their camera settings for each shot on a notebook to learn and train their eye, to organise their shots or because they are data-freaks. Today, you could still make notes by hand or use a dedicated smartphone app or you could be the proud owner of a more modern film camera that saves the shot data on a memory card.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/saving-shot-metadata.png" /><media:content medium="image" url="/assets/images/saving-shot-metadata.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Tech news 8: Sharing code through your own R package</title><link href="/blog/tech-news-8/" rel="alternate" type="text/html" title="Tech news 8: Sharing code through your own R package" /><published>2024-02-16T22:37:30+01:00</published><updated>2024-02-16T22:37:30+01:00</updated><id>/blog/tech-news-8</id><content type="html" xml:base="/blog/tech-news-8/"><![CDATA[<p>This month, I thought of writing a little bit about sharing code with each other.</p>
+offers exif editing and with a Graphical Interface, nice.</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="weekend-project" /><category term="experience" /><category term="R" /><category term="package" /><summary type="html"><![CDATA[For decades (centuries?) photographers have been writing their camera settings for each shot on a notebook to learn and train their eye, to organise their shots or because they are data-freaks. Today, you could still make notes by hand or use a dedicated smartphone app or you could be the proud owner of a more modern film camera that saves the shot data on a memory card.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/saving-shot-metadata.png" /><media:content medium="image" url="http://localhost:4000/assets/images/saving-shot-metadata.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Tech news 8: Sharing code through your own R package</title><link href="http://localhost:4000/blog/tech-news-8/" rel="alternate" type="text/html" title="Tech news 8: Sharing code through your own R package" /><published>2024-02-16T22:37:30+01:00</published><updated>2024-02-16T22:37:30+01:00</updated><id>http://localhost:4000/blog/tech-news-8</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-8/"><![CDATA[<p>This month, I thought of writing a little bit about sharing code with each other.</p>
 
 <h3 id="collaborating-on-code">Collaborating on code</h3>
 
@@ -618,7 +618,7 @@ When they give you feedback, the version is clear and the code changes can be te
 
 <p>Best wishes,</p>
 
-<p>Alban</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[This month, I thought of writing a little bit about sharing code with each other.]]></summary></entry><entry><title type="html">Tech news 7: Creating animated figures</title><link href="/blog/tech-news-7/" rel="alternate" type="text/html" title="Tech news 7: Creating animated figures" /><published>2024-01-26T16:57:30+01:00</published><updated>2024-01-26T16:57:30+01:00</updated><id>/blog/tech-news-7</id><content type="html" xml:base="/blog/tech-news-7/"><![CDATA[<p>This week’s email is about <code class="language-plaintext highlighter-rouge">tidymodels</code>.</p>
+<p>Alban</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[This month, I thought of writing a little bit about sharing code with each other.]]></summary></entry><entry><title type="html">Tech news 7: Creating animated figures</title><link href="http://localhost:4000/blog/tech-news-7/" rel="alternate" type="text/html" title="Tech news 7: Creating animated figures" /><published>2024-01-26T16:57:30+01:00</published><updated>2024-01-26T16:57:30+01:00</updated><id>http://localhost:4000/blog/tech-news-7</id><content type="html" xml:base="http://localhost:4000/blog/tech-news-7/"><![CDATA[<p>This week’s email is about <code class="language-plaintext highlighter-rouge">tidymodels</code>.</p>
 <blockquote>
   <p>The <code class="language-plaintext highlighter-rouge">tidymodels</code> framework is a collection of packages for modeling and machine learning using <code class="language-plaintext highlighter-rouge">tidyverse</code> principles.</p>
 </blockquote>
@@ -733,7 +733,7 @@ When they give you feedback, the version is clear and the code changes can be te
 
 <p>Happy to discuss it and collaborate!
 Best wishes,
-Alban</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[This week’s email is about tidymodels. The tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.]]></summary></entry><entry><title type="html">How I moved the website to _albansagouis.com_</title><link href="/blog/website-building-5/" rel="alternate" type="text/html" title="How I moved the website to _albansagouis.com_" /><published>2024-01-17T13:34:30+01:00</published><updated>2024-01-17T13:34:30+01:00</updated><id>/blog/website-building-5</id><content type="html" xml:base="/blog/website-building-5/"><![CDATA[<p>The website was hosted for free by github at the address <em>albansagouis.github.io</em>, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.</p>
+Alban</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="R" /><category term="package" /><category term="technews" /><summary type="html"><![CDATA[This week’s email is about tidymodels. The tidymodels framework is a collection of packages for modeling and machine learning using tidyverse principles.]]></summary></entry><entry><title type="html">How I moved the website to _albansagouis.com_</title><link href="http://localhost:4000/blog/website-building-5/" rel="alternate" type="text/html" title="How I moved the website to _albansagouis.com_" /><published>2024-01-17T13:34:30+01:00</published><updated>2024-01-17T13:34:30+01:00</updated><id>http://localhost:4000/blog/website-building-5</id><content type="html" xml:base="http://localhost:4000/blog/website-building-5/"><![CDATA[<p>The website was hosted for free by github at the address <em>albansagouis.github.io</em>, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.</p>
 
 <p>First I compared prices between some of the main domain providers such as <a href="https://www.namecheap.com">Namecheap</a> and <a href="https://www.domain.com">domain.com</a>. Namecheap was… cheaper and offered more options so I went for this one. I had no availability issues for my name fortunately but I hesitated for a long time between <em>sagouis.com</em> and <em>albansagouis.com</em>. Owning <em>sagouis.com</em> would allow me to create an infinite number of subdomains such as <em>alban.sagouis.com</em>, <em>work.sagouis.com</em> or <em>photo.sagouis.com</em>.</p>
 
@@ -748,7 +748,423 @@ Alban</p>]]></content><author><name>Alban Sagouis</name></author><category term=
   <li>your settings on your domain provider website. This can be all very new but Github actually gives all the <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#dns-records-for-your-custom-domain">necessary data</a> for you to properly set the DNS records</li>
 </ul>
 
-<p>Now my first move when I’m not sure about something regarding domains is to ask to the technical support chat…</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html"><![CDATA[The website was hosted for free by github at the address albansagouis.github.io, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.]]></summary></entry><entry><title type="html">Building the website online or locally?</title><link href="/blog/website-building-2/" rel="alternate" type="text/html" title="Building the website online or locally?" /><published>2024-01-13T17:34:30+01:00</published><updated>2024-01-13T17:34:30+01:00</updated><id>/blog/website-building-2</id><content type="html" xml:base="/blog/website-building-2/"><![CDATA[<p>A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.</p>
+<p>Now my first move when I’m not sure about something regarding domains is to ask to the technical support chat…</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html"><![CDATA[The website was hosted for free by github at the address albansagouis.github.io, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.]]></summary></entry><entry><title type="html">Choosing a new 35mm analog camera</title><link href="http://localhost:4000/blog/choosing-camera/" rel="alternate" type="text/html" title="Choosing a new 35mm analog camera" /><published>2024-01-13T20:30:00+01:00</published><updated>2024-01-13T20:30:00+01:00</updated><id>http://localhost:4000/blog/choosing-camera</id><content type="html" xml:base="http://localhost:4000/blog/choosing-camera/"><![CDATA[<p>This page is under construction because I regularly add data but it’s more practical to have it published than in a git stash that I have to pop…</p>
+
+<p>Haven’t managed to show the table as a “smart” DT table in Jekyll. See working examples:</p>
+<ul>
+  <li><a href="https://github.com/stanfordnlp/stanza/blob/4589a7112b430e6830f2e3b903c8876fcf5b6cc7/_pages/performance.md?plain=1#L137">https://github.com/stanfordnlp/stanza/blob/4589a7112b430e6830f2e3b903c8876fcf5b6cc7/_pages/performance.md?plain=1#L137</a></li>
+  <li><a href="https://datatables.net/forums/discussion/73351">https://datatables.net/forums/discussion/73351</a></li>
+  <li><a href="https://github.com/stanfordnlp/stanza/commit/9c754f9796db64f5fee2d269b3a821db39164fef">https://github.com/stanfordnlp/stanza/commit/9c754f9796db64f5fee2d269b3a821db39164fef</a></li>
+</ul>
+
+<p>That will be for the Quarto version of the website.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Range</th>
+      <th>Period</th>
+      <th>Body price</th>
+      <th>Kit price</th>
+      <th>Autofocus</th>
+      <th>Aperture control</th>
+      <th>Speed control</th>
+      <th>Min speed</th>
+      <th>Max speed (selectable by hand)</th>
+      <th>Matrix Metering</th>
+      <th>DoF preview</th>
+      <th>AE lock</th>
+      <th>Electric film advance</th>
+      <th>Knobs</th>
+      <th>Weight</th>
+      <th>Wiki</th>
+      <th>Rockwell</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>F2</td>
+      <td>Pro</td>
+      <td>1971-1980</td>
+      <td> </td>
+      <td> </td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>10</td>
+      <td>1/2000</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td> </td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>800</td>
+      <td> </td>
+      <td>https://www.kenrockwell.com/nikon/f2.htm</td>
+    </tr>
+    <tr>
+      <td>F3</td>
+      <td>Pro</td>
+      <td>1980-2001</td>
+      <td> </td>
+      <td> </td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>8</td>
+      <td>1/2000</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td> </td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>760</td>
+      <td> </td>
+      <td>https://www.kenrockwell.com/nikon/f3.htm</td>
+    </tr>
+    <tr>
+      <td>F4</td>
+      <td>Pro</td>
+      <td>1988-1997</td>
+      <td> </td>
+      <td> </td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>4</td>
+      <td>1/8000</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>1000</td>
+      <td>https://en.wikipedia.org/wiki/Nikon_F4</td>
+      <td>https://www.kenrockwell.com/nikon/f4.htm</td>
+    </tr>
+    <tr>
+      <td>F6</td>
+      <td>Pro</td>
+      <td>2004-2020</td>
+      <td> </td>
+      <td> </td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Menu</td>
+      <td>Menu</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td> </td>
+      <td>https://en.wikipedia.org/wiki/Nikon_F6</td>
+      <td>https://www.kenrockwell.com/nikon/f6.htm</td>
+    </tr>
+    <tr>
+      <td>FA</td>
+      <td>High</td>
+      <td>1983-1987</td>
+      <td>470$</td>
+      <td>650$</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>1/4000</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>620</td>
+      <td>https://en.wikipedia.org/wiki/Nikon_FA</td>
+      <td>https://www.kenrockwell.com/nikon/fa.htm</td>
+    </tr>
+    <tr>
+      <td>FM</td>
+      <td>Mid</td>
+      <td>1977-1982</td>
+      <td> </td>
+      <td> </td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>1/1000</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td> </td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>590</td>
+      <td>https://en.wikipedia.org/wiki/Nikon_FM</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FM2</td>
+      <td>Mid</td>
+      <td>1982-2001</td>
+      <td> </td>
+      <td> </td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>1/4000</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td> </td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>540</td>
+      <td>https://en.wikipedia.org/wiki/Nikon_FM2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FM3a</td>
+      <td>Mid</td>
+      <td>2001-2006</td>
+      <td>820$</td>
+      <td> </td>
+      <td>No</td>
+      <td>?</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>1/4000</td>
+      <td>?</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>580</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>EL</td>
+      <td>Mid</td>
+      <td>1972-1976</td>
+      <td> </td>
+      <td> </td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>4</td>
+      <td>1/1000</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td> </td>
+      <td>https://en.wikipedia.org/wiki/Nikkormat</td>
+      <td>https://www.kenrockwell.com/nikon/el2.htm</td>
+    </tr>
+    <tr>
+      <td>EL2</td>
+      <td>Mid</td>
+      <td>1977-1978</td>
+      <td> </td>
+      <td> </td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>8</td>
+      <td>1/1000</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td> </td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>770</td>
+      <td>https://en.wikipedia.org/wiki/Nikkormat</td>
+      <td>https://www.kenrockwell.com/nikon/el2.htm</td>
+    </tr>
+    <tr>
+      <td>FE</td>
+      <td>Mid</td>
+      <td>1978-1983</td>
+      <td> </td>
+      <td> </td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>8</td>
+      <td>1/1000</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>590</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FE2</td>
+      <td>Mid</td>
+      <td>1983-1987</td>
+      <td> </td>
+      <td> </td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>8</td>
+      <td>1/4000</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>550</td>
+      <td>https://en.wikipedia.org/wiki/Nikon_FE2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F601M</td>
+      <td>Mid</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>30</td>
+      <td>1/2000</td>
+      <td>?</td>
+      <td>No</td>
+      <td> </td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>600+</td>
+      <td>https://en.wikipedia.org/wiki/Nikon_F-601M</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FM10</td>
+      <td>Low</td>
+      <td>1995-2020</td>
+      <td> </td>
+      <td> </td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>1/2000</td>
+      <td>?</td>
+      <td>Yes</td>
+      <td> </td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>420</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>EM</td>
+      <td>Low</td>
+      <td>1979-1982</td>
+      <td> </td>
+      <td> </td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>1</td>
+      <td>1/1000</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>460</td>
+      <td>https://en.wikipedia.org/wiki/Nikon_EM</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FG</td>
+      <td>Low</td>
+      <td>1982-1986</td>
+      <td> </td>
+      <td>322$</td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>1/1000</td>
+      <td>No</td>
+      <td>No</td>
+      <td> </td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>490</td>
+      <td>https://en.wikipedia.org/wiki/Nikon_FG</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>FG20</td>
+      <td>Low</td>
+      <td>1984-1986</td>
+      <td> </td>
+      <td> </td>
+      <td>No</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>1/1000</td>
+      <td>No</td>
+      <td>No</td>
+      <td> </td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>440</td>
+      <td>https://en.wikipedia.org/wiki/Nikon_FG-20</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>F301</td>
+      <td>Low</td>
+      <td>1985-1988</td>
+      <td> </td>
+      <td> </td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>1/2000</td>
+      <td>No</td>
+      <td>Yes?</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td> </td>
+      <td>https://en.wikipedia.org/wiki/Nikon_F-301</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Canon EOS 500</td>
+      <td>Low</td>
+      <td>1993</td>
+      <td> </td>
+      <td> </td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>1</td>
+      <td>1/2000</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>370</td>
+      <td>https://global.canon/en/c-museum/product/film162.html</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="gear" /><summary type="html"><![CDATA[This page is under construction because I regularly add data but it’s more practical to have it published than in a git stash that I have to pop…]]></summary></entry><entry><title type="html">Building the website online or locally?</title><link href="http://localhost:4000/blog/website-building-2/" rel="alternate" type="text/html" title="Building the website online or locally?" /><published>2024-01-13T17:34:30+01:00</published><updated>2024-01-13T17:34:30+01:00</updated><id>http://localhost:4000/blog/website-building-2</id><content type="html" xml:base="http://localhost:4000/blog/website-building-2/"><![CDATA[<p>A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.</p>
 
 <h3 id="building-with-github-actions">Building with Github Actions</h3>
 
@@ -781,7 +1197,7 @@ You can consult the <a href="https://quarto.org/docs/publishing/github-pages.htm
 
 <h3 id="additional-plugins">Additional plugins</h3>
 
-<p>At the moment, some of the plugins I would like to use include tools <a href="https://github.com/jekyll/jekyll-seo-tag/tree/master">to improve the Search Engine Optimization of the website</a> and another plugin to make tables interactive and searchable.</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html"><![CDATA[A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.]]></summary></entry><entry><title type="html">My discovery of analog photography</title><link href="/blog/discovery-analog-photography/" rel="alternate" type="text/html" title="My discovery of analog photography" /><published>2024-01-11T01:15:30+01:00</published><updated>2024-01-11T01:15:30+01:00</updated><id>/blog/discovery-analog-photography</id><content type="html" xml:base="/blog/discovery-analog-photography/"><![CDATA[<p>I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.</p>
+<p>At the moment, some of the plugins I would like to use include tools <a href="https://github.com/jekyll/jekyll-seo-tag/tree/master">to improve the Search Engine Optimization of the website</a> and another plugin to make tables interactive and searchable.</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html"><![CDATA[A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.]]></summary></entry><entry><title type="html">My discovery of analog photography</title><link href="http://localhost:4000/blog/discovery-analog-photography/" rel="alternate" type="text/html" title="My discovery of analog photography" /><published>2024-01-11T01:15:30+01:00</published><updated>2024-01-11T01:15:30+01:00</updated><id>http://localhost:4000/blog/discovery-analog-photography</id><content type="html" xml:base="http://localhost:4000/blog/discovery-analog-photography/"><![CDATA[<p>I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.</p>
 
 <p>I began looking for an analog camera and I received a Nikon EM with a Nikon Nikkor series E 50mm 1/1.8 as a present. An analog camera with actual film that you buy and you pay to develop, with silver ions and toxic chemistry that made me think each shot and make only one. A prime lens that would force me to move closer or further by walking. Finally I could take the time to think about the composition of the shot instead of taking as many pictures as fast as I could before a bird would take off. And black and white film with an explosion of contrast!</p>
 
@@ -840,10 +1256,4 @@ In the meantime, here is a picture of a Nikon EM:</p>
 </figure>
 
 <p>Taking pictures of birds now certainly is a different kind of fun but hey, here is my first analog bird photo: a booted eagle photographed at full zoom 80mm! with auto-focus and sport mode with a Canon EOS 500 on Kodak Ultra 400ASA! I don’t know about you but I don’t see feathers or eyes…</p>
-<figure class=""><img src="/assets/images/discovery-analog-photography/1197143.jpeg" alt="Booted eagle" /></figure>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="gear" /><summary type="html"><![CDATA[I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/assets/images/discovery-analog-photography/Nikon_EM.jpeg" /><media:content medium="image" url="/assets/images/discovery-analog-photography/Nikon_EM.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How I created this website</title><link href="/blog/website-building-1/" rel="alternate" type="text/html" title="How I created this website" /><published>2024-01-10T13:34:30+01:00</published><updated>2024-01-10T13:34:30+01:00</updated><id>/blog/website-building-1</id><content type="html" xml:base="/blog/website-building-1/"><![CDATA[<p>This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it.<br />
-I downloaded the minimal mistake repo from github and began working in VSC. Since I built the Restore project website on the same computer a few months ago, I naively thought everything would work from the first try. I actually had a few errors but it was a great satisfaction to follow
-the recommendations I left for the Restore project members, for myself and for other readers, and every thing was quickly solved and the website was running in less than an hour.</p>
-
-<p>Beginning summer 2023, I built the <a href="https://www.globalrestoreproject.com/">Restore project website</a> and documented the process in a [step by step Markdown][guide_link] hosted in the <a href="https://github.com/global-restore-project/grp_website">Github repository.</a> In the following September, I shared with my team and interested members of iDiv a more general guide on website building, the easy way using <a href="https://pages.github.com/">Github Pages.</a> This newsletter is available as a blog post <a href="/blog/tech-news-3/">here on this website.</a></p>
-
-<p>Changing the domain name of the Restore website from Github Pages to a dedicated domain name was another adventure…</p>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="experience" /><category term="webdev" /><summary type="html"><![CDATA[This is my first blog article on this website, well first blog article ever I guess. And it’s about the process I followed to build it. I downloaded the minimal mistake repo from github and began working in VSC. Since I built the Restore project website on the same computer a few months ago, I naively thought everything would work from the first try. I actually had a few errors but it was a great satisfaction to follow the recommendations I left for the Restore project members, for myself and for other readers, and every thing was quickly solved and the website was running in less than an hour.]]></summary></entry></feed>
+<figure class=""><img src="/assets/images/discovery-analog-photography/1197143.jpeg" alt="Booted eagle" /></figure>]]></content><author><name>Alban Sagouis</name></author><category term="blog" /><category term="photography" /><category term="gear" /><summary type="html"><![CDATA[I began using digital cameras a long time ago without trying to understand the technicalities of it until I got serious about bird photography. Then I really got into the technicalities… shooting thousands of photographs trying to improve my technique and to get beautiful and tricky shots of birds. I certainly had a lot of fun doing it but at one point I needed something different, something simpler and most importantly something more creative.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/images/discovery-analog-photography/Nikon_EM.jpeg" /><media:content medium="image" url="http://localhost:4000/assets/images/discovery-analog-photography/Nikon_EM.jpeg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

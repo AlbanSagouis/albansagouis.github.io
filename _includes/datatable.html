@@ -1,0 +1,58 @@
+
+{% if page.datatable == true %}
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/fc-4.1.0/fh-3.2.4/datatables.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+<link href="https://cdn.datatables.net/v/dt/dt-1.13.8/fc-4.3.0/fh-3.4.0/kt-2.11.0/sc-2.3.0/sp-2.2.0/datatables.min.css" rel="stylesheet">
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.8/fc-4.3.0/fh-3.4.0/kt-2.11.0/sc-2.3.0/sp-2.2.0/datatables.min.js"></script>
+<script>
+  $(document).ready(function(){
+
+      function conditional_formatting ( row, data, index, start ) {
+          console.log(data);
+          for (var i = start; i < data.length; i++) {
+              if (data[i] * 1 >= 80) {
+                  $('td', row).eq(i).css("background-color", "#ddffdd");
+              } else if (data[i] * 1 >= 60) {
+                  $('td', row).eq(i).css("background-color", "#eeffdd");
+              } else if (data[i] * 1 >= 40) {
+                  $('td', row).eq(i).css("background-color", "#ffffdd");
+              } else if (data[i] * 1 >= 20) {
+                  $('td', row).eq(i).css("background-color", "#ffeedd");
+              } else {
+                  $('td', row).eq(i).css("background-color", "#ffdddd");
+              }
+          }
+      }
+
+      $('table.plain-datatable').each(function() {
+          let table = $(this).DataTable({
+              paging: false,
+              fixedColumns: true,
+              fixedHeader: true,
+              scrollX: true,
+              stateSave: true
+          });
+
+          $('div.main-content-wrap').on('scroll', function () {
+              table.fixedHeader.adjust();
+          });
+      });
+
+      $('table.colorful-datatable').each(function() {
+          let table = $(this).DataTable({
+              paging: false,
+              fixedColumns: true,
+              fixedHeader: true,
+              scrollX: true,
+              stateSave: true,
+              createdRow: function ( row, data, index ) { conditional_formatting(row, data, index, 1)}
+          });
+
+          $('div.main-content-wrap').on('scroll', function () {
+              table.fixedHeader.adjust();
+          });
+      });
+  })
+</script>
+{% endif %}

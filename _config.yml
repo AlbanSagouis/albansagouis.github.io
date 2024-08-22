@@ -27,6 +27,8 @@ github_username: AlbanSagouis
 github: [metadata]
 locale: "en-GB"
 search: true
+enable_copy_code_button: true
+
 
 # Build settings
 markdown: kramdown
@@ -96,7 +98,7 @@ author:
       icon: "fab fa-fw fa-linkedin"
       url: https://www.linkedin.com/in/alban-sagouis-567886283/
     - label: Zenodo
-      icon: "ai ai-fw ai-zenodo"
+      icon: "fas fa-fw fa-link"
       url: https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Sagouis%2C%20Alban%22&l=list&p=1&s=10&sort=bestmatch
 
   # - label: "Instagram"

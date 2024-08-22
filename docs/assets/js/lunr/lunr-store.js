@@ -53,6 +53,12 @@ var store = [{
         "url": "/blog/website-building-2/",
         "teaser": null
       },{
+        "title": "Choosing a new 35mm analog camera",
+        "excerpt":"This page is under construction because I regularly add data but it’s more practical to have it published than in a git stash that I have to pop… Haven’t managed to show the table as a “smart” DT table in Jekyll. See working examples: https://github.com/stanfordnlp/stanza/blob/4589a7112b430e6830f2e3b903c8876fcf5b6cc7/_pages/performance.md?plain=1#L137 https://datatables.net/forums/discussion/73351 https://github.com/stanfordnlp/stanza/commit/9c754f9796db64f5fee2d269b3a821db39164fef That will be...","categories": ["blog"],
+        "tags": ["photography","gear"],
+        "url": "/blog/choosing-camera/",
+        "teaser": null
+      },{
         "title": "How I moved the website to _albansagouis.com_",
         "excerpt":"The website was hosted for free by github at the address albansagouis.github.io, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain. First I compared prices between some of the main domain...","categories": ["blog"],
         "tags": ["experience","webdev"],
