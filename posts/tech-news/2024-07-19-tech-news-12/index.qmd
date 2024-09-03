@@ -1,0 +1,100 @@
+---
+title: "Tech news 12: Simple reproductibility in R"
+date: 2024-07-19
+date-modified: 2024-09-04
+categories:
+  - reproducibility
+  - R
+  - technews
+  - experience
+image: /assets/images/renv.svg
+---
+
+# Simple reproducibility in R
+
+Tech News #12? It’s been a year and we are arriving at the end of a cycle as tech news #13 is not planned. It’s been a pleasure writing these 12 newsletters and thinking about what would be the most helpful to others.
+
+## What for?
+
+Scientific reproducibility is key to credible and reliable science. It is crucial that we or other scientists can run our own analyses in the future. Sharing code and data is obvious and I will talk about two aspects of our workflow that we can easily change to improve reproducibility: paths and environment.
+
+## Paths
+
+To tell R where a file is, there are two types of paths. One type that works only on 1 computer and one type that works on any computer. The first, not so reproducible paths, are called absolute paths and they begin from the root of your computer such as `C:/users/as80fywe/chapter_1/data/my_data.csv` (Windows) or `~/chapter_1/data/my_data.csv` (Mac, Linux). If you change computer or someone else tries to read these data, this path is going to break and they will have to replace the part of each path that corresponds to your system. On the contrary, a relative path, like `./data/my_data.csv` works on any system because it makes reference to the top-level of the project, not to the system root and there are several ways so that R knows where this top-level is.
+
+### Minimal practice
+
+If you have to use absolute paths, set the project folder **only once** and read or write data or figures *relatively* to the project top-level:
+
+```{r}
+#| eval: false
+setwd("C:/user/as80fywe/chapter_1/project_root")
+read.csv("data/raw_data/my_data.csv")
+ggsave("figures/manuscript/fig1.png")
+```
+
+Is better practice than:
+
+```{r}
+#| eval: false
+setwd("C:/user/as80fywe/chapter_1/project_root/data/raw_data/")
+read.csv("my_data.csv")
+setwd("C:/user/as80fywe/chapter_1/project_root/figures/manuscript")
+ggsave("fig1.png")
+setwd("C:/user/as80fywe/chapter_1/project_root")
+```
+
+To avoid having to set the working directory in R all together I see two complementary methods. I consider them more or less equally reproducible and both are way more reproducible than ever using `setwd()`.
+
+### R Projects
+
+R projects are files with the .rproj extension that live in the root folder of each of your projects. They contain a little bit of information about the preferred settings in this project: do you want environment to be saved when closing the session (not great practice), how many spaces in each tab or using `magrittr` pipe `%>%` by default instead of base pipe `|>`. Meaning that in a collaborative workflow, this file automatically homogenise style among the systems of all collaborators. Whenever you want to work on this project, you open this `.rproj` file which fires up rstudio with a fresh environment and the working directory already set at the root of the project.
+
+| No need for `setwd()`
+| It works on any computer
+| Good separation between your projects
+
+Now, if you are not using Rstudio or if you are using `rmarkdown` or `testthat` test suites, the R project solution is either not an option or not enough. Also, the exact format of a relative path changes between platforms, i.e. `./data/dat.csv`, `data/dat.csv` or `/data/dat.csv` may work in some cases but not in others.
+
+### The `here` package
+
+The [`here` package](https://here.r-lib.org/) steps in to shine somewhere where R is of little help: guessing what is the top-level of your project. Since it is pretty good at guessing, you can build a path like this:
+
+``` r
+read.csv(here("data", "raw_data", "my_data.csv"))
+ggsave(here("figures", "manuscript", "fig1.png"))
+```
+
+How does `here` guess what is the top-level folder of your project? It looks for a `.here` file, then for a `.rproj` file and if it finds neither, it then look for other cues that this would be a top-level folder. Meaning that if you do not use RStudio and R projects, you could still use here commands and a .here file to build reproducible projects.
+
+So to close the Paths section, I would conclude that using R projects helps building reproducible and reliable paths over time and space and facilitates collaborative work.
+
+## renv: saving the environment
+
+Crucial aspects of our workflows depend on packages.
+
+-   Sometimes package updates break our code or worse, they give wrong results without warning.
+
+-   Sometimes we need two versions of the same package for different projects but in R, updating for one always update for all projects.
+
+-   Sometimes we collaborate on some code and it’s not clear which packages (and which versions) our collaborator is using.
+
+In all of these situations, R natural behaviour is to install all packages in one place, storing only the latest version and not keeping track of which version is used with each project.
+
+A solution to all of these problems, simplify our workflow, facilitate collaboration and improve reproducibility could be using the [`renv` package](https://rstudio.github.io/renv/) to manage our packages, save the versions and isolate our projects from one another. These different situations demand that we use `renv` from the beginning of each project and regularly run `renv::snapshot()`.
+
+Let’s imagine a simpler situation in which a researcher needs to publish reproducible code and make sure that their project will still work in a few weeks when the reviews come back or in a few months when a student tries to run it again. All this researcher needs to do is running `renv::init()` before publishing the code. When running `renv::init()`, `renv` detects the top-level of the project, reads all the code inside the project to list used packages, looks up the versions installed and store the complete list in a `renv.lock` file. With this list of packages published, another user can install all needed packages at once, and the correct versions, by running `renv::restore()`.
+
+And in the special case where there is a project with code that does not run any more and we want to 1) install the versions from when the code was working, 2) freeze it in time and 3) publish it, `renv` saves the game again. Find the date when the code was successfully ran last and `renv::checkout(date = "2020-01-02")`. You’ll get the list of correct packages and versions and `renv` will install them all for you if you run `renv::restore()`!
+
+`renv` is great, I could not close this cycle without writing about it!
+
+Cheers for `renv`!
+
+## Resources
+
+Jenny Brian rant about `setwd()` and `rm(list = ls())`: <https://www.tidyverse.org/articles/2017/12/workflow-vs-script/>
+
+The `here` page: <https://here.r-lib.org/>
+
+The `renv` package: <https://rstudio.github.io/renv/>

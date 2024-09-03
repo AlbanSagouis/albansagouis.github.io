@@ -1,0 +1,20 @@
+---
+title: "My CV"
+toc: false
+listing:
+  id: "dynamic-cv"
+  contents: "posts"
+  field-types: 
+    categories: experience
+  type: grid
+  categories: true
+---
+
+### Here is [my static CV.](/assets/files/CV_2024.pdf)
+
+### And this is my *dynamic* CV!
+
+My blog posts tagged with `experience` are automatically collected here.
+
+:::{@dynamic-cv}
+:::

@@ -1,0 +1,48 @@
+[
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/tech-news/2024-07-19-tech-news-12/index.html",
+      "/posts/tech-news/2024-05-24-tech-news-11/index.html",
+      "/posts/tech-news/2024-04-26-tech-news-10/index.html",
+      "/posts/tech-news/2024-03-14-tech-news-9/index.html",
+      "/posts/photography/2024-02-25-saving-shot-metadata/index.html",
+      "/posts/tech-news/2024-02-16-tech-news-8/index.html",
+      "/posts/tech-news/2024-01-26-tech-news-7/index.html",
+      "/posts/2024-01-17-website-building-5/index.html",
+      "/posts/2024-01-13-website-building-2/index.html",
+      "/posts/photography/2024-01-15-choosing-camera/index.html",
+      "/posts/photography/2024-01-10-discovery-analog-photography/index.html",
+      "/posts/2024-01-10-website-building-1/index.html",
+      "/posts/tech-news/2023-12-19-tech-news-6/index.html",
+      "/posts/tech-news/2023-11-23-tech-news-5/index.html",
+      "/posts/tech-news/2023-10-20-tech-news-4/index.html",
+      "/posts/tech-news/2023-09-22-tech-news-3/index.html",
+      "/posts/tech-news/2023-08-18-tech-news-2/index.html",
+      "/posts/tech-news/2023-07-21-tech-news-1/index.html"
+    ]
+  },
+  {
+    "listing": "/cv.html",
+    "items": [
+      "/posts/2024-01-13-website-building-2/index.html",
+      "/posts/photography/2024-01-15-choosing-camera/index.html",
+      "/posts/2024-01-10-website-building-1/index.html",
+      "/posts/2024-01-17-website-building-5/index.html",
+      "/posts/photography/2024-01-10-discovery-analog-photography/index.html",
+      "/posts/photography/2024-02-25-saving-shot-metadata/index.html",
+      "/posts/tech-news/2024-04-26-tech-news-10/index.html",
+      "/posts/tech-news/2024-05-24-tech-news-11/index.html",
+      "/posts/tech-news/2024-07-19-tech-news-12/index.html",
+      "/posts/tech-news/2023-07-21-tech-news-1/index.html",
+      "/posts/tech-news/2023-08-18-tech-news-2/index.html",
+      "/posts/tech-news/2023-09-22-tech-news-3/index.html",
+      "/posts/tech-news/2023-10-20-tech-news-4/index.html",
+      "/posts/tech-news/2023-11-23-tech-news-5/index.html",
+      "/posts/tech-news/2023-12-19-tech-news-6/index.html",
+      "/posts/tech-news/2024-01-26-tech-news-7/index.html",
+      "/posts/tech-news/2024-02-16-tech-news-8/index.html",
+      "/posts/tech-news/2024-03-14-tech-news-9/index.html"
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+---
+title: "Choosing a new 35mm analog camera"
+date: 2024-01-13
+date-modified: 2024-09-03
+categories:
+  - photography
+  - gear
+image: /assets/images/discovery-analog-photography/Nikon_FA.jpeg
+---
+
+
+```{r}
+#| eval: true
+#| echo: false
+#| column: screen #page
+
+utils::read.csv(file = here::here("assets", "files", "Nikon_cameras.csv"),
+                header = TRUE, sep = ",") |>
+  DT::datatable(caption = "Analog Nikon Cameras",
+                filter = "top",
+                rownames = FALSE,
+                options = list(pageLength = 100,
+                               # layout = list(list(top = "null")),
+                               lengthChange = FALSE))
+```
+The Nikon FA checked quite a lot of my criteria and it's among the cheapest!
+![Nikon FA](/assets/images/discovery-analog-photography/Nikon_FA.jpeg "Title: The Nikon FA By Paul1513 at the English-language Wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=7259633")

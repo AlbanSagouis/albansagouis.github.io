@@ -1,0 +1,38 @@
+---
+title: "Building the website online or locally?"
+date: 2024-01-13T12:34:30-04:00
+categories:
+  - experience
+  - webdev
+image: /assets/images/visual-studio-code.png
+---
+
+A short blogpost about the process I just followed to switch my website online building + publishing process to a more local, more free and faster workflow.
+
+### Building with Github Actions
+
+Github Pages leverage the powerful capabilities of Github Actions to build `Jekyll` websites online. This saves you from having to install anything on your computer, just write your Markdown content in your usual IDE or even directly on Github.
+Until today, my process was in two steps: I was building the website locally to have a very interactive building process and then I would push the code and let Github Pages build the website another time. Before pushing any changes to Github, I could build, see the rendered modifications in the website in several cautious steps without waiting for the Github Action to finish.
+The html files I was creating locally with `jekyll build` were not synced with git or Github.  
+
+The main disadvantage is that Github Pages does not allow downloading some plugins and I felt limited with this setup.  
+I'm also looking into the future where I see that I'll be switching from `Jekyll` to `Quarto` which is booming and R based and more in tune with my global experience and profile. Github Pages use `Jekyll` to build websites not Quarto, Quarto users have to build their websites and Github Pages will "only" host it.
+
+### Building locally and pushing html files
+
+The change from one process to the other can be done in two steps:
+
+1. Locally:
+  - Change the path where Jekyll will build the website: add `destination: docs/` in the `_config.yml` file.
+  - `jekyll build` to create the website in `docs/`
+  - Create an empty `.nojekyll` file at the root of your repository or run `touch .nojekyll` (Mac/Linux) or `copy NUL .nojekyll` (Windows) in your command line tool.
+  - (Remove `_site/` and delete "_site/" from `.gitignore`)
+  - Push your changes
+2. In Github: go to the settings of your repository, go to Github Pages and edit the folder where Github Pages will look for your site: in `/docs`  
+You can consult the [Quarto documentation for more details.](https://quarto.org/docs/publishing/github-pages.html#render-to-docs)
+
+Besides better control of your environment and the ability of installing more plugins, another advantage of building locally is the possibility of having a local version of your theme (minimal-mistake in my case) locally instead of `Jekyll` downloading it every time the website is built. In my case, this reduces the build time from 10 seconds to 1... In your `_config.yml` file, just replace `remote_theme: mmistakes/minimal-mistakes` with `theme: minimal-mistakes-jekyll` and add `gem "minimal-mistakes-jekyll"` to your `gemfile` before running `bundle install` in your terminal.
+
+### Additional plugins
+
+At the moment, some of the plugins I would like to use include tools [to improve the Search Engine Optimization of the website](https://github.com/jekyll/jekyll-seo-tag/tree/master) and another plugin to make tables interactive and searchable.

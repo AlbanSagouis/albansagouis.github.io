@@ -1,0 +1,30 @@
+---
+title: "How I moved the website to _albansagouis.com_"
+date: 2024-01-17T08:34:30-04:00
+categories:
+  
+
+  - experience
+  - webdev
+---
+
+The website was hosted for free by github at the address _albansagouis.github.io_, thank you GitHub, but I thought a more personal address would be nice and it would be a good exercise to go through this process of changing domain.
+
+First I compared prices between some of the main domain providers such as [Namecheap][namecheap] and [domain.com][domain]. Namecheap was... cheaper and offered more options so I went for this one. I had no availability issues for my name fortunately but I hesitated for a long time between _sagouis.com_ and _albansagouis.com_. Owning _sagouis.com_ would allow me to create an infinite number of subdomains such as _alban.sagouis.com_, _work.sagouis.com_ or _photo.sagouis.com_.
+
+Anyway, I acquired the domain name _albansagouis.com_ on [Namecheap][namecheap].  
+
+Then I read [Github Pages documentation][gh_domain] again! More specifically how to [manage your domain.][gh_manage] I explored the namecheap settings and through trial and error, getting confused why things were not working and then realising that the order in which the steps are done matter and then sometimes, the domain change process just takes time to happen...
+
+Details change from a domain provider to another but you will have to make changes to
+
+ - your github settings so that GitHub shows your new domain instead of the default _yourname.github.io_
+ - your settings on your domain provider website. This can be all very new but Github actually gives all the [necessary data][gh_DNS_records] for you to properly set the DNS records
+
+Now my first move when I'm not sure about something regarding domains is to ask to the technical support chat...
+
+[namecheap]:  https://www.namecheap.com
+[domain]:     https://www.domain.com
+[gh_domain]:  https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site
+[gh_manage]:  https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain
+[gh_DNS_records]: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#dns-records-for-your-custom-domain

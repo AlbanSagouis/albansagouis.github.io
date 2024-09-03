@@ -1,0 +1,28 @@
+project:
+  type: website
+
+resources:
+  - CNAME
+
+website:
+  title: "My personal professional website"
+  description: "This is a professional personal page, I speak of R programming, scientific development, web development, reproducibility and photography."
+  navbar:
+    background: primary
+    search: true
+    left:
+      - href: index.qmd
+        text: Home
+      - href: cv.qmd
+      - href: blog.qmd
+
+format:
+  html:
+    theme: lux
+      # light: lux
+      # dark: cyborg
+    css: styles.css
+    toc: true
+
+editor: source
+
