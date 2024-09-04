@@ -1,5 +1,6 @@
 ---
 title: "My CV"
+title-block-banner: "assets/images/landscape_cundinamarca.jpg"
 toc: false
 listing:
   id: "dynamic-cv"
@@ -9,6 +10,22 @@ listing:
   type: grid
   categories: true
 ---
+
+<style>
+#title-block-header {
+  margin-block-end: 1rem;
+  position: relative;
+  margin-top: 3px;
+  height: 280px;
+}
+
+.quarto-title-banner {
+  margin-block-end: 1rem;
+  position: relative;
+  margin-top: -30px;
+  height: 150%;
+}
+</style>
 
 ### Here is [my static CV.](/assets/files/CV_2024.pdf)
 

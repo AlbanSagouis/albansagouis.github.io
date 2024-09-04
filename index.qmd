@@ -1,5 +1,6 @@
 ---
 title: "About me"
+title-block-banner: "assets/images/landscape_cundinamarca.jpg"
 output-file: "index.html"
 lang: "en-gb"
 image: "assets/images/portrait_with_scarf.jpeg"
@@ -32,12 +33,22 @@ about:
       
 ---
 
+<style>
+#title-block-header {
+  margin-block-end: 1rem;
+  position: relative;
+  margin-top: 3px;
+  height: 280px;
+}
 
-The old header had:
-    excerpt: "This piece of text could be shown on top of the overlay_image, just under the title"
-    show_overlay_excerpt: false
-    overlay_image: assets/images/landscape_cundinamarca.jpg
-    overlay_filter: 0.1
+.quarto-title-banner {
+  margin-block-end: 1rem;
+  position: relative;
+  margin-top: -30px;
+  height: 150%;
+}
+</style>
+
 
 :::{#personal-section}
 
