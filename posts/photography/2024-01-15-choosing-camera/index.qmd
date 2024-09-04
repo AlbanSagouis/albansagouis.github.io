@@ -2,6 +2,7 @@
 title: "Choosing a new 35mm analog camera"
 date: 2024-01-13
 date-modified: 2024-09-03
+license: "CC BY-NC-SA"
 categories:
   - photography
   - gear
