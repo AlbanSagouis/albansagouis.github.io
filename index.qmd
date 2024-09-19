@@ -33,6 +33,7 @@ about:
       
 ---
 
+[//]: # (This style section configures the size of the image banner)
 <style>
 #title-block-header {
   margin-block-end: 1rem;
@@ -49,12 +50,12 @@ about:
 }
 </style>
 
-
+[//]: # (https://quarto.org/docs/websites/website-about.html#partial-page-content)
 :::{#personal-section}
 
 My name is Alban Sagouis and this is my personal professional website.
 
-There is a dynamic CV that aggregates my blog posts described as professional *experiences* and also blog posts about photography and other topics.
+There is a [dynamic CV](cv.qmd) that aggregates my blog posts described as professional *experiences* and also blog posts about photography and other topics.
 
 ### Current job
 
@@ -62,14 +63,14 @@ I currently work at iDiv, the German Biodiversity Synthesis Center in [Jonathan 
 
 As a Scientific programmer:
 
-1.  I extract, aggregate, restructure, check and standardise data from the literature
-2.  I assist colleagues with R problems
-3.  I implement and encourage scientific software reproducibility practices, notably containerisation and automatic testing
-4.  I frequently talk about how great is the [`renv`](https://rstudio.github.io/renv/index.html) package
-5.  I use all of the above to build and grow research compendia extracting, restructuring, standardising and checking data in a documented and reproducible environment, publishing and archiving code and data
-6.  I write monthly newsletters to my colleagues which you can find [here](posts/tech-news/2023-07-21-tech-news-1/index.qmd)
-7.  I occasionally build a package of functions used for a specific project such as the [`sRealmTools`](https://github.com/sRealmWG/sRealmTools) package or [`BioTIMEr`](https://github.com/bioTIMEHub/BioTIMEr)
-8.  I co-maintain [`mobsim`](https://github.com/MoBiodiv/mobsim), a community simulation R package that we use for work, for [teaching](https://github.com/chase-lab/biodiv-patterns-course-2024/tree/main/week%202/3%20-%20Wednesday) and publish on [CRAN](https://cran.r-project.org/package=mobsim)
+1.  I extract, aggregate, restructure, check and standardise data from the literature.
+2.  I assist colleagues with R problems.
+3.  I implement and encourage scientific software reproducibility practices, notably containerisation and automatic testing.
+4.  I frequently talk about how great is the [`renv`](https://rstudio.github.io/renv/index.html) package.
+5.  I use all of the above to build and grow research compendia extracting, restructuring, standardising and checking data in a documented and reproducible environment, publishing and archiving code and data.
+6.  I write monthly newsletters to my colleagues which you can find [here](posts/tech-news/2023-07-21-tech-news-1/index.qmd).
+7.  I occasionally build a package of functions used for a specific project such as the [`sRealmTools`](https://github.com/sRealmWG/sRealmTools) package or [`BioTIMEr`](https://github.com/bioTIMEHub/BioTIMEr).
+8.  I co-maintain [`mobsim`](https://github.com/MoBiodiv/mobsim), a community simulation R package that we use for work, for [teaching](https://github.com/chase-lab/biodiv-patterns-course-2024/tree/main/week%202/3%20-%20Wednesday) and published on [CRAN](https://cran.r-project.org/package=mobsim).
 
 :::
 

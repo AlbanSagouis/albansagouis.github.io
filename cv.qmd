@@ -5,12 +5,14 @@ toc: false
 listing:
   id: "dynamic-cv"
   contents: "posts"
-  field-types: 
+  include: 
     categories: experience
-  type: grid
+  type: grid # https://quarto.org/docs/websites/website-listings.html#listing-types
+  sort: "date desc"
   categories: true
 ---
 
+[//]: # (This style section configures the size of the image banner)
 <style>
 #title-block-header {
   margin-block-end: 1rem;

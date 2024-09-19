@@ -13,7 +13,7 @@ image: /assets/images/discovery-analog-photography/Nikon_FA.jpeg
 ```{r}
 #| eval: true
 #| echo: false
-#| column: screen #page
+#| column: screen # instead of `page`. Fit as wide as the screen goes
 
 utils::read.csv(file = here::here("assets", "files", "Nikon_cameras.csv"),
                 header = TRUE, sep = ",") |>

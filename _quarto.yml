@@ -1,21 +1,28 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: docs # docs is the folder name Github Pages uses
 
 resources:
-  - CNAME
+  - CNAME # The CNAME file is needed if you use your own domain name.
 
 website:
   title: "My personal professional website"
   description: "This is a professional personal page, I speak of R programming, scientific development, web development, reproducibility and photography."
   navbar:
-    background: primary
+    background: primary # Primary, secondary and tertiary are colour name shortcuts
     search: true
     left:
       - href: index.qmd
         text: Home
       - href: cv.qmd
-      - href: blog.qmd
+      - href: blog.qmd # If `text` is not provided, the `title` of the page will be shown
+    tools:
+      - icon: github
+        menu:
+          - text: Website Code
+            href: https://github.com/AlbanSagouis/albansagouis.github.io
+          - text: My repositories
+            href: https://github.com/AlbanSagouis/
 
 format:
   html:
@@ -25,5 +32,4 @@ format:
     css: styles.css
     toc: true
 
-editor: source
-
+editor: source # with quarto and Rstudio, you can also use a `visual` editor WYSIWYG
