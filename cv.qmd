@@ -6,7 +6,7 @@ listing:
   id: "dynamic-cv"
   contents: "posts"
   include: 
-    categories: experience
+    categories: experience # https://github.com/quarto-dev/quarto-cli/issues/2577#issuecomment-1444589302
   type: grid # https://quarto.org/docs/websites/website-listings.html#listing-types
   sort: "date desc"
   categories: true
