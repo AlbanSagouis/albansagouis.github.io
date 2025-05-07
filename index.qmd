@@ -30,10 +30,9 @@ about:
   - icon: linkedin
     text: Linkedin
     href: https://www.linkedin.com/in/alban-sagouis-567886283/
-      
 ---
 
-[//]: # (This style section configures the size of the image banner)
+```{=html}
 <style>
 #title-block-header {
   margin-block-end: 1rem;
@@ -49,10 +48,8 @@ about:
   height: 150%;
 }
 </style>
-
-[//]: # (https://quarto.org/docs/websites/website-about.html#partial-page-content)
-:::{#personal-section}
-
+```
+::: {#personal-section}
 My name is Alban Sagouis and this is my personal professional website.
 
 There is a [dynamic CV](cv.qmd) that aggregates my blog posts described as professional *experiences* and also blog posts about photography and other topics.
@@ -71,7 +68,6 @@ As a Scientific programmer:
 6.  I write monthly newsletters to my colleagues which you can find [here](posts/tech-news/2023-07-21-tech-news-1/index.qmd).
 7.  I occasionally build a package of functions used for a specific project such as the [`sRealmTools`](https://github.com/sRealmWG/sRealmTools) package or [`BioTIMEr`](https://github.com/bioTIMEHub/BioTIMEr).
 8.  I co-maintain [`mobsim`](https://github.com/MoBiodiv/mobsim), a community simulation R package that we use for work, for [teaching](https://github.com/chase-lab/biodiv-patterns-course-2024/tree/main/week%202/3%20-%20Wednesday) and published on [CRAN](https://cran.r-project.org/package=mobsim).
-
 :::
 
 ### Other activities
@@ -80,9 +76,6 @@ With [rOpenSci](https://ropensci.org), I maintain or co-maintain [`parzer`](http
 
 ### Building this website
 
-I initially used Jekyll and the template Minimal Mistake by Michael Rose and
-developed and built locally in Visual Studio Code. I wrote about this process in
-[a blog post](posts/2024-01-10-website-building-1/index.qmd). 
+I initially used Jekyll and the template Minimal Mistake by Michael Rose and developed and built locally in Visual Studio Code. I wrote about this process in [a blog post](posts/2024-01-10-website-building-1/index.qmd).
 
-This version of the website was built using Quarto which seems easier to me and 
-better integrated in my workflow.
+This version of the website was built using Quarto which seems easier to me and better integrated in my workflow.
