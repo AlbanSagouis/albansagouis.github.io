@@ -5,7 +5,7 @@ toc: false
 listing:
   id: "dynamic-cv"
   contents: "posts"
-  include: 
+  include:
     categories: experience # https://github.com/quarto-dev/quarto-cli/issues/2577#issuecomment-1444589302
   type: grid # https://quarto.org/docs/websites/website-listings.html#listing-types
   sort: "date desc"
@@ -29,7 +29,7 @@ listing:
 }
 </style>
 
-### Here is [my static CV.](/assets/files/CV_2024.pdf)
+### Here is [my static CV.](/assets/files/CV_2025.pdf)
 
 ### And this is my *dynamic* CV!
 

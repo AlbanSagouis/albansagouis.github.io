@@ -60,7 +60,8 @@ Now, if you are not using Rstudio or if you are using `rmarkdown` or `testthat` 
 
 The [`here` package](https://here.r-lib.org/) steps in to shine somewhere where R is of little help: guessing what is the top-level of your project. Since it is pretty good at guessing, you can build a path like this:
 
-``` r
+```{r}
+#| eval: false
 read.csv(here("data", "raw_data", "my_data.csv"))
 ggsave(here("figures", "manuscript", "fig1.png"))
 ```
