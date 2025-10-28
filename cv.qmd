@@ -12,26 +12,9 @@ listing:
   categories: true
 ---
 
-[//]: # (This style section configures the size of the image banner)
-<style>
-#title-block-header {
-  margin-block-end: 1rem;
-  position: relative;
-  margin-top: 3px;
-  height: 280px;
-}
+#### Here is [my static CV.](/assets/files/CV_2025.pdf)
 
-.quarto-title-banner {
-  margin-block-end: 1rem;
-  position: relative;
-  margin-top: -30px;
-  height: 150%;
-}
-</style>
-
-### Here is [my static CV.](/assets/files/CV_2025.pdf)
-
-### And this is my *dynamic* CV!
+#### And this is my *dynamic* CV!
 
 My blog posts tagged with `experience` are automatically collected here.
 

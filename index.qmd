@@ -32,23 +32,6 @@ about:
     href: https://www.linkedin.com/in/alban-sagouis-567886283/
 ---
 
-```{=html}
-<style>
-#title-block-header {
-  margin-block-end: 1rem;
-  position: relative;
-  margin-top: 3px;
-  height: 280px;
-}
-
-.quarto-title-banner {
-  margin-block-end: 1rem;
-  position: relative;
-  margin-top: -30px;
-  height: 150%;
-}
-</style>
-```
 ::: {#personal-section}
 My name is Alban Sagouis and this is my personal professional website.
 
@@ -78,4 +61,4 @@ With [rOpenSci](https://ropensci.org), I maintain or co-maintain [`parzer`](http
 
 I initially used Jekyll and the template Minimal Mistake by Michael Rose and developed and built locally in Visual Studio Code. I wrote about this process in [a blog post](posts/2024-01-10-website-building-1/index.qmd).
 
-This version of the website was built using Quarto which seems easier to me and better integrated in my workflow.
+This version of the website was built using Quarto which seems easier to me and integrates better in my workflow.
