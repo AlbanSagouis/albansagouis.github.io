@@ -1,9 +1,10 @@
 project:
   type: website
   output-dir: docs # docs is the folder name Github Pages uses
+  resources:
+    - CNAME # The CNAME file is needed if you use your own domain name.
+    - assets/**
 
-resources:
-  - CNAME # The CNAME file is needed if you use your own domain name.
 
 website:
   title: "My personal professional website"
@@ -23,7 +24,7 @@ website:
             href: https://github.com/AlbanSagouis/albansagouis.github.io
           - text: My repositories
             href: https://github.com/AlbanSagouis/
-
+date-format: 'DD/MM/YYYY'
 format:
   html:
     theme: lux

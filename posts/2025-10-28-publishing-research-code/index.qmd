@@ -1,0 +1,34 @@
+---
+title: "Publishing a research repository"
+subtitle: "Formatting, containerising, publishing, archiving code"
+date: 2025-10-28T17:34:30-04:00
+categories:
+  - experience
+  - reproducibility
+  - R
+  - renv
+  - webdev
+---
+
+For the weekly team meeting of the Biodiversity Synthesis group, I prepared a,
+Quarto, presentation about Publishing a Research Repository. In this presentation
+and during the 1-hour hands-on workshop that happened with the team, I advocated
+for:
+
+- Formatting the code for better readability
+- Listing package versions with `renv` for reproducibility
+- Writing a README and a CITATION.cff for clarity
+- Publishing on GitHub for visibility
+- Archiving on Zenodo for posterity
+
+And I tried to make each step as easy to follow as possible by linking to other
+resources and by showing.
+In the course of the workshop, my presentation became a git project, was
+documented before being pushed to GitHub and finally making it to Zenodo thanks
+to Zenodo great Release watching feature. And it received a DOI!
+
+[![DOI](https://zenodo.org/badge/1085084934.svg)](https://doi.org/10.5281/zenodo.17467141)
+
+Here is the presentation, enjoy, share, comment!
+
+{{< revealjs "/assets/files/group_meeting_28-10-2025.html" >}}
