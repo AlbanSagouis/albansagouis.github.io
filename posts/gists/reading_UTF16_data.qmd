@@ -1,0 +1,11 @@
+---
+title: "Saving all available metadata in exif slots"
+draft: true
+date: 2025-10-230T20:15:30-04:00
+categories:
+  - blog
+tags:
+  - experience
+  - R
+  - reproducibility
+---
