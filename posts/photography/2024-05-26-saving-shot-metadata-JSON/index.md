@@ -20,13 +20,12 @@ JSON DATA
 
 #### Installation
 
-You can install the development version of nossaflex from
-[GitHub][nossaflex_package] with:
+You can install the development version of APMD from
+[GitHub][APMD_package] with:
 
 ``` r
 #| eval:false
-install.packages("devtools")
-devtools::install_github("AlbanSagouis/nossaflex")
+remotes::install_github("AlbanSagouis/APMD")
 ```
 
 #### Example
@@ -34,7 +33,7 @@ devtools::install_github("AlbanSagouis/nossaflex")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-library(nossaflex)
+library(APMD)
 files <- c("Pictures/2024/01 02 Winter in Berlin/DSC_001034",
            "Pictures/2024/01 02 Winter in Berlin/DSC_001035",
            "Pictures/2024/01 02 Winter in Berlin/DSC_001036")
@@ -64,7 +63,7 @@ offers exif editing and with a Graphical Interface, nice.
 
 [nossaflex_website]:  https://nossaflex.io/the-system
 [nossaflex_youtube]:  https://www.youtube.com/@NOSSAFLEX
-[nossaflex_package]:  https://github.com/albansagouis/nossaflex
+[APMD_package]:  https://github.com/albansagouis/APMD
 [exiftoolr]:          https://github.com/JoshOBrien/exiftoolr/
 [exiftool]:           https://exiftool.org/
 [jexiftoolgui]:       https://github.com/hvdwolf/jExifToolGUI

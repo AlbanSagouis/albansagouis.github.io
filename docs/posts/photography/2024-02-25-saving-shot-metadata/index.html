@@ -170,13 +170,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#analog-photography-metadata" id="toc-analog-photography-metadata" class="nav-link active" data-scroll-target="#analog-photography-metadata">Analog photography metadata</a></li>
   <li><a href="#here-is-the-readme-of-my-package" id="toc-here-is-the-readme-of-my-package" class="nav-link" data-scroll-target="#here-is-the-readme-of-my-package">Here is the README of my package</a>
   <ul>
+  <li><a href="#analog-photography-metadata-1" id="toc-analog-photography-metadata-1" class="nav-link" data-scroll-target="#analog-photography-metadata-1">Analog Photography MetaData</a></li>
   <li><a href="#what-is-nossaflex" id="toc-what-is-nossaflex" class="nav-link" data-scroll-target="#what-is-nossaflex">What is NOSSAFLEX?</a></li>
   <li><a href="#the-package" id="toc-the-package" class="nav-link" data-scroll-target="#the-package">The package</a></li>
-  <li><a href="#analog-or-an-other-app" id="toc-analog-or-an-other-app" class="nav-link" data-scroll-target="#analog-or-an-other-app">Analog or an other app</a></li>
-  <li><a href="#the-workflow" id="toc-the-workflow" class="nav-link" data-scroll-target="#the-workflow">The workflow</a></li>
+  <li><a href="#analog-datafilm-frames-or-an-other-app" id="toc-analog-datafilm-frames-or-an-other-app" class="nav-link" data-scroll-target="#analog-datafilm-frames-or-an-other-app">Analog™, Datafilm™, Frames™ or an other app</a></li>
+  <li><a href="#the-workflow" id="toc-the-workflow" class="nav-link" data-scroll-target="#the-workflow">The workflow</a>
+  <ul class="collapse">
   <li><a href="#installation" id="toc-installation" class="nav-link" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  </ul></li>
+  <li><a href="#usage" id="toc-usage" class="nav-link" data-scroll-target="#usage">Usage</a>
+  <ul class="collapse">
+  <li><a href="#renaming-files" id="toc-renaming-files" class="nav-link" data-scroll-target="#renaming-files">Renaming files</a></li>
+  <li><a href="#saving-exif-data" id="toc-saving-exif-data" class="nav-link" data-scroll-target="#saving-exif-data">Saving exif data</a></li>
   <li><a href="#related-work" id="toc-related-work" class="nav-link" data-scroll-target="#related-work">Related work</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -211,7 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">04/09/2024</p>
+      <p class="date-modified">14/10/2025</p>
     </div>
   </div>
     
@@ -231,73 +238,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>And how to get these data in the exif fields of the scans? Well surprisingly, it’s not as straightforward as you (I) would expect. At first I did not find anything satisfying and discussing with the developers behind <code>Analog</code> made it clear that it was not a straightforward task for them either. We talked about workflow.</p>
 <p>The team were encouraging amateur and professional photographers to rename their files, well their scans, following this convention to save the settings of each shot. Then they developed <code>Analog</code> which of course allows users to save Shutter speed, Aperture, the lens’ focal length and exposure correction. At the end of the roll, the data is extracted and the user receives a list of name files by email:</p>
 <blockquote class="blockquote">
-<p>Test roll_NO01_SS50_A2.8_FL50_EX0<br>
-Test roll_NO02_SS50_A2.8_FL50_EX0<br>
-Test roll_NO03_SS125_A4_FL50_EX0<br>
-Test roll_NO04_SS125_A4_FL50_EX0</p>
+<p>Test roll_NO01_SS50_A2.8_FL50_EX0 Test roll_NO02_SS50_A2.8_FL50_EX0 Test roll_NO03_SS125_A4_FL50_EX0 Test roll_NO04_SS125_A4_FL50_EX0</p>
 </blockquote>
 <p>They hand-rename the scans or use a renaming software. OK. but this does not go <em>inside</em> the files, a file name is not an ideal way of storing data even when using the standardised convention they created: NOSSAFLEX</p>
 <blockquote class="blockquote">
 <p>It’s as easy as the name – NOSSAFLEX has all of the information in the title.</p>
-<p>NO = Number<br>
-SS = Shutter Speed<br>
-A = Aperture<br>
-FL = Focal Length<br>
-EX = Exposure</p>
+<p>NO = Number SS = Shutter Speed A = Aperture FL = Focal Length EX = Exposure</p>
 </blockquote>
 <p>I could not find a way to automatically save the data on my phone to the exif slots of my scans…</p>
 <p>So I decided to create an R package to do it! An exciting weekend project and certainly an article for the blog!</p>
 <p>Since I was already using the <code>Analog</code> app, I had to follow its data structure.</p>
+<blockquote class="blockquote">
+<p>Update! Since then I used additional apps and expanded the package.</p>
+</blockquote>
 </section>
 <section id="here-is-the-readme-of-my-package" class="level2">
 <h2 class="anchored" data-anchor-id="here-is-the-readme-of-my-package">Here is the README of my package</h2>
-<p>This package relies on a file naming convention for, essentially analog, photography. Photographs taken on film, then developed, then scanned are lacking important metadata or if they have, it’s from the scanning device, not the original camera. The nossaflex package takes NOSSAFLEX structured file names and can 1) batch rename corresponding pictures and 2) edit their exif data to add information such as focal length, shutter speed, aperture. This allow a photographer to take notes on the <code>Analog</code> app while shooting pictures, export nossaflex compatible file names and use R to rename scans and edit their exif metadata with corresponding shot information.</p>
-<p>The nossaflex package is the entry of the NOSSAFLEX file naming convention into the R universe to help scientific, professional or amateur photographers to name their picture files consistently and informatively.</p>
+<section id="analog-photography-metadata-1" class="level3">
+<h3 class="anchored" data-anchor-id="analog-photography-metadata-1">Analog Photography MetaData</h3>
+<p>The APMD package is the entry of the NOSSAFLEX file naming convention into the R universe to help scientific, professional or amateur photographers to name their picture files consistently and informatively.</p>
 <p>When taking a picture with an analog camera, data such as aperture, shutter speed or focal length are not automatically saved the way they are in a digital camera. Many photographers write down these precious metadata in a notebook, we want to help them improve their workflow and data quality.</p>
-<section id="what-is-nossaflex" class="level4">
-<h4 class="anchored" data-anchor-id="what-is-nossaflex">What is NOSSAFLEX?</h4>
+</section>
+<section id="what-is-nossaflex" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-nossaflex">What is NOSSAFLEX?</h3>
 <p>Here is an explanation from the creators:</p>
 <blockquote class="blockquote">
 <p>It’s as easy as the name – NOSSAFLEX has all of the information in the title.</p>
-<p>NO = Number<br>
-SS = Shutter Speed<br>
-A = Aperture<br>
-FL = Focal Length<br>
-EX = Exposure</p>
+<p>NO = Number SS = Shutter Speed A = Aperture FL = Focal Length EX = Exposure</p>
 </blockquote>
 <p>NOSSAFLEX file names looks like this: <code>NO03_SS250_A8_FL80_EX0.jpg</code> or this: <code>NO34_SS30_A2.8_FL35_EX+1.tiff</code>!</p>
 <p>Learn more on their <a href="https://nossaflex.io/the-system">website</a> or on their <a href="https://www.youtube.com/@NOSSAFLEX">Youtube channel</a>.</p>
 </section>
-<section id="the-package" class="level4">
-<h4 class="anchored" data-anchor-id="the-package">The package</h4>
-<p>Here are the two main functions in the package:</p>
+<section id="the-package" class="level3">
+<h3 class="anchored" data-anchor-id="the-package">The package</h3>
+<p>Here are the main functions in the package:</p>
 <ul>
 <li><code>renaming_nossaflex</code> batch-renames picture files from uninformative <code>DSC_00345.jpg</code> to information-rich NOSSAFLEX name based on data provided by the user, see {analog} section: <code>NO03_SS250_A8_FL80_EX0.jpg</code>.</li>
+<li><code>parsing_json</code> and <code>parsing_frames</code> parse data in JSON format as exported by the analog™ app and Frames™ app respectively.</li>
 <li><code>editing_exif</code> batch-saves the metadata of the pictures into the exif slots of the scan files (jpg, tiff, etc).</li>
 </ul>
 </section>
-<section id="analog-or-an-other-app" class="level4">
-<h4 class="anchored" data-anchor-id="analog-or-an-other-app">Analog or an other app</h4>
+<section id="analog-datafilm-frames-or-an-other-app" class="level3">
+<h3 class="anchored" data-anchor-id="analog-datafilm-frames-or-an-other-app">Analog™, Datafilm™, Frames™ or an other app</h3>
 </section>
-<section id="the-workflow" class="level4">
-<h4 class="anchored" data-anchor-id="the-workflow">The workflow</h4>
-</section>
+<section id="the-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="the-workflow">The workflow</h3>
 <section id="installation" class="level4">
 <h4 class="anchored" data-anchor-id="installation">Installation</h4>
-<p>You can install the development version of nossaflex from <a href="https://github.com/albansagouis/nossaflex">GitHub</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("devtools")</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># devtools::install_github("AlbanSagouis/nossaflex")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can install the development version of APMD from <a href="https://github.com/albansagouis/APMD">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"AlbanSagouis/APMD"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="example" class="level4">
-<h4 class="anchored" data-anchor-id="example">Example</h4>
+</section>
+<section id="usage" class="level3">
+<h3 class="anchored" data-anchor-id="usage">Usage</h3>
+<section id="renaming-files" class="level4">
+<h4 class="anchored" data-anchor-id="renaming-files">Renaming files</h4>
 <p>This is a basic example which shows you how to solve a common problem:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nossaflex)</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(APMD)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>files <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Pictures/2024/01 02 Winter in Berlin/DSC_001034"</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Pictures/2024/01 02 Winter in Berlin/DSC_001035"</span>,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>           <span class="st">"Pictures/2024/01 02 Winter in Berlin/DSC_001036"</span>)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>filenames <span class="ot">&lt;-</span> <span class="fu">reading_nossaflex</span>(<span class="at">path =</span> <span class="st">"path_to_the_filenames.txt"</span>) <span class="co"># provided by the `analog` app</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">renaming_nossaflex</span>(<span class="at">filenames =</span> filenames, <span class="at">files =</span> files)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Additionally you may want to safely save the shots metadata inside the scans:</p>
+</section>
+<section id="saving-exif-data" class="level4">
+<h4 class="anchored" data-anchor-id="saving-exif-data">Saving exif data</h4>
+<p>Additionally you may want to safely save the shots metadata inside the scan files:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>metadata <span class="ot">&lt;-</span> <span class="fu">reading_nossaflex</span>(<span class="at">path =</span> <span class="st">"path_to_the_filenames.txt"</span>) <span class="sc">|&gt;</span>  <span class="co"># provided by the `analog` app</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">parsing_nossaflex</span>()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">editing_exif</span>(files, metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -306,8 +312,10 @@ EX = Exposure</p>
 <h4 class="anchored" data-anchor-id="related-work">Related work</h4>
 <p>The package relies heavily on the great <a href="https://github.com/JoshOBrien/exiftoolr/"><code>exiftoolr</code></a> package by <span class="citation" data-cites="JoshOBrien">@JoshOBrien</span> which itself depends on the great <a href="https://exiftool.org/"><code>exiftool</code></a> software by Phil Harvey.</p>
 <p>Finally, <a href="https://github.com/hvdwolf/jExifToolGUI">jExifToolGUI</a> also offers exif editing and with a Graphical Interface, nice.</p>
+<p>Frames™ iPhone and Mac apps allow integrated shot metadata recording and including the metadata in the exif slots with a great GUI.</p>
 
 
+</section>
 </section>
 </section>
 
