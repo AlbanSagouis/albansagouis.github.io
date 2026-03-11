@@ -6,3 +6,6 @@ docs/CNAME
 .Rproj.user
 
 /.quarto/
+/.claude/
+
+**/*.quarto_ipynb

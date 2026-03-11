@@ -73,7 +73,9 @@ And a screenshot of the corresponding table:
 
 The [`gt`][gt] package is a Rstudio package and integrates naturally with tidyverse. It also profits from a large community of users and a small universe of extensions such as [`gtsummary`][gtsummary] and [`gtExtras`][gtextras].
 The [`gt`][gt] creators provide a video describing some of the features and functions:
-![](/assets/images/tech-news-4/fig3.gif)
+<video autoplay loop muted playsinline style="max-width:100%">
+  <source src="/assets/images/tech-news-4/fig3.mp4" type="video/mp4">
+</video>
 
 Here is an example they provide with code integrated with dplyr functions:
 ``` r
@@ -132,7 +134,9 @@ Best wishes,
 
 Alban
 
-![](/assets/images/tech-news-4/giphy.gif)
+<video autoplay loop muted playsinline style="max-width:100%">
+  <source src="/assets/images/tech-news-4/giphy.mp4" type="video/mp4">
+</video>
 
 [glue]:      https://glue.tidyverse.org/
 [gt]:        https://gt.rstudio.com/

@@ -8,6 +8,8 @@ categories:
   - technews
   - experience
 image: /assets/images/renv.svg
+execute:
+  eval: false
 ---
 
 # Simple reproducibility in R
