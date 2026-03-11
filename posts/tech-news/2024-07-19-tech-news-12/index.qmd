@@ -28,8 +28,7 @@ To tell R where a file is, there are two types of paths. One type that works onl
 
 If you have to use absolute paths, set the project folder **only once** and read or write data or figures *relatively* to the project top-level:
 
-```{r}
-#| eval: false
+``` r
 setwd("C:/user/as80fywe/chapter_1/project_root")
 read.csv("data/raw_data/my_data.csv")
 ggsave("figures/manuscript/fig1.png")
@@ -37,8 +36,7 @@ ggsave("figures/manuscript/fig1.png")
 
 Is better practice than:
 
-```{r}
-#| eval: false
+``` r
 setwd("C:/user/as80fywe/chapter_1/project_root/data/raw_data/")
 read.csv("my_data.csv")
 setwd("C:/user/as80fywe/chapter_1/project_root/figures/manuscript")
@@ -62,8 +60,7 @@ Now, if you are not using Rstudio or if you are using `rmarkdown` or `testthat` 
 
 The [`here` package](https://here.r-lib.org/) steps in to shine somewhere where R is of little help: guessing what is the top-level of your project. Since it is pretty good at guessing, you can build a path like this:
 
-```{r}
-#| eval: false
+``` r
 read.csv(here("data", "raw_data", "my_data.csv"))
 ggsave(here("figures", "manuscript", "fig1.png"))
 ```

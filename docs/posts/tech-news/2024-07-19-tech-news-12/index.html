@@ -414,19 +414,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="minimal-practice" class="level3">
 <h3 class="anchored" data-anchor-id="minimal-practice">Minimal practice</h3>
 <p>If you have to use absolute paths, set the project folder <strong>only once</strong> and read or write data or figures <em>relatively</em> to the project top-level:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/user/as80fywe/chapter_1/project_root"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/user/as80fywe/chapter_1/project_root"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="st">"data/raw_data/my_data.csv"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figures/manuscript/fig1.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p>Is better practice than:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/user/as80fywe/chapter_1/project_root/data/raw_data/"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/user/as80fywe/chapter_1/project_root/data/raw_data/"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="st">"my_data.csv"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/user/as80fywe/chapter_1/project_root/figures/manuscript"</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig1.png"</span>)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/user/as80fywe/chapter_1/project_root"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p>To avoid having to set the working directory in R all together I see two complementary methods. I consider them more or less equally reproducible and both are way more reproducible than ever using <code>setwd()</code>.</p>
 </section>
 <section id="r-projects" class="level3">
@@ -440,10 +436,8 @@ Good separation between your projects</div>
 <section id="the-here-package" class="level3">
 <h3 class="anchored" data-anchor-id="the-here-package">The <code>here</code> package</h3>
 <p>The <a href="https://here.r-lib.org/"><code>here</code> package</a> steps in to shine somewhere where R is of little help: guessing what is the top-level of your project. Since it is pretty good at guessing, you can build a path like this:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"raw_data"</span>, <span class="st">"my_data.csv"</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read.csv</span>(<span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"raw_data"</span>, <span class="st">"my_data.csv"</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="fu">here</span>(<span class="st">"figures"</span>, <span class="st">"manuscript"</span>, <span class="st">"fig1.png"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p>How does <code>here</code> guess what is the top-level folder of your project? It looks for a <code>.here</code> file, then for a <code>.rproj</code> file and if it finds neither, it then look for other cues that this would be a top-level folder. Meaning that if you do not use RStudio and R projects, you could still use here commands and a .here file to build reproducible projects.</p>
 <p>So to close the Paths section, I would conclude that using R projects helps building reproducible and reliable paths over time and space and facilitates collaborative work.</p>
 </section>
