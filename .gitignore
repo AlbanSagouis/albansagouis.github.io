@@ -1,7 +1,6 @@
 .sass-cache
-.jekyll-metadata
-Gemfile.lock
-*.DS_Store
+
+.DS_Store
 docs/CNAME
 .Rproj.user
 
