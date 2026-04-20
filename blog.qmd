@@ -4,6 +4,7 @@ title-block-banner: "assets/images/landscape_cundinamarca.jpg"
 listing:
   contents: posts
   sort: "date desc"
-  type: default
+  type: grid
+  grid-columns: 3
   categories: true
 ---

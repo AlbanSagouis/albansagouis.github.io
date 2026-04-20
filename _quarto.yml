@@ -7,8 +7,8 @@ project:
     - assets/**
 
 website:
-  title: "My personal professional website"
-  description: "This is a professional personal page, I speak of R programming, scientific development, web development, reproducibility and photography."
+  title: "Alban Sagouis"
+  description: "Scientific programmer — biodiversity data, R packages, open science."
   site-url: https://albansagouis.com
   open-graph: true
   twitter-card: true

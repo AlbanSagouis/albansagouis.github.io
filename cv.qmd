@@ -16,7 +16,7 @@ listing:
 
 #### And this is my *dynamic* CV!
 
-My blog posts tagged with `experience` are automatically collected here.
+Posts tagged `experience` are automatically collected here — no manual upkeep, the listing is driven by Quarto's listing engine filtering on category metadata.
 
 :::{@dynamic-cv}
 :::

@@ -33,13 +33,11 @@ about:
 ---
 
 ::: {#personal-section}
-My name is Alban Sagouis and this is my personal professional website.
-
-There is a [dynamic CV](cv.qmd) that aggregates my blog posts described as professional *experiences* and also blog posts about photography and other topics.
+Scientific programmer at [iDiv](https://www.idiv.de/en/groups-and-people/core-groups/synthesis.html), working on biodiversity data pipelines and reproducibility tooling. I build R packages, standardise ecological datasets, and occasionally get film developed.
 
 ### Current job
 
-I currently work at iDiv, the German Biodiversity Synthesis Center in [Jonathan Chase's group: Biodiversity Synthesis](https://www.idiv.de/en/groups-and-people/core-groups/synthesis.html).
+I work in [Jonathan Chase's Biodiversity Synthesis group](https://www.idiv.de/en/groups-and-people/core-groups/synthesis.html) at iDiv, the German Biodiversity Synthesis Center.
 
 As a Scientific programmer:
 
@@ -61,10 +59,10 @@ With [rOpenSci](https://ropensci.org), I maintain or co-maintain
 co-maintain [`subtools`](https://cran.r-project.org/package=subtools),
 a R package that facilitates text analysis from subtitles.
 
-A couple of weekend projects ideas turned into packages: APMD and stopmotion,
-both published on CRAN. [`APMD`](https://github.com/albansagouis/APMD) or Analog Photography MetaData inserts metadata
-in scanned analog photographs. [`stopmotion`](https://cran.r-project.org/package=stopmotion) gives R functions to modify and
-edit together pictures to create a stopmotion animation.
+A couple of weekend project ideas turned into published CRAN packages:
+
+- [`APMD`](https://github.com/albansagouis/APMD) — inserts EXIF metadata into scanned analog photographs using the [NOSSAFLEX](https://nossaflex.io) naming convention.
+- [`stopmotion`](https://cran.r-project.org/package=stopmotion) — R functions to assemble sequences of images into stopmotion animations.
 
 ### Building this website
 

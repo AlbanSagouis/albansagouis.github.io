@@ -1,18 +1,22 @@
 /* css styles */
 
+/* ── Design tokens ─────────────────────────────────────────────────────────── */
+:root {
+    --accent:       #c8960c;
+    --accent-hover: #e0aa1a;
+    --accent-rgb:   200, 150, 12;
+}
+
+/* ── Title-block banner ────────────────────────────────────────────────────── */
 #title-block-header {
     margin-block-end: 1rem;
-    position: relative;
-    margin-top: 3px;
     height: clamp(180px, 25vw, 280px);
+    overflow: hidden;
 }
 
 .quarto-title-banner {
-    margin-block-end: 1rem;
-    position: relative;
-    margin-top: -30px;
-    height: 150%;
-
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Academicons: override Bootstrap Icons ::before font for ORCID and ResearchGate */
@@ -42,57 +46,57 @@ body.quarto-dark .about-link i {
    Quarto toggles dark mode by adding .quarto-dark to <body>,
    not data-bs-theme="dark" on <html>. */
 body.quarto-dark {
-    --bs-link-color: #c8960c;
-    --bs-link-color-rgb: 200, 150, 12;
-    --bs-link-hover-color: #e0aa1a;
+    --bs-link-color: var(--accent);
+    --bs-link-color-rgb: var(--accent-rgb);
+    --bs-link-hover-color: var(--accent-hover);
     --bs-link-hover-color-rgb: 224, 170, 26;
 }
 body.quarto-dark a,
 body.quarto-dark a:visited {
-    color: #c8960c !important;
+    color: var(--accent) !important;
 }
 body.quarto-dark a:hover,
 body.quarto-dark a:focus {
-    color: #e0aa1a !important;
+    color: var(--accent-hover) !important;
 }
 
 /* Navbar links: the <nav> always has data-bs-theme="dark" hardcoded,
    so Bootstrap's --bs-navbar-color drives nav-link colors.
    Override those variables when the site is in dark mode. */
 body.quarto-dark .navbar {
-    --bs-navbar-color: #c8960c;
-    --bs-navbar-hover-color: #e0aa1a;
-    --bs-navbar-active-color: #e0aa1a;
-    --bs-navbar-brand-color: #c8960c;
-    --bs-navbar-brand-hover-color: #e0aa1a;
+    --bs-navbar-color: var(--accent);
+    --bs-navbar-hover-color: var(--accent-hover);
+    --bs-navbar-active-color: var(--accent-hover);
+    --bs-navbar-brand-color: var(--accent);
+    --bs-navbar-brand-hover-color: var(--accent-hover);
 }
 
 /* Search button icon: SVG uses currentColor so a targeted color rule suffices.
    (It's a <button>, not an <a>, so the general `a` rule above doesn't reach it.) */
 body.quarto-dark #quarto-search .aa-DetachedSearchButtonIcon {
-    color: #c8960c !important;
+    color: var(--accent) !important;
 }
 
 /* Dark mode toggle icon: the .bi::before is a background-image SVG with a
    hardcoded fill colour — colour inheritance doesn't work, must replace the SVG. */
 body.quarto-dark .quarto-color-scheme-toggle:not(.alternate) .bi::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(200, 150, 12, 1)" class="bi bi-toggle-off" viewBox="0 0 16 16"><path d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z"/></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(200,150,12,1)" class="bi bi-toggle-off" viewBox="0 0 16 16"><path d="M11 4a4 4 0 0 1 0 8H8a4.992 4.992 0 0 0 2-4 4.992 4.992 0 0 0-2-4h3zm-6 8a4 4 0 1 1 0-8 4 4 0 0 1 0 8zM0 8a5 5 0 0 0 5 5h6a5 5 0 0 0 0-10H5a5 5 0 0 0-5 5z"/></svg>');
 }
 body.quarto-dark .quarto-color-scheme-toggle.alternate .bi::before {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(200, 150, 12, 1)" class="bi bi-toggle-on" viewBox="0 0 16 16"><path d="M5 3a5 5 0 0 0 0 10h6a5 5 0 0 0 0-10H5zm6 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(200,150,12,1)" class="bi bi-toggle-on" viewBox="0 0 16 16"><path d="M5 3a5 5 0 0 0 0 10h6a5 5 0 0 0 0-10H5zm6 9a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>');
 }
 
 /* Banner title text: dark bootstrap hardcodes #dee2e6 for .quarto-title-banner h1/h2. */
 body.quarto-dark .quarto-title-banner,
 body.quarto-dark .quarto-title-banner h1,
 body.quarto-dark .quarto-title-banner h2 {
-    color: #c8960c !important;
+    color: var(--accent) !important;
 }
 
 /* TOC active item: dark bootstrap uses #00bc8c !important for .active. */
 body.quarto-dark #TOC .nav-link.active {
-    color: #c8960c !important;
-    border-left-color: #c8960c;
+    color: var(--accent) !important;
+    border-left-color: var(--accent);
 }
 
 /* Inline code background: the dark bootstrap CSS sets background-color:#f8f9fa
@@ -111,7 +115,7 @@ body.quarto-dark a code {
 body.quarto-dark #title-block-header h1 code,
 body.quarto-dark #title-block-header h2 code {
     background-color: transparent;
-    color: #c8960c !important;
+    color: var(--accent) !important;
 }
 
 /* DT datatable: jquery.dataTables.extra.css hardcodes color:#333 on div.datatables,
@@ -150,5 +154,5 @@ body.quarto-dark .datatables table.dataTable tbody tr:hover > * {
 
 /* External link indicator: dark bootstrap uses a teal SVG; replace with ochre. */
 body.quarto-dark .external::after {
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(200, 150, 12)" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(200,150,12)" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>');
 }
