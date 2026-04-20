@@ -1,0 +1,22 @@
+{
+  "skills": [
+    "brainstorming",
+    "brand-yml",
+    "canvas-design",
+    "content-creator",
+    "cost-aware-llm-pipeline",
+    "describe-design",
+    "design-thinking",
+    "dispatching-parallel-agents",
+    "executing-plans",
+    "frontend-design",
+    "git-commit",
+    "quarto-authoring",
+    "technical-writer",
+    "using-superpowers",
+    "writing-plans"
+  ],
+  "agents": [
+    "code-reviewer"
+  ]
+}
