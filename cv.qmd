@@ -2,6 +2,8 @@
 title: "My CV"
 title-block-banner: false
 toc: false
+page-layout: full
+css: styles-cv.css
 listing:
   id: "dynamic-cv"
   contents: "posts"
@@ -38,4 +40,3 @@ Posts tagged `experience` are automatically collected here — no manual upkeep,
 :::
 
 ::::
-

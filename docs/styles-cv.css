@@ -1,0 +1,39 @@
+/* CV page overrides */
+
+/* "Static CV" / "Dynamic CV" section headings */
+.columns h4 {
+    font-family: 'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--rc-section);
+    border-bottom: 1px solid var(--rc-section);
+    padding-bottom: 0.35rem;
+    margin-bottom: 0.9rem;
+}
+
+body.quarto-dark .columns h4 {
+    color: var(--rc-section);
+    border-bottom-color: var(--rc-section);
+}
+
+/* Download PDF button */
+.btn-outline-primary {
+    --bs-btn-color:              var(--rc-link);
+    --bs-btn-border-color:       var(--rc-link);
+    --bs-btn-hover-bg:           var(--rc-link);
+    --bs-btn-hover-border-color: var(--rc-link);
+    --bs-btn-hover-color:        var(--rc-bg);
+    --bs-btn-active-bg:          var(--rc-link);
+    --bs-btn-active-border-color:var(--rc-link);
+    --bs-btn-active-color:       var(--rc-bg);
+    font-family: 'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+}
+
+/* PDF iframe */
+.columns iframe {
+    border: 1px solid var(--rc-link) !important;
+    border-radius: 2px !important;
+}

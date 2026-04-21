@@ -1,5 +1,241 @@
 /* css styles */
 
+/* ── R Console Homepage ─────────────────────────────────────────────────────── */
+
+:root {
+  --rc-bg:      #1e1e1e;
+  --rc-text:    #d4d4d4;
+  --rc-dim:     #6a737d;
+  --rc-prompt:  #569cd6;
+  --rc-fn:      #dcdcaa;
+  --rc-str:     #ce9178;
+  --rc-comment: #6a9955;
+  --rc-name:    #9cdcfe;
+  --rc-val:     #d4d4d4;
+  --rc-link:    #4ec9b0;
+  --rc-inline:  #569cd6;
+  --rc-section: #c586c0;
+  --rc-subtitle:#4ec9b0;
+  --rc-topic:   #dcdcaa;
+  --rc-pkg:     #ce9178;
+  --rc-doc:     #6a737d;
+}
+
+.r-console {
+  background: var(--rc-bg);
+  color: var(--rc-text);
+  font-family: 'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  min-height: calc(100vh - 56px);
+  padding: 1.75rem 2.25rem 4rem;
+  box-sizing: border-box;
+}
+
+.r-startup {
+  margin-bottom: 1.5rem;
+}
+
+.r-session {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.r-dim     { color: var(--rc-dim); }
+.r-prompt  { color: var(--rc-prompt); user-select: none; }
+.r-fn      { color: var(--rc-fn); }
+.r-str     { color: var(--rc-str); }
+.r-comment { color: var(--rc-comment); font-style: italic; }
+.r-inline  { color: var(--rc-inline); }
+
+.r-help-topic    { color: var(--rc-topic); font-weight: bold; }
+.r-help-pkg      { color: var(--rc-pkg); }
+.r-help-doc      { color: var(--rc-doc); }
+.r-help-subtitle { color: var(--rc-subtitle); font-style: italic; }
+.r-help-section  { color: var(--rc-section); font-weight: bold; }
+
+.r-output-name { color: var(--rc-name); }
+.r-output-val  { color: var(--rc-val); }
+
+/* Command lines */
+.r-line {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.r-line:first-child { margin-top: 0; }
+
+/* pre blocks: override Quarto/Bootstrap defaults */
+pre.r-help,
+pre.r-output {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0.25rem 0 0 1.15rem !important;
+  margin: 0 !important;
+  color: var(--rc-text) !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  white-space: pre !important;
+  overflow-x: auto;
+}
+
+/* Navigation command links — inherit colour from children */
+.r-cmd {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.r-cmd:hover .r-str,
+.r-cmd:focus .r-str {
+  text-decoration: underline;
+}
+
+/* All links inside the console */
+.r-console a,
+.r-console a:visited,
+.r-link {
+  color: var(--rc-link) !important;
+  text-decoration: none;
+}
+
+.r-console a:hover,
+.r-console a:focus,
+.r-link:hover,
+.r-link:focus {
+  color: var(--rc-link) !important;
+  text-decoration: underline;
+}
+
+/* Suppress Quarto's external-link icon inside the console */
+.r-console a.external::after {
+  display: none !important;
+}
+
+/* Blinking block cursor */
+.r-cursor {
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  background: var(--rc-text);
+  vertical-align: text-bottom;
+  animation: rc-blink 1.2s step-end infinite;
+}
+
+@keyframes rc-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── End R Console ──────────────────────────────────────────────────────────── */
+
+/* ── Listing pages: console colour accents ──────────────────────────────────── */
+
+/* Page title */
+#title-block-header h1.title {
+    color: var(--accent-mid);
+}
+body.quarto-dark #title-block-header h1.title {
+    color: var(--rc-fn);
+}
+
+/* "Categories" sidebar heading */
+.quarto-listing-category-title {
+    font-family: 'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--rc-comment);
+}
+
+/* Category filter tags */
+.quarto-listing-category .category {
+    font-family: 'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 0.75rem;
+    color: var(--rc-dim);
+    border-left: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.quarto-listing-category .category:hover {
+    color: var(--rc-str);
+    border-left-color: var(--rc-str);
+}
+
+.quarto-listing-category .category.active {
+    color: var(--rc-link);
+    border-left-color: var(--rc-link);
+    font-weight: bold;
+}
+
+.quarto-category-count {
+    font-size: 0.7em;
+    opacity: 0.55;
+}
+
+/* Card title */
+.card-title.listing-title {
+    font-size: 0.95rem;
+    color: var(--accent-mid);
+}
+
+body.quarto-dark .card-title.listing-title {
+    color: var(--rc-fn);
+}
+
+/* Category chips on cards */
+.listing-categories .listing-category {
+    font-family: 'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.02em;
+    color: var(--rc-str);
+    background: transparent;
+    border: 1px solid var(--rc-str);
+    border-radius: 2px;
+    padding: 0.1em 0.5em;
+    transition: background 0.15s, color 0.15s;
+}
+
+.listing-categories .listing-category:hover {
+    background: var(--rc-str);
+    color: var(--rc-bg);
+}
+
+body.quarto-dark .listing-categories .listing-category {
+    color: var(--rc-str);
+    border-color: var(--rc-str);
+}
+
+/* Listing date */
+.listing-date {
+    font-family: 'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 0.7rem;
+    color: var(--accent-mid);
+}
+
+body.quarto-dark .listing-date {
+    color: var(--rc-name);
+}
+
+/* Card left accent border */
+.quarto-grid-item.card {
+    border-left: 2px solid var(--accent) !important;
+    transition: border-left-color 0.2s;
+}
+
+.quarto-grid-item.card:hover {
+    border-left-color: var(--rc-link) !important;
+}
+
+a.quarto-grid-link {
+    text-decoration: none !important;
+}
+
+/* ── End Listing ────────────────────────────────────────────────────────────── */
+
 /* ── Design tokens ─────────────────────────────────────────────────────────── */
 :root {
     --accent:       #c8960c;

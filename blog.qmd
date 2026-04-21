@@ -1,6 +1,7 @@
 ---
 title: "Blog"
 title-block-banner: false
+page-layout: full
 listing:
   contents: posts
   sort: "date desc"
