@@ -1,6 +1,7 @@
 ---
 title: "How I moved the website to _albansagouis.com_"
 date: 2024-01-17T08:34:30-04:00
+image: /assets/images/github_pages.png
 categories:
   
 

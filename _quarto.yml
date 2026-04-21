@@ -16,8 +16,6 @@ website:
     background: primary
     search: true
     left:
-      - href: index.qmd
-        text: "About me"
       - href: cv.qmd
       - href: blog.qmd
     tools:

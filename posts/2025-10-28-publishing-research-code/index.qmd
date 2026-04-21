@@ -2,6 +2,7 @@
 title: "Publishing a research repository"
 subtitle: "Formatting, containerising, publishing, archiving code"
 date: 2025-10-28T17:34:30-04:00
+image: /assets/images/publishing-a-research-repository/presentation.png
 categories:
   - experience
   - reproducibility

@@ -1,6 +1,7 @@
 ---
 title: "Tech news 3: Building a free website easy"
 date: 2023-09-22T16:36:30-04:00
+image: /assets/images/github_pages.png
 categories:
   - experience
   - webdev

@@ -1,6 +1,6 @@
 ---
 title: "Blog"
-title-block-banner: "assets/images/landscape_cundinamarca.jpg"
+title-block-banner: false
 listing:
   contents: posts
   sort: "date desc"

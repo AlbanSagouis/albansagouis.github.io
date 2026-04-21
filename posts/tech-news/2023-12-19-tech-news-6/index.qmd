@@ -1,6 +1,7 @@
 ---
 title: "Tech news 6: Creating animated figures"
 date: 2023-12-19T13:28:30-04:00
+image: /assets/images/tech-news-6/boxplot.gif
 categories:
   
 

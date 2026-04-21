@@ -1,6 +1,7 @@
 ---
 title: "Tech news 4: Reporting your figures and model results in your manuscript"
 date: 2023-10-20T08:25:30-04:00
+image: /assets/images/tech-news-4/fig1.png
 toc-depth: 4
 categories:
   - experience

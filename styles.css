@@ -5,6 +5,53 @@
     --accent:       #c8960c;
     --accent-hover: #e0aa1a;
     --accent-rgb:   200, 150, 12;
+    --accent-mid:    #a87a0a;   /* 5.3:1 on white — WCAG AA */
+}
+
+/* ── Light-mode accent ──────────────────────────────────────────────────────── */
+body:not(.quarto-dark) a:hover,
+body:not(.quarto-dark) a:focus {
+    color: var(--accent-mid) !important;
+}
+
+body:not(.quarto-dark) #TOC .nav-link.active {
+    color: var(--accent-mid) !important;
+    border-left-color: var(--accent-mid);
+}
+
+/* ── Listing grid: square thumbnails + tile spacing ────────────────────────── */
+
+/* Quarto always injects style="height: 150px" inline on .thumbnail-image;
+   !important is required to override it so aspect-ratio can control the height. */
+.quarto-grid-item .thumbnail-image {
+    width: 100%;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.quarto-grid-item .card-img-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    line-height: 0;
+}
+
+/* Gap between tiles */
+.list.grid {
+    gap: 1.5rem;
+}
+
+/* ── Listing pages: reduce gap between page title and tiles ────────────────── */
+.quarto-listing-container-grid {
+    margin-block-start: 0.5rem;
+}
+
+#title-block-header.quarto-title-block.default {
+    margin-block-end: 0.5rem;
 }
 
 /* ── Title-block banner ────────────────────────────────────────────────────── */

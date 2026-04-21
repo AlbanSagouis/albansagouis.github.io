@@ -1,6 +1,7 @@
 ---
 title: "Tech news 11: Facilitating… admin tasks"
 date: 2024-05-24T11:57:30-04:00
+image: /assets/images/icons/pdf-icon.svg
 categories:
   - experience
   - R
