@@ -5,6 +5,7 @@ project:
     - CNAME
     - robots.txt
     - assets/**
+    - "!renv/**"
 
 website:
   title: "Alban Sagouis"
