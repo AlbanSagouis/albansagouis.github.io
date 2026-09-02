@@ -3,7 +3,9 @@ title: "Blog"
 title-block-banner: false
 page-layout: full
 listing:
-  contents: posts
+  contents:
+    - posts
+    - reproducible-r/index.qmd
   sort: "date desc"
   type: grid
   grid-columns: 3

@@ -38,7 +38,7 @@ base::formatC(pi, 50)
 
 - `base::format()` or `stringr::str_pad()` (tidyverse) to align text or add “0” strings before numbers to get 01, 02, …, 09, 10, 11
 - `broom::tidy()` (tidyverse) will give you model results in a much more manageable format than `base::summary()`. See attached screenshot.
-![](/assets/images/tech-news-4/fig1.png)
+![Screenshot comparing broom::tidy() and base::summary() output for an R model, showing the cleaner tabular layout produced by broom](/assets/images/tech-news-4/fig1.png)
 
 - The [glue][glue] package with its central function `glue()` offers a smarter tidyverse alternative to `base::paste()`
 
@@ -68,7 +68,7 @@ It’s a highly customisable tool to turn a `data.frame` or `matrix` or `tibble`
 ```
 
 And a screenshot of the corresponding table:
-![](/assets/images/tech-news-4/fig2.png)
+![Screenshot of a flextable table: New York Air Quality Measurements with Air quality and Time column groups, styled with the vanilla theme](/assets/images/tech-news-4/fig2.png)
 
 ##### The [gt][gt] package
 
@@ -101,7 +101,7 @@ Here is an example they provide with code integrated with dplyr functions:
 ```
 
 This code directly produces this table:
-![](/assets/images/tech-news-4/fig4.png)
+![Screenshot of a gt table showing S&P 500 daily data from June 7–14, 2010, with formatted currency values, dates, and trading volume](/assets/images/tech-news-4/fig4.png)
 
 #### Now the workflow part!
 

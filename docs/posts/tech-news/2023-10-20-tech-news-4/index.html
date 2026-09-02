@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-gb" xml:lang="en-gb"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -74,14 +77,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-68e465fdcf2676046f28bd7c3881ccb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../../site_libs/bootstrap/bootstrap-dark-5f9b8195238223f6a7c4550320230f79.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../../site_libs/bootstrap/bootstrap-68e465fdcf2676046f28bd7c3881ccb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-8c4e51ebe7933603b7defc43fe25e84c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-7e7f8027abe3fc5cb3d6f77f2f67968e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-8c4e51ebe7933603b7defc43fe25e84c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -417,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fl">3.141592653589793115997963468544185161590576171875</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><p><code>base::format()</code> or <code>stringr::str_pad()</code> (tidyverse) to align text or add “0” strings before numbers to get 01, 02, …, 09, 10, 11</p></li>
-<li><p><code>broom::tidy()</code> (tidyverse) will give you model results in a much more manageable format than <code>base::summary()</code>. See attached screenshot. <img src="../../../assets/images/tech-news-4/fig1.png" class="img-fluid"></p></li>
+<li><p><code>broom::tidy()</code> (tidyverse) will give you model results in a much more manageable format than <code>base::summary()</code>. See attached screenshot. <img src="../../../assets/images/tech-news-4/fig1.png" class="img-fluid" alt="Screenshot comparing broom::tidy() and base::summary() output for an R model, showing the cleaner tabular layout produced by broom"></p></li>
 <li><p>The <a href="https://glue.tidyverse.org/">glue</a> package with its central function <code>glue()</code> offers a smarter tidyverse alternative to <code>base::paste()</code></p></li>
 </ul>
 </section>
@@ -440,7 +443,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  ft <span class="ot">&lt;-</span> <span class="fu">set_caption</span>(ft,</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                    <span class="at">caption =</span> <span class="st">"New York Air Quality Measurements"</span>)</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  ft</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>And a screenshot of the corresponding table: <img src="../../../assets/images/tech-news-4/fig2.png" class="img-fluid"></p>
+<p>And a screenshot of the corresponding table: <img src="../../../assets/images/tech-news-4/fig2.png" class="img-fluid" alt="Screenshot of a flextable table: New York Air Quality Measurements with Air quality and Time column groups, styled with the vanilla theme"></p>
 </section>
 <section id="the-gtgt-package" class="level5">
 <h5 class="anchored" data-anchor-id="the-gtgt-package">The <a href="https://gt.rstudio.com/">gt</a> package</h5>
@@ -464,7 +467,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fmt_currency</span>() <span class="sc">|&gt;</span></span>
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fmt_date</span>(<span class="at">columns =</span> date, <span class="at">date_style =</span> <span class="st">"wd_m_day_year"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fmt_number</span>(<span class="at">columns =</span> volume, <span class="at">suffixing =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This code directly produces this table: <img src="../../../assets/images/tech-news-4/fig4.png" class="img-fluid"></p>
+<p>This code directly produces this table: <img src="../../../assets/images/tech-news-4/fig4.png" class="img-fluid" alt="Screenshot of a gt table showing S&amp;P 500 daily data from June 7–14, 2010, with formatted currency values, dates, and trading volume"></p>
 </section>
 </section>
 <section id="now-the-workflow-part" class="level4">

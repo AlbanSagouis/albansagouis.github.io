@@ -89,9 +89,15 @@ pre.r-output {
   text-decoration: none !important;
 }
 
+/* Dotted underline on the string arg makes the command link visible without colour alone */
+.r-cmd .r-str {
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+}
+
 .r-cmd:hover .r-str,
 .r-cmd:focus .r-str {
-  text-decoration: underline;
+  text-decoration: underline solid;
 }
 
 /* All links inside the console */
@@ -99,7 +105,8 @@ pre.r-output {
 .r-console a:visited,
 .r-link {
   color: var(--rc-link) !important;
-  text-decoration: none;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
 }
 
 .r-console a:hover,
@@ -107,7 +114,7 @@ pre.r-output {
 .r-link:hover,
 .r-link:focus {
   color: var(--rc-link) !important;
-  text-decoration: underline;
+  text-decoration: underline solid;
 }
 
 /* Suppress Quarto's external-link icon inside the console */

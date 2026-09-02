@@ -35,7 +35,7 @@ ggplot(mtcars, aes(factor(cyl), mpg)) +
   ease_aes('sine-in-out’)
 ```
 
-![](/assets/images/tech-news-6/boxplot.gif)
+![Animated boxplot of miles per gallon by number of cylinders from the mtcars dataset, transitioning across gear values](/assets/images/tech-news-6/boxplot.gif)
 
 > Code and figure by gganimate authors Thomas Lin Pedersen and David Robinson [^1]
 
@@ -56,7 +56,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp, size = pop, colour = country)) +
   ease_aes('linear')
 ```
 
-![](/assets/images/tech-news-6/scatterplot.gif)
+![Animated scatter plot of GDP per capita versus life expectancy by continent from 1952 to 2007, bubble size proportional to population, created with gganimate and gapminder data](/assets/images/tech-news-6/scatterplot.gif)
 
 > Code and figure by gganimate authors Thomas Lin Pedersen and David Robinson [^1]
 
@@ -98,7 +98,7 @@ map_with_shadow <- ggplot(data = county_info,
 gganimate::animate(map_with_shadow, nframes = num_years, fps = 2)
 ```
 
-![](/assets/images/tech-news-6/map.gif)
+![Animated map of California counties showing simulated data points coloured by temperature, transitioning year by year from 1990 to 2019](/assets/images/tech-news-6/map.gif)
 
 > Code and figure by David J. Lilja [^2]
 

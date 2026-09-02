@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/reproducible-r/index.html",
       "/posts/2025-10-28-publishing-research-code/index.html",
       "/posts/tech-news/2024-07-19-tech-news-12/index.html",
       "/posts/tech-news/2024-05-24-tech-news-11/index.html",

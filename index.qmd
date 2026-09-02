@@ -8,7 +8,7 @@ description: "Scientific programmer at iDiv — biodiversity data, R packages, o
 ```{=html}
 <div class="r-console" role="main" aria-label="R console — Alban Sagouis">
 
-  <div class="r-startup">
+  <div class="r-startup" aria-hidden="true">
     <span class="r-dim">R version 4.4.0 (2024-04-24) -- "Puppy Cup"</span><br>
     <span class="r-dim">Copyright (C) 2024 The R Foundation for Statistical Computing</span><br>
     <span class="r-dim">Platform: aarch64-apple-darwin20 (64-bit)</span><br>
@@ -55,7 +55,7 @@ description: "Scientific programmer at iDiv — biodiversity data, R packages, o
 
     <!-- ── installed.packages() ──────────────────────────────────────────────── -->
     <div class="r-line">
-      <span class="r-prompt">&gt;</span>&nbsp;<span class="r-fn">installed.packages</span>()[<span class="r-str">c("mobsim","parzer","rgnparser", "subtools", "APMD","stopmotion")</span>,&nbsp;<span class="r-str">"Version"</span>]
+      <span class="r-prompt">&gt;</span>&nbsp;<span class="r-fn">installed.packages</span>()[<span class="r-str">c("mobsim", "parzer", "rgnparser", "subtools", "APMD", "stopmotion")</span>,&nbsp;<span class="r-str">"Version"</span>]
     </div>
 
     <pre class="r-output"><span class="r-output-name">  mobsim    parzer   rgnparser  subtools  APMD     stopmotion</span>
@@ -89,7 +89,7 @@ description: "Scientific programmer at iDiv — biodiversity data, R packages, o
 [1] "<a href="https://zenodo.org/search?q=metadata.creators.person_or_org.name%3A%22Sagouis%2C+Alban%22&l=list&p=1&s=10&sort=bestmatch" class="r-link">zenodo.org/search?q=Sagouis,+Alban</a>"
 
 <span class="r-output-name">$idiv</span>
-[1] "<a href="https://www.idiv.de/en/profile/1244.html" class="r-link">idiv.de/en/profile/1244.html</a>"
+[1] "<a href="https://www.idiv.de/staff/alban-sagouis/" class="r-link">idiv.de/staff/alban-sagouis/</a>"
 
 <span class="r-output-name">$linkedin</span>
 [1] "<a href="https://www.linkedin.com/in/alban-sagouis-567886283/" class="r-link">linkedin.com/in/alban-sagouis-567886283</a>"</pre>
