@@ -293,7 +293,11 @@ body:not(.quarto-dark) #TOC .nav-link.active {
 /* ── Title-block banner ────────────────────────────────────────────────────── */
 #title-block-header {
     margin-block-end: 1rem;
-    height: clamp(180px, 25vw, 280px);
+    /* min-height, not height: this sets a uniform minimum band for short
+       headers while letting a long one (subtitle + description + categories +
+       date) grow instead of being clipped. At phone widths 25vw resolves to
+       the 180px floor, which is far less than such a header needs. */
+    min-height: clamp(180px, 25vw, 280px);
     overflow: hidden;
 }
 
