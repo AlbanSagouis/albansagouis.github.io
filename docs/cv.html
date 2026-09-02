@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-gb" xml:lang="en-gb"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,14 +44,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-f418161beb48e0141c760e455f12af2c.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-68e465fdcf2676046f28bd7c3881ccb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5f9b8195238223f6a7c4550320230f79.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-68e465fdcf2676046f28bd7c3881ccb4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8c4e51ebe7933603b7defc43fe25e84c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7e7f8027abe3fc5cb3d6f77f2f67968e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-8c4e51ebe7933603b7defc43fe25e84c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -109,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -392,8 +395,8 @@ window.Quarto = {
 <section id="static-cv" class="level4">
 <h4 class="anchored" data-anchor-id="static-cv">Static CV</h4>
 <p>A traditional one-pager — positions, education, and outputs.</p>
-<p><a href="./assets/files/CV_2025.pdf" class="btn btn-outline-primary mb-3">Download PDF</a></p>
-<iframe src="./assets/files/CV_2025.pdf#view=FitH&amp;toolbar=0&amp;navpanes=0" width="100%" height="320px" style="border: 1px solid var(--bs-border-color); border-radius: 4px; display: block;">
+<p><a href="./assets/files/cv.pdf" class="btn btn-outline-primary mb-3">Download PDF</a></p>
+<iframe src="./assets/files/cv.pdf#view=FitH&amp;toolbar=0&amp;navpanes=0" title="CV of Alban Sagouis (PDF preview)" width="100%" height="320px" style="border: 1px solid var(--bs-border-color); border-radius: 4px; display: block;">
 </iframe>
 </section>
 </div><div class="column" style="width:8%;">
@@ -781,7 +784,7 @@ This is my first blog article on this website, well first blog article ever I gu
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="11" data-categories="ZXhwZXJpZW5jZSUyQ1IlMkNwYWNrYWdlJTJDdGVjaG5ld3MlMkN2aXN1YWxpc2F0aW9u" data-listing-date-sort="1703006910000" data-listing-file-modified-sort="1776691130009" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="564">
+<div class="g-col-1" data-index="11" data-categories="ZXhwZXJpZW5jZSUyQ1IlMkNwYWNrYWdlJTJDdGVjaG5ld3MlMkN2aXN1YWxpc2F0aW9u" data-listing-date-sort="1703006910000" data-listing-file-modified-sort="1779262450427" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="626">
 <a href="./posts/tech-news/2023-12-19-tech-news-6/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -861,7 +864,7 @@ Today, I’d like to discuss data we might need that are larger than memory, or 
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="13" data-categories="ZXhwZXJpZW5jZSUyQ1IlMkNwYWNrYWdlJTJDcmVwcm9kdWNpYmlsaXR5JTJDdGVjaG5ld3M=" data-listing-date-sort="1697804730000" data-listing-file-modified-sort="1776691128430" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1122">
+<div class="g-col-1" data-index="13" data-categories="ZXhwZXJpZW5jZSUyQ1IlMkNwYWNrYWdlJTJDcmVwcm9kdWNpYmlsaXR5JTJDdGVjaG5ld3M=" data-listing-date-sort="1697804730000" data-listing-file-modified-sort="1779262458898" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1181">
 <a href="./posts/tech-news/2023-10-20-tech-news-4/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
