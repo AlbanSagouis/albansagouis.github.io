@@ -1,10 +1,7 @@
 ---
-title: "Saving all available metadata in exif slots"
-draft: true
+title: "APMD can now read JSON exports too"
 date: 2024-05-26T20:15:30-04:00
 categories:
-  - blog
-tags:
   - photography
   - weekend-project
   - experience
@@ -13,57 +10,31 @@ tags:
 image: /assets/images/saving-shot-metadata.png
 ---
 
-JSON DATA
+A quick follow-up to [saving the camera settings of a shot in the exif data
+of the scans][previous-post].
 
+That post covered the original `Analog` workflow: the app hands you a list
+of NOSSAFLEX-encoded filenames, you rename your scans to match, and `APMD`
+reads the shutter speed, aperture, focal length and exposure straight out of
+the filenames before writing them to exif.
 
-### The workflow
-
-#### Installation
-
-You can install the development version of APMD from
-[GitHub][APMD_package] with:
-
-``` r
-#| eval:false
-remotes::install_github("AlbanSagouis/APMD")
-```
-
-#### Example
-
-This is a basic example which shows you how to solve a common problem:
+Since then I picked up a couple more logging apps, and neither of them
+exports a NOSSAFLEX filename list — they export a JSON file instead, one
+record per shot. So `APMD` needed a second way in: `parsing_json()` reads
+that JSON directly and extracts the same metadata, no renaming step
+required.
 
 ``` r
-library(APMD)
-files <- c("Pictures/2024/01 02 Winter in Berlin/DSC_001034",
-           "Pictures/2024/01 02 Winter in Berlin/DSC_001035",
-           "Pictures/2024/01 02 Winter in Berlin/DSC_001036")
-filenames <- reading_nossaflex(path = "path_to_the_filenames.txt") # provided by the `analog` app
-renaming_nossaflex(filenames = filenames, files = files)
-```
-
-Additionally you may want to safely save the shots metadata inside the
-scans:
-
-``` r
-metadata <- reading_nossaflex(path = "path_to_the_filenames.txt") |>  # provided by the `analog` app
-     parsing_nossaflex()
+metadata <- parsing_json(path = "path_to_the_export.json") # exported by the `Analog` app
 editing_exif(files, metadata)
 ```
 
-#### Related work
+Same result as before, one step shorter. If you're on `Frames`, there's a
+matching `parsing_frames()` for its own JSON export.
 
-The package relies heavily on the great
-[`exiftoolr`][exiftoolr] package by
-@JoshOBrien which itself depends on the great
-[`exiftool`][exiftool] software by Phil Harvey.
+Same install, same [`exiftoolr`][exiftoolr]/[`exiftool`][exiftool] underneath
+— see the [previous post][previous-post] for the full setup.
 
-Finally, [jExifToolGUI][jexiftoolgui] also
-offers exif editing and with a Graphical Interface, nice.
-
-
-[nossaflex_website]:  https://nossaflex.io/the-system
-[nossaflex_youtube]:  https://www.youtube.com/@NOSSAFLEX
-[APMD_package]:  https://github.com/albansagouis/APMD
+[previous-post]: /posts/photography/2024-02-25-saving-shot-metadata/
 [exiftoolr]:          https://github.com/JoshOBrien/exiftoolr/
 [exiftool]:           https://exiftool.org/
-[jexiftoolgui]:       https://github.com/hvdwolf/jExifToolGUI

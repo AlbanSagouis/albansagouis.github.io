@@ -101,7 +101,7 @@ their [Youtube channel][nossaflex_youtube].
 
 Here are the main functions in the package:
 
-- `renaming_nossaflex` batch-renames picture files from uninformative
+- `renaming_APMD` batch-renames picture files from uninformative
   `DSC_00345.jpg` to information-rich NOSSAFLEX name based on data
   provided by the user, see {analog} section:
   `NO03_SS250_A8_FL80_EX0.jpg`.
@@ -132,8 +132,8 @@ library(APMD)
 files <- c("Pictures/2024/01 02 Winter in Berlin/DSC_001034",
            "Pictures/2024/01 02 Winter in Berlin/DSC_001035",
            "Pictures/2024/01 02 Winter in Berlin/DSC_001036")
-filenames <- reading_nossaflex(path = "path_to_the_filenames.txt") # provided by the `analog` app
-renaming_nossaflex(filenames = filenames, files = files)
+filenames <- reading_APMD(path = "path_to_the_filenames.txt") # provided by the `analog` app
+renaming_APMD(filenames = filenames, files = files)
 ```
 
 #### Saving exif data
@@ -142,8 +142,8 @@ Additionally you may want to safely save the shots metadata inside the
 scan files:
 
 ``` r
-metadata <- reading_nossaflex(path = "path_to_the_filenames.txt") |>  # provided by the `analog` app
-     parsing_nossaflex()
+metadata <- reading_APMD(path = "path_to_the_filenames.txt") |>  # provided by the `analog` app
+     parsing_APMD()
 editing_exif(files, metadata)
 ```
 
